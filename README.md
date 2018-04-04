@@ -1,2 +1,2 @@
-# eksamensprojekt
-1. ÅRS EKSAMENSPROJEKT
+# 1. ÅRS EKSAMENSPROJEKT
+Vores første års eksamen på Erhvervsakademiet Lillebælt. 
