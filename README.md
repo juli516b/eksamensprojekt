@@ -22,7 +22,31 @@ Derefter gå ind i use case og tilføj afhængig til tasken - således er usecas
 
 ### Nogle gode/generelle eksempler på tasks
 
-TASK | Objekt/Domæne modellering | Tilføj vare til varekartotek | LÆS BESKRIVELSE
+TASK | Use Case | Tilføj vare til varekartotek 
+
+Beskrivelse:
+
+Objekt/Domænemodel - modellering
+
+- Lav relevant arbejde til denne use case
+
+Afhængighed - Tilføj vare til varekartotek.
+
+--
+
+TASK | Objekt/Domæne modellering | Tilføj vare til varekartotek
+
+Beskrivelse:
+
+Objekt/Domænemodel - modellering
+
+- Lav relevant arbejde til denne use case
+
+Afhængighed - Tilføj vare til varekartotek.
+
+--
+
+TASK | DCD/Database modellering og ordliste | Tilføj vare til varekartotek
 
 Beskrivelse:
 
@@ -34,31 +58,7 @@ Afhængighed - Tilføj vare til varekartotek.
 
 --
 
-TASK | Objekt/Domæne modellering | Tilføj vare til varekartotek | LÆS BESKRIVELSE
-
-Beskrivelse:
-
-Objekt/Domænemodel/DCD - modellering
-
-- Lav relevant arbejde til denne use case
-
-Afhængighed - Tilføj vare til varekartotek.
-
---
-
-TASK | DCD/Database modellering og ordliste | Tilføj vare til varekartotek | LÆS BESKRIVELSE
-
-Beskrivelse:
-
-Objekt/Domænemodel/DCD - modellering
-
-- Lav relevant arbejde til denne use case
-
-Afhængighed - Tilføj vare til varekartotek.
-
---
-
-TASK | SOC/SSD | Tilføj vare til varekartotek | LÆS BESKRIVELSE
+TASK | SOC/SSD | Tilføj vare til varekartotek
 
 Beskrivelse:
 
@@ -69,7 +69,7 @@ Afhængighed - Tilføj vare til varekartotek.
 
 --
 
-TASK | SD | Tilføj vare til varekartotek | LÆS BESKRIVELSE
+TASK | SD | Tilføj vare til varekartotek
 
 Beskrivelse:
 
@@ -79,10 +79,10 @@ Afhængighed - Tilføj vare til varekartotek.
 
 --
 
-TASK | Kode - mere specifikt | Tilføj vare til varekartotek | LÆS BESKRIVELSE
+TASK | Kode - mere specifikt | Tilføj vare til varekartotek
 
 Beskrivelse:
 
-- INDTAST RELEVANTE OPLYSNINGER
+- Kontroller issues der blokerer denne task.
 
 Afhængighed - Tilføj vare til varekartotek.
