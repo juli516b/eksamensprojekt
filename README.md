@@ -7,22 +7,18 @@ Her kommer der lige et cheatsheet til ZenHub
 
 ## Hvordan skrives task ind?
 
-TASK | [Navn på task] | [Navn på use case] | LÆS BESKRIVELSE
+TASK | [Navn på task] | [Navn på use case]
 
 Derefter gå ind i use case og tilføj afhængig til tasken - således er usecasen blocked af TASKEN så den ikke kan lukkes før tasken er done.
 
 ### En generel ide til tasks:
 
+- Use Case
 - Objekt/Domænemodel-modellering
-- Ordliste - tilføj nye ord til ordliste
-- DCD-Modellering
-- SOC "Navn på usecase"
-- SSD --||--
+- DCD/Database-modellering og Ordliste
+- SOC/SSD "Navn på usecase"
 - SD --||--
-- Review sys.udv.
-- Design test
-- Kode!
-- Review kode
+- Test og Kode
 
 ### Nogle gode/generelle eksempler på tasks
 
