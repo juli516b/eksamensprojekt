@@ -8,6 +8,24 @@ namespace Model
 {
     public class Item : IItem
     {
+        private string itemName;
+        private string itemNo;
+        private double itemPrice;
 
+        public string ItemName
+        {
+            get { return itemName; }
+            set { itemName = value; }
+        }
+        public string ItemNo
+        {
+            get { return itemNo; }
+            set { itemNo = value; }
+        }
+        public double ItemPrice
+        {
+            get { return itemPrice; }
+            set { itemPrice = value; }
+        }
     }
 }
