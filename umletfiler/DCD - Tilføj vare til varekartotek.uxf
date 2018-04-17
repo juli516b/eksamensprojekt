@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>280</y>
+      <x>10</x>
+      <y>220</y>
       <w>220</w>
       <h>110</h>
     </coordinates>
@@ -13,19 +13,20 @@
 --
 + Items : IItem [0..*]
 --
-GeTItem(itemNo : string): IItem
+GetItem(itemNo : string): IItem
 AddItem(item : IItem)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>280</y>
+      <x>350</x>
+      <y>10</y>
       <w>130</w>
       <h>110</h>
     </coordinates>
-    <panel_attributes>IItem
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IItem
 --
 + ItemNo
 + ItemName
@@ -37,8 +38,8 @@ AddItem(item : IItem)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>490</y>
+      <x>350</x>
+      <y>220</y>
       <w>130</w>
       <h>110</h>
     </coordinates>
@@ -53,8 +54,8 @@ AddItem(item : IItem)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>700</x>
-      <y>380</y>
+      <x>400</x>
+      <y>110</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -64,12 +65,12 @@ AddItem(item : IItem)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>420</x>
-      <y>380</y>
-      <w>310</w>
-      <h>130</h>
+      <x>220</x>
+      <y>270</y>
+      <w>150</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;290.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
   </element>
 </diagram>
