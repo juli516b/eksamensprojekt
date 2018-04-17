@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>130</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Varekartotek
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>130</y>
+      <w>100</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Vare
+--
+VareNummer
+VareNavn
+Pris</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>310</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Domænemodel
+Use Case: 
+Tilføj vare til varekartotek</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>170</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>indeholder &gt;
+m1=0..*
+m2=1
+lt=-</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
