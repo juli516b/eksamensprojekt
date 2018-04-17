@@ -1,4 +1,5 @@
 ﻿using System;
+using Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestProject
@@ -7,8 +8,14 @@ namespace UnitTestProject
     public class UnitTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AddItemToRepository()
         {
+            //Arrange
+            
+
+            //Act
+
+            //Assert
         }
     }
 }
