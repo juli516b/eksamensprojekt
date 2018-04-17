@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>280</y>
+      <w>220</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>ItemRepository
+--
++ Items : IItem [0..*]
+--
+GeTItem(itemNo : string): IItem
+AddItem(item : IItem)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>280</y>
+      <w>130</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>IItem
+--
++ ItemNo
++ ItemName
++ ItemPrice
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>490</y>
+      <w>130</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Item
+--
++ ItemNo
++ ItemName
++ ItemPrice
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>380</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>380</y>
+      <w>310</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;290.0;110.0</additional_attributes>
+  </element>
+</diagram>
