@@ -27,5 +27,11 @@ namespace Model
             get { return itemPrice; }
             set { itemPrice = value; }
         }
+        public Item(string itemName, string itemNo, double itemPrice)
+        {
+            ItemName = itemName;
+            ItemNo = itemNo;
+            ItemPrice = itemPrice;
+        }
     }
 }

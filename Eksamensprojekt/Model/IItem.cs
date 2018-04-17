@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    interface IItem
+    public interface IItem
     {
         string ItemName { get; set; }
         string ItemNo { get; set; }
