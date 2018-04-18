@@ -9,9 +9,10 @@ namespace Model
     public class ItemRepository
     {
         public IList<IItem> Items { get; set; }
-        public ItemRepository()
+        public ItemRepository(IPersistentDataHandler persistentDataHandler)
         {
             Items = new List<IItem>();
+            persistentDataHandler.GetAll(Items);
         }
         public bool AddItem(IItem item)
         {

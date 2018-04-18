@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "Eksamensprojekt\View.csproj", "{BDD5B571-4B71-424B-A948-5EB78A9A45A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{BDD5B571-4B71-424B-A948-5EB78A9A45A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "PomfritTest\UnitTest.csproj", "{A49C6EB7-3158-4B49-8A79-08351C2622EE}"
 EndProject
