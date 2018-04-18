@@ -28,7 +28,7 @@
                                 <GridViewColumn Width="70" Header="Pris">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock TextAlignment="Right" Text="{Binding ItemPrice}" />
+                                            <TextBlock TextAlignment="Right" Text="{Binding ItemPriceF2}" />
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
