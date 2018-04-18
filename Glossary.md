@@ -7,3 +7,7 @@
 |Varenr|ItemNo|
 |Varenavn|ItemName|
 |Varepris|ItemPrice|
+|Tilbud|Offer|
+|Tilbudslinje|OfferLine|
+|TilbudsNr|OfferNo|
+|Antal|Quantity|
