@@ -26,11 +26,6 @@ namespace Views
         {
             InitializeComponent();
             DataContext = ViewModel.ViewModel.GetInstance();
-            ViewModel.ViewModel.GetInstance().AddItem("Vare1", "1", 2);
-            ViewModel.ViewModel.GetInstance().AddItem("Vare2", "2", 4);
-            ViewModel.ViewModel.GetInstance().AddItem("Vare3", "3", 21);
-            ViewModel.ViewModel.GetInstance().AddItem("Vare4", "4", 22);
-
         }
     }
 }

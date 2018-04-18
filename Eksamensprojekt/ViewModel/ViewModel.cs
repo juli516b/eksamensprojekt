@@ -10,14 +10,13 @@ namespace ViewModel
     public class ViewModel
     {
         private static ViewModel instance = null;
-        ItemRepository itemRepository = new ItemRepository();
+        ItemRepository itemRepository = new ItemRepository(new ItemDataHandler());
         public IList<IItem> Items { get; set; }
-            private ViewModel()
+        private ViewModel()
         {
             Items = itemRepository.Items;
         }
-       
-        public string AddItem(string itemName, string itemNo, double itemPrice)
+        /*public string AddItem(string itemName, string itemNo, double itemPrice)
         {
             Item item = new Item(itemName, itemNo, itemPrice);
             string processMessage = "Varen blev ikke tilføjet";
@@ -26,7 +25,7 @@ namespace ViewModel
                 processMessage = "Varen blev tilføjet";
             }
             return processMessage;
-        }
+        }*/
         public static ViewModel GetInstance()
         {
             if (instance == null)
