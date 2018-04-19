@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1000" Width="1000
         ">
+    <Window.Resources>
+        <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <TabControl x:Name="TabControl" HorizontalAlignment="Left" Height="950" Margin="10,10,-0.4,0" VerticalAlignment="Top" Width="984">
            
@@ -17,9 +22,20 @@
                             <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo}"/>
                             <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName}"/>
                             <DataGridTextColumn Header="Antal" Binding="{Binding Quantity}"/>
-                            <DataGridTextColumn Header="Stk. Pris" Binding="{Binding ItemPrice}"/>
-                            <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal}"/>
-
+                            <DataGridTextColumn Header="Stk. Pris" Binding="{Binding ItemPrice}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="445" Margin="599,81,0,0" VerticalAlignment="Top" Width="295" ItemsSource="{Binding Items}" SelectedItem="{Binding Item}" IsEnabled="True">
