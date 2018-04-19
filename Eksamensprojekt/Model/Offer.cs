@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Model
 {
     public class Offer
@@ -11,7 +12,7 @@ namespace Model
         private string offerNo;
         private DateTime offerDate;
         private IList<OfferLine> offerLines;
-        private double offerTotal;
+        
 
         public string OfferNo
         {
@@ -33,8 +34,9 @@ namespace Model
 
         public double OfferTotal
         {
-            get { return offerTotal; }
-            set { offerTotal = value; }
+            get { double total = OfferLines.Sum(x => x.OfferLineTotal);
+                return total;
+            }
         }
 
         public Offer(DateTime creationDate)

@@ -7,8 +7,12 @@ using Model;
 
 namespace ViewModel
 {
-    class OfferViewModel
+    public class OfferViewModel
     {
+        private OfferViewModel()
+        {
+            ThisOffer = CreateOffer(DateTime.Now);
+        }
         private static OfferViewModel instance;
         public Offer ThisOffer { get; set; }
         public IList<IItem> Items { get; set; }
