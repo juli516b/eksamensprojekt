@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModel;
 
 namespace Eksamensprojekt
 {
@@ -23,6 +24,7 @@ namespace Eksamensprojekt
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = ViewModel.ViewModel.GetInstance();
         }
     }
 }
