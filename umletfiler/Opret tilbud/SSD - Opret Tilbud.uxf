@@ -43,7 +43,7 @@
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-CreateOffer(DateTime)</panel_attributes>
+CreateOffer(CreationDate)</panel_attributes>
     <additional_attributes>360.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -55,7 +55,7 @@ CreateOffer(DateTime)</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-Offertemplate was created</panel_attributes>
+An empty offer was created</panel_attributes>
     <additional_attributes>10.0;20.0;360.0;20.0</additional_attributes>
   </element>
   <element>
