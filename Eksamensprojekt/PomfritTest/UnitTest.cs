@@ -25,5 +25,17 @@ namespace UnitTestProject
             Assert.AreEqual(2, ir.Items.Count);
             Assert.AreEqual(true, ir.Items.Contains(item));
         }
+        [TestMethod]
+        public void AddOfferLineToList()
+        {
+            //Arrange
+            IItem item = new Item("PommesDeluxe", "12345678", 25.95);
+            OfferLine offerLine = new OfferLine(item, 20);
+            Offer offer = new Offer(DateTime.Now);
+            //Act
+            offer.AddOfferLine(offerLine);
+            //Assert
+            Assert.AreEqual(1, offer.OfferLines.Count);
+        }
     }
 }
