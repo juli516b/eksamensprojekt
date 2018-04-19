@@ -9,7 +9,7 @@ namespace ViewModel
 {
     public class ViewModel
     {
-        private static ViewModel instance = null;
+        private static ViewModel instance;
         ItemRepository itemRepository = new ItemRepository(new ItemDataHandler());
         public IList<IItem> Items { get; set; }
         private ViewModel()
