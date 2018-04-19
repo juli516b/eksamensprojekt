@@ -44,7 +44,12 @@
     <Compile Include="IPersistentDataHandler.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemRepository.cs" />
+
+    <Compile Include="Offer.cs" />
+    <Compile Include="OfferLine.cs" />
+
     <Compile Include="ItemDataHandler.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
