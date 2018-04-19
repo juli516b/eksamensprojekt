@@ -40,7 +40,7 @@ namespace Model
         public IList<OfferLine> OfferLines
         {
             get { return offerLines; }
-            set { offerLines = value; NotifyPropertyChanged("OfferTotal"); }
+            set { offerLines = value; }
         }
 
         public double OfferTotal
@@ -59,6 +59,7 @@ namespace Model
         public void AddOfferLine(OfferLine offerLine)   
         {
             OfferLines.Add(offerLine);
+            NotifyPropertyChanged("OfferTotal");
         }
 
 

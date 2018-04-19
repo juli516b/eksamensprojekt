@@ -12,22 +12,10 @@ namespace ViewModel
         private static ViewModel instance;
         ItemRepository itemRepository = new ItemRepository(new ItemDataHandler());
         public IList<IItem> Items { get; set; }
-        public IItem Item { get; set; }
         private ViewModel()
         {
             Items = itemRepository.Items;
-            Item = Items[0];
         }
-        /*public string AddItem(string itemName, string itemNo, double itemPrice)
-        {
-            Item item = new Item(itemName, itemNo, itemPrice);
-            string processMessage = "Varen blev ikke tilføjet";
-            if (itemRepository.AddItem(item))
-            {
-                processMessage = "Varen blev tilføjet";
-            }
-            return processMessage;
-        }*/
         public static ViewModel GetInstance
         {
             get
