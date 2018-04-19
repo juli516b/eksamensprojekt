@@ -24,7 +24,8 @@ namespace Eksamensprojekt
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = ViewModel.ViewModel.GetInstance();
+            itemListView.DataContext= ViewModel.ViewModel.GetInstance;
+            //DataContext = ViewModel.ViewModel.GetInstance();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ViewModel
 {
     public class ViewModel
     {
-        private static ViewModel instance = null;
+        private static ViewModel instance;
         ItemRepository itemRepository = new ItemRepository(new ItemDataHandler());
         public IList<IItem> Items { get; set; }
         private ViewModel()
@@ -26,13 +26,16 @@ namespace ViewModel
             }
             return processMessage;
         }*/
-        public static ViewModel GetInstance()
+        public static ViewModel GetInstance
         {
-            if (instance == null)
+            get
             {
-                instance = new ViewModel();
+                if (instance == null)
+                {
+                    instance = new ViewModel();
+                }
+                return instance;
             }
-            return instance;
         }
     }
 }

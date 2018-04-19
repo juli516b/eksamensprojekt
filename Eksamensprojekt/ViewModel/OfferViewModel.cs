@@ -9,6 +9,7 @@ namespace ViewModel
 {
     class OfferViewModel
     {
+        private static OfferViewModel instance;
         public Offer ThisOffer { get; set; }
         public IList<IItem> Items { get; set; }
 
@@ -21,6 +22,17 @@ namespace ViewModel
         {
             OfferLine newOfferLine = new OfferLine(item, quantity);
             thisOffer.AddOfferLine(newOfferLine);
+        }
+        public static OfferViewModel GetInstance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new OfferViewModel();
+                }
+                return instance;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@
             <TabItem Header="Tilbud" >
                 <Grid  Background="#FFE5E5E5">
                     <DataGrid HorizontalAlignment="Left" Height="442" Margin="30,84,0,0" VerticalAlignment="Top" Width="547"/>
-                    <ListView HorizontalAlignment="Left" Height="445" Margin="599,81,0,0" VerticalAlignment="Top" Width="295" ItemsSource="{Binding Items}">
+                    <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="445" Margin="599,81,0,0" VerticalAlignment="Top" Width="295" ItemsSource="{Binding Items}" IsEnabled="False">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Width="60" Header="Vare nr." DisplayMemberBinding="{Binding ItemNo}"/>
