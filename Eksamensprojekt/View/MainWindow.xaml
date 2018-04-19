@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eksamensprojekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1000" Width="1000
+        Title="Rabatman" Height="1000" Width="1000
         ">
     <Grid>
         <TabControl x:Name="TabControl" HorizontalAlignment="Left" Height="950" Margin="10,10,-0.4,0" VerticalAlignment="Top" Width="984">
