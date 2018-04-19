@@ -14,7 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViewModel;
 
-namespace Eksamensprojekt
+
+namespace Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

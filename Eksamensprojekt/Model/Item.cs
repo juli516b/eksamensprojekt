@@ -27,6 +27,10 @@ namespace Model
             get { return itemPrice; }
             set { itemPrice = value; }
         }
+        public string ItemPriceF2
+        {
+            get { return itemPrice.ToString($"F2"); }
+        }
         public Item(string itemName, string itemNo, double itemPrice)
         {
             ItemName = itemName;
