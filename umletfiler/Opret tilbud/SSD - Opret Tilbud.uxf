@@ -43,7 +43,7 @@
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-CreateOffer(CreationDate)</panel_attributes>
+CreateOffer(creationDate)</panel_attributes>
     <additional_attributes>360.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -101,7 +101,7 @@ Offerline was created</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-AddOfferLine(Item,Quantity)</panel_attributes>
+AddOfferLine(thisOffer,item,quantity)</panel_attributes>
     <additional_attributes>360.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
