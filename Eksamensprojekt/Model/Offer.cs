@@ -40,6 +40,7 @@ namespace Model
         public Offer(DateTime creationDate)
         {
             OfferDate = creationDate;
+            OfferLines = new List<OfferLine>();
         }
 
         public void AddOfferLine(OfferLine offerLine)   
