@@ -3,16 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 
 namespace Model
 {
-    public class Offer
+    public class Offer:INotifyPropertyChanged
     {
         private string offerNo;
         private DateTime offerDate;
         private IList<OfferLine> offerLines;
-        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+
+        }
 
         public string OfferNo
         {
@@ -29,7 +40,7 @@ namespace Model
         public IList<OfferLine> OfferLines
         {
             get { return offerLines; }
-            set { offerLines = value; }
+            set { offerLines = value; NotifyPropertyChanged("OfferTotal"); }
         }
 
         public double OfferTotal
