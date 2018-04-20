@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModel;
+
 
 namespace Eksamensprojekt
 {
@@ -23,6 +25,29 @@ namespace Eksamensprojekt
         public MainWindow()
         {
             InitializeComponent();
+            
+            itemListView.DataContext= ViewModel.ViewModel.GetInstance;
+            offerDataGrid.DataContext = ViewModel.OfferViewModel.GetInstance.ThisOffer.OfferLines;
+            Price_Label.DataContext = ViewModel.OfferViewModel.GetInstance.ThisOffer;
+
+           
+        }
+
+        private void AddItem_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(Quantity_TextBox.Text, out int quantity))
+            {
+                ViewModel.OfferViewModel.GetInstance.AddOfferLine(ViewModel.OfferViewModel.GetInstance.ThisOffer, (Model.IItem)itemListView.SelectedItem, quantity);
+                offerDataGrid.ItemsSource = null;
+                offerDataGrid.ItemsSource = ViewModel.OfferViewModel.GetInstance.ThisOffer.OfferLines;
+
+
+            }
+            else
+            {
+                MessageBox.Show("Forkert indtastet. Indtast gyldigt heltal :)");
+            }
+
         }
     }
 }

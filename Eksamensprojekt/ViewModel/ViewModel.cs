@@ -9,16 +9,23 @@ namespace ViewModel
 {
     public class ViewModel
     {
-        ItemRepository itemRepository = new ItemRepository();
-        public string AddItem(string itemName, string itemNo, double itemPrice)
+        private static ViewModel instance;
+        ItemRepository itemRepository = new ItemRepository(new ItemDataHandler());
+        public IList<IItem> Items { get; set; }
+        private ViewModel()
         {
-            Item item = new Item(itemName, itemNo, itemPrice);
-            string processMessage = "Varen blev ikke tilføjet";
-            if (itemRepository.AddItem(item))
+            Items = itemRepository.Items;
+        }
+        public static ViewModel GetInstance
+        {
+            get
             {
-                processMessage = "Varen blev tilføjet";
+                if (instance == null)
+                {
+                    instance = new ViewModel();
+                }
+                return instance;
             }
-            return processMessage;
         }
     }
 }
