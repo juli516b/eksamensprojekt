@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 
-namespace UnitTestProject
+namespace RabatmanItemTest
 {
     public class FakeItemDataHandler : IPersistentDataHandler
     {

@@ -35,15 +35,15 @@ namespace Eksamensprojekt
 
         private void AddItem_Button_Click(object sender, RoutedEventArgs e)
         {
-            int quantity;
-            if(int.TryParse(Quantity_TextBox.Text,out quantity))
+            if (int.TryParse(Quantity_TextBox.Text, out int quantity))
             {
                 ViewModel.OfferViewModel.GetInstance.AddOfferLine(ViewModel.OfferViewModel.GetInstance.ThisOffer, (Model.IItem)itemListView.SelectedItem, quantity);
                 offerDataGrid.ItemsSource = null;
                 offerDataGrid.ItemsSource = ViewModel.OfferViewModel.GetInstance.ThisOffer.OfferLines;
-                
 
-            } else
+
+            }
+            else
             {
                 MessageBox.Show("Forkert indtastet. Indtast gyldigt heltal :)");
             }
