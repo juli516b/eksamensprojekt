@@ -26,7 +26,7 @@ namespace Eksamensprojekt
         {
             InitializeComponent();
             
-            itemListView.DataContext= ViewModel.ViewModel.GetInstance;
+            itemListView.DataContext= ViewModel.ItemViewModel.GetInstance;
             offerDataGrid.DataContext = ViewModel.OfferViewModel.GetInstance.ThisOffer.OfferLines;
             Price_Label.DataContext = ViewModel.OfferViewModel.GetInstance.ThisOffer; 
         }

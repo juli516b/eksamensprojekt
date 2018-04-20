@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OfferViewModel.cs" />
-    <Compile Include="ViewModel.cs" />
+    <Compile Include="ItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

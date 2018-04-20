@@ -7,22 +7,22 @@ using Model;
 
 namespace ViewModel
 {
-    public class ViewModel
+    public class ItemViewModel
     {
-        private static ViewModel instance;
+        private static ItemViewModel instance;
         ItemRepository itemRepository = new ItemRepository(new ItemDataHandler());
         public IList<IItem> Items { get; set; }
-        private ViewModel()
+        private ItemViewModel()
         {
             Items = itemRepository.Items;
         }
-        public static ViewModel GetInstance
+        public static ItemViewModel GetInstance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new ViewModel();
+                    instance = new ItemViewModel();
                 }
                 return instance;
             }
