@@ -21,7 +21,13 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo}"/>
                             <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName}"/>
-                            <DataGridTextColumn Header="Antal" Binding="{Binding Quantity}"/>
+                            <DataGridTextColumn Header="Antal" Binding="{Binding Quantity}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="Stk. Pris" Binding="{Binding ItemPrice}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
