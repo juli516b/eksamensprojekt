@@ -27,7 +27,7 @@ namespace ViewModel
             OfferLine newOfferLine = new OfferLine(item, quantity);
             thisOffer.AddOfferLine(newOfferLine);
         }
-        public static OfferViewModel GetInstance
+        public static OfferViewModel Instance
         {
             get
             {

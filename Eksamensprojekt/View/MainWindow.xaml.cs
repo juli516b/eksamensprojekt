@@ -26,18 +26,18 @@ namespace Eksamensprojekt
         {
             InitializeComponent();
             
-            itemListView.DataContext= ViewModel.ItemViewModel.GetInstance;
-            offerDataGrid.DataContext = ViewModel.OfferViewModel.GetInstance.ThisOffer.OfferLines;
-            Price_Label.DataContext = ViewModel.OfferViewModel.GetInstance.ThisOffer; 
+            itemListView.DataContext= ViewModel.ItemViewModel.Instance;
+            offerDataGrid.DataContext = ViewModel.OfferViewModel.Instance.ThisOffer.OfferLines;
+            Price_Label.DataContext = ViewModel.OfferViewModel.Instance.ThisOffer; 
         }
 
         private void AddItem_Button_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(Quantity_TextBox.Text, out int quantity))
             {
-                ViewModel.OfferViewModel.GetInstance.AddOfferLine(ViewModel.OfferViewModel.GetInstance.ThisOffer, (Model.IItem)itemListView.SelectedItem, quantity);
+                ViewModel.OfferViewModel.Instance.AddOfferLine(ViewModel.OfferViewModel.Instance.ThisOffer, (Model.IItem)itemListView.SelectedItem, quantity);
                 offerDataGrid.ItemsSource = null;
-                offerDataGrid.ItemsSource = ViewModel.OfferViewModel.GetInstance.ThisOffer.OfferLines;
+                offerDataGrid.ItemsSource = ViewModel.OfferViewModel.Instance.ThisOffer.OfferLines;
             }
             else
             {

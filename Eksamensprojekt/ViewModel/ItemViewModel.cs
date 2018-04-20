@@ -16,7 +16,7 @@ namespace ViewModel
         {
             Items = itemRepository.Items;
         }
-        public static ItemViewModel GetInstance
+        public static ItemViewModel Instance
         {
             get
             {
