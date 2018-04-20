@@ -28,9 +28,7 @@ namespace Eksamensprojekt
             
             itemListView.DataContext= ViewModel.ViewModel.GetInstance;
             offerDataGrid.DataContext = ViewModel.OfferViewModel.GetInstance.ThisOffer.OfferLines;
-            Price_Label.DataContext = ViewModel.OfferViewModel.GetInstance.ThisOffer;
-
-           
+            Price_Label.DataContext = ViewModel.OfferViewModel.GetInstance.ThisOffer; 
         }
 
         private void AddItem_Button_Click(object sender, RoutedEventArgs e)
@@ -40,14 +38,11 @@ namespace Eksamensprojekt
                 ViewModel.OfferViewModel.GetInstance.AddOfferLine(ViewModel.OfferViewModel.GetInstance.ThisOffer, (Model.IItem)itemListView.SelectedItem, quantity);
                 offerDataGrid.ItemsSource = null;
                 offerDataGrid.ItemsSource = ViewModel.OfferViewModel.GetInstance.ThisOffer.OfferLines;
-
-
             }
             else
             {
-                MessageBox.Show("Forkert indtastet. Indtast gyldigt heltal :)");
+                MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
             }
-
         }
     }
 }
