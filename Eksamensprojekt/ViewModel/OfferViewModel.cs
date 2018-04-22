@@ -20,7 +20,7 @@ namespace ViewModel
             Offer newOffer = new Offer(creationDate);
             return newOffer;
         }
-        public void AddOfferLine(Offer thisOffer, IItem item, int quantity)
+        public void AddOfferLine(Offer thisOffer, IBaseItem item, int quantity)
         {
             OfferLine newOfferLine = new OfferLine(item, quantity);
             thisOffer.AddOfferLine(newOfferLine);

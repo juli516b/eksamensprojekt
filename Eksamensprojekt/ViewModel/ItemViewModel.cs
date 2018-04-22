@@ -11,7 +11,7 @@ namespace ViewModel
     {
         private static ItemViewModel instance;
         ItemRepository itemRepository = new ItemRepository(new ItemDataHandler());
-        public IList<IItem> Items { get; set; }
+        public IList<IBaseItem> Items { get; set; }
         private ItemViewModel()
         {
             Items = itemRepository.Items;

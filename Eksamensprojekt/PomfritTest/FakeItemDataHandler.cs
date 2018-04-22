@@ -9,7 +9,7 @@ namespace RabatmanItemTest
 {
     public class FakeItemDataHandler : IPersistentDataHandler
     {
-        public IList<IItem> GetAll(IList<IItem> items)
+        public IList<IBaseItem> GetAll(IList<IBaseItem> items)
         {
             return items;
         }

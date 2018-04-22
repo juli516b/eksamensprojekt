@@ -8,13 +8,13 @@ namespace Model
 {
     public class ItemRepository
     {
-        public IList<IItem> Items { get; set; }
+        public IList<IBaseItem> Items { get; set; }
         public ItemRepository(IPersistentDataHandler persistentDataHandler)
         {
-            Items = new List<IItem>();
+            Items = new List<IBaseItem>();
             persistentDataHandler.GetAll(Items);
         }
-        public bool AddItem(IItem item)
+        public bool AddItem(IBaseItem item)
         {
             // tilføj kode til at gemme i DB
             bool isSuccessful = false;

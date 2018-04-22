@@ -13,8 +13,8 @@ namespace RabatmanItemTest
             //Arrange
             IPersistentDataHandler fakeItemDataHandler = new FakeItemDataHandler();
             ItemRepository ir = new ItemRepository(fakeItemDataHandler);
-            IItem item = new Item("PommesDeluxe","12345678",25.95);
-            IItem item2 = new Item("PommesDeluxe2", "123456782", 252.95);
+            IBaseItem item = new Item("PommesDeluxe","12345678",25.95);
+            IBaseItem item2 = new Item("PommesDeluxe2", "123456782", 252.95);
             //Act
             ir.AddItem(item);
             //Assert

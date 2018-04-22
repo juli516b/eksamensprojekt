@@ -35,7 +35,7 @@ namespace Eksamensprojekt
         {
             if (int.TryParse(Quantity_TextBox.Text, out int quantity))
             {
-                OfferViewModel.Instance.AddOfferLine(OfferViewModel.Instance.ThisOffer, (Model.IItem)itemListView.SelectedItem, quantity);
+                OfferViewModel.Instance.AddOfferLine(OfferViewModel.Instance.ThisOffer, (Model.IBaseItem)itemListView.SelectedItem, quantity);
                 offerDataGrid.ItemsSource = null;
                 offerDataGrid.ItemsSource = OfferViewModel.Instance.ThisOffer.OfferLines;
             }
