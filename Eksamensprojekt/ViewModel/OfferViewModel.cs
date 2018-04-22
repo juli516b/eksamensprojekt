@@ -15,8 +15,6 @@ namespace ViewModel
         }
         private static OfferViewModel instance;
         public Offer ThisOffer { get; set; }
-        public IList<IItem> Items { get; set; }
-
         public Offer CreateOffer(DateTime creationDate)
         {
             Offer newOffer = new Offer(creationDate);
