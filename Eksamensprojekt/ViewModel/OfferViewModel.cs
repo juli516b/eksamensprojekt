@@ -15,19 +15,17 @@ namespace ViewModel
         }
         private static OfferViewModel instance;
         public Offer ThisOffer { get; set; }
-        public IList<IItem> Items { get; set; }
-
         public Offer CreateOffer(DateTime creationDate)
         {
             Offer newOffer = new Offer(creationDate);
             return newOffer;
         }
-        public void AddOfferLine(Offer thisOffer, IItem item, int quantity)
+        public void AddOfferLine(Offer thisOffer, IBaseItem item, int quantity)
         {
             OfferLine newOfferLine = new OfferLine(item, quantity);
             thisOffer.AddOfferLine(newOfferLine);
         }
-        public static OfferViewModel GetInstance
+        public static OfferViewModel Instance
         {
             get
             {

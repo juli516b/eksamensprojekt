@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Item : IItem
+    public class Item : IBaseItem
     {
         private string itemName;
         private string itemNo;

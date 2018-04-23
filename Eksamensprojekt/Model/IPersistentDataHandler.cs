@@ -8,7 +8,7 @@ namespace Model
 {
     public interface IPersistentDataHandler
     {
-        IList<IItem> GetAll(IList<IItem> items);
+        IList<IBaseItem> GetAll(IList<IBaseItem> items);
         //bool SaveType();
         //bool UpdateType();
         //bool DeleteType();

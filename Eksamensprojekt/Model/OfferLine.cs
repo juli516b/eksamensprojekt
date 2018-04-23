@@ -9,7 +9,7 @@ namespace Model
 {
     public class OfferLine:INotifyPropertyChanged
     {
-        private IItem item;
+        private IBaseItem item;
         private int quantity;
         public string ItemNo { get {return Item.ItemNo; } }
 
@@ -28,7 +28,7 @@ namespace Model
             
         }
 
-        public IItem Item
+        public IBaseItem Item
         {
             get { return item; }
             set
@@ -54,7 +54,7 @@ namespace Model
             
         }
 
-        public OfferLine(IItem item, int quantity)
+        public OfferLine(IBaseItem item, int quantity)
         {
             Quantity = quantity;
             Item = item;

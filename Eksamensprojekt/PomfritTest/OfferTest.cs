@@ -13,7 +13,7 @@ namespace RabatmanOfferTest
         public void AddOfferLineToOffer()
         {
             //Arrange
-            IItem item = new Item("PommesDeluxe", "12345678", 25.95);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 25.95);
             OfferLine offerLine = new OfferLine(item, 20);
             Offer offer = new Offer(DateTime.Now);
             //Act
@@ -25,7 +25,7 @@ namespace RabatmanOfferTest
         public void TestOfferLineTotal()
         {
             //Arrange
-            IItem item = new Item("PommesDeluxe", "12345678", 10.5);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 10.5);
             OfferLine offerLine1 = new OfferLine(item, 2);
             //Act
             //Assert
@@ -35,8 +35,8 @@ namespace RabatmanOfferTest
         public void TestOfferTotal()
         {
             //Arrange
-            IItem item = new Item("PommesDeluxe", "12345678", 10.5);
-            IItem item2 = new Item("PommesDeluxe2", "123456782", 20.25);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 10.5);
+            IBaseItem item2 = new Item("PommesDeluxe2", "123456782", 20.25);
             Offer testOffer = new Offer(new DateTime(2017, 11, 01));
             OfferLine offerLine1 = new OfferLine(item, 5); //52.5 total
             OfferLine offerLine2 = new OfferLine(item2, 10); //202,5 total
