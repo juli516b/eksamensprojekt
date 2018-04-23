@@ -104,7 +104,7 @@ AddOfferLine(offerLine:OfferLine)</panel_attributes>
 Item : IItem
 Quantity : int
 / OfferLineTotal : double
-PriceDiscount: double
+DiscountedPrice: double
 PercentDiscount: double
 --</panel_attributes>
     <additional_attributes/>
@@ -137,7 +137,7 @@ PercentDiscount: double
       <x>170</x>
       <y>360</y>
       <w>340</w>
-      <h>110</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>OfferViewModel
 --
@@ -145,19 +145,21 @@ Offer : Offer
 Items : Item[0..*]
 --
 CreateOffer(creationDate : DateTime) : Offer
-AddOfferLine(thisOffer: Offer, item:IItem, quantity:int)</panel_attributes>
+AddOfferLine(thisOffer: Offer, item:IItem, quantity:int)
+PercentToPrice(offerLine, percent)
+PriceToPercent(offerLine, newPrice)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>340</x>
-      <y>460</y>
+      <y>490</y>
       <w>260</w>
-      <h>120</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0;240.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;240.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
