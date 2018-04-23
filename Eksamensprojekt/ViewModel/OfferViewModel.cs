@@ -25,6 +25,14 @@ namespace ViewModel
             OfferLine newOfferLine = new OfferLine(item, quantity);
             thisOffer.AddOfferLine(newOfferLine);
         }
+        public void PriceToPercent(OfferLine offerLine, double newPrice)
+        {
+            offerLine.DiscountedPrice = newPrice;
+        }
+        public void PercentToPrice(OfferLine offerLine, double percent)
+        {
+
+        }
         public static OfferViewModel Instance
         {
             get
