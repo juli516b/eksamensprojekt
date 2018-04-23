@@ -42,6 +42,9 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
+
+                            <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice}"/>
+                            <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="445" Margin="599,81,0,0" VerticalAlignment="Top" Width="295" ItemsSource="{Binding Items}" SelectedItem="{Binding Item}" IsEnabled="True">
