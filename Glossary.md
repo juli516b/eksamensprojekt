@@ -1,4 +1,4 @@
-# Ordliste / Glossary
+﻿# Ordliste / Glossary
 
 | Domænesprog | Designsprog |
 |---|---|
@@ -11,3 +11,4 @@
 |Tilbudslinje|OfferLine|
 |TilbudsNr|OfferNo|
 |Antal|Quantity|
+|Rabat|Discount|
