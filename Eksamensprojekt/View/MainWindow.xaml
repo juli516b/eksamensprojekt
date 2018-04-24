@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eksamensprojekt"
         mc:Ignorable="d"
-        Title="Rabatman" Height="1000" Width="1000
-        ">
+        Title="Rabatman" Height="1000" Width="1000"
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow"
+        >
     <Window.Resources>
         <Style TargetType="{x:Type ListViewItem}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
