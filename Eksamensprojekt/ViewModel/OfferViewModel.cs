@@ -33,6 +33,7 @@ namespace ViewModel
         {
             offerLine.PercentDiscount = percent;
         }
+      
         public static OfferViewModel Instance
         {
             get

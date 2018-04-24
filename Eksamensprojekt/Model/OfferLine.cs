@@ -7,8 +7,10 @@ using System.ComponentModel;
 
 namespace Model
 {
+ 
     public class OfferLine:INotifyPropertyChanged
     {
+        
         private IBaseItem item;
         private int quantity;
         private double percentDiscount;
