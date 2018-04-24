@@ -25,7 +25,7 @@ namespace ViewModel
             OfferLine newOfferLine = new OfferLine(item, quantity);
             thisOffer.AddOfferLine(newOfferLine);
         }
-        public void CallSumOfferTotal()
+        public void UpdateOfferTotal()
         {
             ThisOffer.SumOfferLines();
         }  

@@ -27,7 +27,7 @@ namespace Eksamensprojekt
             InitializeComponent();
             
             itemListView.DataContext= ItemViewModel.Instance;
-            offerDataGrid.DataContext = OfferViewModel.Instance.ThisOffer.OfferLines;
+            offerDataGrid.ItemsSource = OfferViewModel.Instance.ThisOffer.OfferLines;
             Price_Label.DataContext = OfferViewModel.Instance.ThisOffer; 
         }
         
@@ -36,8 +36,7 @@ namespace Eksamensprojekt
             if (int.TryParse(Quantity_TextBox.Text, out int quantity))
             {
                 OfferViewModel.Instance.AddOfferLine(OfferViewModel.Instance.ThisOffer, (Model.IBaseItem)itemListView.SelectedItem, quantity);
-                offerDataGrid.ItemsSource = null; //OBS - TJEK FOR BEDRE LØSNING
-                offerDataGrid.ItemsSource = OfferViewModel.Instance.ThisOffer.OfferLines;
+                offerDataGrid.Items.Refresh();
             }
             else
             {
@@ -46,7 +45,7 @@ namespace Eksamensprojekt
         }
         private void OfferDataGrid_CellValueChanged(object sender, DataGridCellEditEndingEventArgs e)
         {
-            OfferViewModel.Instance.CallSumOfferTotal();
+            OfferViewModel.Instance.UpdateOfferTotal();
         }
     }
 }
