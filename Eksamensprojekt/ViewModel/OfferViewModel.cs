@@ -7,7 +7,7 @@ using Model;
 
 namespace ViewModel
 {
-    public class OfferViewModel
+    public class OfferViewModel 
     {
         private OfferViewModel()
         {
@@ -31,7 +31,7 @@ namespace ViewModel
         }
         public void PercentToPrice(OfferLine offerLine, double percent)
         {
-
+            offerLine.PercentDiscount = percent;
         }
         public static OfferViewModel Instance
         {

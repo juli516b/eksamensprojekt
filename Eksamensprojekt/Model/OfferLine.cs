@@ -29,7 +29,18 @@ namespace Model
         public double PercentDiscount
         {
             get { return percentDiscount; }
-            set { percentDiscount = value; }
+            set
+            {
+                percentDiscount = value;
+                if (discountedPrice == 0 || discountedPrice != DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice))
+                {
+                    DiscountedPrice = DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice);
+                    NotifyPropertyChanged("DiscountedPrice");
+                    NotifyPropertyChanged("PercentDiscount");
+                    NotifyPropertyChanged("OfferLineTotal");
+                    NotifyPropertyChanged("OfferTotal");
+                }
+            }
         }
         public double DiscountedPrice
         {
@@ -37,10 +48,14 @@ namespace Model
             set
             {
                 discountedPrice = value;
-                PercentDiscount = DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice);
-                NotifyPropertyChanged("DiscountedPrice");
-                NotifyPropertyChanged("PercentDiscount");
-                NotifyPropertyChanged("OfferLineTotal");
+                if (percentDiscount == 0 || percentDiscount != DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice))
+                {
+                    PercentDiscount = DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice);
+                    NotifyPropertyChanged("DiscountedPrice");
+                    NotifyPropertyChanged("PercentDiscount");
+                    NotifyPropertyChanged("OfferLineTotal");
+                    
+                }
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -77,7 +92,14 @@ namespace Model
 
         public double OfferLineTotal
         {
-            get { return Quantity*ItemPrice; }   
+            get
+            {
+                if (DiscountedPrice==0)
+                {
+                    return Quantity * ItemPrice;
+                }
+                return DiscountedPrice * Quantity;
+            }   
         }
 
         public OfferLine(IBaseItem item, int quantity)

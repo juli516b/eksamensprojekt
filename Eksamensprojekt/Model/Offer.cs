@@ -45,7 +45,9 @@ namespace Model
 
         public double OfferTotal
         {
-            get { double total = OfferLines.Sum(x => x.OfferLineTotal);
+            get
+            {
+                double total = SumOfferLines(OfferLines);
                 return total;
             }
         }
@@ -61,8 +63,9 @@ namespace Model
             OfferLines.Add(offerLine);
             NotifyPropertyChanged("OfferTotal");
         }
-
-
-
+        public double SumOfferLines(IList<OfferLine> offerLines)
+        {
+            return offerLines.Sum(offerLine => offerLine.OfferLineTotal);
+        }
     }
 }

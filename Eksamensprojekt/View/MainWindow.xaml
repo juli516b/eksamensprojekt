@@ -43,7 +43,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice}"/>
+                            <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount}"/>
                         </DataGrid.Columns>
                     </DataGrid>
