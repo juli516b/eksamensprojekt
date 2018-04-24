@@ -17,7 +17,7 @@
            
             <TabItem Header="Tilbud" >
                 <Grid  Background="#FFE5E5E5">
-                    <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="30,90,0,0" VerticalAlignment="Top" Width="547" AutoGenerateColumns="False" CellEditEnding="offerDataGrid_CellValueChanged">
+                    <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="30,90,0,0" VerticalAlignment="Top" Width="547" AutoGenerateColumns="False" CellEditEnding="OfferDataGrid_CellValueChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo}"/>
                             <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName}"/>

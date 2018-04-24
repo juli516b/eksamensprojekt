@@ -44,7 +44,7 @@ namespace Eksamensprojekt
                 MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
             }
         }
-        private void offerDataGrid_CellValueChanged(object sender, DataGridCellEditEndingEventArgs e)
+        private void OfferDataGrid_CellValueChanged(object sender, DataGridCellEditEndingEventArgs e)
         {
             OfferViewModel.Instance.CallSumOfferTotal();
         }
