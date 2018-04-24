@@ -19,8 +19,8 @@
                 <Grid  Background="#FFE5E5E5">
                     <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="30,90,0,0" VerticalAlignment="Top" Width="547" AutoGenerateColumns="False" CellEditEnding="OfferDataGrid_CellValueChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo}"/>
-                            <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName}"/>
+                            <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName, Mode=OneWay}"/>
                             <DataGridTextColumn Header="Antal" Binding="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
@@ -28,13 +28,17 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="Stk. Pris" Binding="{Binding ItemPrice}">
+                            <DataGridTextColumn Header="Stk. Pris" Binding="{Binding ItemPrice, Mode=OneWay}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Right" />
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
+                            
+
+                            <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice,UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount,UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
@@ -42,9 +46,6 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-
-                            <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice,UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount,UpdateSourceTrigger=PropertyChanged}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="445" Margin="599,81,0,0" VerticalAlignment="Top" Width="295" ItemsSource="{Binding Items}" SelectedItem="{Binding Item}" IsEnabled="True">
