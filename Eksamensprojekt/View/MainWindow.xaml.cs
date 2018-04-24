@@ -30,13 +30,13 @@ namespace Eksamensprojekt
             offerDataGrid.DataContext = OfferViewModel.Instance.ThisOffer.OfferLines;
             Price_Label.DataContext = OfferViewModel.Instance.ThisOffer; 
         }
-
+        
         private void AddItem_Button_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(Quantity_TextBox.Text, out int quantity))
             {
                 OfferViewModel.Instance.AddOfferLine(OfferViewModel.Instance.ThisOffer, (Model.IBaseItem)itemListView.SelectedItem, quantity);
-                offerDataGrid.ItemsSource = null;
+                offerDataGrid.ItemsSource = null; //OBS - TJEK FOR BEDRE LØSNING
                 offerDataGrid.ItemsSource = OfferViewModel.Instance.ThisOffer.OfferLines;
             }
             else
