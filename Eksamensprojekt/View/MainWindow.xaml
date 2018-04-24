@@ -17,11 +17,11 @@
            
             <TabItem Header="Tilbud" >
                 <Grid  Background="#FFE5E5E5">
-                    <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="30,84,0,0" VerticalAlignment="Top" Width="547" AutoGenerateColumns="False">
+                    <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="30,90,0,0" VerticalAlignment="Top" Width="547" AutoGenerateColumns="False" CellEditEnding="offerDataGrid_CellValueChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo}"/>
                             <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName}"/>
-                            <DataGridTextColumn Header="Antal" Binding="{Binding Quantity}">
+                            <DataGridTextColumn Header="Antal" Binding="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Right" />
@@ -35,7 +35,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal}">
+                            <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Right" />
@@ -43,8 +43,8 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount}"/>
+                            <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice,UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount,UpdateSourceTrigger=PropertyChanged}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="445" Margin="599,81,0,0" VerticalAlignment="Top" Width="295" ItemsSource="{Binding Items}" SelectedItem="{Binding Item}" IsEnabled="True">
@@ -63,7 +63,7 @@
                         </ListView.View>
                     </ListView>
                     <Label x:Name="TotalPrice_Label" Content="Total Pris:" HorizontalAlignment="Left" Height="27" Margin="456,541,0,0" VerticalAlignment="Top" Width="65"/>
-                    <Label x:Name="Price_Label" Content="{Binding OfferTotal, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="27" Margin="518,541,0,0" VerticalAlignment="Top" Width="65"/>
+                    <Label x:Name="Price_Label" Content="{Binding OfferTotal}"  HorizontalAlignment="Left" Height="27" Margin="518,541,0,0" VerticalAlignment="Top" Width="65"/>
                     <Button x:Name="AddItem_Button" Content="Tilføj vare" HorizontalAlignment="Left" Height="26" Margin="605,542,0,0" VerticalAlignment="Top" Width="81" Click="AddItem_Button_Click"/>
                     <TextBox x:Name="Quantity_TextBox" HorizontalAlignment="Left" Height="24" Margin="778,544,0,0" TextWrapping="Wrap" Text="Antal" VerticalAlignment="Top" Width="103"/>
                 </Grid>

@@ -7,7 +7,7 @@ using Model;
 
 namespace ViewModel
 {
-    public class OfferViewModel 
+    public class OfferViewModel
     {
         private OfferViewModel()
         {
@@ -25,15 +25,10 @@ namespace ViewModel
             OfferLine newOfferLine = new OfferLine(item, quantity);
             thisOffer.AddOfferLine(newOfferLine);
         }
-        public void PriceToPercent(OfferLine offerLine, double newPrice)
+        public void CallSumOfferTotal()
         {
-            offerLine.DiscountedPrice = newPrice;
-        }
-        public void PercentToPrice(OfferLine offerLine, double percent)
-        {
-            offerLine.PercentDiscount = percent;
-        }
-      
+            ThisOffer.SumOfferLines();
+        }  
         public static OfferViewModel Instance
         {
             get
