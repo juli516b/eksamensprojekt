@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace Model
 {
-    public class Offer:INotifyPropertyChanged
+     public class Offer:INotifyPropertyChanged
     {
         private string offerNo;
         private DateTime offerDate;
@@ -62,7 +62,17 @@ namespace Model
             NotifyPropertyChanged("OfferTotal");
         }
 
-
-
+        public void UpdateOfferLine(double percentDiscount, double discountedPrice, OfferLine offerLine)
+        {
+            if( percentDiscount != 0)
+            {
+                offerLine.PercentDiscount = percentDiscount;
+            }
+            else
+            {
+                offerLine.DiscountedPrice = discountedPrice;
+            }
+            NotifyPropertyChanged("OfferTotal");
+        }
     }
 }

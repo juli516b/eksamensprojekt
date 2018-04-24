@@ -33,6 +33,7 @@ namespace ViewModel
         {
 
         }
+      
         public static OfferViewModel Instance
         {
             get
