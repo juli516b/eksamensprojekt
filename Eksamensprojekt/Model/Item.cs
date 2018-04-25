@@ -8,12 +8,28 @@ namespace Model
 {
     public class Item : IBaseItem
     {
-        public string ItemName { get; set; }
-        public string ItemNo { get; set; }
-        public double ItemPrice { get; set; }
+        private string itemName;
+        private string itemNo;
+        private double itemPrice;
+
+        public string ItemName
+        {
+            get { return itemName; }
+            set { itemName = value; }
+        }
+        public string ItemNo
+        {
+            get { return itemNo; }
+            set { itemNo = value; }
+        }
+        public double ItemPrice
+        {
+            get { return itemPrice; }
+            set { itemPrice = value; }
+        }
         public string ItemPriceF2
         {
-            get { return ItemPrice.ToString($"F2"); }
+            get { return itemPrice.ToString($"F2"); }
         }
         public Item(string itemName, string itemNo, double itemPrice)
         {
