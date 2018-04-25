@@ -28,7 +28,8 @@ namespace Eksamensprojekt
             
             itemListView.DataContext= ItemViewModel.Instance;
             offerDataGrid.ItemsSource = OfferViewModel.Instance.ThisOffer.OfferLines;
-            Price_Label.DataContext = OfferViewModel.Instance.ThisOffer; 
+            Price_Label.DataContext = OfferViewModel.Instance.ThisOffer;
+            OfferDiscount_TextBox.DataContext = OfferViewModel.Instance.ThisOffer;
         }
         
         private void AddItem_Button_Click(object sender, RoutedEventArgs e)
@@ -46,6 +47,14 @@ namespace Eksamensprojekt
         private void OfferDataGrid_CellValueChanged(object sender, DataGridCellEditEndingEventArgs e)
         {
             OfferViewModel.Instance.UpdateOfferTotal();
+        }
+        private void OfferDiscount_TextBoxValueChanged(object sender, TextChangedEventArgs e)
+        {
+            OfferViewModel.Instance.UpdateOfferTotal();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Keyboard.ClearFocus();
         }
     }
 }
