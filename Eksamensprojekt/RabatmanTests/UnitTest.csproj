@@ -52,6 +52,7 @@
     <Compile Include="ItemTest.cs" />
     <Compile Include="OfferTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OfferLineTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

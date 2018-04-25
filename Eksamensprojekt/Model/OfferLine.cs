@@ -7,18 +7,62 @@ using System.ComponentModel;
 
 namespace Model
 {
+ 
     public class OfferLine:INotifyPropertyChanged
     {
+        
         private IBaseItem item;
         private int quantity;
+        private double percentDiscount;
+        private double discountedPrice;
         public string ItemNo { get {return Item.ItemNo; } }
-
         public string ItemName { get { return Item.ItemName; } }
-        public double ItemPrice { get { return Item.ItemPrice; } }
-
+        public double ItemPrice {
+            get
+            {
+                double returnPrice = Item.ItemPrice;
+                if (discountedPrice > 0)
+                {
+                    returnPrice = discountedPrice;
+                }
+                return returnPrice;
+            }
+        }
+        public double PercentDiscount
+        {
+            get { return percentDiscount; }
+            set
+            {
+                percentDiscount = value;
+                if (discountedPrice == 0 || discountedPrice != DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice))
+                {
+                    DiscountedPrice = DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice);
+                    NotifyPropertyChanged("DiscountedPrice");
+                    NotifyPropertyChanged("PercentDiscount");
+                    NotifyPropertyChanged("OfferLineTotal");
+                    NotifyPropertyChanged("OfferTotal");
+                }
+            }
+        }
+        public double DiscountedPrice
+        {
+            get { return discountedPrice; }
+            set
+            {
+                discountedPrice = value;
+                if (percentDiscount == 0 || percentDiscount != DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice))
+                {
+                    PercentDiscount = DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice);
+                    NotifyPropertyChanged("DiscountedPrice");
+                    NotifyPropertyChanged("PercentDiscount");
+                    NotifyPropertyChanged("OfferLineTotal");
+                    
+                }
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotityPropertyChanged(string name)
+        private void NotifyPropertyChanged(string name)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if(handler != null)
@@ -34,8 +78,8 @@ namespace Model
             set
             {
                 item = value;
-                NotityPropertyChanged("Item");
-                NotityPropertyChanged("OfferLineTotal");
+                NotifyPropertyChanged("Item");
+                NotifyPropertyChanged("OfferLineTotal");
             }
         }
 
@@ -43,15 +87,21 @@ namespace Model
         {
             get { return quantity; }
             set { quantity = value;
-                NotityPropertyChanged("Quantity");
-                NotityPropertyChanged("OfferLineTotal");
+                NotifyPropertyChanged("Quantity");
+                NotifyPropertyChanged("OfferLineTotal");
             }
         }
 
         public double OfferLineTotal
         {
-            get { return Quantity*ItemPrice; }
-            
+            get
+            {
+                if (DiscountedPrice==0)
+                {
+                    return Quantity * ItemPrice;
+                }
+                return DiscountedPrice * Quantity;
+            }   
         }
 
         public OfferLine(IBaseItem item, int quantity)

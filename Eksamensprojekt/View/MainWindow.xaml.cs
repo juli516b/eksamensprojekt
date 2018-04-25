@@ -27,22 +27,25 @@ namespace Eksamensprojekt
             InitializeComponent();
             
             itemListView.DataContext= ItemViewModel.Instance;
-            offerDataGrid.DataContext = OfferViewModel.Instance.ThisOffer.OfferLines;
+            offerDataGrid.ItemsSource = OfferViewModel.Instance.ThisOffer.OfferLines;
             Price_Label.DataContext = OfferViewModel.Instance.ThisOffer; 
         }
-
+        
         private void AddItem_Button_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(Quantity_TextBox.Text, out int quantity))
             {
                 OfferViewModel.Instance.AddOfferLine(OfferViewModel.Instance.ThisOffer, (Model.IBaseItem)itemListView.SelectedItem, quantity);
-                offerDataGrid.ItemsSource = null;
-                offerDataGrid.ItemsSource = OfferViewModel.Instance.ThisOffer.OfferLines;
+                offerDataGrid.Items.Refresh();
             }
             else
             {
                 MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
             }
+        }
+        private void OfferDataGrid_CellValueChanged(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            OfferViewModel.Instance.UpdateOfferTotal();
         }
     }
 }
