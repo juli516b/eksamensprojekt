@@ -12,3 +12,4 @@
 |TilbudsNr|OfferNo|
 |Antal|Quantity|
 |Rabat|Discount|
+|Tilbudsrabat|OfferDiscount|
