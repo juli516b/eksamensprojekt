@@ -1,7 +1,7 @@
 ﻿# Ordliste / Glossary
 
-| Domænesprog | Designsprog |
-|---|---|
+| Domænesprog | Designsprog | Beskrivelse |
+|---|---|---|
 |Vare|Item|
 |Varekartotek|ItemRepository|
 |Varenr|ItemNo|
@@ -11,5 +11,6 @@
 |Tilbudslinje|OfferLine|
 |TilbudsNr|OfferNo|
 |Antal|Quantity|
-|Rabat|Discount|
-|Tilbudsrabat|OfferDiscount|
+|Rabat i procent|PercentDiscount|Bruges ifm. tilbudslinjer|
+|Tilbudspris|DiscountedPrice|Bruges ifm. tilbudslinjer|
+|Tilbudsrabat|OfferDiscount|Bruges ifm. samlet tilbud|
