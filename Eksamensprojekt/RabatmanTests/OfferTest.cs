@@ -48,5 +48,31 @@ namespace RabatmanOfferTest
             testOffer.AddOfferLine(offerLine2);
             Assert.AreEqual(255, testOffer.OfferTotal);
         }
+        [TestMethod]
+        public void TestOfferDiscount()
+        {
+            //Arrange
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 1);
+            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50);
+            Offer offer = new Offer(DateTime.Now);
+            OfferLine offerLine = new OfferLine(item, 100);
+
+            //Act
+            offer.AddOfferLine(offerLine);
+            offer.OfferDiscount = 20;
+
+            //Assert
+            Assert.AreEqual(80, offer.OfferTotal);
+            OfferLine offerLine2 = new OfferLine(item2, 4);
+            offer.AddOfferLine(offerLine2);
+            Assert.AreEqual(88, offer.OfferTotal);
+            offer.OfferDiscount = 10;
+            Assert.AreEqual(99, offer.OfferTotal);
+            OfferLine offerLine3 = new OfferLine(item, 100);
+            offerLine3.PercentDiscount = 20;
+            offer.AddOfferLine(offerLine3);
+            Assert.AreEqual(171, offer.OfferTotal);
+
+        }
     }
 }
