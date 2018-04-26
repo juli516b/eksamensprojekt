@@ -7,10 +7,11 @@ using System.ComponentModel;
 
 namespace Model
 {
-    
+
+    public delegate void APropertyChanged(string property);
     public class OfferLine:INotifyPropertyChanged
     {
-        
+        public event APropertyChanged APC;
         private IBaseItem item;
         private int quantity;
         private double percentDiscount;
@@ -37,10 +38,10 @@ namespace Model
                 if (discountedPrice == 0 || discountedPrice != DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice))
                 {
                     DiscountedPrice = DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice);
-                    NotifyPropertyChanged("DiscountedPrice");
-                    NotifyPropertyChanged("PercentDiscount");
-                    NotifyPropertyChanged("OfferLineTotal");
-                    NotifyPropertyChanged("OfferTotal");
+                    NotifyPropertyChanged(nameof(DiscountedPrice));
+                    NotifyPropertyChanged(nameof(PercentDiscount));
+                    NotifyPropertyChanged(nameof(OfferLineTotal));
+                    APC?.Invoke("OfferTotal");
                 }
             }
         }
@@ -53,10 +54,10 @@ namespace Model
                 if (percentDiscount == 0 || percentDiscount != DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice))
                 {
                     PercentDiscount = DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice);
-                    NotifyPropertyChanged("DiscountedPrice");
-                    NotifyPropertyChanged("PercentDiscount");
-                    NotifyPropertyChanged("OfferLineTotal");
-                    
+                    NotifyPropertyChanged(nameof(DiscountedPrice));
+                    NotifyPropertyChanged(nameof(PercentDiscount));
+                    NotifyPropertyChanged(nameof(OfferLineTotal));
+                    APC?.Invoke("OfferTotal");
                 }
             }
         }

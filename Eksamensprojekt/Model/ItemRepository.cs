@@ -39,7 +39,5 @@ namespace Model
                 return instance;
             }
         }
-
     }
-
 }

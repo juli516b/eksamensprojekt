@@ -19,7 +19,7 @@
            
             <TabItem Header="Tilbud" >
                 <Grid  Background="#FFE5E5E5">
-                    <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="30,90,0,0" VerticalAlignment="Top" Width="547" AutoGenerateColumns="False" CellEditEnding="OfferDataGrid_CellValueChanged">
+                    <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="30,90,0,0" VerticalAlignment="Top" Width="547" AutoGenerateColumns="False" ItemsSource="{Binding OfferLines}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo, Mode=OneWay}"/>
                             <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName, Mode=OneWay}"/>
@@ -66,10 +66,10 @@
                         </ListView.View>
                     </ListView>
                     <Label x:Name="TotalPrice_Label" Content="Total Pris:" HorizontalAlignment="Left" Height="27" Margin="456,541,0,0" VerticalAlignment="Top" Width="65"/>
-                    <Label x:Name="Price_Label" Content="{Binding OfferTotal}"  HorizontalAlignment="Left" Height="27" Margin="518,541,0,0" VerticalAlignment="Top" Width="65"/>
+                    <Label x:Name="Price_Label" Content="{Binding OfferTotal, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="27" Margin="518,541,0,0" VerticalAlignment="Top" Width="65"/>
                     <Button x:Name="AddItem_Button" Content="Tilføj vare" HorizontalAlignment="Left" Height="26" Margin="605,542,0,0" VerticalAlignment="Top" Width="81" Click="AddItem_Button_Click"/>
                     <TextBox x:Name="Quantity_TextBox" HorizontalAlignment="Left" Height="24" Margin="778,544,0,0" TextWrapping="Wrap" Text="Skriv antal..."  VerticalAlignment="Top" Width="103" TextAlignment="Right"/>
-                    <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="301,544,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" TextChanged="OfferDiscount_TextBoxValueChanged" TextAlignment="Right"/>
+                    <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="301,544,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
                     <Label x:Name="OfferDiscount_Label" Content="Sæt samlet tilbudsrabat:" HorizontalAlignment="Left" Margin="159,541,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>

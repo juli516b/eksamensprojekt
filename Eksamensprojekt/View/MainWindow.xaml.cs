@@ -42,14 +42,6 @@ namespace Eksamensprojekt
                 MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
             }
         }
-        private void OfferDataGrid_CellValueChanged(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            offerViewModel.UpdateOfferTotal();
-        }
-        private void OfferDiscount_TextBoxValueChanged(object sender, TextChangedEventArgs e)
-        {
-            offerViewModel.UpdateOfferTotal();
-        }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Keyboard.ClearFocus();
