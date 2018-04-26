@@ -14,3 +14,6 @@
 |Rabat i procent|PercentDiscount|Bruges ifm. tilbudslinjer|
 |Tilbudspris|DiscountedPrice|Bruges ifm. tilbudslinjer|
 |Tilbudsrabat|OfferDiscount|Bruges ifm. samlet tilbud|
+|Speditør|ForwardingAgent|
+|SpeditørNavn|ForwardingAgentName|
+|SpeditørProcentSats|ForwardingAgentPersentage|
