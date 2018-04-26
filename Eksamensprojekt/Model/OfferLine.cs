@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace Model
 {
- 
+    
     public class OfferLine:INotifyPropertyChanged
     {
         

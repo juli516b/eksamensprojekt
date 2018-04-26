@@ -9,11 +9,53 @@ namespace ViewModel
 {
     public class OfferViewModel
     {
-        private OfferViewModel()
+        public IList<IBaseItem> Items
+        {
+            get
+            {
+                return ItemRepository.Instance.Items;
+            }
+        }
+        public IList<OfferLine> OfferLines
+        {
+            get
+            {
+                return ThisOffer.OfferLines;
+            }
+            set
+            {
+                ThisOffer.OfferLines = value;
+            }
+        }
+        public double OfferDiscount
+        {
+            get
+            {
+                return ThisOffer.OfferDiscount;
+            }
+            set
+            {
+                ThisOffer.OfferDiscount = value;
+                //Property kan ændres!
+            }
+        }
+        public double OfferTotal
+        {
+            get
+            {
+              double total = OfferLines.Sum(offerLine => offerLine.OfferLineTotal);
+                if (OfferDiscount > 0)
+                {
+                    total = DiscountMath.PercentToPrice(OfferDiscount, total);
+                }
+                return total;
+            }
+        }
+
+        public OfferViewModel()
         {
             ThisOffer = CreateOffer(DateTime.Now);
         }
-        private static OfferViewModel instance;
         public Offer ThisOffer { get; set; }
         public Offer CreateOffer(DateTime creationDate)
         {
@@ -28,17 +70,6 @@ namespace ViewModel
         public void UpdateOfferTotal()
         {
             ThisOffer.SumOfferLines();
-        }  
-        public static OfferViewModel Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new OfferViewModel();
-                }
-                return instance;
-            }
         }
     }
 }

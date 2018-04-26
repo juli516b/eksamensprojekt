@@ -10,11 +10,10 @@ namespace ViewModel
     public class ItemViewModel
     {
         private static ItemViewModel instance;
-        ItemRepository itemRepository = new ItemRepository(new ItemDataHandler());
         public IList<IBaseItem> Items { get; set; }
         private ItemViewModel()
         {
-            Items = itemRepository.Items;
+            Items = ItemRepository.Instance.Items;
         }
         public static ItemViewModel Instance
         {
