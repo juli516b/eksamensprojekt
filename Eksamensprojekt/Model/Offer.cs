@@ -10,9 +10,10 @@ namespace Model
 {
     public class Offer:INotifyPropertyChanged
     {
-        private string offerNo;
-        private DateTime offerDate;
-        private IList<OfferLine> offerLines;
+        public string OfferNo { get; set; }
+        public DateTime OfferDate { get; set; }
+        public IList<OfferLine> OfferLines { get; set; }
+        public double OfferDiscount { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged(string name)
@@ -24,30 +25,15 @@ namespace Model
             }
 
         }
-
-        public string OfferNo
-        {
-            get { return offerNo; }
-            set { offerNo = value; }
-        }
-
-        public DateTime OfferDate
-        {
-            get { return offerDate; }
-            set { offerDate = value; }
-        }
-
-        public IList<OfferLine> OfferLines
-        {
-            get { return offerLines; }
-            set { offerLines = value; }
-        }
-
         public double OfferTotal
         {
             get
             {
                 double total = OfferLines.Sum(offerLine => offerLine.OfferLineTotal);
+                if (OfferDiscount > 0)
+                {
+                    total = DiscountMath.PercentToPrice(OfferDiscount, total);
+                }
                 return total;
             }
         }
