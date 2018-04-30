@@ -9,9 +9,14 @@ namespace Model
 {
 
     public delegate void APropertyWasChanged(string propertyName);
-    public class OfferLine
+    public class OfferLine : INotifyPropertyChanged
     {
         public event APropertyWasChanged APWC;
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyAPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         private IBaseItem item;
         private int quantity;
@@ -40,8 +45,8 @@ namespace Model
                 if (discountedPrice == 0 || discountedPrice != DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice))
                 {
                     DiscountedPrice = DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice);
-                    APWC?.Invoke("DiscountedPrice");
-                    APWC?.Invoke("OfferLineTotal");
+                    NotifyAPropertyChanged("DiscountedPrice");
+                    NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");
                 }
             }
@@ -55,8 +60,8 @@ namespace Model
                 if (percentDiscount == 0 || percentDiscount != DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice))
                 {
                     PercentDiscount = DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice);
-                    APWC?.Invoke("PercentDiscount");
-                    APWC?.Invoke("OfferLineTotal");
+                    NotifyAPropertyChanged("PercentDiscount");
+                    NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");
                 }
             }
@@ -75,7 +80,7 @@ namespace Model
             get { return quantity; }
             set {
                 quantity = value;
-                APWC?.Invoke("OfferLineTotal");
+                NotifyAPropertyChanged("OfferLineTotal");
                 APWC?.Invoke("OfferTotal");
             }
         }

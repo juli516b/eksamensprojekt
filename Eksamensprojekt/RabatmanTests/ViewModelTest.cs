@@ -20,25 +20,23 @@ namespace RabatmanViewModelTest
             OfferViewModel novm = new OfferViewModel();
             IBaseItem item = new Item("PommesDeluxe", "12345678", 1);
             IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50);
-            //OfferLine offerLine = new OfferLine(item, 100);
-            Assert.AreEqual(0, novm.OfferTotal);
+
+            Assert.AreEqual(0, novm.OfferTotal); // no OfferLines added
             novm.AddOfferLine(item, 100);
-            Assert.AreEqual(100, novm.OfferTotal);
+            Assert.AreEqual(100, novm.OfferTotal); // one offerline added : OfferTotal = 100
             novm.OfferDiscount = "20";
             //Act
-            
 
-            //Assert
-            //Assert.AreEqual(80, novm.OfferTotal);
-            //OfferLine offerLine2 = new OfferLine(item2, 4);
-            //offer.AddOfferLine(offerLine2);
-            //Assert.AreEqual(88, offer.OfferTotal);
-            //offer.OfferDiscount = 10;
-            //Assert.AreEqual(99, offer.OfferTotal);
-            //OfferLine offerLine3 = new OfferLine(item, 100);
-            //offerLine3.PercentDiscount = 20;
-            //offer.AddOfferLine(offerLine3);
-            //Assert.AreEqual(171, offer.OfferTotal);
+            Assert.AreEqual(80, novm.OfferTotal); // OfferDiscount set to 20 (%) : OfferTotal = 80
+            novm.AddOfferLine(item2,4);
+            Assert.AreEqual(88, novm.OfferTotal); // one more offerline added : OfferTotal = (100 + 10) *0,8 = 88 
+            novm.OfferDiscount = "10";
+            Assert.AreEqual(99, novm.OfferTotal); // OfferDiscount corrected to 10 (%) : OfferTotal = (100 + 10) * 0,9 = 99
+
+            novm.AddOfferLine(item,100);
+            novm.OfferLines[2].PercentDiscount = 20;
+            Assert.AreEqual(171, novm.OfferTotal); // one more offerline added and that lines discount set to 20
+            // OfferTotal = (100 + 10 + 100 * 0,8) * 0,9 = 171
 
         }
     }
