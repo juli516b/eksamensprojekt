@@ -41,7 +41,7 @@
 
                             <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice,UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount,UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal, UpdateSourceTrigger=PropertyChanged}">
+                            <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Right" />
