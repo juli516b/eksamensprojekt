@@ -27,17 +27,14 @@ namespace Model
         }
         private static ItemRepository instance;
 
-        public static ItemRepository Instance
+        public static ItemRepository GetInstance(IPersistentDataHandler dataHandler)
         {
-            get
+            if (instance == null)
             {
-                if (instance == null)
-                {
-                    instance = new ItemRepository(new ItemDataHandler());
+                instance = new ItemRepository(dataHandler);
                     
-                }
-                return instance;
             }
+            return instance;
         }
     }
 }

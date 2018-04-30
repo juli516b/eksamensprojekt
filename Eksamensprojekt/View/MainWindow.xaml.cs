@@ -32,14 +32,20 @@ namespace Eksamensprojekt
         
         private void AddItem_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(Quantity_TextBox.Text, out int quantity))
+            if (itemListView.SelectedItem != null)
             {
-                offerViewModel.AddOfferLine(offerViewModel.ThisOffer, (Model.IBaseItem)itemListView.SelectedItem, quantity);
-                offerDataGrid.Items.Refresh();
+                if (int.TryParse(Quantity_TextBox.Text, out int quantity))
+                {
+                    offerViewModel.AddOfferLine((Model.IBaseItem)itemListView.SelectedItem, quantity);
+                    offerDataGrid.Items.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
+                }
             }
-            else
-            {
-                MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
+            else {
+                MessageBox.Show("Du skal vælge en vare fra listen.");
             }
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

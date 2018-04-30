@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -10,79 +11,48 @@ namespace ViewModel
 {
     public class OfferViewModel : INotifyPropertyChanged
     {
-        public IList<IBaseItem> Items
-        {
-            get
-            {
-                return ItemRepository.Instance.Items;
-            }
+        IPersistentDataHandler dataHandler;
+        private Offer currentOffer;
+        public IList<IBaseItem> Items {
+            get { return ItemRepository.GetInstance(dataHandler).Items; }
+            set { ItemRepository.GetInstance(dataHandler).Items = value; }
         }
-        public IList<OfferLine> OfferLines
+        public string OfferDiscount
         {
-            get
-            {
-                return ThisOffer.OfferLines;
-            }
+            get { return Math.Round(currentOffer.OfferDiscount,2).ToString(); }
             set
             {
-                APropertyChanged(nameof(OfferLines));
+                currentOffer.OfferDiscount = Convert.ToDouble(value);
+                NotifyPropertyChanged("OfferTotal");
             }
         }
-        public double OfferDiscount
+        public ObservableCollection<OfferLine> OfferLines
         {
-            get
-            {
-                return ThisOffer.OfferDiscount;
-            }
-            set
-            {
-                ThisOffer.OfferDiscount = value;
-                APropertyChanged(nameof(OfferTotal));
-            }
-        }
-        private double offerTotal;
-        public double OfferTotal
-        {
-            get
-            {
-              double total = OfferLines.Sum(offerLine => offerLine.OfferLineTotal);
-                if (OfferDiscount > 0)
-                {
-                    total = DiscountMath.PercentToPrice(OfferDiscount, total);
-                }
-                return total;
-            }
-            set
-            {
-                offerTotal = value;
-                PropertyChanged(this, new PropertyChangedEventArgs(nameof(OfferTotal)));
-            }
+            get { return currentOffer.OfferLines; }
+            set { currentOffer.OfferLines = value; }
         }
 
+        public double OfferTotal {
+            get { return currentOffer.OfferTotal; }
+            set { currentOffer.OfferTotal = value; }
+        }
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public OfferViewModel()
         {
-            ThisOffer = CreateOffer(DateTime.Now);
+            dataHandler = new ItemDataHandler();
+            currentOffer = new Offer(DateTime.Now);
         }
-        public Offer ThisOffer { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void APropertyChanged(string property)
+        public void AddOfferLine(IBaseItem myItem, int quantity)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
-        public Offer CreateOffer(DateTime creationDate)
-        {
-            Offer newOffer = new Offer(creationDate);
-            return newOffer;
-        }
-
-        public void AddOfferLine(Offer thisOffer, IBaseItem item, int quantity)
-        {
-            OfferLine newOfferLine = new OfferLine(item, quantity);
-            newOfferLine.APC += APropertyChanged;
-            thisOffer.AddOfferLine(newOfferLine);
-            APropertyChanged(nameof(OfferTotal));
+            OfferLine newOfferLine = new OfferLine(myItem, quantity);
+            OfferLines.Add(newOfferLine);
+            newOfferLine.APWC += NotifyPropertyChanged;
+            NotifyPropertyChanged("OfferTotal");
         }
     }
 }
