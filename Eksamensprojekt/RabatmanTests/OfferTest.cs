@@ -68,8 +68,10 @@ namespace RabatmanOfferTest
             Assert.AreEqual(88, offer.OfferTotal);
             offer.OfferDiscount = 10;
             Assert.AreEqual(99, offer.OfferTotal);
-            OfferLine offerLine3 = new OfferLine(item, 100);
-            offerLine3.PercentDiscount = 20;
+            OfferLine offerLine3 = new OfferLine(item, 100)
+            {
+                PercentDiscount = 20
+            };
             offer.AddOfferLine(offerLine3);
             Assert.AreEqual(171, offer.OfferTotal);
 
