@@ -9,7 +9,7 @@ namespace Model
     public class ItemRepository
     {
         public IList<IBaseItem> Items { get; set; }
-        public ItemRepository(IPersistentDataHandler persistentDataHandler)
+        private ItemRepository(IPersistentDataHandler persistentDataHandler)
         {
             Items = new List<IBaseItem>();
             persistentDataHandler.GetAll(Items);
@@ -24,6 +24,17 @@ namespace Model
                 isSuccessful = true;
             }
             return isSuccessful;
+        }
+        private static ItemRepository instance;
+
+        public static ItemRepository GetInstance(IPersistentDataHandler dataHandler)
+        {
+            if (instance == null)
+            {
+                instance = new ItemRepository(dataHandler);
+                    
+            }
+            return instance;
         }
     }
 }

@@ -7,14 +7,22 @@ using System.ComponentModel;
 
 namespace Model
 {
- 
-    public class OfferLine:INotifyPropertyChanged
+
+    public delegate void APropertyWasChanged(string propertyName);
+    public class OfferLine : INotifyPropertyChanged
     {
-        
+        public event APropertyWasChanged APWC;
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyAPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         private IBaseItem item;
         private int quantity;
         private double percentDiscount;
         private double discountedPrice;
+
         public string ItemNo { get {return Item.ItemNo; } }
         public string ItemName { get { return Item.ItemName; } }
         public double ItemPrice {
@@ -37,10 +45,9 @@ namespace Model
                 if (discountedPrice == 0 || discountedPrice != DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice))
                 {
                     DiscountedPrice = DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice);
-                    NotifyPropertyChanged("DiscountedPrice");
-                    NotifyPropertyChanged("PercentDiscount");
-                    NotifyPropertyChanged("OfferLineTotal");
-                    NotifyPropertyChanged("OfferTotal");
+                    NotifyAPropertyChanged("DiscountedPrice");
+                    NotifyAPropertyChanged("OfferLineTotal");
+                    APWC?.Invoke("OfferTotal");
                 }
             }
         }
@@ -53,42 +60,28 @@ namespace Model
                 if (percentDiscount == 0 || percentDiscount != DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice))
                 {
                     PercentDiscount = DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice);
-                    NotifyPropertyChanged("DiscountedPrice");
-                    NotifyPropertyChanged("PercentDiscount");
-                    NotifyPropertyChanged("OfferLineTotal");
-                    
+                    NotifyAPropertyChanged("PercentDiscount");
+                    NotifyAPropertyChanged("OfferLineTotal");
+                    APWC?.Invoke("OfferTotal");
                 }
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if(handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-            
-        }
-
         public IBaseItem Item
         {
             get { return item; }
             set
             {
                 item = value;
-                NotifyPropertyChanged("Item");
-                NotifyPropertyChanged("OfferLineTotal");
             }
         }
 
         public int Quantity
         {
             get { return quantity; }
-            set { quantity = value;
-                NotifyPropertyChanged("Quantity");
-                NotifyPropertyChanged("OfferLineTotal");
+            set {
+                quantity = value;
+                NotifyAPropertyChanged("OfferLineTotal");
+                APWC?.Invoke("OfferTotal");
             }
         }
 

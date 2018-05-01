@@ -22,35 +22,31 @@ namespace Eksamensprojekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        OfferViewModel offerViewModel;
         public MainWindow()
         {
             InitializeComponent();
-            
-            itemListView.DataContext= ItemViewModel.Instance;
-            offerDataGrid.ItemsSource = OfferViewModel.Instance.ThisOffer.OfferLines;
-            Price_Label.DataContext = OfferViewModel.Instance.ThisOffer;
-            OfferDiscount_TextBox.DataContext = OfferViewModel.Instance.ThisOffer;
+            offerViewModel = new OfferViewModel();
+            DataContext = offerViewModel;
         }
         
         private void AddItem_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(Quantity_TextBox.Text, out int quantity))
+            if (itemListView.SelectedItem != null)
             {
-                OfferViewModel.Instance.AddOfferLine(OfferViewModel.Instance.ThisOffer, (Model.IBaseItem)itemListView.SelectedItem, quantity);
-                offerDataGrid.Items.Refresh();
+                if (int.TryParse(Quantity_TextBox.Text, out int quantity))
+                {
+                    offerViewModel.AddOfferLine((Model.IBaseItem)itemListView.SelectedItem, quantity);
+                    offerDataGrid.Items.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
+                }
             }
-            else
-            {
-                MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
+            else {
+                MessageBox.Show("Du skal vælge en vare fra listen.");
             }
-        }
-        private void OfferDataGrid_CellValueChanged(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            OfferViewModel.Instance.UpdateOfferTotal();
-        }
-        private void OfferDiscount_TextBoxValueChanged(object sender, TextChangedEventArgs e)
-        {
-            OfferViewModel.Instance.UpdateOfferTotal();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {

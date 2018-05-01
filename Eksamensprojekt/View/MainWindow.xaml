@@ -5,77 +5,114 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eksamensprojekt"
         mc:Ignorable="d"
-        Title="Rabatman" Height="1000" Width="1000" MouseDown="Window_MouseDown" Name="Window"
-        WindowState="Maximized"
-        WindowStyle="SingleBorderWindow"
+        Title="Rabatman" Height="719" Width="874.5" MouseDown="Window_MouseDown" Name="Window"
         >
     <Window.Resources>
         <Style TargetType="{x:Type ListViewItem}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
         </Style>
+        <!-- Placeholder tekst i antal felt -->
+        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource" 
+                                 Background="Transparent" 
+                                 Panel.ZIndex="2" />
+                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
-    <Grid>
-        <TabControl x:Name="TabControl" HorizontalAlignment="Left" Height="950" Margin="10,10,-0.4,0" VerticalAlignment="Top" Width="984">
-           
-            <TabItem Header="Tilbud" >
-                <Grid  Background="#FFE5E5E5">
-                    <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="30,90,0,0" VerticalAlignment="Top" Width="547" AutoGenerateColumns="False" CellEditEnding="OfferDataGrid_CellValueChanged">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo, Mode=OneWay}"/>
-                            <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName, Mode=OneWay}"/>
-                            <DataGridTextColumn Header="Antal" Binding="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Right" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Stk. Pris" Binding="{Binding ItemPrice, Mode=OneWay}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Right" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Save" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="Tilføj">
+                <MenuItem Header="Vare" />
+                <MenuItem Header="Kunde" />
+                <MenuItem Header="Speditør" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid  Background="#FFE5E5E5" Height="688" VerticalAlignment="Top">
+                <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="10,10,0,0" VerticalAlignment="Top" Width="840" AutoGenerateColumns="False" ItemsSource="{Binding OfferLines}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo, Mode=OneWay}"/>
+                        <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName, Mode=OneWay}"/>
+                        <DataGridTextColumn Header="Antal" Binding="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Right" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Stk. Pris" Binding="{Binding ItemPrice, Mode=OneWay}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Right" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice,UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount,UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Right" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="163" Margin="13,461,0,0" VerticalAlignment="Top" Width="391" ItemsSource="{Binding Items}" SelectedItem="{Binding Item}" IsEnabled="True">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="60" Header="Vare nr." DisplayMemberBinding="{Binding ItemNo}"/>
+                            <GridViewColumn Width="140" Header="Varenavn" DisplayMemberBinding="{Binding ItemName}"/>
+                            <GridViewColumn Width="70" Header="Pris">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextAlignment="Right" Text="{Binding ItemPriceF2}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Label x:Name="TotalPrice_Label" Content="Total Pris:" HorizontalAlignment="Left" Height="27" Margin="568,596,0,0" VerticalAlignment="Top" Width="138"/>
+                <Label x:Name="Price_Label" Content="{Binding OfferTotal, UpdateSourceTrigger=PropertyChanged, StringFormat=F2}"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="27" Margin="730,596,0,0" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="AddItem_Button" Content="Tilføj vare" HorizontalAlignment="Left" Height="26" Margin="323,629,0,0" VerticalAlignment="Top" Width="81" Click="AddItem_Button_Click"/>
+                <TextBox x:Name="Quantity_TextBox" HorizontalAlignment="Left" Height="24" Margin="179,629,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="103" TextAlignment="Right" Style="{StaticResource placeHolder}" Tag="Skriv antal"/>
+                <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="730,568,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
+                <Label x:Name="OfferDiscount_Label" Content="Sæt samlet tilbudsrabat:" HorizontalAlignment="Left" Margin="568,567,0,0" VerticalAlignment="Top"/>
+            </Grid>
 
-                            <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice,UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount,UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Right" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="445" Margin="599,81,0,0" VerticalAlignment="Top" Width="295" ItemsSource="{Binding Items}" SelectedItem="{Binding Item}" IsEnabled="True">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Width="60" Header="Vare nr." DisplayMemberBinding="{Binding ItemNo}"/>
-                                <GridViewColumn Width="140" Header="Varenavn" DisplayMemberBinding="{Binding ItemName}"/>
-                                <GridViewColumn Width="70" Header="Pris">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock TextAlignment="Right" Text="{Binding ItemPriceF2}" />
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    <Label x:Name="TotalPrice_Label" Content="Total Pris:" HorizontalAlignment="Left" Height="27" Margin="456,541,0,0" VerticalAlignment="Top" Width="65"/>
-                    <Label x:Name="Price_Label" Content="{Binding OfferTotal}"  HorizontalAlignment="Left" Height="27" Margin="518,541,0,0" VerticalAlignment="Top" Width="65"/>
-                    <Button x:Name="AddItem_Button" Content="Tilføj vare" HorizontalAlignment="Left" Height="26" Margin="605,542,0,0" VerticalAlignment="Top" Width="81" Click="AddItem_Button_Click"/>
-                    <TextBox x:Name="Quantity_TextBox" HorizontalAlignment="Left" Height="24" Margin="778,544,0,0" TextWrapping="Wrap" Text="Skriv antal..."  VerticalAlignment="Top" Width="103" TextAlignment="Right"/>
-                    <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="301,544,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" TextChanged="OfferDiscount_TextBoxValueChanged" TextAlignment="Right"/>
-                    <Label x:Name="OfferDiscount_Label" Content="Sæt samlet tilbudsrabat:" HorizontalAlignment="Left" Margin="159,541,0,0" VerticalAlignment="Top"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Kunder">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
-    </Grid>
+        </Grid>
+    </DockPanel>
 </Window>

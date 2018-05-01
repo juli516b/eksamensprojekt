@@ -4,54 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
+using System.Collections.ObjectModel;
 
 namespace Model
 {
-    public class Offer:INotifyPropertyChanged
+    public class Offer
     {
+        private ObservableCollection<OfferLine> _offerLines;
+
         public string OfferNo { get; set; }
         public DateTime OfferDate { get; set; }
-        public IList<OfferLine> OfferLines { get; set; }
-        public double OfferDiscount { get; set; }
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-
-        }
         public double OfferTotal
         {
             get
             {
-                double total = OfferLines.Sum(offerLine => offerLine.OfferLineTotal);
-                if (OfferDiscount > 0)
-                {
-                    total = DiscountMath.PercentToPrice(OfferDiscount, total);
-                }
+                double total = 0;
+                total += OfferLines.Sum(offerLine => offerLine.OfferLineTotal);
+                total = DiscountMath.PercentToPrice(OfferDiscount, total);
                 return total;
+            }
+            set
+            {
+                return;
             }
         }
 
+        public ObservableCollection<OfferLine> OfferLines { get => _offerLines;
+            set
+            {
+                _offerLines = value;
+            }
+        }
+        public double OfferDiscount { get; set; }
         public Offer(DateTime creationDate)
         {
             OfferDate = creationDate;
-            OfferLines = new List<OfferLine>();
+            OfferLines = new ObservableCollection<OfferLine>();
         }
-
-        public void AddOfferLine(OfferLine offerLine)   
+        public void AddOfferLine(OfferLine offerLine)
         {
             OfferLines.Add(offerLine);
-            NotifyPropertyChanged("OfferTotal");
-        }
-        public void SumOfferLines()
-        {
-            NotifyPropertyChanged("OfferTotal");            
         }
     }
 }
