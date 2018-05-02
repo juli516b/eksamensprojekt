@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eksamensprojekt"
+        xmlns:oWM="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
         Title="Rabatman" Height="719" Width="874.5" MouseDown="Window_MouseDown" Name="Window"
         >
+    <Window.DataContext>
+        <oWM:OfferViewModel/>
+    </Window.DataContext>
     <Window.Resources>
         <Style TargetType="{x:Type ListViewItem}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
@@ -90,7 +94,7 @@
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="163" Margin="13,461,0,0" VerticalAlignment="Top" Width="391" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsEnabled="True">
+                <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="163" Margin="13,461,0,0" VerticalAlignment="Top" Width="391" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem,  Mode=TwoWay}" IsEnabled="True">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="60" Header="Vare nr." DisplayMemberBinding="{Binding ItemNo}"/>

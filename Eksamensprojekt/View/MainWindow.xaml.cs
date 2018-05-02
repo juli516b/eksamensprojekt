@@ -22,56 +22,15 @@ namespace Eksamensprojekt
     /// </summary>
     public partial class MainWindow : Window
     {
-        OfferViewModel offerViewModel;
         public MainWindow()
         {
-            InitializeComponent();
-            offerViewModel = new OfferViewModel();
-            DataContext = offerViewModel;
-          
-    }
-        
-        //private void AddItem_Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (itemListView.SelectedItem != null)
-        //    {
-        //        if (int.TryParse(Quantity_TextBox.Text, out int quantity))
-        //        {
-        //            offerViewModel.AddOfferLine((Model.IBaseItem)itemListView.SelectedItem, quantity);
-        //            offerDataGrid.Items.Refresh();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
-        //        }
-        //    }
-        //    else {
-        //        MessageBox.Show("Du skal vælge en vare fra listen.");
-        //    }
-        //}
+            InitializeComponent();      
+        }        
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Keyboard.ClearFocus();
             
         }
 
-    //    private void AddItem_Button_Click(object sender, RoutedEventArgs e)
-    //    {
-    //        if (itemListView.SelectedItem != null)
-    //        {
-    //            if (int.TryParse(Quantity_TextBox.Text, out int quantity))
-    //            {
-    //                offerViewModel.AddOfferLine((Model.IBaseItem)itemListView.SelectedItem, quantity);
-    //            }
-    //            else
-    //            {
-    //                MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
-    //            }
-    //        }
-    //        else
-    //        {
-    //            MessageBox.Show("Du skal vælge en vare fra listen.");
-    //        }
-    //    }
     }
 }

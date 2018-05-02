@@ -16,6 +16,7 @@ namespace ViewModel
         IPersistentDataHandler dataHandler;
         private ICommand _clickAddButtonCommand;
         private Offer currentOffer;
+       // private int quantityTextBoxText;
 
         public IBaseItem SelectedItem { get; set; }
         public string QuantityTextBoxText { get; set; }
@@ -39,11 +40,11 @@ namespace ViewModel
         {
             if(SelectedItem != null)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
 
@@ -54,7 +55,7 @@ namespace ViewModel
                 if (int.TryParse(QuantityTextBoxText, out int quantity))
                 {
                    AddOfferLine((Model.IBaseItem)SelectedItem, quantity);
-                    MessageBox.Show("det virkerish");
+                    
                 }
                 else
                 {
@@ -100,6 +101,8 @@ namespace ViewModel
         {
             dataHandler = new ItemDataHandler();
             currentOffer = new Offer(DateTime.Now);
+            SelectedItem = Items[0];
+
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
         {
