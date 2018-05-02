@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateCustomerViewModel.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="OfferViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
