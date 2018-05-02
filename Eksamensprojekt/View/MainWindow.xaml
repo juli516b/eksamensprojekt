@@ -57,10 +57,14 @@
                 <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>
-            <MenuItem Header="Tilføj">
+            <MenuItem Header="Tilføj til tilbud">
                 <MenuItem Header="Vare" />
                 <MenuItem Header="Kunde" Command="{Binding OpenCreateCostumerWindow}" Click="OnButtonClick_CreateCustomerWindow"/>
                 <MenuItem Header="Speditør" />
+            </MenuItem>
+            <MenuItem Header="Kunder">
+                <MenuItem Header="Tilføj ny kunde" Command="{Binding OpenCreateCostumerWindow}" Click="OnButtonClick_CreateCustomerWindow" />
+                <MenuItem Header="Vis kunder" Click="OnButtonClick_ShowCustomersWindow" />
             </MenuItem>
         </Menu>
         <Grid>
