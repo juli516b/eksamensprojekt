@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerRepository.cs" />
     <Compile Include="DiscountMath.cs" />
     <Compile Include="IBaseItem.cs" />
     <Compile Include="IPersistentDataHandler.cs" />
