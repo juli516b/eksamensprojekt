@@ -32,5 +32,10 @@ namespace Eksamensprojekt
             
         }
 
+        private void OnButtonClick_CreateCustomerWindow(object sender, RoutedEventArgs e)
+        {
+            CreateCostumerWindow cCW = new CreateCostumerWindow();
+            cCW.Show();
+        }
     }
 }

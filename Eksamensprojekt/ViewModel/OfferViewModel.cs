@@ -20,6 +20,7 @@ namespace ViewModel
         private Offer currentOffer;
        // private int quantityTextBoxText;
 
+
         public IBaseItem SelectedItem { get; set; }
         public string QuantityTextBoxText { get; set; }
         public ICommand OpenCreateCostumerWindow
