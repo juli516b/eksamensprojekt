@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>220</y>
+      <w>170</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Offer
+--
+OfferNo (PK) : int
+OfferDate : DateTime2
+OfferDiscount : float
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>230</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=..*
+</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>220</y>
+      <w>190</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>OfferLine
+--
+OfferLineID (PK) : int
+--
+OfferNO (FK) : nvarchar
+ItemNo (FK) : nvarchar
+Quantity : int
+PriceDiscount : float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>820</x>
+      <y>220</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+ItemNo (PK) : nvarchar
+--
+ItemName : nvarchar
+ItemPrice : float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>230</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>110</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>DATABASE</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

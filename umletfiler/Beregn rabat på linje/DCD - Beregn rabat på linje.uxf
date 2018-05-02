@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>264</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>ItemRepository
+--
+Items : IItem [0..*]
+--
+GetItem(itemNo : string): IItem
+AddItem(item : IItem)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>552</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IBaseItem
+--
+ItemNo : string
+ItemName : string
+ItemPrice : double
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>416</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+ItemNo : string
+ItemName : string
+ItemPrice : double
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>768</x>
+      <y>496</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>768</x>
+      <y>344</y>
+      <w>24</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>264</y>
+      <w>264</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Offer
+--
+OfferNo : string
+Offerlines : OfferLine[0..*]
+OfferDate : DateTime
+/ OfferTotal : double
+--
+&lt;&lt;Constructor&gt;&gt; Offer(creationDate : DataTime)
+NotifyPropertyChanged(name : string)
+AddOfferLine(offerLine:OfferLine)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>416</y>
+      <w>264</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>OfferLine
+--
+Item : IItem
+Quantity : int
+/ OfferLineTotal : double
+DiscountedPrice: double
+PercentDiscount: double
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>592</x>
+      <y>432</y>
+      <w>104</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>376</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>104</y>
+      <w>272</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>OfferViewModel
+--
+ThisOffer : Offer
+--
+CreateOffer(creationDate : DateTime) : Offer
+AddOfferLine(thisOffer: Offer, item:IItem, quantity:int)
+PercentToPrice(offerLine, percent)
+PriceToPercent(offerLine, newPrice)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>208</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>168</y>
+      <w>24</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>552</y>
+      <w>264</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Static&gt;&gt;
+DiscountMath
+--
+
+--
+_PriceToPercent(newPrice, oldPrice) : double_
+_PercentToPrice(percent, oldPrice) : double_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>104</y>
+      <w>176</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>ItemViewModel
+--
+Items : Item[0..*]
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
