@@ -23,5 +23,10 @@ namespace Eksamensprojekt
         {
             InitializeComponent();
         }
+
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Model
     public class CustomerRepository
     {
         public IList<Customer> Customers { get; set; }
-        public CustomerRepository()
+        private CustomerRepository()
         {
             Customers = new List<Customer>();
         }
@@ -17,5 +17,17 @@ namespace Model
         {
             Customers.Add(newCustomer);
         }
+        private static CustomerRepository instance;
+
+        public static CustomerRepository GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new CustomerRepository();
+
+            }
+            return instance;
+        }
     }
+
 }
