@@ -9,30 +9,55 @@ using System.Windows;
 using System.Windows.Input;
 using Model;
 
+
 namespace ViewModel
 {
     public class OfferViewModel : INotifyPropertyChanged
     {
         IPersistentDataHandler dataHandler;
-        private ICommand _clickAddButtonCommand;
+        private ICommand clickAddButtonCommand;
+        private ICommand openCreateCostumerWindow;
         private Offer currentOffer;
        // private int quantityTextBoxText;
 
         public IBaseItem SelectedItem { get; set; }
         public string QuantityTextBoxText { get; set; }
+        public ICommand OpenCreateCostumerWindow
+        {
+            get { 
+            if (openCreateCostumerWindow == null)
+                {
+                    openCreateCostumerWindow = new DelegateCommand(
+                        param => this.NewCostumerWindow(),
+                        param => this.CanOpenCostumerWindow()
+                    );
+                }
+                return openCreateCostumerWindow;
+            }
+        }
+
+        private bool CanOpenCostumerWindow()
+        {
+            return true;
+        }
+
+        private void NewCostumerWindow()
+        {
+           
+        }
 
         public ICommand AddButtonCommand
         {
             get
             {
-                if (_clickAddButtonCommand == null)
+                if (clickAddButtonCommand == null)
                 {
-                    _clickAddButtonCommand = new DelegateCommand(
+                    clickAddButtonCommand = new DelegateCommand(
                         param => this.AddObject(),
                         param => this.CanAdd()
                     );
                 }
-                return _clickAddButtonCommand;
+                return clickAddButtonCommand;
             }
         }
 

@@ -59,7 +59,7 @@
             </MenuItem>
             <MenuItem Header="Tilføj">
                 <MenuItem Header="Vare" />
-                <MenuItem Header="Kunde" />
+                <MenuItem Header="Kunde" Command="{Binding OpenCreateCostumerWindow}"/>
                 <MenuItem Header="Speditør" />
             </MenuItem>
         </Menu>
