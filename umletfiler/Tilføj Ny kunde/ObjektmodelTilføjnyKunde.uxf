@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>90</x>
+      <y>530</y>
+      <w>220</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Dagrofa
+CVR 31231523
+Dagrofavej 2
+Tlf. nr. 31234122
+dagrofa@mail.com
+25% rabat</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>90</x>
+      <y>320</y>
+      <w>220</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Dansk Supermarked
+CVR 3332123
+Allegade 5
+Tlf. nr. 23232323
+dansksupermarked@mail.com
+5% rabat</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>90</x>
+      <y>110</y>
+      <w>220</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Jens Vinduer
+CVR 28482848
+Vinduevej 1
+Tlf. nr. 88888888
+mail@mail.com
+90% rabat</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>50</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Kunde</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>50</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Kunderegister</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>370</x>
+      <y>320</y>
+      <w>220</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Kunderne</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>200</y>
+      <w>90</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>410</y>
+      <w>90</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>410</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+</diagram>
