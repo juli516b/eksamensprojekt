@@ -9,6 +9,20 @@
         Title="CreateCostumerWindow" Height="450" Width="400
         " ResizeMode="NoResize">
     <Grid>
-        
+        <Label Content="Company Name" HorizontalAlignment="Left" Margin="39,49,0,0" VerticalAlignment="Top"/>
+        <Label Content="CVR" HorizontalAlignment="Left" Margin="39,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
+        <Label Content="Adresse" HorizontalAlignment="Left" Margin="39,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
+        <Label Content="Mail" HorizontalAlignment="Left" Margin="39,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
+        <Label Content="Telefon" HorizontalAlignment="Left" Margin="39,175,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
+        <Label Content="Fast rabat" HorizontalAlignment="Left" Margin="39,206,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
+
+        <TextBox Name="CompanyName_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="CVR_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Address_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Mail_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Telephone_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="CustomerDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,209,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Name="Save_Button" Content="Gem" HorizontalAlignment="Left" Margin="39,288,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>
