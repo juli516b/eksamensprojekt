@@ -25,14 +25,16 @@ CustomerDiscount : double
     <coordinates>
       <x>520</x>
       <y>210</y>
-      <w>210</w>
-      <h>80</h>
+      <w>250</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>: CustomerRepository
 --
 Customers : IList
 --
-AddCustomer(Customer)
+AddNewCustomer(customerName, 
+cvrNumber, customerAddress, 
+phoneNo, email, customerDiscount)
 </panel_attributes>
     <additional_attributes/>
   </element>
