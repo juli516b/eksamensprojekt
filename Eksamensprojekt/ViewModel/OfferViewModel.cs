@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 using Model;
 
 namespace ViewModel
@@ -12,7 +14,59 @@ namespace ViewModel
     public class OfferViewModel : INotifyPropertyChanged
     {
         IPersistentDataHandler dataHandler;
+        private ICommand _clickAddButtonCommand;
         private Offer currentOffer;
+
+        public IBaseItem SelectedItem { get; set; }
+        public string QuantityTextBoxText { get; set; }
+
+        public ICommand AddButtonCommand
+        {
+            get
+            {
+                if (_clickAddButtonCommand == null)
+                {
+                    _clickAddButtonCommand = new DelegateCommand(
+                        param => this.AddObject(),
+                        param => this.CanAdd()
+                    );
+                }
+                return _clickAddButtonCommand;
+            }
+        }
+
+        private bool CanAdd()
+        {
+            if(SelectedItem != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void AddObject()
+        {
+            if (SelectedItem != null)
+            {
+                if (int.TryParse(QuantityTextBoxText, out int quantity))
+                {
+                   AddOfferLine((Model.IBaseItem)SelectedItem, quantity);
+                    MessageBox.Show("det virkerish");
+                }
+                else
+                {
+                    MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Du skal vælge en vare fra listen.");
+            }
+        }
+
         public IList<IBaseItem> Items {
             get { return ItemRepository.GetInstance(dataHandler).Items; }
             set { ItemRepository.GetInstance(dataHandler).Items = value; }
