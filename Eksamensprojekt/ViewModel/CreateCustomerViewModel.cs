@@ -11,7 +11,7 @@ namespace ViewModel
 {
     public class CreateCustomerViewModel
     {
-        private Customer myCustomer;
+        public Customer myCustomer;
         private CustomerRepository customerRepository;
         public CreateCustomerViewModel()
         {
@@ -39,7 +39,7 @@ namespace ViewModel
             return true;
         }
 
-        private void AddNewCustomer()
+        public void AddNewCustomer()
         {
             myCustomer.CustomerName = CustomerName;
             myCustomer.CustomerAdress = CustomerAdress;

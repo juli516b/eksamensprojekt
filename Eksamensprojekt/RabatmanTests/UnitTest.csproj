@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerTest.cs" />
     <Compile Include="ViewModelTest.cs" />
     <Compile Include="FakeItemDataHandler.cs" />
     <Compile Include="ItemTest.cs" />
