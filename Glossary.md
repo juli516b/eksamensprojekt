@@ -17,3 +17,10 @@
 |Speditør|ForwardingAgent|
 |SpeditørNavn|ForwardingAgentName|
 |SpeditørProcentSats|ForwardingAgentPersentage|
+|Kunde|Customer|
+|Firmanavn|CustomerName|
+|CVRnr|CVRNumber|
+|Adresse|CustomerAdress|
+|TLFNr|PhoneNo|
+|mail|Email|
+|Kunderabat|CustomerDiscount|
