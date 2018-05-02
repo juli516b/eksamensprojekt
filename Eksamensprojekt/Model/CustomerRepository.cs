@@ -13,18 +13,19 @@ namespace Model
         {
             Customers = new List<Customer>();
         }
-        public void AddCustomer(Customer newCustomer)
+        //****
+        //   SD siger at nedenstående metode giver beskeden "newCustomer was added", men metoden er void
+        //****
+        public void AddCustomer(Customer newCustomer) 
         {
             Customers.Add(newCustomer);
         }
         private static CustomerRepository instance;
-
         public static CustomerRepository GetInstance()
         {
             if (instance == null)
             {
                 instance = new CustomerRepository();
-
             }
             return instance;
         }
