@@ -12,7 +12,7 @@
     <panel_attributes>: Customer
 --
 CustomerName : string
-CVRNumber : int
+CVRNumber : string
 CustomerAddress : string
 PhoneNo : int
 Email : string
@@ -28,7 +28,7 @@ CustomerDiscount : double
       <w>210</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>: CustomerRegister
+    <panel_attributes>: CustomerRepository
 --
 Customers : IList
 --
