@@ -15,7 +15,7 @@ namespace Model
         }
         public void AddCustomer(Customer newCustomer)
         {
-            Customers.Add(newCustomer)
+            Customers.Add(newCustomer);
         }
     }
 }
