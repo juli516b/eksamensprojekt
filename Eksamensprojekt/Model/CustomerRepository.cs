@@ -13,12 +13,15 @@ namespace Model
         {
             Customers = new List<Customer>();
         }
-        //****
-        //   SD siger at nedenstående metode giver beskeden "newCustomer was added", men metoden er void
-        //****
-        public void AddCustomer(Customer newCustomer) 
+        public string AddCustomer(Customer newCustomer) 
         {
+            string message = "Kunden blev ikke \ntilføjet til kundelisten";
             Customers.Add(newCustomer);
+            if (Customers.Contains(newCustomer))
+            {
+                message = "Kunden blev \ntilføjet til kundelisten.";
+            }
+            return message;
         }
         private static CustomerRepository instance;
         public static CustomerRepository GetInstance()

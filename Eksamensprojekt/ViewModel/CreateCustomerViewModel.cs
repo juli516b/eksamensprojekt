@@ -9,16 +9,36 @@ using Model;
 
 namespace ViewModel
 {
-    public class CreateCustomerViewModel
+    public class CreateCustomerViewModel : INotifyPropertyChanged
     {
-        public Customer myCustomer;
+        private string customerMessage;
         private CustomerRepository customerRepository;
         public CreateCustomerViewModel()
         {
-            myCustomer = new Customer();
             customerRepository = CustomerRepository.GetInstance();
         }
+
+        public string CustomerMessage
+        {
+            get
+            {
+                return customerMessage;
+            }
+            set
+            {
+                customerMessage = value;
+                NotifyPropertyChanged("CustomerMessage");
+            }
+        }
         private ICommand saveCustomer;
+        private string customerName;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public ICommand SaveCustomer
         {
             get
@@ -36,95 +56,41 @@ namespace ViewModel
 
         private bool CanAddCustomer()
         {
-            return true;
+            bool canExecute = false;
+            if (CustomerName != "")
+            {
+                canExecute = true;
+            }
+            return canExecute;
         }
 
         public void AddNewCustomer()
         {
-            myCustomer.CustomerName = CustomerName;
-            myCustomer.CustomerAdress = CustomerAdress;
-            myCustomer.CustomerDiscount = CustomerDiscount;
-            myCustomer.CustomerZip = CustomerZip;
-            myCustomer.CVRNumber = CVRNumber;
-            myCustomer.Email = Email;
-            customerRepository.AddCustomer(myCustomer);
+            Customer myCustomer = new Customer()
+            {
+                CustomerName = CustomerName,
+                CustomerAdress = CustomerAdress,
+                CustomerDiscount = CustomerDiscount,
+                CustomerZip = CustomerZip,
+                CVRNumber = CVRNumber,
+                Email = Email
+            };
+            CustomerMessage = customerRepository.AddCustomer(myCustomer);
         }
 
         public string CustomerName
         {
-            get {
-                return myCustomer.CustomerName;
-            }
+            get { return customerName; }
             set {
-                myCustomer.CustomerName = value;
+                customerName = value;
+                NotifyPropertyChanged("CustomerName");
             }
         }
-        public string CVRNumber
-        {
-            get
-            {
-                return myCustomer.CVRNumber;
-            }
-            set
-            {
-                myCustomer.CVRNumber = value;
-            }
-        }
-        public string CustomerAdress
-        {
-            get
-            {
-                return myCustomer.CustomerAdress;
-            }
-            set
-            {
-                myCustomer.CustomerAdress = value;
-            }
-        }
-        public int CustomerZip
-        {
-            get
-            {
-                return myCustomer.CustomerZip;
-            }
-            set
-            {
-                myCustomer.CustomerZip = value;
-            }
-        }
-        public int PhoneNo
-        {
-            get
-            {
-                return myCustomer.PhoneNo;
-            }
-            set
-            {
-                myCustomer.PhoneNo = value;
-            }
-        }
-        public string Email
-        {
-            get
-            {
-                return myCustomer.Email;
-            }
-            set
-            {
-                myCustomer.Email = value;
-            }
-        }
-        public double CustomerDiscount
-        {
-            get
-            {
-                return myCustomer.CustomerDiscount;
-            }
-            set
-            {
-                myCustomer.CustomerDiscount = value;
-            }
-        }
-
+        public string CVRNumber { get; set; }
+        public string CustomerAdress { get; set; }
+        public int CustomerZip { get; set; }
+        public int PhoneNo { get; set; }
+        public string Email { get; set; }
+        public double CustomerDiscount { get; set; }
     }
 }

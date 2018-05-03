@@ -26,7 +26,8 @@
         <TextBox Name="Mail_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,147,0,0" TextWrapping="Wrap" Text="{Binding Email}" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="Telephone_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,178,0,0" TextWrapping="Wrap" Text="{Binding PhoneNo}" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="CustomerDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,209,0,0" TextWrapping="Wrap" Text="{Binding CustomerDiscount}" VerticalAlignment="Top" Width="120"/>
-        <Button Name="Save_Button" Content="Gem" HorizontalAlignment="Left" Margin="39,288,0,0" VerticalAlignment="Top" Width="75" Click="Save_Button_Click"/>
+        <Button Name="Save_Button" Content="Gem" HorizontalAlignment="Left" Margin="39,288,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveCustomer}"/>
+        <Label Name="CustomerMessage_Label" Content="{Binding CustomerMessage, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="132,285,0,0" VerticalAlignment="Top" Width="252" Height="58"/>
 
     </Grid>
 </Window>
