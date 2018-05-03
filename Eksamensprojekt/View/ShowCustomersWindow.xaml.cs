@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViewModel;
+using Model;
 
 namespace Eksamensprojekt
 {
@@ -19,9 +21,22 @@ namespace Eksamensprojekt
     /// </summary>
     public partial class ShowCustomersWindow : Window
     {
+        private OfferViewModel owm;
         public ShowCustomersWindow()
         {
             InitializeComponent();
+        }
+        public ShowCustomersWindow(OfferViewModel owm)
+        {
+            InitializeComponent();
+            this.owm = owm;
+        }
+
+        //Ny Mathias
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            owm.MyCustomer = (Customer)CustomerListView.SelectedItem;
+            this.Close();
         }
     }
 }

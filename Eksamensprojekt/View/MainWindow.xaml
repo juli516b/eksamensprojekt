@@ -68,7 +68,7 @@
             </MenuItem>
         </Menu>
         <Grid>
-            <Grid  Background="#FFE5E5E5" Height="688" VerticalAlignment="Top" Margin="10,0,-10,-16">
+            <Grid  Background="#FFE5E5E5" Height="688" VerticalAlignment="Top" Margin="0,0,-10,-16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="12*"/>
                     <ColumnDefinition Width="205*"/>
@@ -124,6 +124,7 @@
                 <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="681.6,568,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" TextAlignment="Right" Grid.Column="1"/>
                 <Label x:Name="OfferDiscount_Label" Content="Sæt samlet tilbudsrabat:" HorizontalAlignment="Left" Margin="519.6,567,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                 <Button x:Name="AddCustomerToOffer_Button" Content="Tilføj kunde til tilbud" Grid.Column="1" HorizontalAlignment="Left" Margin="383,461,0,0" VerticalAlignment="Top" Width="118" Height="26" Click="OnButtonClick_ShowCustomersWindow"/>
+                <Label Content="{Binding MyCustomer.CustomerName, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="386,502,0,0" VerticalAlignment="Top" Height="27" Width="191"/>
             </Grid>
 
         </Grid>

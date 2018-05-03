@@ -12,7 +12,8 @@
     </Window.DataContext>
     <Grid>
         <Label Content="Kundeliste" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="344"/>
-        <ListView HorizontalAlignment="Left" Height="326" VerticalAlignment="Top" Width="344" Margin="10,43,0,0" ItemsSource="{Binding Customers}" SelectedItem="{Binding CurrentCustomer}">
+        <!--Mathias - skal redigere -->
+        <ListView Name="CustomerListView" HorizontalAlignment="Left" Height="326" VerticalAlignment="Top" Width="344" Margin="10,43,0,0" ItemsSource="{Binding Customers}" SelectedItem="{Binding CurrentCustomer}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Kundenavn" DisplayMemberBinding="{Binding CustomerName}"/>
@@ -22,7 +23,7 @@
             </ListView.View>
         </ListView>
         <Button Content="Opret ny kunde" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="110" Margin="10,0,0,10"/>
-        <Button Content="Tilføj kunde til tilbud" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Margin="234,0,0,10"/>
+        <Button Content="Tilføj kunde til tilbud" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Margin="234,0,0,10" Click="Button_Click"/>
 
         <GroupBox Header="Valgt kunde" HorizontalAlignment="Right" Height="Auto" Margin="0,29,10,0" VerticalAlignment="Top" Width="400">
             <Grid>

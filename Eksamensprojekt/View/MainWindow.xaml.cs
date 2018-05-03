@@ -22,9 +22,12 @@ namespace Eksamensprojekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        OfferViewModel owm;
         public MainWindow()
         {
-            InitializeComponent();      
+            owm = new OfferViewModel();
+            InitializeComponent();
+            DataContext = owm;
         }        
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -39,7 +42,7 @@ namespace Eksamensprojekt
         }
         private void OnButtonClick_ShowCustomersWindow(object sender, RoutedEventArgs e)
         {
-            ShowCustomersWindow scw = new ShowCustomersWindow();
+            ShowCustomersWindow scw = new ShowCustomersWindow(owm);
             scw.Show();
         }
     }
