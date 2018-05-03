@@ -78,7 +78,9 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo, Mode=OneWay}"/>
                         <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName, Mode=OneWay}"/>
-                        <DataGridTextColumn Header="Antal" Binding="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGridTextColumn Header="Antal varer" Binding="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn Header="Antal paller" Binding="{Binding NoOfPallets, UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn Header="Antal pakker" Binding="{Binding NoOfPackages, UpdateSourceTrigger=PropertyChanged}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="HorizontalAlignment" Value="Right" />
