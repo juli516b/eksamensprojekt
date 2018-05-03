@@ -14,11 +14,6 @@ namespace ViewModel
 {
     public class OfferViewModel : INotifyPropertyChanged
     {
-        //Mathias hygger//
-
-
-        //
-
         IPersistentDataHandler dataHandler;
         private ICommand clickAddButtonCommand;
         private ICommand openCreateCostumerWindow;
@@ -35,9 +30,22 @@ namespace ViewModel
             {
                 currentOffer.MyCustomer = value;
                 NotifyPropertyChanged("MyCustomer");
+                NotifyPropertyChanged("OfferTotal");
+                NotifyPropertyChanged("MyCustomerDiscount");
             }
         }
-
+        public string MyCustomerDiscount
+        {
+            get
+            {
+                string customerDiscount_Label = "";
+                if (MyCustomer != null)
+                {
+                    customerDiscount_Label = MyCustomer.CustomerDiscount.ToString() + " %";
+                }
+                return customerDiscount_Label;
+            }
+        }
         public IBaseItem SelectedItem { get; set; }
         public string QuantityTextBoxText { get; set; }
         public ICommand OpenCreateCostumerWindow
