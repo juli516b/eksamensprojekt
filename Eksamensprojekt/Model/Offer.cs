@@ -12,6 +12,7 @@ namespace Model
     {
         private ObservableCollection<OfferLine> _offerLines;
 
+        public Customer MyCustomer { get; set; }
         public string OfferNo { get; set; }
         public DateTime OfferDate { get; set; }
         public double OfferTotal

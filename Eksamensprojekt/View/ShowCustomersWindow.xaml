@@ -21,9 +21,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Tilføj ny kunde" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="110" Margin="10,0,0,10"/>
-    
-    <GroupBox Header="Valgt kunde" HorizontalAlignment="Right" Height="Auto" Margin="0,29,10,0" VerticalAlignment="Top" Width="400">
+        <Button Content="Opret ny kunde" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="110" Margin="10,0,0,10"/>
+        <Button Content="Tilføj kunde til tilbud" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Margin="234,0,0,10"/>
+
+        <GroupBox Header="Valgt kunde" HorizontalAlignment="Right" Height="Auto" Margin="0,29,10,0" VerticalAlignment="Top" Width="400">
             <Grid>
                 <Label Content="Kundenavn:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10" Width="100"/>
                 <TextBox x:Name="CustomerName_TB" Text="{Binding CurrentCustomer.CustomerName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,14,10,10" Width="250"/>
@@ -36,7 +37,7 @@
                 <Label Content="Telefonnr.:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,10,10" Width="100"/>
                 <TextBox x:Name="CustomerTelephoneNo_TB"  Text="{Binding CurrentCustomer.PhoneNo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,134,10,10" Width="250"/>
                 <Label Content="Mail:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,10,10" Width="100"/>
-                <TextBox x:Name="CustomerEMail_TB" Text="{Binding CurrentCustomer.EMail}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,164,10,10" Width="250"/>
+                <TextBox x:Name="CustomerEMail_TB" Text="{Binding CurrentCustomer.Email}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,164,10,10" Width="250"/>
                 <Label Content="Fast kunderabat:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,190,10,10" Width="100"/>
                 <TextBox x:Name="CustomerDiscount_TB" Text="{Binding CurrentCustomer.CustomerDiscount}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,194,0,0" Width="250"/>
                 <Button Content="Opdater Kunde" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,220,10,10"/>

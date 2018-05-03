@@ -68,7 +68,7 @@
             </MenuItem>
         </Menu>
         <Grid>
-            <Grid  Background="#FFE5E5E5" Height="688" VerticalAlignment="Top">
+            <Grid  Background="#FFE5E5E5" Height="688" VerticalAlignment="Top" Margin="10,0,-10,-16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="12*"/>
                     <ColumnDefinition Width="205*"/>
@@ -123,6 +123,7 @@
                 <TextBox x:Name="Quantity_TextBox" Text="{Binding QuantityTextBoxText}" HorizontalAlignment="Left" Height="24" Margin="130.6,629,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="103" TextAlignment="Right" Style="{StaticResource placeHolder}" Tag="Skriv antal" Grid.Column="1"/>
                 <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="681.6,568,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" TextAlignment="Right" Grid.Column="1"/>
                 <Label x:Name="OfferDiscount_Label" Content="Sæt samlet tilbudsrabat:" HorizontalAlignment="Left" Margin="519.6,567,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <Button x:Name="AddCustomerToOffer_Button" Content="Tilføj kunde til tilbud" Grid.Column="1" HorizontalAlignment="Left" Margin="383,461,0,0" VerticalAlignment="Top" Width="118" Height="26" Click="OnButtonClick_ShowCustomersWindow"/>
             </Grid>
 
         </Grid>

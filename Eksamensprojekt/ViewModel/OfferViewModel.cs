@@ -18,8 +18,20 @@ namespace ViewModel
         private ICommand clickAddButtonCommand;
         private ICommand openCreateCostumerWindow;
         private Offer currentOffer;
-       // private int quantityTextBoxText;
+        // private int quantityTextBoxText;
 
+        public Customer MyCustomer
+        {
+            get
+            {
+                return currentOffer.MyCustomer;
+            }
+            set
+            {
+                currentOffer.MyCustomer = value;
+                NotifyPropertyChanged("MyCustomer");
+            }
+        }
 
         public IBaseItem SelectedItem { get; set; }
         public string QuantityTextBoxText { get; set; }
