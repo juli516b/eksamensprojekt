@@ -97,6 +97,17 @@ namespace Model
             }   
         }
 
+        public double NoOfPallets
+        {
+            get;
+            set;
+        }
+        public int NoOfPackagaes
+        {
+            get;
+            set;
+        }
+
         public OfferLine(IBaseItem item, int quantity)
         {
             Quantity = quantity;
