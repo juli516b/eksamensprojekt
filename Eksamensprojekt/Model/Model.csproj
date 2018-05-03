@@ -44,7 +44,7 @@
     <Compile Include="CustomerRepository.cs" />
     <Compile Include="DiscountMath.cs" />
     <Compile Include="IBaseItem.cs" />
-    <Compile Include="IPersistentDataHandler.cs" />
+    <Compile Include="IPersistentItemDataHandler.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemRepository.cs" />
     <Compile Include="Offer.cs" />

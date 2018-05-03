@@ -14,7 +14,7 @@ namespace ViewModel
 {
     public class OfferViewModel : INotifyPropertyChanged
     {
-        IPersistentDataHandler dataHandler;
+        IPersistentItemDataHandler dataHandler;
         private ICommand clickAddButtonCommand;
         private ICommand openCreateCostumerWindow;
         private Offer currentOffer;

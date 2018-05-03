@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public interface IPersistentDataHandler
+    public interface IPersistentItemDataHandler
     {
         IList<IBaseItem> GetAll(IList<IBaseItem> items);
         //bool SaveType();
