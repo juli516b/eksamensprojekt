@@ -47,29 +47,6 @@ namespace ViewModel
         }
         public IBaseItem SelectedItem { get; set; }
         public string QuantityTextBoxText { get; set; }
-        public ICommand OpenCreateCostumerWindow
-        {
-            get { 
-            if (openCreateCostumerWindow == null)
-                {
-                    openCreateCostumerWindow = new DelegateCommand(
-                        param => this.NewCostumerWindow(),
-                        param => this.CanOpenCostumerWindow()
-                    );
-                }
-                return openCreateCostumerWindow;
-            }
-        }
-
-        private bool CanOpenCostumerWindow()
-        {
-            return true;
-        }
-
-        private void NewCostumerWindow()
-        {
-           
-        }
 
         public ICommand AddButtonCommand
         {
@@ -78,7 +55,7 @@ namespace ViewModel
                 if (clickAddButtonCommand == null)
                 {
                     clickAddButtonCommand = new DelegateCommand(
-                        param => this.AddObject(),
+                        param => this.AddItem(),
                         param => this.CanAdd()
                     );
                 }
@@ -98,7 +75,7 @@ namespace ViewModel
             }
         }
 
-        private void AddObject()
+        private void AddItem()
         {
             if (SelectedItem != null)
             {
@@ -167,7 +144,6 @@ namespace ViewModel
             dataHandler = new ItemDataHandler();
             currentOffer = new Offer(DateTime.Now);
             SelectedItem = Items[0];
-
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
         {

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Vis Kunder" Height="450" Width="800" ResizeMode="NoResize">
     <Window.DataContext>
-        <vm:ShowCustomerViewModel/>
+        <vm:ShowCustomersViewModel/>
     </Window.DataContext>
     <Grid>
         <Label Content="Kundeliste" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="344"/>
