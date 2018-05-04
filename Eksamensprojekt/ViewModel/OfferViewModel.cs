@@ -18,7 +18,6 @@ namespace ViewModel
         private ICommand clickAddButtonCommand;
         private ICommand openCreateCostumerWindow;
         private Offer currentOffer;
-        // private int quantityTextBoxText;
 
         public Customer MyCustomer
         {
@@ -142,7 +141,22 @@ namespace ViewModel
             get { return currentOffer.OfferTotal; }
             set { currentOffer.OfferTotal = value; }
         }
-        
+
+        public int NoOfTotalPallets
+        {
+            get
+            {
+                return OfferLines.Sum(offerLine => offerLine.NoOfPallets);
+            }
+        }
+        public int NoOfTotalPackages
+        {
+            get
+            {
+                return OfferLines.Sum(offerLine => offerLine.NoOfPackages);
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
         {

@@ -84,6 +84,8 @@ namespace Model
                 NotifyAPropertyChanged("NoOfPallets");
                 NotifyAPropertyChanged("NoOfPackages");
                 APWC?.Invoke("OfferTotal");
+                APWC?.Invoke("NoOfTotalPallets");
+                APWC?.Invoke("NoOfTotalPackages");
             }
         }
 
