@@ -13,7 +13,7 @@ namespace Model
         public double ItemPrice { get; set; }
         public string ItemPriceF2
         {
-            get { return ItemPrice.ToString($"F2"); }
+            get { return Math.Round(ItemPrice,2).ToString($"F2"); }
         }
         public int CountPerPallet { get; set; }
         public Item(string itemName, string itemNo, double itemPrice)

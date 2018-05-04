@@ -81,6 +81,8 @@ namespace Model
             set {
                 quantity = value;
                 NotifyAPropertyChanged("OfferLineTotal");
+                NotifyAPropertyChanged("NoOfPallets");
+                NotifyAPropertyChanged("NoOfPackages");
                 APWC?.Invoke("OfferTotal");
             }
         }
@@ -97,15 +99,19 @@ namespace Model
             }   
         }
 
-        public double NoOfPallets
+        public int NoOfPallets
         {
-            get;
-            set;
+            get
+            {
+                return Quantity / Item.CountPerPallet;
+            }
         }
-        public int NoOfPackagaes
+        public int NoOfPackages
         {
-            get;
-            set;
+            get
+            {
+                return Quantity % Item.CountPerPallet;
+            }
         }
 
         public OfferLine(IBaseItem item, int quantity)
