@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Model
+{
+    public interface IPersistentCustomerDataHandler
+    {
+        IList<IBaseCustomer> GetAll(IList<IBaseCustomer> customers);
+        //bool SaveType();
+        //bool UpdateType();
+        //bool DeleteType();
+    }
+}
+

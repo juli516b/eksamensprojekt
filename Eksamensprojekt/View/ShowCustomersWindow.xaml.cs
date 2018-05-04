@@ -36,7 +36,19 @@ namespace Eksamensprojekt
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             owm.MyCustomer = (Customer)CustomerListView.SelectedItem;
+            Close_window_click(sender, e);
+        }
+
+        private void Close_window_click(object sender, RoutedEventArgs e)
+        {
             this.Close();
+        }
+
+        private void AddCustomer_click(object sender, RoutedEventArgs e)
+        {
+            CreateCostumerWindow cCW = new CreateCostumerWindow();
+            cCW.Show();
+            Close_window_click(sender, e);
         }
     }
 }

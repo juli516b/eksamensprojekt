@@ -58,5 +58,19 @@ namespace RabatmanViewModelTest
             Assert.AreEqual(3, ovm.NoOfTotalPallets);
             Assert.AreEqual(13, ovm.NoOfTotalPackages);
         }
+        [TestMethod]
+        public void AddCustomerTest()
+        {
+            //Arrange
+            IPersistentCustomerDataHandler cdh = new CustomerDataHandler();
+            CreateCustomerViewModel createCustomerViewModel = new CreateCustomerViewModel();
+            //Act
+            int noOfCustomers = CustomerRepository.GetInstance(cdh).Customers.Count;
+            createCustomerViewModel.CustomerName = "Mig";
+            createCustomerViewModel.AddNewCustomer();
+            
+            //Assert
+            Assert.AreEqual(noOfCustomers+1, CustomerRepository.GetInstance(cdh).Customers.Count);
+        }
     }
 }

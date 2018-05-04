@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerTest.cs" />
+    <Compile Include="FakeCustomerDataHandler.cs" />
     <Compile Include="ViewModelTest.cs" />
     <Compile Include="FakeItemDataHandler.cs" />
     <Compile Include="ItemTest.cs" />

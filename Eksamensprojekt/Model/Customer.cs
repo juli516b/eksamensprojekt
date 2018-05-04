@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Customer
+    public class Customer : IBaseCustomer
     {
         public string CustomerName { get; set; }
         public string CVRNumber { get; set; }

@@ -15,7 +15,7 @@ namespace ViewModel
         private CustomerRepository customerRepository;
         public CreateCustomerViewModel()
         {
-            customerRepository = CustomerRepository.GetInstance();
+            customerRepository = CustomerRepository.GetInstance(new CustomerDataHandler());
         }
 
         public string CustomerMessage
