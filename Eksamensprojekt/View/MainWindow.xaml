@@ -133,8 +133,10 @@
                 <Label x:Name="CustomerDiscountDisplayed_Label" Content="{Binding MyCustomerDiscount, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="681.2,534,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="28" Width="120"/>
                 <GroupBox Header="Logistik" FontWeight="Bold" HorizontalAlignment="Left" Height="151" Margin="383.2,504,0,0" VerticalAlignment="Top" Width="178" Grid.Column="1">
                     <Grid>
-                        <Label x:Name="PalletsSummary_Label" Content="{Binding NoOfTotalPallets, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
-                        <Label x:Name="PackagesSummary_Label" Content="{Binding NoOfTotalPackages, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="23,71,0,0" VerticalAlignment="Top" Height="24" Width="88"/>
+                        <Label x:Name="PalletsSummary_Label" FontWeight="Normal" Content="{Binding NoOfTotalPallets, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="107,30,0,0" VerticalAlignment="Top" Height="26" Width="37"/>
+                        <Label x:Name="PackagesSummary_Label" FontWeight="Normal" Content="{Binding NoOfTotalPackages, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="107,71,0,0" VerticalAlignment="Top" Height="24" Width="32"/>
+                        <Label x:Name="Pallets_Label" FontWeight="Normal" Content="Paller" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="24" Width="58"/>
+                        <Label x:Name="Packages_Label" FontWeight="Normal" Content="Pakker" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Height="24" Width="58"/>
                     </Grid>
                 </GroupBox>
             </Grid>
