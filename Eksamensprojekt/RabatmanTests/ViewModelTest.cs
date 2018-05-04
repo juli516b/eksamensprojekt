@@ -39,5 +39,24 @@ namespace RabatmanViewModelTest
             // OfferTotal = (100 + 10 + 100 * 0,8) * 0,9 = 171
 
         }
+        [TestMethod]
+        public void NumberOfPallets()
+        {
+            //Arrange
+            OfferViewModel ovm = new OfferViewModel();
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 1, 10);
+            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50, 25);
+
+            //Act
+            ovm.AddOfferLine(item, 27);
+
+            //Assert
+            Assert.AreEqual(2, ovm.NoOfTotalPallets);
+            Assert.AreEqual(7, ovm.NoOfTotalPackages);
+
+            ovm.AddOfferLine(item2, 31);
+            Assert.AreEqual(3, ovm.NoOfTotalPallets);
+            Assert.AreEqual(13, ovm.NoOfTotalPackages);
+        }
     }
 }
