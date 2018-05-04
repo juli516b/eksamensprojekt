@@ -175,6 +175,8 @@ namespace ViewModel
             OfferLines.Add(newOfferLine);
             newOfferLine.APWC += NotifyPropertyChanged;
             NotifyPropertyChanged("OfferTotal");
+            NotifyPropertyChanged("NoOfTotalPackages");
+            NotifyPropertyChanged("NoOfTotalPallets");
         }
     }
 }
