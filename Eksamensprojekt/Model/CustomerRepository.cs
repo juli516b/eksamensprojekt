@@ -8,12 +8,15 @@ namespace Model
 {
     public class CustomerRepository
     {
-        public IList<Customer> Customers { get; set; }
-        private CustomerRepository()
+        IPersistentCustomerDataHandler cDataHandler;
+        public IList<IBaseCustomer> Customers { get; set; }
+        private CustomerRepository(IPersistentCustomerDataHandler cdh)
         {
-            Customers = new List<Customer>();
+            cDataHandler = cdh;
+            Customers = new List<IBaseCustomer>();
+            Customers = cdh.GetAll(Customers);
         }
-        public string AddCustomer(Customer newCustomer) 
+        public string AddCustomer(IBaseCustomer newCustomer) 
         {
             string message = "Kunden blev ikke \ntilføjet til kundelisten";
             Customers.Add(newCustomer);
@@ -24,11 +27,11 @@ namespace Model
             return message;
         }
         private static CustomerRepository instance;
-        public static CustomerRepository GetInstance()
+        public static CustomerRepository GetInstance(IPersistentCustomerDataHandler cdh)
         {
             if (instance == null)
             {
-                instance = new CustomerRepository();
+                instance = new CustomerRepository(cdh);
             }
             return instance;
         }

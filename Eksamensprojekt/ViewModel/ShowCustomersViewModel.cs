@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,15 @@ namespace ViewModel
 {
     public class ShowCustomersViewModel
     {
-        public Customer CurrentCustomer { get; set; }
-        public IList<Customer> Customers { get; set; }
+        IPersistentCustomerDataHandler cDataHandler;
+        public IBaseCustomer CurrentCustomer { get; set; }
+        public ObservableCollection<IBaseCustomer> Customers { get; set; }
         private CustomerRepository customerRepo;
         public ShowCustomersViewModel()
         {
-            customerRepo = CustomerRepository.GetInstance();
-            Customers = customerRepo.Customers;
+            cDataHandler = new CustomerDataHandler();
+            customerRepo = CustomerRepository.GetInstance(cDataHandler);
+            Customers =new ObservableCollection<IBaseCustomer>(customerRepo.Customers);
             if (Customers.Count > 0)
             {
                 CurrentCustomer = Customers[0];

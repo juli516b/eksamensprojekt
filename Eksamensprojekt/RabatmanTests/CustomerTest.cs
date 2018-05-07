@@ -12,12 +12,17 @@ namespace RabatManCustomerTest
         public void AddCustomerTest()
         {
             //Arrange
-            CreateCustomerViewModel createCustomerViewModel = new CreateCustomerViewModel();
-            //Act
-            createCustomerViewModel.CustomerName = "Mig";
-            createCustomerViewModel.AddNewCustomer();
+            
+            IPersistentCustomerDataHandler fakeHandler = new FakeCustomerDataHandler();
+            IBaseCustomer newTestCustomer = new Customer()
+            {
+                CustomerName = "Mig"
+            };
+            CustomerRepository testRepo = CustomerRepository.GetInstance(fakeHandler);
+            int noOfCustomers = testRepo.Customers.Count;
+            testRepo.AddCustomer(newTestCustomer);
             //Assert
-            Assert.AreEqual(1, CustomerRepository.GetInstance().Customers.Count);
+            Assert.AreEqual(noOfCustomers+1, testRepo.Customers.Count);
         }
     }
 }

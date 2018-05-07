@@ -16,7 +16,6 @@ namespace ViewModel
     {
         IPersistentItemDataHandler dataHandler;
         private ICommand clickAddButtonCommand;
-        private ICommand openCreateCostumerWindow;
         private Offer currentOffer;
 
         public Customer MyCustomer
