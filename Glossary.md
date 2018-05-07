@@ -15,8 +15,9 @@
 |Tilbudspris|DiscountedPrice|Bruges ifm. tilbudslinjer|
 |Tilbudsrabat|OfferDiscount|Bruges ifm. samlet tilbud|
 |Speditør|ForwardingAgent|
+|SpeditørPris|ForwardingAgentPrice|Bemærk at speditør, logistik og transport kan beskrive det samme|
 |SpeditørNavn|ForwardingAgentName|
-|SpeditørProcentSats|ForwardingAgentPersentage|
+|SpeditørProcentSats|ForwardingAgentPersentage|Udgået|
 |Kunde|Customer|
 |Firmanavn|CustomerName|
 |CVRnr|CVRNumber|
