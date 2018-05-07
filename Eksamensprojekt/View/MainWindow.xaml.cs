@@ -22,35 +22,29 @@ namespace Eksamensprojekt
     /// </summary>
     public partial class MainWindow : Window
     {
-        OfferViewModel offerViewModel;
+        OfferViewModel owm;
         public MainWindow()
         {
+            owm = new OfferViewModel();
             InitializeComponent();
-            offerViewModel = new OfferViewModel();
-            DataContext = offerViewModel;
-        }
-        
-        private void AddItem_Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (itemListView.SelectedItem != null)
-            {
-                if (int.TryParse(Quantity_TextBox.Text, out int quantity))
-                {
-                    offerViewModel.AddOfferLine((Model.IBaseItem)itemListView.SelectedItem, quantity);
-                    offerDataGrid.Items.Refresh();
-                }
-                else
-                {
-                    MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
-                }
-            }
-            else {
-                MessageBox.Show("Du skal vælge en vare fra listen.");
-            }
-        }
+            DataContext = owm;
+            
+        }        
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Keyboard.ClearFocus();
+            
+        }
+
+        private void OnButtonClick_CreateCustomerWindow(object sender, RoutedEventArgs e)
+        {
+            CreateCostumerWindow cCW = new CreateCostumerWindow();
+            cCW.Show();
+        }
+        private void OnButtonClick_ShowCustomersWindow(object sender, RoutedEventArgs e)
+        {
+            ShowCustomersWindow scw = new ShowCustomersWindow(owm);
+            scw.Show();
         }
     }
 }

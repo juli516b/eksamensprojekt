@@ -12,6 +12,7 @@ namespace Model
     {
         private ObservableCollection<OfferLine> _offerLines;
 
+        public Customer MyCustomer { get; set; }
         public string OfferNo { get; set; }
         public DateTime OfferDate { get; set; }
         public double OfferTotal
@@ -21,6 +22,10 @@ namespace Model
                 double total = 0;
                 total += OfferLines.Sum(offerLine => offerLine.OfferLineTotal);
                 total = DiscountMath.PercentToPrice(OfferDiscount, total);
+                if (MyCustomer != null)
+                {
+                    total = DiscountMath.PercentToPrice(MyCustomer.CustomerDiscount, total);
+                }
                 return total;
             }
             set

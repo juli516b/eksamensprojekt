@@ -7,7 +7,7 @@ using Model;
 
 namespace RabatmanItemTest
 {
-    public class FakeItemDataHandler : IPersistentDataHandler
+    public class FakeItemDataHandler : IPersistentItemDataHandler
     {
         public IList<IBaseItem> GetAll(IList<IBaseItem> items)
         {

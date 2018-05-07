@@ -5,14 +5,96 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 using Model;
+
 
 namespace ViewModel
 {
     public class OfferViewModel : INotifyPropertyChanged
     {
-        IPersistentDataHandler dataHandler;
+        IPersistentItemDataHandler dataHandler;
+        private ICommand clickAddButtonCommand;
+        private ICommand openCreateCostumerWindow;
         private Offer currentOffer;
+
+        public Customer MyCustomer
+        {
+            get
+            {
+                return currentOffer.MyCustomer;
+            }
+            set
+            {
+                currentOffer.MyCustomer = value;
+                NotifyPropertyChanged("MyCustomer");
+                NotifyPropertyChanged("OfferTotal");
+                NotifyPropertyChanged("MyCustomerDiscount");
+            }
+        }
+        public string MyCustomerDiscount
+        {
+            get
+            {
+                string customerDiscount_Label = "";
+                if (MyCustomer != null)
+                {
+                    customerDiscount_Label = MyCustomer.CustomerDiscount.ToString() + " %";
+                }
+                return customerDiscount_Label;
+            }
+        }
+        public IBaseItem SelectedItem { get; set; }
+        public string QuantityTextBoxText { get; set; }
+
+        public ICommand AddButtonCommand
+        {
+            get
+            {
+                if (clickAddButtonCommand == null)
+                {
+                    clickAddButtonCommand = new DelegateCommand(
+                        param => this.AddItem(),
+                        param => this.CanAdd()
+                    );
+                }
+                return clickAddButtonCommand;
+            }
+        }
+
+        private bool CanAdd()
+        {
+            if(SelectedItem != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void AddItem()
+        {
+            if (SelectedItem != null)
+            {
+                if (int.TryParse(QuantityTextBoxText, out int quantity))
+                {
+                   AddOfferLine((Model.IBaseItem)SelectedItem, quantity);
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Du skal vælge en vare fra listen.");
+            }
+        }
+
         public IList<IBaseItem> Items {
             get { return ItemRepository.GetInstance(dataHandler).Items; }
             set { ItemRepository.GetInstance(dataHandler).Items = value; }
@@ -36,7 +118,22 @@ namespace ViewModel
             get { return currentOffer.OfferTotal; }
             set { currentOffer.OfferTotal = value; }
         }
-        
+
+        public int NoOfTotalPallets
+        {
+            get
+            {
+                return OfferLines.Sum(offerLine => offerLine.NoOfPallets);
+            }
+        }
+        public int NoOfTotalPackages
+        {
+            get
+            {
+                return OfferLines.Sum(offerLine => offerLine.NoOfPackages);
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
         {
@@ -46,6 +143,7 @@ namespace ViewModel
         {
             dataHandler = new ItemDataHandler();
             currentOffer = new Offer(DateTime.Now);
+            SelectedItem = Items[0];
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
         {
@@ -53,6 +151,8 @@ namespace ViewModel
             OfferLines.Add(newOfferLine);
             newOfferLine.APWC += NotifyPropertyChanged;
             NotifyPropertyChanged("OfferTotal");
+            NotifyPropertyChanged("NoOfTotalPackages");
+            NotifyPropertyChanged("NoOfTotalPallets");
         }
     }
 }
