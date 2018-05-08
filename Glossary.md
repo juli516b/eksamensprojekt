@@ -1,7 +1,7 @@
 ﻿# Ordliste / Glossary
 
-| Domænesprog | Designsprog | Beskrivelse |
-|---|---|---|
+| Domænesprog | Designsprog | Beskrivelse | Use Case |
+|---|---|---|---|
 |Vare|Item|
 |Varekartotek|ItemRepository|
 |Varenr|ItemNo|
