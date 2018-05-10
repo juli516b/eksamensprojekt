@@ -1,27 +1,27 @@
 ﻿# Ordliste / Glossary
 
-| Domænesprog | Designsprog | Beskrivelse |
-|---|---|---|
-|Vare|Item|
-|Varekartotek|ItemRepository|
-|Varenr|ItemNo|
-|Varenavn|ItemName|
-|Varepris|ItemPrice|
-|Tilbud|Offer|
-|Tilbudslinje|OfferLine|
-|TilbudsNr|OfferNo|
-|Antal|Quantity|
-|Rabat i procent|PercentDiscount|Bruges ifm. tilbudslinjer|
-|Tilbudspris|DiscountedPrice|Bruges ifm. tilbudslinjer|
-|Tilbudsrabat|OfferDiscount|Bruges ifm. samlet tilbud|
-|Speditør|ForwardingAgent|
-|SpeditørPris|ForwardingAgentPrice|Bemærk at speditør, logistik og transport kan beskrive det samme|
-|SpeditørNavn|ForwardingAgentName|
-|SpeditørProcentSats|ForwardingAgentPersentage|Udgået|
-|Kunde|Customer|
-|Firmanavn|CustomerName|
-|CVRnr|CVRNumber|
-|Adresse|CustomerAdress|
-|TLFNr|PhoneNo|
-|mail|Email|
-|Kunderabat|CustomerDiscount|
+| Domænesprog | Designsprog | Beskrivelse | Use Case |
+|---|---|---|---|
+|Vare|Item||Opret varekartotek|
+|Varekartotek|ItemRepository||Opret varekartotek|
+|Varenr|ItemNo||Opret varekartotek|
+|Varenavn|ItemName||Opret varekartotek|
+|Varepris|ItemPrice||Opret varekartotek|
+|Tilbud|Offer||Opret tilbud|
+|Tilbudslinje|OfferLine||Opret tilbud|
+|TilbudsNr|OfferNo||Opret tilbud|
+|Antal|Quantity||Opret tilbud|
+|Rabat i procent|PercentDiscount|Bruges ifm. tilbudslinjer|Sæt rabat på tilbudslinje|
+|Tilbudspris|DiscountedPrice|Bruges ifm. tilbudslinjer|Sæt rabat på tilbudslinje|
+|Tilbudsrabat|OfferDiscount|Bruges ifm. samlet tilbud|Sæt rabat på samlet tilbud
+|Speditør|ForwardingAgent||"Tilføj %-logistikomkostninger til tilbud"(udgået) / "Tilføj logistikomkostninger til tilbud"|
+|SpeditørPris|ForwardingAgentPrice|Bemærk at speditør, logistik og transport kan beskrive det samme|Tilføj logistikomkostninger til tilbud|
+|SpeditørNavn|ForwardingAgentName||"Tilføj %-logistikomkostninger til tilbud"(udgået)|
+|SpeditørProcentSats|ForwardingAgentPersentage|Udgået|"Tilføj %-logistikomkostninger til tilbud"(udgået)|
+|Kunde|Customer||Tilføj kunde til tilbud|
+|Firmanavn|CustomerName||Tilføj kunde til tilbud|
+|CVRnr|CVRNumber||Tilføj kunde til tilbud|
+|Adresse|CustomerAdress||Tilføj kunde til tilbud|
+|TLFNr|PhoneNo||Tilføj kunde til tilbud|
+|mail|Email||Tilføj kunde til tilbud|
+|Kunderabat|CustomerDiscount||Tilføj kunde til tilbud|
