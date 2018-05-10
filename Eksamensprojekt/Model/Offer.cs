@@ -26,6 +26,10 @@ namespace Model
                 {
                     total = DiscountMath.PercentToPrice(MyCustomer.CustomerDiscount, total);
                 }
+                if (ForwardingAgentPrice > 0)
+                {
+                    total += ForwardingAgentPrice;
+                }
                 return total;
             }
             set
@@ -41,6 +45,8 @@ namespace Model
             }
         }
         public double OfferDiscount { get; set; }
+        public double ForwardingAgentPrice { get; set; }
+
         public Offer(DateTime creationDate)
         {
             OfferDate = creationDate;
