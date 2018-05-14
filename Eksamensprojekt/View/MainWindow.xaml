@@ -144,7 +144,7 @@
                     </Grid>
                 </GroupBox>
                 <Label x:Name="Transport_Label" Content="Transportomkostninger:" HorizontalAlignment="Left" Margin="573,532,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                <TextBox x:Name="Transport_Textboks" Text="{Binding ForwardingAgentPrice}"  HorizontalAlignment="Left" Height="23" Margin="714,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Right"/>
+                <TextBox x:Name="Transport_Textboks" Text="{Binding ForwardingAgentPrice, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" Margin="714,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Right"/>
                 <Label x:Name="OfferLinesSubtotalDescription_Label" Content="Subtotal, varer:" HorizontalAlignment="Left" Margin="574,457,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <Label x:Name="OfferLinesSubtotal_Label" Content="{Binding OfferLinesSubtotal}"  HorizontalAlignment="Left" Height="23" Margin="7,461,0,0" VerticalAlignment="Top" Width="87" Grid.Column="2" HorizontalContentAlignment="Right"/>
             </Grid>
