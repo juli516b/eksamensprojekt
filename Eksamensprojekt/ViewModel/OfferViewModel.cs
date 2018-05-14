@@ -39,7 +39,7 @@ namespace ViewModel
         }
         public double OfferLinesSubtotal
         {
-            get { return OfferLines.Sum(offerLine => offerLine.OfferLineTotal); }
+            get { return OfferLines.Sum(offerLine => offerLine.Item.ItemPrice * offerLine.Quantity); }
         }
         public string MyCustomerDiscount
         {
@@ -137,8 +137,8 @@ namespace ViewModel
             set { currentOffer.OfferLines = value; }
         }
 
-        public string OfferTotal {
-            get { return Math.Round(currentOffer.OfferTotal,2).ToString(); }
+        public double OfferTotal {
+            get { return Math.Round(currentOffer.OfferTotal,2); }
         }
         public int NoOfTotalPallets
         {
