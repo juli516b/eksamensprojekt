@@ -11,7 +11,7 @@ namespace RabatManOfferLineDiscountTest
         public void OfferLineTotalTest()
         {
             //Arrange
-            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25);
+            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, "Frankrig", 25);
             OfferLine offerLine = new OfferLine(item, 100);
             //Act
             //Assert
@@ -21,7 +21,7 @@ namespace RabatManOfferLineDiscountTest
         public void DiscountedPriceMathTest()
         {
             //Arrange
-            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25);
+            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, "Frankrig", 25);
             OfferLine offerLine = new OfferLine(item, 100);
             //Act
             offerLine.DiscountedPrice = 15;
@@ -33,7 +33,7 @@ namespace RabatManOfferLineDiscountTest
         public void PercentDiscountMathTest()
         {
             //Arrange
-            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25);
+            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, "Frankrig", 25);
             OfferLine offerLine = new OfferLine(item, 100);
             //Act
             offerLine.PercentDiscount = 20;

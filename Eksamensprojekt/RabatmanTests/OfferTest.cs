@@ -13,7 +13,7 @@ namespace RabatmanOfferTest
         public void AddOfferLineToOffer()
         {
             //Arrange
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 25.95);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 25.95, "Frankrig", 25);
             OfferLine offerLine = new OfferLine(item, 20);
             Offer offer = new Offer(DateTime.Now);
             //Act
@@ -25,7 +25,7 @@ namespace RabatmanOfferTest
         public void TestOfferLineTotal()
         {
             //Arrange
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 10.5);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 10.5, "Frankrig", 25);
             OfferLine offerLine1 = new OfferLine(item, 2);
             //Act
             //Assert
@@ -35,8 +35,8 @@ namespace RabatmanOfferTest
         public void TestOfferTotal()
         {
             //Arrange
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 10.5);
-            IBaseItem item2 = new Item("PommesDeluxe2", "123456782", 20.25);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 10.5, "Frankrig", 25);
+            IBaseItem item2 = new Item("PommesDeluxe2", "123456782", 20.25, "Frankrig", 25);
             Offer testOffer = new Offer(new DateTime(2017, 11, 01));
             OfferLine offerLine1 = new OfferLine(item, 5); //52.5 total
             OfferLine offerLine2 = new OfferLine(item2, 10); //202,5 total
@@ -52,8 +52,8 @@ namespace RabatmanOfferTest
         public void TestOfferDiscount()
         {
             //Arrange
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 1);
-            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 1, "Frankrig", 25);
+            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50, "Frankrig", 25);
             Offer offer = new Offer(DateTime.Now);
             OfferLine offerLine = new OfferLine(item, 100);
 
