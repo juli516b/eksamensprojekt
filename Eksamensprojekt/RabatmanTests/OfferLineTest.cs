@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
+using Model.BaseTypes;
 
 namespace RabatManOfferLineDiscountTest
 {

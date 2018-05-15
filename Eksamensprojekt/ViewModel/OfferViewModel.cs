@@ -3,26 +3,24 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Model;
-
+using Model.BaseTypes;
 
 namespace ViewModel
 {
     public class OfferViewModel : INotifyPropertyChanged
     {
-        IPersistentItemDataHandler dataHandler;
+        readonly IPersistentItemDataHandler dataHandler;
         private ICommand clickAddButtonCommand;
-        private Offer currentOffer;
+        private readonly Offer currentOffer;
 
         public Customer MyCustomer
         {
             get
             {
-                Customer customer = new Customer() { CustomerName = "Ingen kunde valgt" };
+                Customer customer = new Customer { CustomerName = "Ingen kunde valgt" };
                 if (currentOffer.MyCustomer != null)
                 {
                     customer = currentOffer.MyCustomer;
@@ -48,7 +46,7 @@ namespace ViewModel
                 string customerDiscount_Label = "";
                 if (MyCustomer != null)
                 {
-                    customerDiscount_Label = MyCustomer.CustomerDiscount.ToString() + " %";
+                    customerDiscount_Label = MyCustomer.CustomerDiscount + " %";
                 }
                 return customerDiscount_Label;
             }
@@ -71,8 +69,8 @@ namespace ViewModel
                 if (clickAddButtonCommand == null)
                 {
                     clickAddButtonCommand = new DelegateCommand(
-                        param => this.AddItem(),
-                        param => this.CanAdd()
+                        param => AddItem(),
+                        param => CanAdd()
                     );
                 }
                 return clickAddButtonCommand;
@@ -85,10 +83,8 @@ namespace ViewModel
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         private void AddItem()
@@ -96,10 +92,7 @@ namespace ViewModel
             if (SelectedItem != null)
             {
                 if (int.TryParse(QuantityTextBoxText, out int quantity))
-                {
-                   AddOfferLine((Model.IBaseItem)SelectedItem, quantity);
-                    
-                }
+                    AddOfferLine(SelectedItem, quantity);
                 else
                 {
                     MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
@@ -120,7 +113,7 @@ namespace ViewModel
             get { return Math.Round(currentOffer.OfferDiscount,2).ToString(); }
             set
             {
-                if (value == null || value == "")
+                if (string.IsNullOrEmpty(value))
                 {
                     currentOffer.OfferDiscount = 0;
 

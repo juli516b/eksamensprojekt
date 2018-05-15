@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ViewModel;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
+using Model.BaseTypes;
 
 namespace RabatManCustomerTest
 {
@@ -14,7 +13,7 @@ namespace RabatManCustomerTest
             //Arrange
             
             IPersistentCustomerDataHandler fakeHandler = new FakeCustomerDataHandler();
-            IBaseCustomer newTestCustomer = new Customer()
+            IBaseCustomer newTestCustomer = new Customer
             {
                 CustomerName = "Mig"
             };

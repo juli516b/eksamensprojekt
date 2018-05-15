@@ -1,8 +1,6 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
+using Model.BaseTypes;
 using ViewModel;
 
 namespace RabatmanViewModelTest
