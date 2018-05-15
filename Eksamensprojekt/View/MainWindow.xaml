@@ -121,14 +121,9 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Label x:Name="TotalPrice_Label" Content="Total Pris:" HorizontalAlignment="Left" Height="27" Margin="573.2,626,0,0" VerticalAlignment="Top" Width="138" Grid.Column="1"/>
-                <Label x:Name="Price_Label" Content="{Binding OfferTotal, UpdateSourceTrigger=PropertyChanged, StringFormat=F2}"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="27" Margin="693.2,626,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <Button x:Name="AddItem_Button" Command="{Binding AddButtonCommand}" Content="Tilføj vare" HorizontalAlignment="Left" Height="26" Margin="274.2,629,0,0" VerticalAlignment="Top" Width="81" Grid.Column="1" />
                 <TextBox x:Name="Quantity_TextBox" Text="{Binding QuantityTextBoxText}" HorizontalAlignment="Left" Height="24" Margin="130.2,629,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="103" TextAlignment="Right" Style="{StaticResource placeHolder}" Tag="Skriv antal" Grid.Column="1"/>
-                <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="8.4,597,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="84" TextAlignment="Right" Grid.Column="2"/>
-                <Label x:Name="OfferDiscount_Label" Content="Tilbudsrabat:" HorizontalAlignment="Left" Margin="573.2,596,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="78"/>
-                <Label x:Name="CustomerDiscount_Label" Content="Kunderabat:" Grid.Column="1" HorizontalAlignment="Left" Margin="573.2,564,0,0" VerticalAlignment="Top" Height="28" Width="138"/>
-                <Label x:Name="CustomerDiscountDisplayed_Label" Content="{Binding MyCustomerDiscount, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="681.2,564,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="28" Width="120"/>
+
                 <GroupBox Header="Kunde" HorizontalAlignment="Left" Height="60" Margin="360.2,480,0,0" VerticalAlignment="Top" Width="210" Grid.Column="1" MouseLeftButtonDown="OnButtonClick_ShowCustomersWindow">
                     <Grid>
                         <Label x:Name="CustomerName_Label" Content="{Binding MyCustomer.CustomerName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="5,2,5,2" VerticalAlignment="Top" Height="27" Width="191"/>
@@ -143,10 +138,20 @@
                         <Label x:Name="PackagesSummary_Label" FontWeight="Normal" Content="{Binding NoOfTotalPackages, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="107,51,0,0" VerticalAlignment="Top" Height="24" Width="32"/>
                     </Grid>
                 </GroupBox>
-                <Label x:Name="Transport_Label" Content="Transportomkostninger:" HorizontalAlignment="Left" Margin="573.2,532,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="136"/>
-                <TextBox x:Name="Transport_Textboks" Text="{Binding ForwardingAgentPrice, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" Margin="8.4,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Grid.Column="2" TextAlignment="Right"/>
-                <Label x:Name="OfferLinesSubtotalDescription_Label" Content="Subtotal, varer:" HorizontalAlignment="Left" Margin="574.2,457,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="89"/>
-                <Label x:Name="OfferLinesSubtotal_Label" Content="{Binding OfferLinesSubtotal}"  HorizontalAlignment="Left" Height="23" Margin="1.4,461,0,0" VerticalAlignment="Top" Width="87" Grid.Column="2" HorizontalContentAlignment="Right"/>
+                <GroupBox Header="Økonomi" FontWeight="Bold" Margin="575.2,457,52,0" Grid.Column="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="196">
+                    <Grid>
+                        <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="84" TextAlignment="Right"/>
+                        <Label x:Name="Transport_Label" Content="Transportomkostninger:" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Height="26" Width="136" RenderTransformOrigin="0.487,-1.954"/>
+                        <TextBox x:Name="Transport_Textboks" Text="{Binding ForwardingAgentPrice, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" Margin="1.4,487,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" TextAlignment="Right" RenderTransformOrigin="0.493,-0.783"/>
+                        <Label x:Name="OfferLinesSubtotalDescription_Label" Content="Subtotal" HorizontalAlignment="Left" Margin="0,457,0,0" VerticalAlignment="Top" Height="26" Width="136"/>
+                        <Label x:Name="OfferLinesSubtotal_Label" Content="{Binding OfferLinesSubtotal}"  HorizontalAlignment="Left" Height="23" Margin="1.4,457,0,0" VerticalAlignment="Top" Width="87" HorizontalContentAlignment="Right"/>
+                        <Label x:Name="OfferDiscount_Label" Content="Tilbudsrabat:" HorizontalAlignment="Left" Margin="575.2,535,0,0" VerticalAlignment="Top" Height="26" Width="136"/>
+                        <Label x:Name="CustomerDiscount_Label" Content="Kunderabat:" HorizontalAlignment="Left" Margin="575.2,509,0,0" VerticalAlignment="Top" Height="28" Width="136"/>
+                        <Label x:Name="CustomerDiscountDisplayed_Label" Content="{Binding MyCustomerDiscount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="6.4,514,0,0" VerticalAlignment="Top" Height="28" Width="82"/>
+                        <Label x:Name="TotalPrice_Label" Content="Total pris:" HorizontalAlignment="Left" Height="27" Margin="1,137,0,0" VerticalAlignment="Top" Width="138"/>
+                        <Label x:Name="Price_Label" Content="{Binding OfferTotal, UpdateSourceTrigger=PropertyChanged, StringFormat=F2}"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="27" Margin="50,137,0,0" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
+                </GroupBox>
             </Grid>
         </Grid>
     </DockPanel>
