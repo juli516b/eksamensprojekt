@@ -45,6 +45,8 @@ namespace Model
                     NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");
                     APWC?.Invoke("OfferLinesSubtotal");
+                    APWC?.Invoke("TotalDiscountedPrice");
+                    APWC?.Invoke("TotalPercentedPrice");
                 }
             }
         }
@@ -61,6 +63,8 @@ namespace Model
                     NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");
                     APWC?.Invoke("OfferLinesSubtotal");
+                    APWC?.Invoke("TotalDiscountedPrice");
+                    APWC?.Invoke("TotalPercentedPrice");
                 }
             }
         }

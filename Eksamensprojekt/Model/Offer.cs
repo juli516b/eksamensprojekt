@@ -31,6 +31,15 @@ namespace Model
             }
         }
 
+        public double OfferSubtotal
+        {
+            get
+            {
+                double subtotal = OfferLines.Sum(offerLine => offerLine.Item.ItemPrice * offerLine.Quantity);
+                return subtotal;
+            }
+        }
+
         public ObservableCollection<OfferLine> OfferLines { get => offerLines;
             set
             {

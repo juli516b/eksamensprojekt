@@ -33,11 +33,12 @@ namespace ViewModel
                 NotifyPropertyChanged("MyCustomer");
                 NotifyPropertyChanged("OfferTotal");
                 NotifyPropertyChanged("MyCustomerDiscount");
+                NotifyPropertyChanged("TotalPercentedPrice");
             }
         }
-        public double OfferLinesSubtotal
+        public string OfferLinesSubtotal
         {
-            get { return OfferLines.Sum(offerLine => offerLine.Item.ItemPrice * offerLine.Quantity); }
+            get { return currentOffer.OfferSubtotal + " DKK"; }
         }
         public string MyCustomerDiscount
         {
@@ -51,11 +52,15 @@ namespace ViewModel
                 return customerDiscount_Label;
             }
         }
-        public double  ForwardingAgentPrice
+        public double ForwardingAgentPrice
         {
-            get { return currentOffer.ForwardingAgentPrice; }
+            get
+            {
+                return currentOffer.ForwardingAgentPrice;
+            }
             set {
                 currentOffer.ForwardingAgentPrice = value;
+                NotifyPropertyChanged("TotalPercentedPrice");
                 NotifyPropertyChanged("OfferTotal");
             }
         }
@@ -121,6 +126,8 @@ namespace ViewModel
                 else { 
                     currentOffer.OfferDiscount = Convert.ToDouble(value);
                 }
+                NotifyPropertyChanged("TotalDiscountedPrice");
+                NotifyPropertyChanged("TotalPercentedPrice");
                 NotifyPropertyChanged("OfferTotal");
             }
         }
@@ -130,8 +137,12 @@ namespace ViewModel
             set { currentOffer.OfferLines = value; }
         }
 
-        public double OfferTotal {
-            get { return Math.Round(currentOffer.OfferTotal,2); }
+        public string OfferTotal {
+            get
+            {
+                string offerTotalText;
+                return offerTotalText = Math.Round(currentOffer.OfferTotal,2) + " DKK";
+            }
         }
         public int NoOfTotalPallets
         {
@@ -147,6 +158,27 @@ namespace ViewModel
                 return OfferLines.Sum(offerLine => offerLine.NoOfPackages);
             }
         }
+
+        public string TotalPercentedPrice
+        {
+            get
+            {
+                string TotalPercentedPriceLabel = "";
+                if(OfferLinesSubtotal != 0 + " DKK")
+                return DiscountMath.PriceToPercent(currentOffer.OfferTotal, currentOffer.OfferSubtotal) + " %";
+                return TotalPercentedPriceLabel += "0 %";
+
+            }
+        }
+
+        public string TotalDiscountedPrice
+        {
+            get
+            {
+                return currentOffer.OfferSubtotal - currentOffer.OfferTotal + " DKK";
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
         {
@@ -167,6 +199,8 @@ namespace ViewModel
             NotifyPropertyChanged("NoOfTotalPackages");
             NotifyPropertyChanged("NoOfTotalPallets");
             NotifyPropertyChanged("OfferLinesSubtotal");
+            NotifyPropertyChanged("TotalDiscountedPrice");
+            NotifyPropertyChanged("TotalPercentedPrice");
         }
     }
 }
