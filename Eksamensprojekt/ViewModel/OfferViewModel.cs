@@ -22,7 +22,7 @@ namespace ViewModel
         {
             get
             {
-                Customer customer = new Customer() { CustomerName = "Ingen kunde valgt" };
+                Customer customer = new Customer() { CustomerName = "Ingen kunde valgt. Klik for at tilføje" };
                 if (currentOffer.MyCustomer != null)
                 {
                     customer = currentOffer.MyCustomer;
