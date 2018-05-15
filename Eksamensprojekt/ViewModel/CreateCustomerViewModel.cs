@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows.Input;
 using Model;
 
@@ -12,7 +7,7 @@ namespace ViewModel
     public class CreateCustomerViewModel : INotifyPropertyChanged
     {
         private string customerMessage;
-        private CustomerRepository customerRepository;
+        private readonly CustomerRepository customerRepository;
         public CreateCustomerViewModel()
         {
             customerRepository = CustomerRepository.GetInstance(new CustomerDataHandler());
@@ -43,8 +38,8 @@ namespace ViewModel
                 if (saveCustomer == null)
                 {
                     saveCustomer = new DelegateCommand(
-                        param => this.AddNewCustomer(),
-                        param => this.CanAddCustomer()
+                        param => AddNewCustomer(),
+                        param => CanAddCustomer()
                     );
                 }
                 return saveCustomer;
@@ -53,17 +48,13 @@ namespace ViewModel
 
         private bool CanAddCustomer()
         {
-            bool canExecute = false;
-            if (CustomerName != "")
-            {
-                canExecute = true;
-            }
+            bool canExecute = CustomerName != "";
             return canExecute;
         }
 
         public void AddNewCustomer()
         {
-            Customer myCustomer = new Customer()
+            Customer myCustomer = new Customer
             {
                 CustomerName = CustomerName,
                 CustomerAdress = CustomerAdress,
@@ -86,7 +77,7 @@ namespace ViewModel
         }
         public string CVRNumber { get; set; }
         public string CustomerAdress { get; set; }
-        public int CustomerZip { get; set; }
+        private int CustomerZip { get; set; }
         public int PhoneNo { get; set; }
         public string Email { get; set; }
         public double CustomerDiscount { get; set; }

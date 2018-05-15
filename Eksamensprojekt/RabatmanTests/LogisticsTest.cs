@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
+using Model.BaseTypes;
 using ViewModel;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PomfritTest
 {

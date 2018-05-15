@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Model
 {
     public class Offer
     {
-        private ObservableCollection<OfferLine> _offerLines;
+        private DateTime CreationDate { get; set; }
+        private ObservableCollection<OfferLine> offerLines;
 
         public Customer MyCustomer { get; set; }
         public string OfferNo { get; set; }
-        public DateTime OfferDate { get; set; }
+
         public double OfferTotal
         {
             get
@@ -32,16 +29,21 @@ namespace Model
                 }
                 return total;
             }
-            set
+        }
+
+        public double OfferSubtotal
+        {
+            get
             {
-                return;
+                double subtotal = OfferLines.Sum(offerLine => offerLine.Item.ItemPrice * offerLine.Quantity);
+                return subtotal;
             }
         }
 
-        public ObservableCollection<OfferLine> OfferLines { get => _offerLines;
+        public ObservableCollection<OfferLine> OfferLines { get => offerLines;
             set
             {
-                _offerLines = value;
+                offerLines = value;
             }
         }
         public double OfferDiscount { get; set; }
@@ -49,7 +51,7 @@ namespace Model
 
         public Offer(DateTime creationDate)
         {
-            OfferDate = creationDate;
+            CreationDate = creationDate;
             OfferLines = new ObservableCollection<OfferLine>();
         }
         public void AddOfferLine(OfferLine offerLine)

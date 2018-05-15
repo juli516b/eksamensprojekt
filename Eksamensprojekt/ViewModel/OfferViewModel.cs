@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Model;
-
+using Model.BaseTypes;
 
 namespace ViewModel
 {
     public class OfferViewModel : INotifyPropertyChanged
     {
-        IPersistentItemDataHandler dataHandler;
+        readonly IPersistentItemDataHandler dataHandler;
         private ICommand clickAddButtonCommand;
-        private Offer currentOffer;
+        private readonly Offer currentOffer;
 
         public Customer MyCustomer
         {
             get
             {
+
                 Customer customer = new Customer() { CustomerName = "Ingen kunde valgt. Klik for at tilføje" };
+
                 if (currentOffer.MyCustomer != null)
                 {
                     customer = currentOffer.MyCustomer;
@@ -35,11 +35,12 @@ namespace ViewModel
                 NotifyPropertyChanged("MyCustomer");
                 NotifyPropertyChanged("OfferTotal");
                 NotifyPropertyChanged("MyCustomerDiscount");
+                NotifyPropertyChanged("TotalPercentedPrice");
             }
         }
-        public double OfferLinesSubtotal
+        public string OfferLinesSubtotal
         {
-            get { return OfferLines.Sum(offerLine => offerLine.Item.ItemPrice * offerLine.Quantity); }
+            get { return currentOffer.OfferSubtotal + " DKK"; }
         }
         public string MyCustomerDiscount
         {
@@ -48,16 +49,20 @@ namespace ViewModel
                 string customerDiscount_Label = "";
                 if (MyCustomer != null)
                 {
-                    customerDiscount_Label = MyCustomer.CustomerDiscount.ToString() + " %";
+                    customerDiscount_Label = MyCustomer.CustomerDiscount + " %";
                 }
                 return customerDiscount_Label;
             }
         }
-        public double  ForwardingAgentPrice
+        public double ForwardingAgentPrice
         {
-            get { return currentOffer.ForwardingAgentPrice; }
+            get
+            {
+                return currentOffer.ForwardingAgentPrice;
+            }
             set {
                 currentOffer.ForwardingAgentPrice = value;
+                NotifyPropertyChanged("TotalPercentedPrice");
                 NotifyPropertyChanged("OfferTotal");
             }
         }
@@ -71,8 +76,8 @@ namespace ViewModel
                 if (clickAddButtonCommand == null)
                 {
                     clickAddButtonCommand = new DelegateCommand(
-                        param => this.AddItem(),
-                        param => this.CanAdd()
+                        param => AddItem(),
+                        param => CanAdd()
                     );
                 }
                 return clickAddButtonCommand;
@@ -85,10 +90,8 @@ namespace ViewModel
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         private void AddItem()
@@ -96,10 +99,7 @@ namespace ViewModel
             if (SelectedItem != null)
             {
                 if (int.TryParse(QuantityTextBoxText, out int quantity))
-                {
-                   AddOfferLine((Model.IBaseItem)SelectedItem, quantity);
-                    
-                }
+                    AddOfferLine(SelectedItem, quantity);
                 else
                 {
                     MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
@@ -120,7 +120,7 @@ namespace ViewModel
             get { return Math.Round(currentOffer.OfferDiscount,2).ToString(); }
             set
             {
-                if (value == null || value == "")
+                if (string.IsNullOrEmpty(value))
                 {
                     currentOffer.OfferDiscount = 0;
 
@@ -128,6 +128,8 @@ namespace ViewModel
                 else { 
                     currentOffer.OfferDiscount = Convert.ToDouble(value);
                 }
+                NotifyPropertyChanged("TotalDiscountedPrice");
+                NotifyPropertyChanged("TotalPercentedPrice");
                 NotifyPropertyChanged("OfferTotal");
             }
         }
@@ -137,8 +139,12 @@ namespace ViewModel
             set { currentOffer.OfferLines = value; }
         }
 
-        public double OfferTotal {
-            get { return Math.Round(currentOffer.OfferTotal,2); }
+        public string OfferTotal {
+            get
+            {
+                string offerTotalText;
+                return offerTotalText = Math.Round(currentOffer.OfferTotal,2) + " DKK";
+            }
         }
         public int NoOfTotalPallets
         {
@@ -154,6 +160,27 @@ namespace ViewModel
                 return OfferLines.Sum(offerLine => offerLine.NoOfPackages);
             }
         }
+
+        public string TotalPercentedPrice
+        {
+            get
+            {
+                string TotalPercentedPriceLabel = "";
+                if(OfferLinesSubtotal != 0 + " DKK")
+                return DiscountMath.PriceToPercent(currentOffer.OfferTotal, currentOffer.OfferSubtotal) + " %";
+                return TotalPercentedPriceLabel += "0 %";
+
+            }
+        }
+
+        public string TotalDiscountedPrice
+        {
+            get
+            {
+                return currentOffer.OfferSubtotal - currentOffer.OfferTotal + " DKK";
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
         {
@@ -174,6 +201,8 @@ namespace ViewModel
             NotifyPropertyChanged("NoOfTotalPackages");
             NotifyPropertyChanged("NoOfTotalPallets");
             NotifyPropertyChanged("OfferLinesSubtotal");
+            NotifyPropertyChanged("TotalDiscountedPrice");
+            NotifyPropertyChanged("TotalPercentedPrice");
         }
     }
 }

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using Model.BaseTypes;
 
 namespace Model
 {
@@ -51,6 +47,8 @@ namespace Model
                     NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");
                     APWC?.Invoke("OfferLinesSubtotal");
+                    APWC?.Invoke("TotalDiscountedPrice");
+                    APWC?.Invoke("TotalPercentedPrice");
                 }
             }
         }
@@ -67,6 +65,8 @@ namespace Model
                     NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");
                     APWC?.Invoke("OfferLinesSubtotal");
+                    APWC?.Invoke("TotalDiscountedPrice");
+                    APWC?.Invoke("TotalPercentedPrice");
                 }
             }
         }
