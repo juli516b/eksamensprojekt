@@ -25,7 +25,8 @@ namespace Model
 
         public string ItemNo { get {return Item.ItemNo; } }
         public string ItemName { get { return Item.ItemName; } }
-        public string ItemCountry { get { return Item.ItemCountry; } }
+        public string ItemCountry { get { return Item.ItemCountry; } } //update artefakt
+        public double ItemWeight { get { return Item.ItemWeight; } } //update artefakt
         public double ItemPrice {
             get
             {

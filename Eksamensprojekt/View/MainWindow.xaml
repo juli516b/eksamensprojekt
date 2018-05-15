@@ -111,6 +111,7 @@
                             <GridViewColumn Width="60" Header="Vare nr." DisplayMemberBinding="{Binding ItemNo}"/>
                             <GridViewColumn Width="120" Header="Varenavn" DisplayMemberBinding="{Binding ItemName}"/>
                             <GridViewColumn Width="70" Header="Land" DisplayMemberBinding="{Binding ItemCountry}"/>
+                            <GridViewColumn Width="35" Header="Vægt" DisplayMemberBinding="{Binding ItemWeight}"/>
                             <GridViewColumn Width="70" Header="Pris">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
