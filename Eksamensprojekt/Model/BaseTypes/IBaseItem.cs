@@ -11,6 +11,7 @@ namespace Model
         string ItemName { get; set; }
         string ItemNo { get; set; }
         double ItemPrice { get; set; }
+        string ItemCountry { get; set; }
         int CountPerPallet { get; set; }
     }
 }

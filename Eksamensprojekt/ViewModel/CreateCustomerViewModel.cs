@@ -17,7 +17,6 @@ namespace ViewModel
         {
             customerRepository = CustomerRepository.GetInstance(new CustomerDataHandler());
         }
-
         public string CustomerMessage
         {
             get
@@ -32,9 +31,7 @@ namespace ViewModel
         }
         private ICommand saveCustomer;
         private string customerName;
-
         public event PropertyChangedEventHandler PropertyChanged;
-
         public void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -72,6 +69,7 @@ namespace ViewModel
                 CustomerAdress = CustomerAdress,
                 CustomerDiscount = CustomerDiscount,
                 CustomerZip = CustomerZip,
+                PhoneNo = PhoneNo,
                 CVRNumber = CVRNumber,
                 Email = Email
             };

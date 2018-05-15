@@ -13,21 +13,42 @@
         <dinMor:CreateCustomerViewModel/>
     </Window.DataContext>
     <Grid>
-        <Label Content="Company Name" HorizontalAlignment="Left" Margin="39,49,0,0" VerticalAlignment="Top"/>
-        <Label Content="CVR" HorizontalAlignment="Left" Margin="39,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
-        <Label Content="Adresse" HorizontalAlignment="Left" Margin="39,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
-        <Label Content="Mail" HorizontalAlignment="Left" Margin="39,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
-        <Label Content="Telefon" HorizontalAlignment="Left" Margin="39,175,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
-        <Label Content="Fast rabat" HorizontalAlignment="Left" Margin="39,206,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.575,2.022"/>
-
-        <TextBox Name="CompanyName_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,52,0,0" TextWrapping="Wrap" Text="{Binding CustomerName}" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="CVR_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,84,0,0" TextWrapping="Wrap" Text="{Binding CVRNumber}" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="Address_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,116,0,0" TextWrapping="Wrap" Text="{Binding CustomerAdress}" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="Mail_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,147,0,0" TextWrapping="Wrap" Text="{Binding Email}" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="Telephone_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,178,0,0" TextWrapping="Wrap" Text="{Binding PhoneNo}" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="CustomerDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="150,209,0,0" TextWrapping="Wrap" Text="{Binding CustomerDiscount}" VerticalAlignment="Top" Width="120"/>
+        
+       
         <Button Name="Save_Button" Content="Gem" HorizontalAlignment="Left" Margin="39,288,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveCustomer}"/>
         <Label Name="CustomerMessage_Label" Content="{Binding CustomerMessage, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="132,285,0,0" VerticalAlignment="Top" Width="252" Height="58"/>
+        <Grid HorizontalAlignment="Left" Height="219" Margin="30,36,0,0" VerticalAlignment="Top" Width="240">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Label Content="Company Name"/>
+            <Label Content="CVR" Grid.Row="1"/>
+            <Label Content="Adresse" Grid.Row="2"/>
+            <Label Content="Postnummer" Grid.Row="3"/>
+            <Label Content="Mail" Grid.Row="4"/>
+            <Label Content="Telefon" Grid.Row="5"/>
+            <Label Content="Fast rabat" Grid.Row="6"/>
+
+
+            <TextBox Name="CompanyName_TextBox" Grid.Column="1" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerName}" />
+            <TextBox Name="CVR_TextBox" Grid.Column="1" Grid.Row="1" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CVRNumber}" />
+            <TextBox Name="Address_TextBox" Grid.Column="1" Grid.Row="2" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerAdress}"/>
+            <TextBox Name="Zip_TextBox" Grid.Column="1" Grid.Row="3" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerZip}" />
+            <TextBox Name="Mail_TextBox" Grid.Column="1" Grid.Row="4" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding Email}" />
+            <TextBox Name="Telephone_TextBox" Grid.Column="1" Grid.Row="5" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding PhoneNo}" />
+            <TextBox Name="CustomerDiscount_TextBox" Grid.Column="1" Grid.Row="6" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerDiscount}" />
+
+        </Grid>
 
     </Grid>
 </Window>

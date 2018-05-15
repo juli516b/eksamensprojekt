@@ -18,7 +18,7 @@
                 <GridView>
                     <GridViewColumn Header="Kundenavn" DisplayMemberBinding="{Binding CustomerName}"/>
                     <GridViewColumn Header="CVR nummer" DisplayMemberBinding="{Binding CVRNumber}"/>
-                    <GridViewColumn Header="telefon" DisplayMemberBinding="{Binding PhoneNo}"/>
+                    <GridViewColumn Header="¨Telefon" DisplayMemberBinding="{Binding PhoneNo}"/>
                 </GridView>
             </ListView.View>
         </ListView>

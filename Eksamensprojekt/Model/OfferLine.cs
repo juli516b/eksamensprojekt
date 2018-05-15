@@ -25,6 +25,7 @@ namespace Model
 
         public string ItemNo { get {return Item.ItemNo; } }
         public string ItemName { get { return Item.ItemName; } }
+        public string ItemCountry { get { return Item.ItemCountry; } }
         public double ItemPrice {
             get
             {
