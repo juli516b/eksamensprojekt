@@ -25,3 +25,4 @@
 |TLFNr|PhoneNo||Tilføj kunde til tilbud|
 |mail|Email||Tilføj kunde til tilbud|
 |Kunderabat|CustomerDiscount||Tilføj kunde til tilbud|
+| Oprindelig varepris | OriginalItemPrice | Varens standardpris gemmes på oprettelsestidspunktet, da den kan være anderledes (på varekartoteksniveau) når tilbuddet hentes frem igen. |"Persistering af data"|
