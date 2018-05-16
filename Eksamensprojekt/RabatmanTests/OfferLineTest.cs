@@ -22,9 +22,8 @@ namespace RabatmanTests
         {
             //Arrange
             IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, "Frankrig", 25);
-            OfferLine offerLine = new OfferLine(item, 100);
+            OfferLine offerLine = new OfferLine(item, 100) {DiscountedPrice = 15};
             //Act
-            offerLine.DiscountedPrice = 15;
             //Assert
             Assert.AreEqual(1500, offerLine.OfferLineTotal);
             Assert.AreEqual(25.9259259259, offerLine.PercentDiscount, 5);
@@ -34,9 +33,8 @@ namespace RabatmanTests
         {
             //Arrange
             IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, "Frankrig", 25);
-            OfferLine offerLine = new OfferLine(item, 100);
+            OfferLine offerLine = new OfferLine(item, 100) {PercentDiscount = 20};
             //Act
-            offerLine.PercentDiscount = 20;
             //Assert
             Assert.AreEqual(1620, offerLine.OfferLineTotal);
             Assert.AreEqual(16.2, offerLine.DiscountedPrice);

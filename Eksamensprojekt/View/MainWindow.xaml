@@ -108,18 +108,24 @@
                           Grid.Column="0">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Width="60" Header="Vare nr." DisplayMemberBinding="{Binding ItemNo}"/>
-                            <GridViewColumn Width="120" Header="Varenavn" DisplayMemberBinding="{Binding ItemName}"/>
-                            <GridViewColumn Width="70" Header="Land" DisplayMemberBinding="{Binding ItemCountry}"/>
-                            <GridViewColumn Width="35" Header="Vægt" DisplayMemberBinding="{Binding ItemWeight}"/>
+                            <GridViewColumn Width="60" Header="Vare nr." DisplayMemberBinding="{Binding ItemNo, Mode=OneWay}"/>
+                            <GridViewColumn Width="120" Header="Varenavn" DisplayMemberBinding="{Binding ItemName, Mode=OneWay}"/>
+                            <GridViewColumn Width="70" Header="Land" DisplayMemberBinding="{Binding ItemCountry, Mode=OneWay}"/>
+                            <GridViewColumn Width="35" Header="Vægt" DisplayMemberBinding="{Binding ItemWeight, Mode=OneWay}"/>
                             <GridViewColumn Width="70" Header="Pris">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock TextAlignment="Right" Text="{Binding ItemPriceF2}" />
+                                        <TextBlock TextAlignment="Right" Text="{Binding ItemPriceF2, Mode=OneWay}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Width="80" Header="Pakker/palle" DisplayMemberBinding="{Binding CountPerPallet}"/>
+                            <GridViewColumn Width="80" Header="Pakker/palle">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextAlignment="Right" Text="{Binding CountPerPallet}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
