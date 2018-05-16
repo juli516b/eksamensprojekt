@@ -36,7 +36,7 @@ namespace Model
         }
         public double PercentDiscount
         {
-            get { return percentDiscount; }
+            get { return System.Math.Round(percentDiscount,2); }
             set
             {
                 percentDiscount = value;
@@ -54,7 +54,7 @@ namespace Model
         }
         public double DiscountedPrice
         {
-            get { return discountedPrice; }
+            get { return System.Math.Round(discountedPrice, 2); }
             set
             {
                 discountedPrice = value;
