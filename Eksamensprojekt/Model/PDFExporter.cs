@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
@@ -20,6 +16,7 @@ namespace Model
             doc.Add(newParagraph);
             PdfContentByte pcb = writer.DirectContent;
             PdfPTable economyTable = new PdfPTable(2);
+            //ECONOMY TABLE
             economyTable.DefaultCell.Border = 0;
             economyTable.DefaultCell.HorizontalAlignment = 2;
             economyTable.AddCell("SUBTOTAL:");
@@ -43,18 +40,35 @@ namespace Model
             economyTable.AddCell(currentOffer.TotalDiscountedPrice);
             economyTable.AddCell("TOTAL:");
             economyTable.AddCell(currentOffer.OfferTotal + " DKK");
-            //List economyList = new List();
-            //economyList.SetListSymbol("");
-            //economyList.Alignindent()
-            //economyList.Add(new ListItem("SUBTOTAL: " + currentOffer.OfferSubtotal + " DKK"));
-            //economyList.Add("KUNDERABAT: " + currentOffer.MyCustomer.CustomerDiscount + " %");
-            //economyList.Add("TILBUDSRABAT: " + currentOffer.OfferDiscount + " %");
-            //economyList.Add("TRANSPORTOMKOSTNINGER: " + currentOffer.ForwardingAgentPrice + " DKK");
-            //economyList.Add("TOTAL RABAT: " + currentOffer.TotalPercentDiscount);
-            //economyList.Add("TOTAL BELØB SPARET: " + currentOffer.TotalDiscountedPrice);
-            //economyList.Add("TOTAL: " + currentOffer.OfferTotal + " DKK");
             economyTable.TotalWidth = 400;
             economyTable.WriteSelectedRows(0, -1, 150, 150, pcb);
+            //ECONOMY TABLE
+            //OFFERLINE LIST
+            PdfPTable offerlineTable = new PdfPTable(9);
+            offerlineTable.AddCell("Vare nr.");
+            offerlineTable.AddCell("Varenavn");
+            offerlineTable.AddCell("Antal varer");
+            offerlineTable.AddCell("Helpaller");
+            offerlineTable.AddCell("Løse pakker");
+            offerlineTable.AddCell("Stk. pris");
+            offerlineTable.AddCell("Tilbudspris");
+            offerlineTable.AddCell("Rabat procent");
+            offerlineTable.AddCell("Total linjepris");
+            offerlineTable.HeaderRows = 1;
+            foreach (OfferLine offerLine in currentOffer.OfferLines)
+            {
+                offerlineTable.AddCell(offerLine.ItemNo);
+                offerlineTable.AddCell(offerLine.ItemName);
+                offerlineTable.AddCell(offerLine.Quantity + "");
+                offerlineTable.AddCell(offerLine.NoOfPallets + "");
+                offerlineTable.AddCell(offerLine.NoOfPackages + "");
+                offerlineTable.AddCell(offerLine.ItemPrice + " DKK");
+                offerlineTable.AddCell(offerLine.DiscountedPrice + " DKK");
+                offerlineTable.AddCell(offerLine.PercentDiscount + " %");
+                offerlineTable.AddCell(offerLine.OfferLineTotal + " DKK");
+            }
+
+            doc.Add(offerlineTable);
             doc.Close();
         }
     }
