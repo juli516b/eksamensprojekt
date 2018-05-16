@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:oWM="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="Rabatman" Height="737.4" Width="1000" MouseDown="Window_MouseDown" Name="Window" WindowStartupLocation="CenterScreen"
+        Title="Rabatman" Height="737.4" Width="1017.143" MouseDown="Window_MouseDown" Name="Window" WindowStartupLocation="CenterScreen"
         >
     <Window.DataContext>
         <oWM:OfferViewModel/>
@@ -73,7 +73,7 @@
                     <ColumnDefinition Width="722*"/>
                     <ColumnDefinition Width="98*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid x:Name="OfferDataGrid" HorizontalAlignment="Left" Height="442"  Margin="10,10,0,0" VerticalAlignment="Top" Width="894" AutoGenerateColumns="False" ItemsSource="{Binding OfferLines}" Grid.ColumnSpan="3">
+                <DataGrid x:Name="OfferDataGrid" HorizontalAlignment="Left" Height="442"  Margin="10,10,0,0" VerticalAlignment="Top" Width="966" AutoGenerateColumns="False" ItemsSource="{Binding OfferLines}" Grid.ColumnSpan="3">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo, Mode=OneWay}"/>
                         <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName, Mode=OneWay}"/>
@@ -129,15 +129,15 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button x:Name="AddItem_Button" Command="{Binding AddButtonCommand}" Content="Tilføj vare" HorizontalAlignment="Left" Height="26" Margin="271,654,0,0" VerticalAlignment="Top" Width="81" Grid.Column="1" />
-                <TextBox x:Name="Quantity_TextBox" Text="{Binding QuantityTextBoxText}" HorizontalAlignment="Left" Height="24" Margin="130,656,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="103" TextAlignment="Right" Style="{StaticResource placeHolder}" Tag="Skriv antal" Grid.Column="1"/>
+                <Button x:Name="AddItem_Button" Command="{Binding AddButtonCommand}" Content="Tilføj vare" HorizontalAlignment="Left" Height="26" Margin="321.2,654,0,0" VerticalAlignment="Top" Width="81" Grid.Column="1" />
+                <TextBox x:Name="Quantity_TextBox" Text="{Binding QuantityTextBoxText}" HorizontalAlignment="Left" Height="24" Margin="213.2,656,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="103" TextAlignment="Right" Style="{StaticResource placeHolder}" Tag="Skriv antal" Grid.Column="1"/>
 
-                <GroupBox Header="Kunde" FontWeight="Bold" HorizontalAlignment="Left" Height="60" Margin="424,463,0,0" VerticalAlignment="Top" Width="210" Grid.Column="1" MouseLeftButtonDown="OnButtonClick_ShowCustomersWindow">
+                <GroupBox Header="Kunde" FontWeight="Bold" HorizontalAlignment="Left" Height="69" Margin="407.2,452,0,0" VerticalAlignment="Top" Width="234" Grid.Column="1" MouseLeftButtonDown="OnButtonClick_ShowCustomersWindow">
                     <Grid>
-                        <Label x:Name="CustomerName_Label" FontWeight="Normal" Content="{Binding MyCustomer.CustomerName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="5,2,5,2" VerticalAlignment="Top" Height="27" Width="191"/>
+                        <Label x:Name="CustomerName_Label" FontWeight="Normal" Content="{Binding MyCustomer.CustomerName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="5,2,0,0" VerticalAlignment="Top" Height="27" Width="207"/>
                     </Grid>
                 </GroupBox>
-                <GroupBox Header="Logistik" FontWeight="Bold" HorizontalAlignment="Left" Height="154" Margin="424,526,0,0" VerticalAlignment="Top" Width="210" Grid.Column="1">
+                <GroupBox Header="Logistik" FontWeight="Bold" HorizontalAlignment="Left" Height="154" Margin="407.2,526,0,0" VerticalAlignment="Top" Width="234" Grid.Column="1">
                     <Grid>
                         <Label x:Name="TransportSummaryDisclaimer_Label" FontWeight="Normal" Content="Vejledende antal paller og pakker:" HorizontalAlignment="Left" Margin="5,2,5,2" VerticalAlignment="Top" Height="26" Width="auto"/>
                         <Label x:Name="Pallets_Label" FontWeight="Normal" Content="Paller" HorizontalAlignment="Left" Margin="5,30,0,0" VerticalAlignment="Top" Height="24" Width="58"/>
@@ -146,10 +146,10 @@
                         <Label x:Name="PackagesSummary_Label" FontWeight="Normal" Content="{Binding NoOfTotalPackages, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="107,51,0,0" VerticalAlignment="Top" Height="24" Width="32"/>
                     </Grid>
                 </GroupBox>
-                <GroupBox Header="Økonomi" FontWeight="Bold" Margin="655,461,9.6,0" Grid.Column="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="219" Width="273">
+                <GroupBox Header="Økonomi" FontWeight="Bold" Margin="646.2,452,35.2,0" Grid.Column="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="228" Width="273">
                     <Grid>
                         <Label x:Name="OfferLinesSubtotalDescription_Label" FontWeight="Normal" Content="Subtotal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136" Margin="0,10,0,0"/>
-                        <Label x:Name="OfferLinesSubtotal_Label" FontWeight="Normal" Content="{Binding OfferLinesSubtotal}"  HorizontalAlignment="Left" Height="27" Margin="170,10,0,0" VerticalAlignment="Top" Width="87" HorizontalContentAlignment="Right"/>
+                        <Label x:Name="OfferLinesSubtotal_Label" FontWeight="Normal" Content="{Binding OfferLinesSubtotal}"  HorizontalAlignment="Left" Height="27" Margin="173,10,0,0" VerticalAlignment="Top" Width="87" HorizontalContentAlignment="Right"/>
                         <Label x:Name="CustomerDiscount_Label" FontWeight="Normal" Content="Kunderabat:" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Height="28" Width="136"/>
                         <Label x:Name="CustomerDiscountDisplayed_Label" FontWeight="Normal" Content="{Binding MyCustomerDiscount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,42,0,0" VerticalAlignment="Top" Height="28" Width="87"/>
                         <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="170,70,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="87" TextAlignment="Right" FontWeight="Normal"/>
@@ -166,7 +166,7 @@
                         <Label x:Name="TotalPrice_Label" FontWeight="Bold" Content="Total pris:" HorizontalAlignment="Left" Height="27" Margin="1,174,0,-0.2" VerticalAlignment="Top" Width="138"/>
                         <Label x:Name="Price_Label" Content="{Binding OfferTotal, UpdateSourceTrigger=PropertyChanged, StringFormat=F2}"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="27" Margin="170,174,-0.4,-4.2" VerticalAlignment="Top" Width="88"/>
                         <Label x:Name="TotalPercentedDiscount_Label" FontWeight="Normal" Content="{Binding TotalPercentDiscount}" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.985,1.414" Margin="170,122,0,0" Height="26" Width="87"/>
-                        <Label x:Name="TotalDiscountedPrice_Label" FontWeight="Normal" HorizontalAlignment="Left" Content="{Binding TotalDiscountedPrice, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Right" Margin="170,148,-0.4,22.8" Width="88"/>
+                        <Label x:Name="TotalDiscountedPrice_Label" FontWeight="Normal" HorizontalAlignment="Left" Content="{Binding TotalDiscountedPrice, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Right" Margin="170,148,0,31.6" Width="88"/>
                     </Grid>
                 </GroupBox>
             </Grid>
