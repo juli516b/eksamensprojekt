@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Eksamensprojekt"
         xmlns:oWM="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="Rabatman" Height="737.4" Width="932.1" MouseDown="Window_MouseDown" Name="Window"
+        Title="Rabatman" Height="737.4" Width="932.1" MouseDown="Window_MouseDown" Name="Window" WindowStartupLocation="CenterScreen"
         >
     <Window.DataContext>
         <oWM:OfferViewModel/>
