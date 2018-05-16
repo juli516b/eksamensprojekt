@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using Model;
 using Model.BaseTypes;
+using Model.DataHandlers;
 
 namespace ViewModel
 {
@@ -142,8 +143,7 @@ namespace ViewModel
         public string OfferTotal {
             get
             {
-                string offerTotalText;
-                return offerTotalText = Math.Round(currentOffer.OfferTotal,2) + " DKK";
+                return Math.Round(currentOffer.OfferTotal,2) + " DKK";
             }
         }
         public int NoOfTotalPallets
@@ -165,10 +165,10 @@ namespace ViewModel
         {
             get
             {
-                string TotalPercentedPriceLabel = "";
+                string totalPercentedPrice_Label = "";
                 if(OfferLinesSubtotal != 0 + " DKK")
                 return DiscountMath.PriceToPercent(currentOffer.OfferTotal, currentOffer.OfferSubtotal) + " %";
-                return TotalPercentedPriceLabel += "0 %";
+                return totalPercentedPrice_Label + "0 %";
 
             }
         }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using Model.BaseTypes;
 
 namespace Model
@@ -40,7 +41,8 @@ namespace Model
             set
             {
                 percentDiscount = value;
-                if (discountedPrice == 0 || discountedPrice != DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice))
+                //GØR DET HER PÆNERE - SPØRG VEJLEDER
+                if (Math.Abs(discountedPrice) <  Double.Epsilon || Math.Abs(discountedPrice - DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice)) > Double.Epsilon)
                 {
                     DiscountedPrice = DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice);
                     NotifyAPropertyChanged("DiscountedPrice");
@@ -58,7 +60,8 @@ namespace Model
             set
             {
                 discountedPrice = value;
-                if (percentDiscount == 0 || percentDiscount != DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice))
+                //GØR DET HER PÆNERE - SPØRG VEJLEDER
+                if (Math.Abs(percentDiscount) < Double.Epsilon || Math.Abs(percentDiscount - DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice)) > Double.Epsilon)
                 {
                     PercentDiscount = DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice);
                     NotifyAPropertyChanged("PercentDiscount");
@@ -98,7 +101,7 @@ namespace Model
         {
             get
             {
-                if (DiscountedPrice==0)
+                if (Math.Abs(DiscountedPrice) < Double.Epsilon)
                 {
                     return Quantity * ItemPrice;
                 }

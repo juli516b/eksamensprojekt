@@ -1,9 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.BaseTypes;
+using Model.DataHandlers;
 using ViewModel;
 
-namespace RabatmanViewModelTest
+namespace RabatmanTests
 {
     /// <summary>
     /// Summary description for UnitTest1

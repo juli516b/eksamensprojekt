@@ -1,9 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.BaseTypes;
+using Model.DataHandlers;
+using RabatmanTests;
 
-namespace RabatmanItemTest
+
+namespace RabatmanTestss
 {
+    // TJEK op på FakeItemDatahandler - nuværende tidspunkt kan den ikke bruge RabatmanTests som namespace!!
     [TestClass]
     public class ItemTest
     {

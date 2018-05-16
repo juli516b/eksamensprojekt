@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Eksamensprojekt"
         xmlns:oWM="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
         Title="Rabatman" Height="737.4" Width="932.1" MouseDown="Window_MouseDown" Name="Window"
@@ -59,11 +58,11 @@
             </MenuItem>
             <MenuItem Header="Tilføj til tilbud">
                 <MenuItem Header="Vare" />
-                <MenuItem Header="Kunde" Command="{Binding OpenCreateCostumerWindow}" Click="OnButtonClick_CreateCustomerWindow"/>
+                <MenuItem Header="Kunde" Click="OnButtonClick_CreateCustomerWindow"/>
                 <MenuItem Header="Speditør" />
             </MenuItem>
             <MenuItem Header="Kunder">
-                <MenuItem Header="Tilføj ny kunde" Command="{Binding OpenCreateCostumerWindow}" Click="OnButtonClick_CreateCustomerWindow" />
+                <MenuItem Header="Tilføj ny kunde" Click="OnButtonClick_CreateCustomerWindow" />
                 <MenuItem Header="Vis kunder" Click="OnButtonClick_ShowCustomersWindow" />
             </MenuItem>
         </Menu>
@@ -74,7 +73,7 @@
                     <ColumnDefinition Width="722*"/>
                     <ColumnDefinition Width="98*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid x:Name="offerDataGrid" HorizontalAlignment="Left" Height="442"  Margin="10,10,0,0" VerticalAlignment="Top" Width="894" AutoGenerateColumns="False" ItemsSource="{Binding OfferLines}" Grid.ColumnSpan="3">
+                <DataGrid x:Name="OfferDataGrid" HorizontalAlignment="Left" Height="442"  Margin="10,10,0,0" VerticalAlignment="Top" Width="894" AutoGenerateColumns="False" ItemsSource="{Binding OfferLines}" Grid.ColumnSpan="3">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo, Mode=OneWay}"/>
                         <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName, Mode=OneWay}"/>
@@ -105,7 +104,8 @@
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <ListView x:Name="itemListView" HorizontalAlignment="Left" Height="188" Margin="13,461,0,0" VerticalAlignment="Top" Width="391" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem,  Mode=TwoWay}" IsEnabled="True" Grid.ColumnSpan="2">
+                <ListView x:Name="ItemListView" HorizontalAlignment="Left" Height="188" Margin="13,461,0,0" VerticalAlignment="Top" Width="391" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem,  Mode=TwoWay}" IsEnabled="True" Grid.ColumnSpan="2"
+                          Grid.Column="0">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="60" Header="Vare nr." DisplayMemberBinding="{Binding ItemNo}"/>

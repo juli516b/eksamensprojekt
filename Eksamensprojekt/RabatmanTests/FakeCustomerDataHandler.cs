@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Model;
 using Model.BaseTypes;
+using Model.DataHandlers;
 
-namespace RabatManCustomerTest
+namespace RabatmanTests
 {
     public class FakeCustomerDataHandler : IPersistentCustomerDataHandler
     {
