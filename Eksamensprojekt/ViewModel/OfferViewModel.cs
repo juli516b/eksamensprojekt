@@ -14,16 +14,17 @@ namespace ViewModel
     public class OfferViewModel : INotifyPropertyChanged
     {
         readonly IPersistentItemDataHandler dataHandler;
+        private readonly PDFExporter pdfExporter;
         private ICommand clickAddButtonCommand;
+        private ICommand clickGeneratePDFCommand;
+        private Customer firstCustomer;
         private readonly Offer currentOffer;
 
         public Customer MyCustomer
         {
             get
             {
-
                 Customer customer = new Customer() { CustomerName = "Ingen kunde valgt. Klik for at tilføje" };
-
                 if (currentOffer.MyCustomer != null)
                 {
                     customer = currentOffer.MyCustomer;
@@ -74,6 +75,30 @@ namespace ViewModel
         }
         public IBaseItem SelectedItem { get; set; }
         public string QuantityTextBoxText { get; set; }
+
+        public ICommand GeneratePdfButtonCommand
+        {
+            get
+            {
+                if (clickGeneratePDFCommand == null)
+                {
+                    clickGeneratePDFCommand = new DelegateCommand(
+                        param => GeneratePDF(),
+                        param => CanGeneratePDF()
+                    );
+                }
+                return clickGeneratePDFCommand;
+            }
+        }
+
+        private void GeneratePDF()
+        {
+            pdfExporter.PDFGenerator(currentOffer);
+        }
+        private bool CanGeneratePDF()
+        {
+            return true;
+        }
 
         public ICommand AddButtonCommand
         {
@@ -170,21 +195,13 @@ namespace ViewModel
         {
             get
             {
-                if (OfferLinesSubtotal != 0 + " DKK")
-                {
-                    double roundedValue = Math.Round(DiscountMath.PriceToPercent(currentOffer.OfferTotal, currentOffer.OfferSubtotal), 2);
-                    return roundedValue + " %";
-                }
-                return "0 %";
+                return currentOffer.TotalPercentDiscount;
             }
         }
 
         public string TotalDiscountedPrice
         {
-            get
-            {
-                return currentOffer.OfferSubtotal - currentOffer.OfferTotal + " DKK";
-            }
+            get { return currentOffer.TotalDiscountedPrice; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -195,7 +212,10 @@ namespace ViewModel
         public OfferViewModel()
         {
             dataHandler = new ItemDataHandler();
+            pdfExporter = new PDFExporter();
+            firstCustomer = new Customer();
             currentOffer = new Offer(DateTime.Now);
+
             SelectedItem = Items[0];
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)

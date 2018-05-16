@@ -169,6 +169,8 @@
                         <Label x:Name="TotalDiscountedPrice_Label" FontWeight="Normal" HorizontalAlignment="Left" Content="{Binding TotalDiscountedPrice, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Right" Margin="170,148,0,31.6" Width="88"/>
                     </Grid>
                 </GroupBox>
+                <Button Content="Generer PDF" Command="{Binding GeneratePdfButtonCommand}" HorizontalAlignment="Left" Margin="13,660,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"
+                        Grid.Column="0" />
             </Grid>
         </Grid>
     </DockPanel>
