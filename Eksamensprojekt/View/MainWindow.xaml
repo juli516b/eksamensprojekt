@@ -94,8 +94,8 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice,UpdateSourceTrigger=PropertyChanged}"/>
-                        <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount,UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn Header="Tilbudspris" Binding="{Binding DiscountedPrice,UpdateSourceTrigger=LostFocus}"/>
+                        <DataGridTextColumn Header="Rabat procent" Binding="{Binding PercentDiscount,UpdateSourceTrigger=LostFocus}"/>
                         <DataGridTextColumn Header="Total Linjepris" Binding="{Binding OfferLineTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
