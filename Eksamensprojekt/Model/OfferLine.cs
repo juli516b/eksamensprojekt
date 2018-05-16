@@ -98,7 +98,11 @@ namespace Model
         {
             get
             {
-                if (DiscountedPrice==0)
+                if(PercentDiscount == 100)
+                {
+                    return 0;
+                }
+                if (DiscountedPrice == 0 && PercentDiscount != 100)
                 {
                     return Quantity * ItemPrice;
                 }
