@@ -22,8 +22,8 @@
 |Firmanavn|CustomerName||Tilføj kunde til tilbud|
 |CVRnr|CVRNumber||Tilføj kunde til tilbud|
 |Adresse|CustomerAdress||Tilføj kunde til tilbud|
-|Postnummer|ZipCode|||
-|Kundeland|CustomerCountry|||
+|Postnummer|ZipCode||Persistering af data|
+|Kundeland|CustomerCountry||Persistering af data|
 |TLFNr|PhoneNo||Tilføj kunde til tilbud|
 |mail|Email||Tilføj kunde til tilbud|
 |Kunderabat|CustomerDiscount||Tilføj kunde til tilbud|
