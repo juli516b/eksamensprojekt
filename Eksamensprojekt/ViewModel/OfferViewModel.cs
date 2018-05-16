@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using Model;
 using Model.BaseTypes;
+using Model.DataHandlers;
 
 namespace ViewModel
 {
@@ -20,7 +21,9 @@ namespace ViewModel
         {
             get
             {
-                Customer customer = new Customer { CustomerName = "Ingen kunde valgt" };
+
+                Customer customer = new Customer() { CustomerName = "Ingen kunde valgt. Klik for at tilføje" };
+
                 if (currentOffer.MyCustomer != null)
                 {
                     customer = currentOffer.MyCustomer;
@@ -33,7 +36,7 @@ namespace ViewModel
                 NotifyPropertyChanged("MyCustomer");
                 NotifyPropertyChanged("OfferTotal");
                 NotifyPropertyChanged("MyCustomerDiscount");
-                NotifyPropertyChanged("TotalPercentedPrice");
+                NotifyPropertyChanged("TotalPercentDiscount");
             }
         }
         public string OfferLinesSubtotal
@@ -51,6 +54,11 @@ namespace ViewModel
                 }
                 return customerDiscount_Label;
             }
+            set
+            {
+                MyCustomer.CustomerDiscount = Convert.ToDouble(value);
+                NotifyPropertyChanged("TotalPercentDiscount");
+            }   
         }
         public double ForwardingAgentPrice
         {
@@ -60,7 +68,7 @@ namespace ViewModel
             }
             set {
                 currentOffer.ForwardingAgentPrice = value;
-                NotifyPropertyChanged("TotalPercentedPrice");
+                NotifyPropertyChanged("TotalPercentDiscount");
                 NotifyPropertyChanged("OfferTotal");
             }
         }
@@ -127,7 +135,7 @@ namespace ViewModel
                     currentOffer.OfferDiscount = Convert.ToDouble(value);
                 }
                 NotifyPropertyChanged("TotalDiscountedPrice");
-                NotifyPropertyChanged("TotalPercentedPrice");
+                NotifyPropertyChanged("TotalPercentDiscount");
                 NotifyPropertyChanged("OfferTotal");
             }
         }
@@ -140,8 +148,7 @@ namespace ViewModel
         public string OfferTotal {
             get
             {
-                string offerTotalText;
-                return offerTotalText = Math.Round(currentOffer.OfferTotal,2) + " DKK";
+                return Math.Round(currentOffer.OfferTotal,2) + " DKK";
             }
         }
         public int NoOfTotalPallets
@@ -159,15 +166,16 @@ namespace ViewModel
             }
         }
 
-        public string TotalPercentedPrice
+        public string TotalPercentDiscount
         {
             get
             {
-                string TotalPercentedPriceLabel = "";
-                if(OfferLinesSubtotal != 0 + " DKK")
-                return DiscountMath.PriceToPercent(currentOffer.OfferTotal, currentOffer.OfferSubtotal) + " %";
-                return TotalPercentedPriceLabel += "0 %";
-
+                if (OfferLinesSubtotal != 0 + " DKK")
+                {
+                    double roundedValue = Math.Round(DiscountMath.PriceToPercent(currentOffer.OfferTotal, currentOffer.OfferSubtotal), 2);
+                    return roundedValue + " %";
+                }
+                return "0 %";
             }
         }
 
@@ -200,7 +208,7 @@ namespace ViewModel
             NotifyPropertyChanged("NoOfTotalPallets");
             NotifyPropertyChanged("OfferLinesSubtotal");
             NotifyPropertyChanged("TotalDiscountedPrice");
-            NotifyPropertyChanged("TotalPercentedPrice");
+            NotifyPropertyChanged("TotalPercentDiscount");
         }
     }
 }

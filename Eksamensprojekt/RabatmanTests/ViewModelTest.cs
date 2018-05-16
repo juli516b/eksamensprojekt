@@ -1,9 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.BaseTypes;
+using Model.DataHandlers;
 using ViewModel;
 
-namespace RabatmanViewModelTest
+namespace RabatmanTests
 {
     /// <summary>
     /// Summary description for UnitTest1
@@ -16,8 +17,8 @@ namespace RabatmanViewModelTest
         {
             //Arrange
             OfferViewModel novm = new OfferViewModel();
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 1);
-            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 1, "Frankrig", 25);
+            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50, "Frankrig", 25);
 
             Assert.AreEqual(0 + " DKK", novm.OfferTotal); // no OfferLines added
             novm.AddOfferLine(item, 100);
@@ -42,8 +43,8 @@ namespace RabatmanViewModelTest
         {
             //Arrange
             OfferViewModel ovm = new OfferViewModel();
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 1, 10);
-            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50, 25);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 1, "Frankrig", 25, 10);
+            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50, "Frankrig", 25, 25);
 
             //Act
             ovm.AddOfferLine(item, 27);

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 using Model;
+using Model.DataHandlers;
 
 namespace ViewModel
 {
@@ -12,7 +13,6 @@ namespace ViewModel
         {
             customerRepository = CustomerRepository.GetInstance(new CustomerDataHandler());
         }
-
         public string CustomerMessage
         {
             get
@@ -27,9 +27,7 @@ namespace ViewModel
         }
         private ICommand saveCustomer;
         private string customerName;
-
         public event PropertyChangedEventHandler PropertyChanged;
-
         public void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -63,8 +61,10 @@ namespace ViewModel
                 CustomerAdress = CustomerAdress,
                 CustomerDiscount = CustomerDiscount,
                 CustomerZip = CustomerZip,
+                PhoneNo = PhoneNo,
                 CVRNumber = CVRNumber,
-                Email = Email
+                Email = Email,
+                CustomerCountry = CustomerCountry
             };
             CustomerMessage = customerRepository.AddCustomer(myCustomer);
         }
@@ -79,9 +79,10 @@ namespace ViewModel
         }
         public string CVRNumber { get; set; }
         public string CustomerAdress { get; set; }
-        private int CustomerZip { get; set; }
+        public int CustomerZip { get; set; }
         public int PhoneNo { get; set; }
         public string Email { get; set; }
         public double CustomerDiscount { get; set; }
+        public string CustomerCountry { get; set; }
     }
 }

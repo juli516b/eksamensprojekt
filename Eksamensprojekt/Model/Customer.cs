@@ -11,5 +11,6 @@ namespace Model
         public int PhoneNo { get; set; }
         public string Email { get; set; }
         public double CustomerDiscount { get; set; }
+        public string CustomerCountry { get; set; }
     }
 }

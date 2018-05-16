@@ -1,8 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.BaseTypes;
+using Model.DataHandlers;
 
-namespace RabatManCustomerTest
+namespace RabatmanTests
 {
     [TestClass]
     public class CustomerTest
