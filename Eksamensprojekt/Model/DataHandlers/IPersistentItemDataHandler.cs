@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Model.BaseTypes;
 
-namespace Model
+namespace Model.DataHandlers
 {
     public interface IPersistentItemDataHandler
     {

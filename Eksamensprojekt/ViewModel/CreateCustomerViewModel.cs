@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 using Model;
+using Model.DataHandlers;
 
 namespace ViewModel
 {
@@ -77,9 +78,10 @@ namespace ViewModel
         }
         public string CVRNumber { get; set; }
         public string CustomerAdress { get; set; }
-        private int CustomerZip { get; set; }
+        public int CustomerZip { get; set; }
         public int PhoneNo { get; set; }
         public string Email { get; set; }
         public double CustomerDiscount { get; set; }
+        
     }
 }

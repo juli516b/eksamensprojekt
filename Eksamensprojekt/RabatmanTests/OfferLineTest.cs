@@ -2,7 +2,7 @@
 using Model;
 using Model.BaseTypes;
 
-namespace RabatManOfferLineDiscountTest
+namespace RabatmanTests
 {
     [TestClass]
     public class OfferLineTest
