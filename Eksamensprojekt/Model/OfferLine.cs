@@ -50,7 +50,7 @@ namespace Model
                     APWC?.Invoke("OfferTotal");
                     APWC?.Invoke("OfferLinesSubtotal");
                     APWC?.Invoke("TotalDiscountedPrice");
-                    APWC?.Invoke("TotalPercentedPrice");
+                    APWC?.Invoke("TotalPercentDiscount");
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace Model
                     APWC?.Invoke("OfferTotal");
                     APWC?.Invoke("OfferLinesSubtotal");
                     APWC?.Invoke("TotalDiscountedPrice");
-                    APWC?.Invoke("TotalPercentedPrice");
+                    APWC?.Invoke("TotalPercentDiscount");
                 }
             }
         }

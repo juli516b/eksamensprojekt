@@ -36,7 +36,7 @@ namespace ViewModel
                 NotifyPropertyChanged("MyCustomer");
                 NotifyPropertyChanged("OfferTotal");
                 NotifyPropertyChanged("MyCustomerDiscount");
-                NotifyPropertyChanged("TotalPercentedPrice");
+                NotifyPropertyChanged("TotalPercentDiscount");
             }
         }
         public string OfferLinesSubtotal
@@ -54,6 +54,11 @@ namespace ViewModel
                 }
                 return customerDiscount_Label;
             }
+            set
+            {
+                MyCustomer.CustomerDiscount = Convert.ToDouble(value);
+                NotifyPropertyChanged("TotalPercentDiscount");
+            }
         }
         public double ForwardingAgentPrice
         {
@@ -63,7 +68,7 @@ namespace ViewModel
             }
             set {
                 currentOffer.ForwardingAgentPrice = value;
-                NotifyPropertyChanged("TotalPercentedPrice");
+                NotifyPropertyChanged("TotalPercentDiscount");
                 NotifyPropertyChanged("OfferTotal");
             }
         }
@@ -130,7 +135,7 @@ namespace ViewModel
                     currentOffer.OfferDiscount = Convert.ToDouble(value);
                 }
                 NotifyPropertyChanged("TotalDiscountedPrice");
-                NotifyPropertyChanged("TotalPercentedPrice");
+                NotifyPropertyChanged("TotalPercentDiscount");
                 NotifyPropertyChanged("OfferTotal");
             }
         }
@@ -161,15 +166,16 @@ namespace ViewModel
             }
         }
 
-        public string TotalPercentedPrice
+        public string TotalPercentDiscount
         {
             get
             {
-                string totalPercentedPrice_Label = "";
-                if(OfferLinesSubtotal != 0 + " DKK")
-                return DiscountMath.PriceToPercent(currentOffer.OfferTotal, currentOffer.OfferSubtotal) + " %";
-                return totalPercentedPrice_Label + "0 %";
-
+                if (OfferLinesSubtotal != 0 + " DKK")
+                {
+                    double roundedValue = Math.Round(DiscountMath.PriceToPercent(currentOffer.OfferTotal, currentOffer.OfferSubtotal), 2);
+                    return roundedValue + " %";
+                }
+                return "0 %";
             }
         }
 
@@ -202,7 +208,7 @@ namespace ViewModel
             NotifyPropertyChanged("NoOfTotalPallets");
             NotifyPropertyChanged("OfferLinesSubtotal");
             NotifyPropertyChanged("TotalDiscountedPrice");
-            NotifyPropertyChanged("TotalPercentedPrice");
+            NotifyPropertyChanged("TotalPercentDiscount");
         }
     }
 }
