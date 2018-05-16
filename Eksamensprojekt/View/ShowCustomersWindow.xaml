@@ -27,19 +27,19 @@
         <GroupBox Header="Valgt kunde" HorizontalAlignment="Right" Height="Auto" Margin="0,29,10,0" VerticalAlignment="Top" Width="400">
             <Grid>
                 <Label Content="Kundenavn:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10" Width="100"/>
-                <TextBox x:Name="CustomerName_TB" Text="{Binding CurrentCustomer.CustomerName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,14,10,10" Width="250"/>
+                <TextBox x:Name="CustomerName_Tb" Text="{Binding CurrentCustomer.CustomerName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,14,10,10" Width="250"/>
                 <Label Content="CVR nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,10,10" Width="100"/>
-                <TextBox x:Name="CVRNumber_TB" Text="{Binding CurrentCustomer.CVRNumber}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,44,10,10" Width="250"/>
+                <TextBox x:Name="CVRNumber_Tb" Text="{Binding CurrentCustomer.CVRNumber}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,44,10,10" Width="250"/>
                 <Label Content="Adresse:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,10,10" Width="100"/>
-                <TextBox x:Name="CustomerAdress_TB" Text="{Binding CurrentCustomer.CustomerAdress}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,74,10,10" Width="250"/>
+                <TextBox x:Name="CustomerAdress_Tb" Text="{Binding CurrentCustomer.CustomerAdress}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,74,10,10" Width="250"/>
                 <Label Content="Postnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,100,10,10" Width="100"/>
-                <TextBox x:Name="CustomerZip_TB" Text="{Binding CurrentCustomer.CustomerZip}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,104,10,10" Width="250"/>
+                <TextBox x:Name="CustomerZip_Tb" Text="{Binding CurrentCustomer.CustomerZip}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,104,10,10" Width="250"/>
                 <Label Content="Telefonnr.:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,10,10" Width="100"/>
-                <TextBox x:Name="CustomerTelephoneNo_TB"  Text="{Binding CurrentCustomer.PhoneNo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,134,10,10" Width="250"/>
+                <TextBox x:Name="CustomerTelephoneNo_Tb"  Text="{Binding CurrentCustomer.PhoneNo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,134,10,10" Width="250"/>
                 <Label Content="Mail:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,10,10" Width="100"/>
-                <TextBox x:Name="CustomerEMail_TB" Text="{Binding CurrentCustomer.Email}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,164,10,10" Width="250"/>
+                <TextBox x:Name="CustomerEMail_Tb" Text="{Binding CurrentCustomer.Email}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,164,10,10" Width="250"/>
                 <Label Content="Fast kunderabat:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,190,10,10" Width="100"/>
-                <TextBox x:Name="CustomerDiscount_TB" Text="{Binding CurrentCustomer.CustomerDiscount}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,194,0,0" Width="250"/>
+                <TextBox x:Name="CustomerDiscount_Tb" Text="{Binding CurrentCustomer.CustomerDiscount}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,194,0,0" Width="250"/>
                 <Button Content="Opdater Kunde" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,220,10,10"/>
             </Grid>
         </GroupBox>

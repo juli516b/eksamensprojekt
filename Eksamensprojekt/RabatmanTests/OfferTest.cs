@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.BaseTypes;
 
-namespace RabatmanOfferTest
+namespace RabatmanTests
 {
     [TestClass]
     public class OfferTest

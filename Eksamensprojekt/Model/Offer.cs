@@ -7,7 +7,6 @@ namespace Model
     public class Offer
     {
         private DateTime CreationDate { get; set; }
-        private ObservableCollection<OfferLine> offerLines;
 
         public Customer MyCustomer { get; set; }
         public string OfferNo { get; set; }
@@ -35,17 +34,13 @@ namespace Model
         {
             get
             {
-                double subtotal = OfferLines.Sum(offerLine => offerLine.Item.ItemPrice * offerLine.Quantity);
-                return subtotal;
+                double offerSubtotal = OfferLines.Sum(offerLine => offerLine.Item.ItemPrice * offerLine.Quantity);
+                return offerSubtotal;
             }
         }
 
-        public ObservableCollection<OfferLine> OfferLines { get => offerLines;
-            set
-            {
-                offerLines = value;
-            }
-        }
+        public ObservableCollection<OfferLine> OfferLines { get; set; }
+
         public double OfferDiscount { get; set; }
         public double ForwardingAgentPrice { get; set; }
 

@@ -3,7 +3,7 @@ using Model;
 using Model.BaseTypes;
 using ViewModel;
 
-namespace PomfritTest
+namespace RabatmanTests
 {
     [TestClass]
     class LogisticsTest
