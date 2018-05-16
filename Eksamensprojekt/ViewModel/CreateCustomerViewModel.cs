@@ -63,7 +63,8 @@ namespace ViewModel
                 CustomerZip = CustomerZip,
                 PhoneNo = PhoneNo,
                 CVRNumber = CVRNumber,
-                Email = Email
+                Email = Email,
+                CustomerCountry = CustomerCountry
             };
             CustomerMessage = customerRepository.AddCustomer(myCustomer);
         }
@@ -82,6 +83,6 @@ namespace ViewModel
         public int PhoneNo { get; set; }
         public string Email { get; set; }
         public double CustomerDiscount { get; set; }
-        
+        public string CustomerCountry { get; set; }
     }
 }

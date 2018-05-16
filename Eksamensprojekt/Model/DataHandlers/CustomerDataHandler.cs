@@ -15,7 +15,8 @@ namespace Model.DataHandlers
                 CustomerZip = 5000,
                 CVRNumber = "$@!§&&",
                 Email = "Britta@Ikrea.se.dk",
-                PhoneNo = 12345678
+                PhoneNo = 12345678,
+                CustomerCountry = "Sverige"
             }
             );
             customers.Add(new Customer
@@ -26,7 +27,8 @@ namespace Model.DataHandlers
                 CustomerZip = 5003,
                 CVRNumber = "8dk",
                 Email = "nulle@pommes.dk",
-                PhoneNo = 23456789
+                PhoneNo = 23456789,
+                CustomerCountry = "Jylland"
             }
 );
             customers.Add(new Customer
@@ -37,7 +39,8 @@ namespace Model.DataHandlers
                 CustomerZip = 9000,
                 CVRNumber = "6",
                 Email = "Gert@greens.dk",
-                PhoneNo = 34567890
+                PhoneNo = 34567890,
+                CustomerCountry = "Danmark"
             }
 );
             return customers;

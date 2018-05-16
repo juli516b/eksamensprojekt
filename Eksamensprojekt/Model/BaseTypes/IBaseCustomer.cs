@@ -9,5 +9,6 @@
         int PhoneNo { get; set; }
         string Email { get; set; }
         double CustomerDiscount { get; set; }
+        string CustomerCountry { get; set; }
     }
 }
