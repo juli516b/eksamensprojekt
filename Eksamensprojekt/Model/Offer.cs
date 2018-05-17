@@ -12,7 +12,7 @@ namespace Model
             set => OffertotalWithoutFAP = value;
         }
 
-        private DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; set; }
 
         public Customer MyCustomer { get; set; }
         public string OfferNo { get; set; }
