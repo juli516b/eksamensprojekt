@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:oWM="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="Rabatman" Height="737.4" Width="1017.143" MouseDown="Window_MouseDown" Name="Window" WindowStartupLocation="CenterScreen"
+
+        Title="Rabatman" Height="737.4" Width="932.1" MouseDown="Window_MouseDown" Name="Window" WindowStartupLocation="CenterScreen"
+
         >
     <Window.DataContext>
         <oWM:OfferViewModel/>
