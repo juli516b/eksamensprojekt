@@ -37,7 +37,7 @@ namespace Model
         }
         public double PercentDiscount
         {
-            get { return System.Math.Round(percentDiscount,2); }
+            get { return Math.Round(percentDiscount,2); }
             set
             {
                 percentDiscount = value;
@@ -56,7 +56,7 @@ namespace Model
         }
         public double DiscountedPrice
         {
-            get { return System.Math.Round(discountedPrice, 2); }
+            get { return Math.Round(discountedPrice, 2); }
             set
             {
                 discountedPrice = value;
@@ -101,7 +101,10 @@ namespace Model
         {
             get
             {
-
+                if(PercentDiscount > 100)
+                {
+                    PercentDiscount = 0;
+                }
                 if(PercentDiscount == 100)
                 {
                     return 0;

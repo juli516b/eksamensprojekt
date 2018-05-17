@@ -7,8 +7,14 @@ namespace ViewModel
     {
         private readonly Predicate<object> canExecute;
         private readonly Action<object> execute;
+       
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+            //CommandManager.InvalidateRequerySuggested
+        }
 
         public DelegateCommand(Action<object> execute)
                        : this(execute, null)
@@ -37,12 +43,5 @@ namespace ViewModel
             execute(parameter);
         }
 
-        public void RaiseCanExecuteChanged()
-        {
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged(this, EventArgs.Empty);
-            }
-        }
-    }
+       }
 }
