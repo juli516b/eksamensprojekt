@@ -4,19 +4,19 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>250</y>
+      <x>660</x>
+      <y>110</y>
       <w>330</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>Database-modellering - normalisering, 1NF for Item</panel_attributes>
+    <panel_attributes>Database-modellering - normaliseret</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>710</x>
-      <y>320</y>
+      <x>720</x>
+      <y>170</y>
       <w>200</w>
       <h>90</h>
     </coordinates>
@@ -31,17 +31,17 @@ EndDate : datetime2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>370</x>
-      <y>320</y>
+      <x>550</x>
+      <y>330</y>
       <w>200</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>BaseItemName
+    <panel_attributes>ItemName
 --
-BaseItemNameID (PK) : float
+ItemNameID (PK) : float
 --
 ItemNo (FK) : nvarchar
-ItemName : nvarchar
+Name : nvarchar
 StartDate : datetime2
 EndDate : datetime2
 </panel_attributes>
@@ -50,17 +50,17 @@ EndDate : datetime2
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1050</x>
-      <y>320</y>
+      <x>890</x>
+      <y>330</y>
       <w>200</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>BaseItemPrice
+    <panel_attributes>ItemPrice
 --
-BaseItemPriceID (PK) : float
+ItemPriceID (PK) : float
 --
 ItemNo (FK) : nvarchar
-ItemPrice : float
+Price : float
 StartDate : datetime2
 EndDate : datetime2</panel_attributes>
     <additional_attributes/>
@@ -68,45 +68,43 @@ EndDate : datetime2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>900</x>
-      <y>350</y>
-      <w>170</w>
-      <h>40</h>
+      <x>810</x>
+      <y>250</y>
+      <w>100</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1
+m1=
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;80.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>350</y>
-      <w>170</w>
-      <h>40</h>
+      <x>740</x>
+      <y>250</y>
+      <w>100</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1
+m1=
 m2=1..*</panel_attributes>
-    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>80.0;10.0;80.0;110.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>540</y>
-      <w>240</w>
-      <h>150</h>
+      <x>550</x>
+      <y>530</y>
+      <w>200</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>BaseItemRestAttributes
+    <panel_attributes>ItemWeight
 --
-BaseItemRestAttributesID (PK) : float
+ItemWeightID (PK) : float
 --
 ItemNo (FK) : nvarchar
-ItemWeight : float
-NoOfPackages : float
-NoOfPallets : float
+Weight : float
 StartDate : datetime2
 EndDate : datetime2
 </panel_attributes>
@@ -115,14 +113,46 @@ EndDate : datetime2
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>790</x>
-      <y>400</y>
-      <w>50</w>
-      <h>160</h>
+      <x>740</x>
+      <y>250</y>
+      <w>100</w>
+      <h>340</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>80.0;10.0;80.0;310.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>530</y>
+      <w>200</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ItemCountPerPallet
+--
+CountPerPalletID (PK) : float
+--
+ItemNo (FK) : nvarchar
+CountPerPallet : float
+StartDate : datetime2
+EndDate : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>250</y>
+      <w>100</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0;80.0;310.0</additional_attributes>
   </element>
 </diagram>
