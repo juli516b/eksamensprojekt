@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1120</x>
-      <y>310</y>
+      <x>880</x>
+      <y>250</y>
       <w>220</w>
       <h>110</h>
     </coordinates>
@@ -20,8 +20,8 @@ AddItem(item : IItem)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1120</x>
-      <y>710</y>
+      <x>880</x>
+      <y>610</y>
       <w>220</w>
       <h>110</h>
     </coordinates>
@@ -38,8 +38,8 @@ ItemPrice : double
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1120</x>
-      <y>540</y>
+      <x>880</x>
+      <y>440</y>
       <w>220</w>
       <h>110</h>
     </coordinates>
@@ -54,8 +54,8 @@ ItemPrice : double
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>640</y>
+      <x>990</x>
+      <y>540</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -65,21 +65,21 @@ ItemPrice : double
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>410</y>
+      <x>990</x>
+      <y>350</y>
       <w>30</w>
-      <h>150</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>310</y>
+      <x>450</x>
+      <y>200</y>
       <w>330</w>
-      <h>210</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>Offer
 --
@@ -88,19 +88,19 @@ Offerlines : OfferLine[0..*]
 OfferDate : DateTime
 / OfferTotal : double
 OfferDiscount : double
-MyCustomer : Customer
+ForwardingAgentPrice : double
 --
+- NotifyPropertyChanged(name : string)
 &lt;&lt;Constructor&gt;&gt; Offer(creationDate : DataTime)
-NotifyPropertyChanged(name : string)
-AddOfferLine(offerLine : OfferLine)
-AddCustomer(newCustomer : Customer)</panel_attributes>
+AddOfferLine(offerLine:OfferLine)
+NotifyOfferTotal()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>540</y>
+      <x>450</x>
+      <y>440</y>
       <w>330</w>
       <h>130</h>
     </coordinates>
@@ -117,8 +117,8 @@ PercentDiscount: double
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1010</x>
-      <y>560</y>
+      <x>770</x>
+      <y>460</y>
       <w>130</w>
       <h>30</h>
     </coordinates>
@@ -128,8 +128,8 @@ PercentDiscount: double
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>790</x>
-      <y>510</y>
+      <x>550</x>
+      <y>410</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -139,43 +139,47 @@ PercentDiscount: double
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>0</y>
+      <x>450</x>
+      <y>40</y>
       <w>340</w>
-      <h>230</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>OfferViewModel
 --
-- currentOffer : Offer
-OfferLines : OfferLine [0..*]
-OfferTotal : double
-OfferDiscount : double
-MyCustomer : Customer
-CustomerDiscount : double
+ThisOffer : Offer
 --
 CreateOffer(creationDate : DateTime) : Offer
 AddOfferLine(thisOffer: Offer, item:IItem, quantity:int)
-PercentToPrice(offerLine, percent)
-PriceToPercent(offerLine, newPrice)
-AddCustomer(newCustomer: Customer)</panel_attributes>
+NotifyOfferTotal()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
-      <y>220</y>
+      <x>600</x>
+      <y>150</y>
       <w>30</w>
-      <h>110</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>120</y>
+      <w>30</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>710</y>
+      <x>450</x>
+      <y>610</y>
       <w>330</w>
       <h>120</h>
     </coordinates>
@@ -190,83 +194,18 @@ _PercentToPrice(percent, oldPrice) : double_
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>850</x>
-      <y>220</y>
-      <w>410</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>390.0;90.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>310</y>
-      <w>240</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>Customer
---
-CustomerName : string
-CVRNumber : string
-CustomerAddress : string
-PhoneNo : int
-Email : string
-CustomerDiscount : double
---</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>580</x>
-      <y>340</y>
-      <w>130</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>460</x>
-      <y>240</y>
-      <w>30</w>
+      <x>880</x>
+      <y>40</y>
+      <w>220</w>
       <h>90</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>350</x>
-      <y>110</y>
-      <w>240</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>: CustomerRepository
+    <panel_attributes>ItemViewModel
 --
-Customers : IList
-
+Items : Item[0..*]
 --
-AddCustomer(Customer)
 </panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>580</x>
-      <y>140</y>
-      <w>130</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
   </element>
 </diagram>
