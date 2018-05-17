@@ -17,6 +17,7 @@ namespace ViewModel
         private readonly PDFExporter pdfExporter;
         private ICommand clickAddButtonCommand;
         private ICommand clickGeneratePDFCommand;
+        private Customer firstCustomer;
         private readonly Offer currentOffer;
 
         public Customer MyCustomer
@@ -212,6 +213,7 @@ namespace ViewModel
         {
             dataHandler = new ItemDataHandler();
             pdfExporter = new PDFExporter();
+            firstCustomer = new Customer();
             currentOffer = new Offer(DateTime.Now);
 
             SelectedItem = Items[0];

@@ -27,25 +27,25 @@ namespace Model
         {
             //INITIALISERE NEW DOCUMENT
             Document doc = new Document(PageSize.A4);
-            PdfWriter.GetInstance(doc, new FileStream(SaveFileDialogWindow(), FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(SaveFileDialogWindow(), FileMode.Create));
             Chunk symbol = new Chunk("", FontFactory.GetFont("HELVETICA"));
             doc.Open();
-            Paragraph customerInformationParagraph = new Paragraph("KUNDE INFORMATION");
-            List customerInformationList = new List()
+            Paragraph kundeParagraphListe = new Paragraph("KUNDE INFORMATION");
+            List kundeInformationListe = new List()
             {
                 ListSymbol = symbol,
                 IndentationLeft = 30f
             };
             if (currentOffer.MyCustomer != null)
             {
-                customerInformationList.Add(currentOffer.MyCustomer.CustomerName);
-                customerInformationList.Add(currentOffer.MyCustomer.CustomerAdress);
-                customerInformationList.Add(currentOffer.MyCustomer.CustomerZip + "");
-                customerInformationList.Add("CVR nummer: " + currentOffer.MyCustomer.CVRNumber);
-                customerInformationList.Add(currentOffer.MyCustomer.Email);
+                kundeInformationListe.Add(currentOffer.MyCustomer.CustomerName);
+                kundeInformationListe.Add(currentOffer.MyCustomer.CustomerAdress);
+                kundeInformationListe.Add(currentOffer.MyCustomer.CustomerZip + "");
+                kundeInformationListe.Add("CVR nummer: " + currentOffer.MyCustomer.CVRNumber);
+                kundeInformationListe.Add(currentOffer.MyCustomer.Email);
             }
             else
-            customerInformationList.Add("INGEN KUNDE VALGT");
+            kundeInformationListe.Add("INGEN KUNDE VALGT");
 
             //ECONOMY TABLE
             PdfPTable economyTable = new PdfPTable(2)
@@ -61,13 +61,9 @@ namespace Model
             economyTable.AddCell(currentOffer.OfferSubtotal + " DKK");
             economyTable.AddCell("KUNDERABAT:");
             if (currentOffer.MyCustomer == null)
-            {
                 economyTable.AddCell("0 %");
-            }
             else
-            {
                 economyTable.AddCell(currentOffer.MyCustomer.CustomerDiscount + " %");
-            }
             economyTable.AddCell("TILBUDSRABAT");
             economyTable.AddCell(currentOffer.OfferDiscount + " %");
             economyTable.AddCell("TRANSPORTOMKOSTNINGER:");
@@ -78,6 +74,7 @@ namespace Model
             economyTable.AddCell(currentOffer.TotalDiscountedPrice);
             economyTable.AddCell("TOTAL:");
             economyTable.AddCell(currentOffer.OfferTotal + " DKK");
+            //ECONOMY TABLE
             //OFFERLINES TABLE
             PdfPTable offerLineTable = new PdfPTable(7)
             {
@@ -112,8 +109,8 @@ namespace Model
                 offerLineTable.AddCell(offerLine.OfferLineTotal + "");
             }
             //ADD TO DOCUMENT
-            doc.Add(customerInformationParagraph);
-            doc.Add(customerInformationList);
+            doc.Add(kundeParagraphListe);
+            doc.Add(kundeInformationListe);
             doc.Add(offerLineTable);
             doc.Add(economyTable);
             doc.Close();
