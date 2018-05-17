@@ -7,7 +7,7 @@ namespace Eksamensprojekt
     /// <summary>
     /// Interaction logic for ShowCustomersWindow.xaml
     /// </summary>
-    public partial class ShowCustomersWindow
+    public partial class ShowCustomersWindow:Window
     {
         private readonly OfferViewModel owm;
         public ShowCustomersWindow()
