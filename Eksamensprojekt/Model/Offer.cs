@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Model
 {
     public class Offer
     {
-        private ObservableCollection<OfferLine> _offerLines;
+        public DateTime CreationDate { get; set; }
 
         public Customer MyCustomer { get; set; }
         public string OfferNo { get; set; }
-        public DateTime OfferDate { get; set; }
+
         public double OfferTotal
         {
             get
@@ -32,29 +28,50 @@ namespace Model
                 }
                 return total;
             }
-            set
+        }
+
+        public double OfferSubtotal
+        {
+            get
             {
-                return;
+                double offerSubtotal = OfferLines.Sum(offerLine => offerLine.Item.ItemPrice * offerLine.Quantity);
+                return offerSubtotal;
             }
         }
 
-        public ObservableCollection<OfferLine> OfferLines { get => _offerLines;
-            set
+        public string TotalPercentDiscount
+        {
+            get
             {
-                _offerLines = value;
+                if (OfferSubtotal != 0)
+                {
+                    double roundedValue = Math.Round(DiscountMath.PriceToPercent(CalculateOffertotalWithoutForwardingAgentPrice(), OfferSubtotal), 2);
+                    return roundedValue + " %";
+                }
+                return "0 %";
             }
+            private set => TotalPercentDiscount = value;
         }
+
+        public string TotalDiscountedPrice => OfferSubtotal - CalculateOffertotalWithoutForwardingAgentPrice() + " DKK";
+
+        public ObservableCollection<OfferLine> OfferLines { get; set; }
+
         public double OfferDiscount { get; set; }
         public double ForwardingAgentPrice { get; set; }
 
         public Offer(DateTime creationDate)
         {
-            OfferDate = creationDate;
+            CreationDate = creationDate;
             OfferLines = new ObservableCollection<OfferLine>();
         }
         public void AddOfferLine(OfferLine offerLine)
         {
             OfferLines.Add(offerLine);
+        }
+        private double CalculateOffertotalWithoutForwardingAgentPrice()
+        {
+            return OfferTotal - ForwardingAgentPrice;
         }
     }
 }

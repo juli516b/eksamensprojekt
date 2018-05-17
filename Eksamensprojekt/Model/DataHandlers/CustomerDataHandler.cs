@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Model.BaseTypes;
 
-namespace Model
+namespace Model.DataHandlers
 {
     public class CustomerDataHandler : IPersistentCustomerDataHandler
     {
         public IList<IBaseCustomer> GetAll(IList<IBaseCustomer> customers)
         {
-            customers.Add(new Customer()
-            {
+            customers.Add(new Customer
+                {
                 CustomerName = "Svensk SuperMarked Gruppan A/S",
                 CustomerAdress = "Norgesvej 17",
                 CustomerDiscount = 3,
@@ -21,8 +18,8 @@ namespace Model
                 PhoneNo = 12345678
             }
             );
-            customers.Add(new Customer()
-            {
+            customers.Add(new Customer
+                {
                 CustomerName = "Pommes Konkurrent IPS",
                 CustomerAdress = "Norgesvej 18",
                 CustomerDiscount = 1,
@@ -32,8 +29,8 @@ namespace Model
                 PhoneNo = 23456789
             }
 );
-            customers.Add(new Customer()
-            {
+            customers.Add(new Customer
+                {
                 CustomerName = "Grøntsager APS",
                 CustomerAdress = "Norgesvej 19",
                 CustomerDiscount = 9,

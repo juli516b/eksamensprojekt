@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
+using Model.BaseTypes;
 using ViewModel;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace PomfritTest
+namespace RabatmanTests
 {
     [TestClass]
     class LogisticsTest
@@ -13,7 +13,7 @@ namespace PomfritTest
         {
             //Arrange
             OfferViewModel ovm = new OfferViewModel();
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 50);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 50,"Frankrig",25);
 
             //Act
             ovm.AddOfferLine(item, 30);

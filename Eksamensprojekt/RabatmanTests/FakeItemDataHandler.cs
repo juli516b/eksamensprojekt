@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
+﻿using System.Collections.Generic;
+using Model.BaseTypes;
+using Model.DataHandlers;
 
-namespace RabatmanItemTest
+namespace RabatmanTests
 {
     public class FakeItemDataHandler : IPersistentItemDataHandler
     {

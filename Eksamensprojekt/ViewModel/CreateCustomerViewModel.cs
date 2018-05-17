@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows.Input;
 using Model;
+using Model.DataHandlers;
 
 namespace ViewModel
 {
     public class CreateCustomerViewModel : INotifyPropertyChanged
     {
         private string customerMessage;
-        private CustomerRepository customerRepository;
+        private readonly CustomerRepository customerRepository;
         public CreateCustomerViewModel()
         {
             customerRepository = CustomerRepository.GetInstance(new CustomerDataHandler());
         }
-
         public string CustomerMessage
         {
             get
@@ -32,9 +27,7 @@ namespace ViewModel
         }
         private ICommand saveCustomer;
         private string customerName;
-
         public event PropertyChangedEventHandler PropertyChanged;
-
         public void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -46,8 +39,8 @@ namespace ViewModel
                 if (saveCustomer == null)
                 {
                     saveCustomer = new DelegateCommand(
-                        param => this.AddNewCustomer(),
-                        param => this.CanAddCustomer()
+                        param => AddNewCustomer(),
+                        param => CanAddCustomer()
                     );
                 }
                 return saveCustomer;
@@ -56,22 +49,19 @@ namespace ViewModel
 
         private bool CanAddCustomer()
         {
-            bool canExecute = false;
-            if (CustomerName != "")
-            {
-                canExecute = true;
-            }
+            bool canExecute = CustomerName != "";
             return canExecute;
         }
 
         public void AddNewCustomer()
         {
-            Customer myCustomer = new Customer()
+            Customer myCustomer = new Customer
             {
                 CustomerName = CustomerName,
                 CustomerAdress = CustomerAdress,
                 CustomerDiscount = CustomerDiscount,
                 CustomerZip = CustomerZip,
+                PhoneNo = PhoneNo,
                 CVRNumber = CVRNumber,
                 Email = Email
             };
@@ -92,5 +82,6 @@ namespace ViewModel
         public int PhoneNo { get; set; }
         public string Email { get; set; }
         public double CustomerDiscount { get; set; }
+        
     }
 }

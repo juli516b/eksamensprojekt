@@ -1,4 +1,4 @@
-﻿namespace Model
+﻿namespace Model.BaseTypes
 {
     public interface IBaseCustomer
     {

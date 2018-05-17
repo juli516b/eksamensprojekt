@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Model.BaseTypes;
+using Model.DataHandlers;
 
 namespace Model
 {
     public class CustomerRepository
     {
-        IPersistentCustomerDataHandler cDataHandler;
-        public IList<IBaseCustomer> Customers { get; set; }
+        public IList<IBaseCustomer> Customers { get; private set; }
         private CustomerRepository(IPersistentCustomerDataHandler cdh)
         {
-            cDataHandler = cdh;
             Customers = new List<IBaseCustomer>();
             Customers = cdh.GetAll(Customers);
         }

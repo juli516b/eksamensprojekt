@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Model.BaseTypes;
+using Model.DataHandlers;
+using RabatmanTests;
 
-namespace RabatmanItemTest
+
+namespace RabatmanTestss
 {
+    // TJEK op på FakeItemDatahandler - nuværende tidspunkt kan den ikke bruge RabatmanTests som namespace!!
     [TestClass]
     public class ItemTest
     {
@@ -13,8 +17,8 @@ namespace RabatmanItemTest
             //Arrange
             IPersistentItemDataHandler fakeItemDataHandler = new FakeItemDataHandler();
             ItemRepository ir = ItemRepository.GetInstance(fakeItemDataHandler);
-            IBaseItem item = new Item("PommesDeluxe","12345678",25.95);
-            IBaseItem item2 = new Item("PommesDeluxe2", "123456782", 252.95);
+            IBaseItem item = new Item("PommesDeluxe","12345678",25.95, "Frankrig", 25);
+            IBaseItem item2 = new Item("PommesDeluxe2", "123456782", 252.95, "Frankrig", 25);
             //Act
             ir.AddItem(item);
             //Assert

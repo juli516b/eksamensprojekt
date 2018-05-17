@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
+using Model.BaseTypes;
 
 namespace Model
 {
@@ -25,6 +22,8 @@ namespace Model
 
         public string ItemNo { get {return Item.ItemNo; } }
         public string ItemName { get { return Item.ItemName; } }
+        public string ItemCountry { get { return Item.ItemCountry; } } //update artefakt
+        public double ItemWeight { get { return Item.ItemWeight; } } //update artefakt
         public double ItemPrice {
             get
             {
@@ -38,33 +37,39 @@ namespace Model
         }
         public double PercentDiscount
         {
-            get { return percentDiscount; }
+            get { return Math.Round(percentDiscount,2); }
             set
             {
                 percentDiscount = value;
-                if (discountedPrice == 0 || discountedPrice != DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice))
+                //GØR DET HER PÆNERE - SPØRG VEJLEDER
+                if (Math.Abs(discountedPrice) <  Double.Epsilon || Math.Abs(discountedPrice - DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice)) > Double.Epsilon)
                 {
                     DiscountedPrice = DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice);
                     NotifyAPropertyChanged("DiscountedPrice");
                     NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");
                     APWC?.Invoke("OfferLinesSubtotal");
+                    APWC?.Invoke("TotalDiscountedPrice");
+                    APWC?.Invoke("TotalPercentDiscount");
                 }
             }
         }
         public double DiscountedPrice
         {
-            get { return discountedPrice; }
+            get { return Math.Round(discountedPrice, 2); }
             set
             {
                 discountedPrice = value;
-                if (percentDiscount == 0 || percentDiscount != DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice))
+                //GØR DET HER PÆNERE - SPØRG VEJLEDER
+                if (Math.Abs(percentDiscount) < Double.Epsilon || Math.Abs(percentDiscount - DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice)) > Double.Epsilon)
                 {
                     PercentDiscount = DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice);
                     NotifyAPropertyChanged("PercentDiscount");
                     NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");
                     APWC?.Invoke("OfferLinesSubtotal");
+                    APWC?.Invoke("TotalDiscountedPrice");
+                    APWC?.Invoke("TotalPercentDiscount");
                 }
             }
         }
@@ -96,7 +101,13 @@ namespace Model
         {
             get
             {
-                if (DiscountedPrice==0)
+
+                if(PercentDiscount == 100)
+                {
+                    return 0;
+                }
+                if (DiscountedPrice == 0 && PercentDiscount != 100)
+
                 {
                     return Quantity * ItemPrice;
                 }
