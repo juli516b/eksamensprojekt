@@ -88,13 +88,13 @@ namespace ViewModel
                         param => CanRemoveOfferLine()
                     );
                 }
-                return clickGeneratePDFCommand;
+                return clickRemoveOfferLineCommand;
             }
         }
 
         private bool CanRemoveOfferLine()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         private void RemoveOfferLine()
