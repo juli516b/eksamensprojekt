@@ -101,7 +101,10 @@ namespace Model
         {
             get
             {
-
+                if(PercentDiscount > 100)
+                {
+                    PercentDiscount = 0;
+                }
                 if(PercentDiscount == 100)
                 {
                     return 0;

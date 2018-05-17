@@ -58,7 +58,7 @@ namespace ViewModel
             {
                 MyCustomer.CustomerDiscount = Convert.ToDouble(value);
                 NotifyPropertyChanged("TotalPercentDiscount");
-            }
+            }   
         }
         public double ForwardingAgentPrice
         {
