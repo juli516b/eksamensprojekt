@@ -8,11 +8,11 @@ namespace Model
     {
         private double OffertotalWithoutFAP
         {
-            get { return OfferTotal - ForwardingAgentPrice; }
-            set { OffertotalWithoutFAP = value; }
+            get => OfferTotal - ForwardingAgentPrice;
+            set => OffertotalWithoutFAP = value;
         }
 
-        private DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; set; }
 
         public Customer MyCustomer { get; set; }
         public string OfferNo { get; set; }
@@ -56,17 +56,10 @@ namespace Model
                 }
                 return "0 %";
             }
-            set { TotalPercentDiscount = value; }
+            private set => TotalPercentDiscount = value;
         }
 
-        public string TotalDiscountedPrice
-        {
-            get
-            {
-                return OfferSubtotal - OffertotalWithoutFAP + " DKK";
-            }
-            set { TotalPercentDiscount = value; }
-        }
+        public string TotalDiscountedPrice => OfferSubtotal - OffertotalWithoutFAP + " DKK";
 
         public ObservableCollection<OfferLine> OfferLines { get; set; }
 
