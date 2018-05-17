@@ -97,7 +97,7 @@ namespace ViewModel
         }
         private bool CanGeneratePDF()
         {
-            return true;
+            return (OfferLines.Count > 0);     
         }
 
         public ICommand AddButtonCommand
