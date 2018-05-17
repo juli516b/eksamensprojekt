@@ -6,13 +6,6 @@ namespace Model
 {
     public class Offer
     {
-        //FAP = FOWARDING AGENT PRICE
-        private double OffertotalWithoutFAP
-        {
-            get => OfferTotal - ForwardingAgentPrice;
-            set => OffertotalWithoutFAP = value;
-        }
-
         public DateTime CreationDate { get; set; }
 
         public Customer MyCustomer { get; set; }
@@ -52,7 +45,7 @@ namespace Model
             {
                 if (OfferSubtotal != 0)
                 {
-                    double roundedValue = Math.Round(DiscountMath.PriceToPercent(OffertotalWithoutFAP, OfferSubtotal), 2);
+                    double roundedValue = Math.Round(DiscountMath.PriceToPercent(CalculateOffertotalWithoutForwardingAgentPrice(), OfferSubtotal), 2);
                     return roundedValue + " %";
                 }
                 return "0 %";
@@ -60,7 +53,7 @@ namespace Model
             private set => TotalPercentDiscount = value;
         }
 
-        public string TotalDiscountedPrice => OfferSubtotal - OffertotalWithoutFAP + " DKK";
+        public string TotalDiscountedPrice => OfferSubtotal - CalculateOffertotalWithoutForwardingAgentPrice() + " DKK";
 
         public ObservableCollection<OfferLine> OfferLines { get; set; }
 
@@ -75,6 +68,10 @@ namespace Model
         public void AddOfferLine(OfferLine offerLine)
         {
             OfferLines.Add(offerLine);
+        }
+        private double CalculateOffertotalWithoutForwardingAgentPrice()
+        {
+            return OfferTotal - ForwardingAgentPrice;
         }
     }
 }
