@@ -112,7 +112,6 @@
                         <GridView>
                             <GridViewColumn Width="60" Header="Vare nr." DisplayMemberBinding="{Binding ItemNo, Mode=OneWay}"/>
                             <GridViewColumn Width="120" Header="Varenavn" DisplayMemberBinding="{Binding ItemName, Mode=OneWay}"/>
-                            <GridViewColumn Width="70" Header="Land" DisplayMemberBinding="{Binding ItemCountry, Mode=OneWay}"/>
                             <GridViewColumn Width="35" Header="Vægt" DisplayMemberBinding="{Binding ItemWeight, Mode=OneWay}"/>
                             <GridViewColumn Width="70" Header="Pris">
                                 <GridViewColumn.CellTemplate>
