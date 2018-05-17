@@ -75,7 +75,7 @@
                     <ColumnDefinition Width="722*"/>
                     <ColumnDefinition Width="98*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid x:Name="OfferDataGrid" HorizontalAlignment="Left" Height="442"  Margin="10,10,0,0" VerticalAlignment="Top" Width="966" AutoGenerateColumns="False" ItemsSource="{Binding OfferLines}" Grid.ColumnSpan="3">
+                <DataGrid x:Name="OfferDataGrid" HorizontalAlignment="Left" SelectedItem="{Binding SelectedOfferLine}" Height="442"  Margin="10,10,0,0" VerticalAlignment="Top" Width="966" AutoGenerateColumns="False" ItemsSource="{Binding OfferLines}" Grid.ColumnSpan="3">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Vare nr." Binding="{Binding ItemNo, Mode=OneWay}"/>
                         <DataGridTextColumn Header="Varenavn" Binding="{Binding ItemName, Mode=OneWay}"/>
