@@ -6,7 +6,7 @@ namespace Model
 {
     public class Offer
     {
-        public DateTime CreationDate { get; set; }
+        public DateTime? CreationDate { get; set; }
 
         public Customer MyCustomer { get; set; }
         public string OfferNo { get; set; }
@@ -28,6 +28,7 @@ namespace Model
                 }
                 return total;
             }
+            set => throw new NotImplementedException();
         }
 
         public double OfferSubtotal
@@ -72,6 +73,14 @@ namespace Model
         private double CalculateOffertotalWithoutForwardingAgentPrice()
         {
             return OfferTotal - ForwardingAgentPrice;
+        }
+
+        public void Clear()
+        {
+            CreationDate = null;
+            MyCustomer = null;
+            OfferNo = null;
+            OfferLines.Clear();
         }
     }
 }
