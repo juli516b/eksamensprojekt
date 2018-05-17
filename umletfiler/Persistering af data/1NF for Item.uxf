@@ -105,8 +105,7 @@ BaseItemRestAttributesID (PK) : float
 --
 ItemNo (FK) : nvarchar
 ItemWeight : float
-NoOfPackages : float
-NoOfPallets : float
+CountPerPallet : float
 StartDate : datetime2
 EndDate : datetime2
 </panel_attributes>
