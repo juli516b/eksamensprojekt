@@ -6,6 +6,7 @@ namespace Model
 {
     public class Offer
     {
+        //FAP = FOWARDING AGENT PRICE
         private double OffertotalWithoutFAP
         {
             get => OfferTotal - ForwardingAgentPrice;
