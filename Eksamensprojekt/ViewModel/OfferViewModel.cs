@@ -17,8 +17,9 @@ namespace ViewModel
         private readonly PDFExporter pdfExporter;
         private ICommand clickAddButtonCommand;
         private ICommand clickGeneratePDFCommand;
+        private ICommand clickCreateNewOffer;
         private ICommand clickRemoveOfferLineCommand;
-        private readonly Offer currentOffer;
+        private Offer currentOffer;
 
         public Customer MyCustomer
         {
@@ -77,6 +78,22 @@ namespace ViewModel
         public OfferLine SelectedOfferLine { get; set; }
         public string QuantityTextBoxText { get; set; }
 
+        public ICommand CreateNewOfferButtonCommand
+        {
+            get
+            {
+                if (clickCreateNewOffer == null)
+                {
+                    clickCreateNewOffer = new DelegateCommand(
+                        param => CreateNewOffer(),
+                        param => CanCreateNewOffer()
+                    );
+                }
+                return clickCreateNewOffer;
+            }
+        }
+
+
         public ICommand RemoveOfferLineButtonCommand
         {
             get
@@ -96,7 +113,12 @@ namespace ViewModel
         {
             return true;
         }
-
+        private void CreateNewOffer()
+        {
+            currentOffer.Clear();
+            NotifyPropertyChanged("OfferTotal");
+            NotifyPropertyChanged("OfferLinesSubTotal");
+        }
         private void RemoveOfferLine()
         {
             currentOffer.RemoveOfferLine(SelectedOfferLine);
