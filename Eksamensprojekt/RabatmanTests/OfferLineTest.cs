@@ -11,7 +11,7 @@ namespace RabatmanTests
         public void OfferLineTotalTest()
         {
             //Arrange
-            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, "Frankrig", 25);
+            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, 25);
             OfferLine offerLine = new OfferLine(item, 100);
             //Act
             //Assert
@@ -21,7 +21,7 @@ namespace RabatmanTests
         public void DiscountedPriceMathTest()
         {
             //Arrange
-            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, "Frankrig", 25);
+            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, 25);
             OfferLine offerLine = new OfferLine(item, 100) {DiscountedPrice = 15};
             //Act
             //Assert
@@ -32,7 +32,7 @@ namespace RabatmanTests
         public void PercentDiscountMathTest()
         {
             //Arrange
-            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, "Frankrig", 25);
+            IBaseItem item = new Item("Kyllinge vinger", "123", 20.25, 25);
             OfferLine offerLine = new OfferLine(item, 100) {PercentDiscount = 20};
             //Act
             //Assert

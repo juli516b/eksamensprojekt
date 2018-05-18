@@ -6,7 +6,7 @@ namespace Model
 {
     public class Offer
     {
-        public DateTime? CreationDate { get; set; }
+        public DateTime CreationDate { get; set; }
 
         public Customer MyCustomer { get; set; }
         public string OfferNo { get; set; }
@@ -82,9 +82,11 @@ namespace Model
 
         public void Clear()
         {
-            CreationDate = null;
+            CreationDate = DateTime.Now;
             MyCustomer = null;
             OfferNo = null;
+            ForwardingAgentPrice = 0;
+            OfferDiscount = 0;
             OfferLines.Clear();
         }
     }

@@ -93,6 +93,11 @@ namespace ViewModel
             }
         }
 
+        private bool CanCreateNewOffer()
+        {
+            // vær opmærksom på at gemme det eksisterende tilbud hvis muligt.
+            return true;
+        }
 
         public ICommand RemoveOfferLineButtonCommand
         {
@@ -118,6 +123,14 @@ namespace ViewModel
             currentOffer.Clear();
             NotifyPropertyChanged("OfferTotal");
             NotifyPropertyChanged("OfferLinesSubTotal");
+            NotifyPropertyChanged("NoOfTotalPackages");
+            NotifyPropertyChanged("NoOfTotalPallets");
+            NotifyPropertyChanged("MyCustomer");
+            NotifyPropertyChanged("ForwardingAgentPrice");
+            NotifyPropertyChanged("OfferDiscount");
+            NotifyPropertyChanged("MyCustomerDiscount");
+            NotifyPropertyChanged("TotalDiscountedPrice");
+            NotifyPropertyChanged("TotalPercentDiscount");
         }
         private void RemoveOfferLine()
         {
