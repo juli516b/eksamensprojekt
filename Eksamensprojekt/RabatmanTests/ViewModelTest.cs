@@ -17,8 +17,8 @@ namespace RabatmanTests
         {
             //Arrange
             OfferViewModel novm = new OfferViewModel();
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 1, "Frankrig", 25);
-            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50, "Frankrig", 25);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 1, 25);
+            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50, 25);
 
             Assert.AreEqual(0 + " DKK", novm.OfferTotal); // no OfferLines added
             novm.AddOfferLine(item, 100);
@@ -43,8 +43,8 @@ namespace RabatmanTests
         {
             //Arrange
             OfferViewModel ovm = new OfferViewModel();
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 1, "Frankrig", 25, 10);
-            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.50, "Frankrig", 25, 25);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 1, 25, 10);
+            IBaseItem item2 = new Item("PommesDeluxe", "12345678", 2.5, 25, 25);
 
             //Act
             ovm.AddOfferLine(item, 27);

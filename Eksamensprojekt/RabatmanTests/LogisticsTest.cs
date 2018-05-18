@@ -13,7 +13,7 @@ namespace RabatmanTests
         {
             //Arrange
             OfferViewModel ovm = new OfferViewModel();
-            IBaseItem item = new Item("PommesDeluxe", "12345678", 50,"Frankrig",25);
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 50,25);
 
             //Act
             ovm.AddOfferLine(item, 30);
