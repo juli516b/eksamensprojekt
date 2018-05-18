@@ -18,6 +18,7 @@ namespace ViewModel
         private ICommand clickAddButtonCommand;
         private ICommand clickGeneratePDFCommand;
         private ICommand clickCreateNewOffer;
+        private ICommand clickRemoveOfferLineCommand;
         private Offer currentOffer;
 
         public Customer MyCustomer
@@ -74,6 +75,7 @@ namespace ViewModel
             }
         }
         public IBaseItem SelectedItem { get; set; }
+        public OfferLine SelectedOfferLine { get; set; }
         public string QuantityTextBoxText { get; set; }
 
         public ICommand CreateNewOfferButtonCommand
@@ -91,17 +93,35 @@ namespace ViewModel
             }
         }
 
-        private bool CanCreateNewOffer()
+
+        public ICommand RemoveOfferLineButtonCommand
+        {
+            get
+            {
+                if (clickRemoveOfferLineCommand == null)
+                {
+                    clickRemoveOfferLineCommand = new DelegateCommand(
+                        param => RemoveOfferLine(),
+                        param => CanRemoveOfferLine()
+                    );
+                }
+                return clickRemoveOfferLineCommand;
+            }
+        }
+
+        private bool CanRemoveOfferLine()
         {
             return true;
         }
-
         private void CreateNewOffer()
         {
             currentOffer.Clear();
             NotifyPropertyChanged("OfferTotal");
             NotifyPropertyChanged("OfferLinesSubTotal");
-
+        }
+        private void RemoveOfferLine()
+        {
+            currentOffer.RemoveOfferLine(SelectedOfferLine);
         }
 
         public ICommand GeneratePdfButtonCommand
