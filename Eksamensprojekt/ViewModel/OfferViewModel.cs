@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Win32;
 using Model;
 using Model.BaseTypes;
 using Model.DataHandlers;
@@ -151,10 +152,25 @@ namespace ViewModel
                 return clickGeneratePDFCommand;
             }
         }
+        private string SaveFileDialogWindow()
+        {
+            SaveFileDialog saveFileDialog;
+            saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Select PDFFile",
+                Filter = "PDF(*.pdf)|*.pdf",
+                DefaultExt = ".PDF",
+                FileName = DateTime.Now.ToShortDateString()
+            };
+            if (saveFileDialog.ShowDialog() == true)
+                return saveFileDialog.FileName;
+            throw new Exception("Der er sket en fejl med at gemme filen");
+        }
 
         private void GeneratePDF()
         {
-            pdfExporter.PDFGenerator(currentOffer);
+            pdfExporter.PDFGenerator(currentOffer, SaveFileDialogWindow());
         }
         private bool CanGeneratePDF()
         {
