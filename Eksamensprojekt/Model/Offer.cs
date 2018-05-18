@@ -69,6 +69,11 @@ namespace Model
         {
             OfferLines.Add(offerLine);
         }
+
+        public void RemoveOfferLine(OfferLine offerLine)
+        {
+            OfferLines.Remove(offerLine);
+        }
         private double CalculateOffertotalWithoutForwardingAgentPrice()
         {
             return OfferTotal - ForwardingAgentPrice;

@@ -17,6 +17,7 @@ namespace ViewModel
         private readonly PDFExporter pdfExporter;
         private ICommand clickAddButtonCommand;
         private ICommand clickGeneratePDFCommand;
+        private ICommand clickRemoveOfferLineCommand;
         private readonly Offer currentOffer;
 
         public Customer MyCustomer
@@ -73,7 +74,33 @@ namespace ViewModel
             }
         }
         public IBaseItem SelectedItem { get; set; }
+        public OfferLine SelectedOfferLine { get; set; }
         public string QuantityTextBoxText { get; set; }
+
+        public ICommand RemoveOfferLineButtonCommand
+        {
+            get
+            {
+                if (clickRemoveOfferLineCommand == null)
+                {
+                    clickRemoveOfferLineCommand = new DelegateCommand(
+                        param => RemoveOfferLine(),
+                        param => CanRemoveOfferLine()
+                    );
+                }
+                return clickRemoveOfferLineCommand;
+            }
+        }
+
+        private bool CanRemoveOfferLine()
+        {
+            return true;
+        }
+
+        private void RemoveOfferLine()
+        {
+            currentOffer.RemoveOfferLine(SelectedOfferLine);
+        }
 
         public ICommand GeneratePdfButtonCommand
         {

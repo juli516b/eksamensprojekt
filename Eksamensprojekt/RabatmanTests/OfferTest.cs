@@ -31,6 +31,20 @@ namespace RabatmanTests
             Assert.AreEqual(21, offerLine1.OfferLineTotal);
         }
         [TestMethod]
+        public void RemoveOfferLineTest()
+        {
+            //Arrange
+            IBaseItem item = new Item("PommesDeluxe", "12345678", 25.95, "Frankrig", 25);
+            OfferLine offerLine = new OfferLine(item, 20);
+            Offer offer = new Offer(DateTime.Now);
+            offer.AddOfferLine(offerLine);
+            Assert.AreEqual(1, offer.OfferLines.Count);
+            //Act
+            offer.RemoveOfferLine(offerLine);
+            //Assert
+            Assert.AreEqual(0, offer.OfferLines.Count);
+        }
+        [TestMethod]
         public void TestOfferTotal()
         {
             //Arrange
@@ -73,7 +87,6 @@ namespace RabatmanTests
             };
             offer.AddOfferLine(offerLine3);
             Assert.AreEqual(171, offer.OfferTotal);
-
         }
     }
 }
