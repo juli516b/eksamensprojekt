@@ -1,29 +1,12 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using Microsoft.Win32;
 
 namespace Model
 {
     public class PDFExporter
     {
-        private string SaveFileDialogWindow()
-        {
-            SaveFileDialog saveFileDialog;
-            saveFileDialog = new SaveFileDialog
-            {
-                InitialDirectory = @"C:\",
-                Title = "Select PDFFile",
-                Filter = "PDF(*.pdf)|*.pdf",
-                DefaultExt = ".PDF",
-                FileName = DateTime.Now.ToShortDateString()
-            };
-            if (saveFileDialog.ShowDialog() == true)
-                return saveFileDialog.FileName;
-            throw new Exception("Der er sket en fejl med at gemme filen");
-        }
-        public void PDFGenerator(Offer currentOffer)
+        public void PDFGenerator(Offer currentOffer, string path)
         {
             //INITIALISERE NEW DOCUMENT
             Document doc = new Document(PageSize.A4);
@@ -57,7 +40,7 @@ namespace Model
             };
             using (doc)
             {
-                PdfWriter.GetInstance(doc, new FileStream(path: SaveFileDialogWindow(), mode: FileMode.Create));
+                PdfWriter.GetInstance(doc, new FileStream(path: path, mode: FileMode.Create));
                 doc.Open();
                 //CUSTOMER INFORMATION LIST
                 Paragraph customerInformationParagraph = new Paragraph("KUNDE INFORMATION");
