@@ -27,27 +27,7 @@ namespace Model
         {
             //INITIALISERE NEW DOCUMENT
             Document doc = new Document(PageSize.A4);
-            PdfWriter.GetInstance(doc, new FileStream(SaveFileDialogWindow(), FileMode.Create));
             Chunk symbol = new Chunk("", FontFactory.GetFont("HELVETICA"));
-            doc.Open();
-            Paragraph customerInformationParagraph = new Paragraph("KUNDE INFORMATION");
-            List customerInformationList = new List()
-            {
-                ListSymbol = symbol,
-                IndentationLeft = 30f
-            };
-            if (currentOffer.MyCustomer != null)
-            {
-                customerInformationList.Add(currentOffer.MyCustomer.CustomerName);
-                customerInformationList.Add(currentOffer.MyCustomer.CustomerAdress);
-                customerInformationList.Add(currentOffer.MyCustomer.CustomerZip + "");
-                customerInformationList.Add("CVR nummer: " + currentOffer.MyCustomer.CVRNumber);
-                customerInformationList.Add(currentOffer.MyCustomer.Email);
-            }
-            else
-            customerInformationList.Add("INGEN KUNDE VALGT");
-
-            //ECONOMY TABLE
             PdfPTable economyTable = new PdfPTable(2)
             {
                 DefaultCell =
@@ -57,28 +37,6 @@ namespace Model
                 },
                 TotalWidth = 400,
             };
-            economyTable.AddCell("SUBTOTAL:");
-            economyTable.AddCell(currentOffer.OfferSubtotal + " DKK");
-            economyTable.AddCell("KUNDERABAT:");
-            if (currentOffer.MyCustomer == null)
-            {
-                economyTable.AddCell("0 %");
-            }
-            else
-            {
-                economyTable.AddCell(currentOffer.MyCustomer.CustomerDiscount + " %");
-            }
-            economyTable.AddCell("TILBUDSRABAT");
-            economyTable.AddCell(currentOffer.OfferDiscount + " %");
-            economyTable.AddCell("TRANSPORTOMKOSTNINGER:");
-            economyTable.AddCell(currentOffer.ForwardingAgentPrice + " DKK");
-            economyTable.AddCell("TOTAL RABAT:");
-            economyTable.AddCell(currentOffer.TotalPercentDiscount);
-            economyTable.AddCell("TOTAL BELØB SPARET:");
-            economyTable.AddCell(currentOffer.TotalDiscountedPrice);
-            economyTable.AddCell("TOTAL:");
-            economyTable.AddCell(currentOffer.OfferTotal + " DKK");
-            //OFFERLINES TABLE
             PdfPTable offerLineTable = new PdfPTable(7)
             {
                 DefaultCell =
@@ -92,31 +50,76 @@ namespace Model
                 HeaderRows = 1,
                 SplitLate = false
             };
-            //MAKING HEADERROWS
-            offerLineTable.AddCell("Vare nr.");
-            offerLineTable.AddCell("Varenavn");
-            offerLineTable.AddCell("Antal varer");
-            offerLineTable.AddCell("Stk. pris, DKK");
-            offerLineTable.AddCell("Tilbudspris, DKK");
-            offerLineTable.AddCell("Rabat, %");
-            offerLineTable.AddCell("Total, DKK");
-            //ADDING OFFERLINE TO offerLineTable.
-            foreach (OfferLine offerLine in currentOffer.OfferLines)
+            List customerInformationList = new List()
             {
-                offerLineTable.AddCell(offerLine.ItemNo);
-                offerLineTable.AddCell(offerLine.ItemName);
-                offerLineTable.AddCell(offerLine.Quantity + "");
-                offerLineTable.AddCell(offerLine.ItemPrice + "");
-                offerLineTable.AddCell(offerLine.DiscountedPrice + "");
-                offerLineTable.AddCell(offerLine.PercentDiscount + "");
-                offerLineTable.AddCell(offerLine.OfferLineTotal + "");
+                ListSymbol = symbol,
+                IndentationLeft = 30f
+            };
+            using (doc)
+            {
+                PdfWriter.GetInstance(doc, new FileStream(path: SaveFileDialogWindow(), mode: FileMode.Create));
+                doc.Open();
+                //CUSTOMER INFORMATION LIST
+                Paragraph customerInformationParagraph = new Paragraph("KUNDE INFORMATION");
+                if (currentOffer.MyCustomer != null)
+                {
+                    customerInformationList.Add(currentOffer.MyCustomer.CustomerName);
+                    customerInformationList.Add(currentOffer.MyCustomer.CustomerAdress);
+                    customerInformationList.Add(currentOffer.MyCustomer.CustomerZip + "");
+                    customerInformationList.Add("CVR nummer: " + currentOffer.MyCustomer.CVRNumber);
+                    customerInformationList.Add(currentOffer.MyCustomer.Email);
+                }
+                else
+                    customerInformationList.Add("INGEN KUNDE VALGT");
+                //ECONOMY TABLE
+                economyTable.AddCell("SUBTOTAL:");
+                economyTable.AddCell(currentOffer.OfferSubtotal + " DKK");
+                economyTable.AddCell("KUNDERABAT:");
+                if (currentOffer.MyCustomer == null)
+                {
+                    economyTable.AddCell("0 %");
+                }
+                else
+                {
+                    economyTable.AddCell(currentOffer.MyCustomer.CustomerDiscount + " %");
+                }
+                economyTable.AddCell("TILBUDSRABAT");
+                economyTable.AddCell(currentOffer.OfferDiscount + " %");
+                economyTable.AddCell("TRANSPORTOMKOSTNINGER:");
+                economyTable.AddCell(currentOffer.ForwardingAgentPrice + " DKK");
+                economyTable.AddCell("TOTAL RABAT:");
+                economyTable.AddCell(currentOffer.TotalPercentDiscount);
+                economyTable.AddCell("TOTAL BELØB SPARET:");
+                economyTable.AddCell(currentOffer.TotalDiscountedPrice);
+                economyTable.AddCell("TOTAL:");
+                economyTable.AddCell(currentOffer.OfferTotal + " DKK");
+                //OFFERLINES TABLE
+                //MAKING HEADERROWS
+                offerLineTable.AddCell("Vare nr.");
+                offerLineTable.AddCell("Varenavn");
+                offerLineTable.AddCell("Antal varer");
+                offerLineTable.AddCell("Stk. pris, DKK");
+                offerLineTable.AddCell("Tilbudspris, DKK");
+                offerLineTable.AddCell("Rabat, %");
+                offerLineTable.AddCell("Total, DKK");
+                //ADDING OFFERLINE TO offerLineTable.
+                foreach (OfferLine offerLine in currentOffer.OfferLines)
+                {
+                    offerLineTable.AddCell(offerLine.ItemNo);
+                    offerLineTable.AddCell(offerLine.ItemName);
+                    offerLineTable.AddCell(offerLine.Quantity + "");
+                    offerLineTable.AddCell(offerLine.ItemPrice + "");
+                    offerLineTable.AddCell(offerLine.DiscountedPrice + "");
+                    offerLineTable.AddCell(offerLine.PercentDiscount + "");
+                    offerLineTable.AddCell(offerLine.OfferLineTotal + "");
+                }
+                //ADD TO DOCUMENT
+                doc.Add(customerInformationParagraph);
+                doc.Add(customerInformationList);
+                doc.Add(offerLineTable);
+                doc.Add(economyTable);
+                doc.Close();
             }
-            //ADD TO DOCUMENT
-            doc.Add(customerInformationParagraph);
-            doc.Add(customerInformationList);
-            doc.Add(offerLineTable);
-            doc.Add(economyTable);
-            doc.Close();
         }
     }
 }
