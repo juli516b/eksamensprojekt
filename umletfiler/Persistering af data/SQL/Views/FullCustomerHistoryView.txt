@@ -1,0 +1,13 @@
+Create View FullCustomerHistoryView
+AS
+	Select 
+	  FCH.Id, CVRNumber, CustomerName, CustomerEmail, CustomerPhoneNo, CustomerDiscountPercent, CustomerAddress, CA.ZipCode, CountryName as Country, Created_At
+	From
+	  FullCustomerHistory as FCH inner join
+	  Customer as C on FCH.CustomerId = C.Id inner join
+	  CustomerName as CN on FCH.CustomerNameId = CN.Id inner join
+	  CustomerDiscount as CD on FCH.CustomerDiscountId = CD.Id inner join
+	  CustomerAddress as CA on FCH.CustomerAddressId = CA.Id inner Join
+	  CustomerContact as CC on FCH.CustomerContactId = CC.Id inner join
+	  CountryTable as CT on CA.CountryCode = CT.Id inner join
+	  ZipCity as ZC on CA.ZipCode = ZC.ZipCode

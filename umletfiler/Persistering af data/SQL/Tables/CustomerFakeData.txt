@@ -1,0 +1,8 @@
+Insert into Customer (CVRNumber) values ('$@!§&&'),('8dk'),('6');
+Insert into CustomerName (CustomerName) values ('Svensk SuperMarked Gruppan A/S'),('Pommes Konkurrent IPS'),('Grøntsager APS');
+Insert into CustomerDiscount (CustomerDiscountPercent) values (3),(1),(9);
+insert into CustomerContact (CustomerEmail, CustomerPhoneNo) values ('Britta@ikrea.se.dk',12345678),('nulle@pommes.dk',23456789),('Gert@greens.dk',34567890);
+Insert into CountryTable (CountryName) values ('Sverige'),('Jylland'),('Danmark');
+insert into ZipCity (ZipCode,City) values (5000,'Odense'),(2860,'Søborg'),(90210,'Beverly Hills') 
+Insert into CustomerAddress (CustomerAddress, CountryCode, ZipCode) values ('Norgesvej 17',1,5000),('Norgesvej 18',2,2860),('Norgesvej 19',3,90210);
+insert into FullCustomerHistory (CustomerId, CustomerNameId,CustomerDiscountId,CustomerContactId, CustomerAddressId) values (1,1,1,1,1),(2,2,2,2,2),(3,3,3,3,3);

@@ -1,0 +1,7 @@
+Create View OfferCustomer_View
+AS
+	Select OfferNo, OfferCreationDate, OfferDiscount, ForwardingAgentPrice, CVRNumber, CustomerName, CustomerEmail, CustomerPhoneNo, CustomerDiscountPercent, CustomerAddress, ZipCode, City, Country
+	From
+		Offer as O Inner Join
+		FullCustomerHistoryView as FCHV on O.CustomerId =  FCHV.Id Left join
+		ForwardingAgent as FA on O.ForwardingAgentId = FA.Id

@@ -1,0 +1,6 @@
+Create View OfferLine_View
+AS
+	Select Id as OfferLineId, OfferNo, ItemNo, ItemName, ItemWeight, ItemCountPerPallet, ItemPrice
+	From
+		OfferLine as OL Inner Join
+		Item_View as IV on OL.ItemId =  IV.ItemID

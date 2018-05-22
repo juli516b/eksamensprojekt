@@ -1,0 +1,34 @@
+--Use DB2017_C13;
+Create Proc spCustomerAddressInsert (
+@CAddress as nvarchar(max),
+@CZipCode as int,
+@CCity as nvarchar(max),
+@CCountry as nvarchar(max),
+@ThisCustomerAddressID as int OUTPUT
+)
+AS
+Begin
+  Declare @MyCountryId as int;
+  Declare @MyZipCode as int;
+
+  Set @MyZipCode = (Select ZipCode from ZipCity where ZipCode = @CZipCode);
+  IF @MyZipCode Is null
+  Begin
+		Insert into ZipCity (ZipCode,City) values (@CZipCode,@CCity);
+  End
+
+  Set @MyCountryId = (Select Id from CountryTable where CountryName = @CCountry);
+  If @MyCountryId is null
+  Begin
+		Insert into CountryTable (CountryName) values (@CCountry);
+		Set @MyCountryId = (Select SCOPE_IDENTITY());
+  End
+
+  Set @ThisCustomerAddressID = (select Id from CustomerAddress
+	  	  where CustomerAddress = @CAddress AND ZipCode = @CZipCode AND CountryCode = @MyCountryId);
+  IF @ThisCustomerAddressID is null
+  Begin
+		Insert into CustomerAddress (CustomerAddress, CountryCode, ZipCode) values (@CAddress, @MyCountryId, @CZipCode)
+		Set @ThisCustomerAddressID = (Select SCOPE_IDENTITY());
+  End
+End

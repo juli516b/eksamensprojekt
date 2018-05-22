@@ -1,0 +1,27 @@
+Create table ForwardingAgent(
+	Id						int			identity(1,1) not null unique,
+	ForwardingAgentPrice	float		not null,
+	Constraint ForwardingAgent_PK primary key (Id)
+);
+
+Create table Offer(
+	OfferNo				int			identity(1,1) not null unique,
+	OfferCreationDate	datetime2	not null,
+	CustomerId			int			null,
+	OfferDiscount		float		not null default(0),
+	ForwardingAgentId	int			null,
+	Constraint Offer_PK primary key(OfferNo),
+	Constraint OfferCustomer_FK foreign key (CustomerId) references FullCustomerHistory(Id),
+	Constraint ForwardingAgent_FK foreign key (ForwardingAgentId) references ForwardingAgent(Id)
+);
+
+Create Table OfferLine(
+	id					int			identity(1,1) not null unique,
+	OfferNo				int			not null,
+	ItemId				int			not null,
+	Quantity			int			not null,
+	PriceDiscount		float		default(0),
+	Constraint OfferLine_PK primary key (Id),
+	Constraint OfferNo_FK foreign key (OfferNo) references Offer (OfferNo),
+	Constraint OfferItem_FK foreign key (ItemId) references Item(ItemId)
+);

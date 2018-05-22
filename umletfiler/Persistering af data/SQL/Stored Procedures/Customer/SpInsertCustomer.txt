@@ -1,0 +1,65 @@
+--use DB2017_C13;
+/****
+	This Stored Procedure requires the other stored procedures in this directory
+****/
+Create Proc spInsertCustomer(
+@MyCVRNumber as nvarchar(20),
+@MyCustomerName as nvarchar(max),
+@MyCustomerDiscountPercent as float,
+@MyCustomerAddress as nvarchar(max),
+@MyCustomerZipCode as int,
+@MyCustomerCity as nvarchar(max),
+@MyCustomerCountry as nvarchar(max),
+@MyCustomerEmail as nvarchar(max),
+@MyCustomerPhoneNo as int
+)
+AS
+Begin
+  Declare @ExistingId as int;
+  Declare @ExistingCustomerId as int;
+  Declare @ExistingCustomerNameId as int;
+  Declare @ExistingCustomerDiscountId as int;
+  Declare @ExistingCustomerContactId as int;
+  Declare @ExistingCustomerAddressId as int;
+  
+  Exec spCustomerInsert @MyCVRNumber, @ExistingCustomerId OUTPUT;
+  Exec spCustomerNameInsert @MyCustomerName, @ExistingCustomerNameId OUTPUT;
+  Exec spCustomerDiscountInsert @MyCustomerDiscountPercent, @ExistingCustomerDiscountId OUTPUT;
+  Exec spCustomerContactInsert @MyCustomerEmail, @MyCustomerPhoneNo, @ExistingCustomerContactId OUTPUT;
+  Exec spCustomerAddressInsert @MyCustomerAddress, @MyCustomerZipCode, @MyCustomerCity, @MyCustomerCountry, @ExistingCustomerAddressId OUTPUT
+
+  Declare @NewestCNID as int;
+  Declare @NewestCDID as int;
+  Declare @NewestCCID as int;
+  Declare @NewestCAID as int;
+
+  Select 
+    @ExistingId = Id,
+	@NewestCNID = CustomerNameId, 
+	@NewestCDID = CustomerDiscountId, 
+	@NewestCCID = CustomerContactId, 
+	@NewestCAID = CustomerAddressId 
+  from 
+	FullCustomerHistory as FCH
+  where 
+	Id = 
+		(select 
+			max(Id) 
+		from 
+			FullCustomerHistory
+		where 
+			FCH.CustomerId = FullCustomerHistory.CustomerId) 
+  And
+	CustomerId = @ExistingCustomerId
+
+  If @ExistingCustomerNameId <> @NewestCNID OR @ExistingCustomerDiscountId <> @NewestCAID OR @ExistingCustomerContactId <> @NewestCCID OR @ExistingCustomerAddressId <> @NewestCAID
+  Begin
+    insert into FullCustomerHistory 
+		(CustomerId, CustomerNameId, CustomerDiscountId, CustomerAddressId, CustomerContactId) 
+    values 
+		(@ExistingCustomerId, @ExistingCustomerNameId, @ExistingCustomerDiscountId, @ExistingCustomerAddressId, @ExistingCustomerContactId);
+	Set @ExistingId = (Select SCOPE_IDENTITY());
+  End
+  
+  Select @ExistingId;
+end
