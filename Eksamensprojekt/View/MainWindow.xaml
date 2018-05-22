@@ -6,7 +6,7 @@
         xmlns:oWM="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
 
-        Title="Rabatman" Height="737.4" Width="1000" MouseDown="Window_MouseDown" Name="Window" WindowStartupLocation="CenterScreen"
+        Title="Rabatman" Height="750" Width="1000" MouseDown="Window_MouseDown" Name="Window" WindowStartupLocation="CenterScreen"
 
         >
     <Window.DataContext>
@@ -58,18 +58,13 @@
                 <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>
-            <MenuItem Header="Tilføj til tilbud">
-                <MenuItem Header="Vare" />
-                <MenuItem Header="Kunde" Click="OnButtonClick_CreateCustomerWindow"/>
-                <MenuItem Header="Speditør" />
-            </MenuItem>
             <MenuItem Header="Kunder">
                 <MenuItem Header="Tilføj ny kunde" Click="OnButtonClick_CreateCustomerWindow" />
                 <MenuItem Header="Vis kunder" Click="OnButtonClick_ShowCustomersWindow" />
             </MenuItem>
         </Menu>
         <Grid>
-            <Grid  Background="#FFE5E5E5" Height="690" VerticalAlignment="Top" Margin="0,0,-0.4,0">
+            <Grid  Background="#FFE5E5E5" Height="700" VerticalAlignment="Top" Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="49*"/>
                     <ColumnDefinition Width="722*"/>
@@ -173,7 +168,7 @@
                 </GroupBox>
                 <Button Content="Generer PDF" Command="{Binding GeneratePdfButtonCommand}" HorizontalAlignment="Left" Margin="13,660,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"
                         Grid.Column="0" />
-                <Button Name="RemoveOfferline_Button" Grid.ColumnSpan="3" Content="Fjern Tilbudslinje" Command="{Binding RemoveOfferLineButtonCommand}" HorizontalAlignment="Left" Height="19" Margin="10,428,0,0" VerticalAlignment="Top" Width="966"/>
+                <Button Name="RemoveOfferline_Button" Grid.ColumnSpan="3" Content="Fjern tilbudslinje" Command="{Binding RemoveOfferLineButtonCommand}" HorizontalAlignment="Left" Height="19" Margin="10,428,0,0" VerticalAlignment="Top" Width="966"/>
             </Grid>
         </Grid>
 
