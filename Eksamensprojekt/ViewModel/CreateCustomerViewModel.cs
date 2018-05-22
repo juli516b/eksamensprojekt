@@ -61,6 +61,7 @@ namespace ViewModel
                 CustomerAdress = CustomerAdress,
                 CustomerDiscount = CustomerDiscount,
                 CustomerZip = CustomerZip,
+                CustomerCity = CustomerCity,
                 PhoneNo = PhoneNo,
                 CVRNumber = CVRNumber,
                 Email = Email,
@@ -77,6 +78,7 @@ namespace ViewModel
                 NotifyPropertyChanged("CustomerName");
             }
         }
+        public string CustomerCity { get; set; }
         public string CVRNumber { get; set; }
         public string CustomerAdress { get; set; }
         public int CustomerZip { get; set; }
