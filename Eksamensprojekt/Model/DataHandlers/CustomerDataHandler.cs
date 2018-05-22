@@ -13,7 +13,7 @@ namespace Model.DataHandlers
                 CustomerAdress = "Norgesvej 17",
                 CustomerDiscount = 3,
                 CustomerZip = 5000,
-                CustomerCity = "Odense",
+                CustomerCity = "Odense C",
                 CVRNumber = "$@!§&&",
                 Email = "Britta@Ikrea.se.dk",
                 PhoneNo = 12345678,
