@@ -1,6 +1,10 @@
 --use DB2017_C13;
 /****
-	This Stored Procedure requires the other stored procedures in this directory
+	This Stored Procedure requires the following other stored procedures in this directory:
+		spCustomerAddressInsert
+		spCustomerContactInsert
+		spCustomerDisountInsert
+		spCustomerNameInsert
 ****/
 Create Proc spInsertCustomer(
 @MyCVRNumber as nvarchar(20),
