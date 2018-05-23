@@ -62,7 +62,7 @@ namespace RabatmanTests
         public void AddCustomerTest()
         {
             //Arrange
-            IPersistentCustomerDataHandler cdh = new CustomerDataHandler();
+            IPersistentCustomerDataHandler cdh = new DatabaseFacade();
             CreateCustomerViewModel createCustomerViewModel = new CreateCustomerViewModel();
             //Act
             int noOfCustomers = CustomerRepository.GetInstance(cdh).Customers.Count;

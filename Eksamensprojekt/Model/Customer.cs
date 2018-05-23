@@ -6,7 +6,7 @@ namespace Model
     {
         public string CustomerName { get; set; }
         public string CVRNumber { get; set; }
-        public string CustomerAdress { get; set; }
+        public string CustomerAddress { get; set; }
         public int CustomerZip { get; set; }
         public string CustomerCity { get; set; }
         public int PhoneNo { get; set; }

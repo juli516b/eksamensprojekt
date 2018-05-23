@@ -47,7 +47,7 @@ namespace Model
                 if (currentOffer.MyCustomer != null)
                 {
                     customerInformationList.Add(currentOffer.MyCustomer.CustomerName);
-                    customerInformationList.Add(currentOffer.MyCustomer.CustomerAdress);
+                    customerInformationList.Add(currentOffer.MyCustomer.CustomerAddress);
                     customerInformationList.Add(currentOffer.MyCustomer.CustomerZip + "");
                     customerInformationList.Add("CVR nummer: " + currentOffer.MyCustomer.CVRNumber);
                     customerInformationList.Add(currentOffer.MyCustomer.Email);
