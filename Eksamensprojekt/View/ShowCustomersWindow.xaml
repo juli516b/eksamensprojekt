@@ -29,9 +29,9 @@
                 <Label Content="Kundenavn:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10" Width="100"/>
                 <TextBox x:Name="CustomerName_Tb" Text="{Binding CurrentCustomer.CustomerName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,14,10,10" Width="250"/>
                 <Label Content="CVR nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,10,10" Width="100"/>
-                <TextBox x:Name="CVRNumber_Tb" Text="{Binding CurrentCustomer.CVRNumber}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,44,10,10" Width="250"/>
+                <Label x:Name="CVRNumber_Tb" Content="{Binding CurrentCustomer.CVRNumber}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,40,10,10" Width="250"/>
                 <Label Content="Adresse:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,10,10" Width="100"/>
-                <TextBox x:Name="CustomerAdress_Tb" Text="{Binding CurrentCustomer.CustomerAdress}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,74,10,10" Width="250"/>
+                <TextBox x:Name="CustomerAdress_Tb" Text="{Binding CurrentCustomer.CustomerAddress}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,74,10,10" Width="250"/>
                 <Label Content="Postnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,100,10,10" Width="100"/>
                 <TextBox x:Name="CustomerZip_Tb" Text="{Binding CurrentCustomer.CustomerZip}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,104,10,10" Width="250"/>
                 <Label Content="By:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,10,10" Width="100"/>

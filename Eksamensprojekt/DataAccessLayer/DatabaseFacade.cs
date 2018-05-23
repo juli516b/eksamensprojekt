@@ -16,7 +16,7 @@ namespace DataAccessLayer
     public class DatabaseFacade : IPersistentItemDataHandler, IPersistentCustomerDataHandler
     {
         private static string connectionString = "Server = EALSQL1.eal.local; Database = DB2017_C13; User Id = USER_C13; Password = SesamLukOp_13";
-
+        public ObservableCollection<IBaseCustomer> Customers { get; set; }
         //try catch i ViewModel?
         public IList<IBaseItem> GetAll(IList<IBaseItem> items) //skal renames?
         {
@@ -64,27 +64,18 @@ namespace DataAccessLayer
                 {
                     while (reader.Read())
                     {
-                        string customerAddress = reader["CustomerAddress"].ToString();
-                        string customerCity = reader["City"].ToString();
-                        string customerCountry = reader["Country"].ToString();
-                        string customerName = reader["CustomerName"].ToString();
-                        string cvrNumber = reader["CVRNumber"].ToString();
-                        string email = reader["CustomerEmail"].ToString();
-                        int customerZip = (int)reader["ZipCode"];
-                        int phoneNo = (int)reader["CustomerPhoneNo"];
-                        double customerDiscount = (double)reader["CustomerDiscountPercent"];
-
                         IBaseCustomer newCustomer = new Customer
                         {
-                            CustomerAddress = customerAddress,
-                            CustomerCity = customerCity,
-                            CustomerZip = customerZip,
-                            CustomerCountry = customerCountry,
-                            CustomerName = customerName,
-                            CVRNumber = cvrNumber,
-                            Email = email,
-                            CustomerDiscount = customerDiscount,
-                            PhoneNo = phoneNo,
+                            CustomerId = (int)reader["Id"],
+                            CustomerAddress = reader["CustomerAddress"].ToString(),
+                            CustomerCity = reader["City"].ToString(),
+                            CustomerCountry = reader["Country"].ToString(),
+                            CustomerName = reader["CustomerName"].ToString(),
+                            CVRNumber = reader["CVRNumber"].ToString(),
+                            Email = reader["CustomerEmail"].ToString(),
+                            CustomerZip = (int)reader["ZipCode"],
+                            PhoneNo = (int)reader["CustomerPhoneNo"],
+                            CustomerDiscount = (double)reader["CustomerDiscountPercent"]
                         };
                         customerList.Add(newCustomer);
                     }
@@ -92,8 +83,12 @@ namespace DataAccessLayer
             }
             return (ObservableCollection<IBaseCustomer>)customerList;
         }
-        public string SaveCustomer(IBaseCustomer newCustomer)
+        public IBaseCustomer SaveCustomer(IBaseCustomer newCustomer)
         {
+            if (Customers == null)
+            {
+                Customers = new ObservableCollection<IBaseCustomer>();
+            }
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -111,9 +106,20 @@ namespace DataAccessLayer
                     saveCustomer.Parameters.AddWithValue("@MyCustomerDiscountPercent", newCustomer.CustomerDiscount);
                     saveCustomer.Parameters.AddWithValue("@MyCustomerCountry", newCustomer.CustomerCountry);
                 }
-                saveCustomer.ExecuteNonQuery();
+                SqlDataReader reader = saveCustomer.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        newCustomer.CustomerId = int.Parse(reader["Id"].ToString());
+                    }
+                }
+                if (!Customers.Contains(newCustomer))
+                {
+                    Customers.Add(newCustomer);
+                }
             }
-            return "Kunde blev tilføjet.";
+            return newCustomer;
         }
     }
 }
