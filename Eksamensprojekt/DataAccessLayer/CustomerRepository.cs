@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using Model.BaseTypes;
 using DataAccessLayer.DataHandlers;
+using System.Collections.ObjectModel;
 
 namespace DataAccessLayer
 {
     public class CustomerRepository
     {
-        public IList<IBaseCustomer> Customers { get; private set; }
+        public ObservableCollection<IBaseCustomer> Customers { get; set; }
         private CustomerRepository(IPersistentCustomerDataHandler cdh)
         {
-            Customers = new List<IBaseCustomer>();
-            Customers = cdh.GetAll(Customers);
+            Customers = new ObservableCollection<IBaseCustomer>();
+            Customers = cdh.GetAllCustomers();
         }
         public string AddCustomer(IBaseCustomer newCustomer) 
         {

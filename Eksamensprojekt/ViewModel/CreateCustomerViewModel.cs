@@ -9,10 +9,11 @@ namespace ViewModel
     public class CreateCustomerViewModel : INotifyPropertyChanged
     {
         private string customerMessage;
-        private readonly CustomerRepository customerRepository;
+        private IPersistentCustomerDataHandler dataHandler;
+
         public CreateCustomerViewModel()
         {
-            customerRepository = CustomerRepository.GetInstance(new CustomerDataHandler());
+            dataHandler = new DatabaseFacade();
         }
         public string CustomerMessage
         {
@@ -59,7 +60,7 @@ namespace ViewModel
             Customer myCustomer = new Customer
             {
                 CustomerName = CustomerName,
-                CustomerAdress = CustomerAdress,
+                CustomerAddress = CustomerAdress,
                 CustomerDiscount = CustomerDiscount,
                 CustomerZip = CustomerZip,
                 CustomerCity = CustomerCity,
@@ -68,7 +69,7 @@ namespace ViewModel
                 Email = Email,
                 CustomerCountry = CustomerCountry
             };
-            CustomerMessage = customerRepository.AddCustomer(myCustomer);
+            CustomerMessage = dataHandler.SaveCustomer(myCustomer);
         }
 
         public string CustomerName

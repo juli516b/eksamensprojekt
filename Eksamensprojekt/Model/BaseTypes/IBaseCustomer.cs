@@ -5,7 +5,7 @@
         int CustomerId { get; set; }
         string CustomerName { get; set; }
         string CVRNumber { get; set; }
-        string CustomerAdress { get; set; }
+        string CustomerAddress { get; set; }
         int CustomerZip { get; set; }
         string CustomerCity { get; set; }
         int PhoneNo { get; set; }
