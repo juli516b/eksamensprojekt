@@ -293,7 +293,7 @@ namespace ViewModel
             pdfExporter = new PDFExporter();
             currentOffer = new Offer(DateTime.Now);
 
-            SelectedItem = Items[0];
+            
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
         {
