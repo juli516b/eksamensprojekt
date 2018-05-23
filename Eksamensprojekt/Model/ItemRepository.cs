@@ -10,7 +10,7 @@ namespace Model
         private ItemRepository(IPersistentItemDataHandler persistentDataHandler)
         {
             Items = new List<IBaseItem>();
-            persistentDataHandler.GetAll(Items);
+            Items = persistentDataHandler.GetAll(Items);
         }
         public bool AddItem(IBaseItem item)
         {

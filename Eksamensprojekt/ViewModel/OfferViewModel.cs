@@ -9,12 +9,13 @@ using Microsoft.Win32;
 using Model;
 using Model.BaseTypes;
 using Model.DataHandlers;
+using DataAccessLayer;
 
 namespace ViewModel
 {
     public class OfferViewModel : INotifyPropertyChanged
     {
-        readonly IPersistentItemDataHandler dataHandler;
+        private IPersistentItemDataHandler dataHandler;
         private readonly PDFExporter pdfExporter;
         private ICommand clickAddButtonCommand;
         private ICommand clickGeneratePDFCommand;
@@ -288,7 +289,7 @@ namespace ViewModel
         }
         public OfferViewModel()
         {
-            dataHandler = new ItemDataHandler();
+            dataHandler = new ItemQueries();
             pdfExporter = new PDFExporter();
             currentOffer = new Offer(DateTime.Now);
 

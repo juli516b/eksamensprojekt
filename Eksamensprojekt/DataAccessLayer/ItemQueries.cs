@@ -7,17 +7,20 @@ using Model;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
+using Model;
+using Model.BaseTypes;
+using Model.DataHandlers;
 
 namespace DataAccessLayer
 {
-    public class ItemQueries
+    public class ItemQueries : IPersistentItemDataHandler
     {
         private static string connectionString = "Server = EALSQL1.eal.local; Database = DB2017_C13; User Id = USER_C13; Password = SesamLukOp_13";
 
         //try catch i ViewModel
-        public void GetCurrentItems()
+        public IList<IBaseItem> GetAll(IList<IBaseItem> items)
         {
-            string result = "";
+            IList<IBaseItem> ItemList = new List<IBaseItem>(); 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -31,10 +34,18 @@ namespace DataAccessLayer
                 {
                     while (reader.Read())
                     {
-                        result = reader["ItemNo"].ToString();
+                        string itemName = reader["ItemName"].ToString();
+                        string itemNo = reader["ItemNo"].ToString();
+                        double itemPrice = (double) reader["ItemPrice"];
+                        double itemWeight = (double) reader["ItemWeight"];
+                        int countPerPallet = (int) reader["ItemCountPerPallet"];
+
+                        IBaseItem newItem = new Item(itemName, itemNo, itemPrice, itemWeight, countPerPallet);
+                        ItemList.Add(newItem);
                     }
                 }
             }
+            return ItemList;
         }
     }
 }
