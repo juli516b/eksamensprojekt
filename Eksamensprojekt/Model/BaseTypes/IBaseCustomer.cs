@@ -6,6 +6,7 @@
         string CVRNumber { get; set; }
         string CustomerAdress { get; set; }
         int CustomerZip { get; set; }
+        string CustomerCity { get; set; }
         int PhoneNo { get; set; }
         string Email { get; set; }
         double CustomerDiscount { get; set; }
