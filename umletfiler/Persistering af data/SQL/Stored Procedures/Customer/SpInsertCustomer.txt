@@ -32,38 +32,11 @@ Begin
   Exec spCustomerContactInsert @MyCustomerEmail, @MyCustomerPhoneNo, @ExistingCustomerContactId OUTPUT;
   Exec spCustomerAddressInsert @MyCustomerAddress, @MyCustomerZipCode, @MyCustomerCity, @MyCustomerCountry, @ExistingCustomerAddressId OUTPUT
 
-  Declare @NewestCNID as int;
-  Declare @NewestCDID as int;
-  Declare @NewestCCID as int;
-  Declare @NewestCAID as int;
-
-  Select 
-    @ExistingId = Id,
-	@NewestCNID = CustomerNameId, 
-	@NewestCDID = CustomerDiscountId, 
-	@NewestCCID = CustomerContactId, 
-	@NewestCAID = CustomerAddressId 
-  from 
-	FullCustomerHistory as FCH
-  where 
-	Id = 
-		(select 
-			max(Id) 
-		from 
-			FullCustomerHistory
-		where 
-			FCH.CustomerId = FullCustomerHistory.CustomerId) 
-  And
-	CustomerId = @ExistingCustomerId
-
-  If @ExistingCustomerNameId <> @NewestCNID OR @ExistingCustomerDiscountId <> @NewestCAID OR @ExistingCustomerContactId <> @NewestCCID OR @ExistingCustomerAddressId <> @NewestCAID
-  Begin
     insert into FullCustomerHistory 
 		(CustomerId, CustomerNameId, CustomerDiscountId, CustomerAddressId, CustomerContactId) 
     values 
 		(@ExistingCustomerId, @ExistingCustomerNameId, @ExistingCustomerDiscountId, @ExistingCustomerAddressId, @ExistingCustomerContactId);
 	Set @ExistingId = (Select SCOPE_IDENTITY());
-  End
-  
+
   Select @ExistingId;
 end
