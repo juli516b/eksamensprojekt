@@ -4,6 +4,7 @@ namespace Model
 {
     public class Customer : IBaseCustomer
     {
+        public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string CVRNumber { get; set; }
         public string CustomerAdress { get; set; }
@@ -13,5 +14,6 @@ namespace Model
         public string Email { get; set; }
         public double CustomerDiscount { get; set; }
         public string CustomerCountry { get; set; }
+        
     }
 }

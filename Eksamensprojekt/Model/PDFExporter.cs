@@ -67,7 +67,7 @@ namespace Model
                     economyTable.AddCell(currentOffer.MyCustomer.CustomerDiscount + " %");
                 }
                 economyTable.AddCell("TILBUDSRABAT");
-                economyTable.AddCell(currentOffer.OfferDiscount + " %");
+                economyTable.AddCell(currentOffer.OfferDiscountPercent + " %");
                 economyTable.AddCell("TRANSPORTOMKOSTNINGER:");
                 economyTable.AddCell(currentOffer.ForwardingAgentPrice + " DKK");
                 economyTable.AddCell("TOTAL RABAT:");

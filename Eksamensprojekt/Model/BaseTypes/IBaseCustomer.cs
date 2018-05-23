@@ -2,6 +2,7 @@
 {
     public interface IBaseCustomer
     {
+        int CustomerId { get; set; }
         string CustomerName { get; set; }
         string CVRNumber { get; set; }
         string CustomerAdress { get; set; }

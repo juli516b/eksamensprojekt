@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Model.BaseTypes;
 
 namespace Model
 {
-    public class Offer
+    public class Offer : IBaseOffer
     {
-        public DateTime CreationDate { get; set; }
+        public DateTime OfferCreationDate { get; set; }
 
         public Customer MyCustomer { get; set; }
-        public string OfferNo { get; set; }
+        public int? OfferNo { get; set; }
 
         public double OfferTotal
         {
@@ -17,7 +18,7 @@ namespace Model
             {
                 double total = 0;
                 total += OfferLines.Sum(offerLine => offerLine.OfferLineTotal);
-                total = DiscountMath.PercentToPrice(OfferDiscount, total);
+                total = DiscountMath.PercentToPrice(OfferDiscountPercent, total);
                 if (MyCustomer != null)
                 {
                     total = DiscountMath.PercentToPrice(MyCustomer.CustomerDiscount, total);
@@ -58,12 +59,12 @@ namespace Model
 
         public ObservableCollection<OfferLine> OfferLines { get; set; }
 
-        public double OfferDiscount { get; set; }
+        public double OfferDiscountPercent { get; set; }
         public double ForwardingAgentPrice { get; set; }
 
         public Offer(DateTime creationDate)
         {
-            CreationDate = creationDate;
+            OfferCreationDate = creationDate;
             OfferLines = new ObservableCollection<OfferLine>();
         }
         public void AddOfferLine(OfferLine offerLine)
@@ -82,11 +83,11 @@ namespace Model
 
         public void Clear()
         {
-            CreationDate = DateTime.Now;
+            OfferCreationDate = DateTime.Now;
             MyCustomer = null;
             OfferNo = null;
             ForwardingAgentPrice = 0;
-            OfferDiscount = 0;
+            OfferDiscountPercent = 0;
             OfferLines.Clear();
         }
     }
