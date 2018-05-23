@@ -31,8 +31,7 @@ namespace DataAccessLayer
                 {
                     while (reader.Read())
                     {
-                        result += reader["ItemNo"].ToString();
-                        MessageBox.Show(result);
+                        result = reader["ItemNo"].ToString();
                     }
                 }
             }

@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using ViewModel;
-using DataAccessLayer; //Denne slettes - det er blot test. Husk at slette referencen også.
 
 namespace Eksamensprojekt
 {
@@ -16,8 +15,6 @@ namespace Eksamensprojekt
             owm = new OfferViewModel();
             InitializeComponent();
             DataContext = owm;
-            ItemQueries IQ = new ItemQueries(); //Denne slettes - det er blot test.
-            IQ.GetCurrentItems(); //Denne slettes - det er blot test.
         }        
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
