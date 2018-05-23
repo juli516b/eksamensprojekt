@@ -15,7 +15,6 @@ namespace Eksamensprojekt
             owm = new OfferViewModel();
             InitializeComponent();
             DataContext = owm;
-            
         }        
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
