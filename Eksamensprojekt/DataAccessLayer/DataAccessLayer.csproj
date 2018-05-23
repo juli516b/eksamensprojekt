@@ -42,7 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemQueries.cs" />
+    <Compile Include="CustomerRepository.cs" />
+    <Compile Include="DatabaseFacade.cs" />
+    <Compile Include="DataHandlers\CustomerDataHandler.cs" />
+    <Compile Include="DataHandlers\IPersistentCustomerDataHandler.cs" />
+    <Compile Include="DataHandlers\IPersistentItemDataHandler.cs" />
+    <Compile Include="ItemRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

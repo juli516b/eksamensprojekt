@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
 using Model;
 using Model.BaseTypes;
-using Model.DataHandlers;
+using DataAccessLayer.DataHandlers;
 
 namespace DataAccessLayer
 {
-    public class ItemQueries : IPersistentItemDataHandler
+    public class DatabaseFacade : IPersistentItemDataHandler
     {
         private static string connectionString = "Server = EALSQL1.eal.local; Database = DB2017_C13; User Id = USER_C13; Password = SesamLukOp_13";
 
-        //try catch i ViewModel
-        public IList<IBaseItem> GetAll(IList<IBaseItem> items)
+        //try catch i ViewModel?
+        public IList<IBaseItem> GetAll(IList<IBaseItem> items) //skal renames?
         {
-            IList<IBaseItem> ItemList = new List<IBaseItem>(); 
+            IList<IBaseItem> itemList = new List<IBaseItem>(); 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -41,11 +40,15 @@ namespace DataAccessLayer
                         int countPerPallet = (int) reader["ItemCountPerPallet"];
 
                         IBaseItem newItem = new Item(itemName, itemNo, itemPrice, itemWeight, countPerPallet);
-                        ItemList.Add(newItem);
+                        itemList.Add(newItem);
                     }
                 }
             }
-            return ItemList;
+            return itemList;
+        }
+
+        public void GetCustomers()
+        { 
         }
     }
 }

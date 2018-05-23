@@ -1,7 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.BaseTypes;
-using Model.DataHandlers;
+using DataAccessLayer.DataHandlers;
+using DataAccessLayer;
 
 namespace RabatmanTests
 {

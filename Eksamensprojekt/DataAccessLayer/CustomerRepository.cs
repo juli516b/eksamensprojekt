@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Model.BaseTypes;
-using Model.DataHandlers;
+using DataAccessLayer.DataHandlers;
 
-namespace Model
+namespace DataAccessLayer
 {
     public class CustomerRepository
     {

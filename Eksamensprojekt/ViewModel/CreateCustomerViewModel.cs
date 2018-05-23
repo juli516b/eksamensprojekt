@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 using Model;
-using Model.DataHandlers;
+using DataAccessLayer;
+using DataAccessLayer.DataHandlers;
 
 namespace ViewModel
 {

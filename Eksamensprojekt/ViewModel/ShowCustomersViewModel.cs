@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using Model;
+using DataAccessLayer;
 using Model.BaseTypes;
-using Model.DataHandlers;
+using DataAccessLayer.DataHandlers;
 
 namespace ViewModel
 {
