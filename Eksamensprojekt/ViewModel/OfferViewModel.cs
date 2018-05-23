@@ -7,9 +7,9 @@ using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
 using Model;
-using Model.BaseTypes;
-using Model.DataHandlers;
 using DataAccessLayer;
+using DataAccessLayer.DataHandlers;
+using Model.BaseTypes;
 
 namespace ViewModel
 {
@@ -289,7 +289,7 @@ namespace ViewModel
         }
         public OfferViewModel()
         {
-            dataHandler = new ItemQueries();
+            dataHandler = new DatabaseFacade();
             pdfExporter = new PDFExporter();
             currentOffer = new Offer(DateTime.Now);
 

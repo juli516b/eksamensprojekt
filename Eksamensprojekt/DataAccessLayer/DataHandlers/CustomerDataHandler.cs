@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Model.BaseTypes;
+using Model;
 
-namespace Model.DataHandlers
+namespace DataAccessLayer.DataHandlers
 {
     public class CustomerDataHandler : IPersistentCustomerDataHandler
     {

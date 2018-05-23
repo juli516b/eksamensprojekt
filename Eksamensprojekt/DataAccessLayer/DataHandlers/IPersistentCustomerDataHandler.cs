@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Model.BaseTypes;
 
-namespace Model.DataHandlers
+namespace DataAccessLayer.DataHandlers
 {
     public interface IPersistentCustomerDataHandler
     {
