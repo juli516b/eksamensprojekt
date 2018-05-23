@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerRepository.cs" />
     <Compile Include="DatabaseFacade.cs" />
     <Compile Include="DataHandlers\IPersistentCustomerDataHandler.cs" />
     <Compile Include="DataHandlers\IPersistentItemDataHandler.cs" />

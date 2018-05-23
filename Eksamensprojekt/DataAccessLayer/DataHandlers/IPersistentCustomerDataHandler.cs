@@ -6,8 +6,9 @@ namespace DataAccessLayer.DataHandlers
 {
     public interface IPersistentCustomerDataHandler
     {
+        ObservableCollection<IBaseCustomer> Customers { get; set; }
         ObservableCollection<IBaseCustomer> GetAllCustomers();
-        string SaveCustomer(IBaseCustomer newCustomer);
+        IBaseCustomer SaveCustomer(IBaseCustomer newCustomer);
         //bool SaveType();
         //bool UpdateType();
         //bool DeleteType();

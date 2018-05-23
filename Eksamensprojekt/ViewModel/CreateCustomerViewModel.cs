@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 using Model;
+using Model.BaseTypes;
 using DataAccessLayer;
 using DataAccessLayer.DataHandlers;
 
@@ -69,9 +70,13 @@ namespace ViewModel
                 Email = Email,
                 CustomerCountry = CustomerCountry
             };
-            CustomerMessage = dataHandler.SaveCustomer(myCustomer);
+            CustomerMessage = "Kunden blev gemt!";
+            int newCustomerId = dataHandler.SaveCustomer(myCustomer).CustomerId;
+            if (newCustomerId == 0)
+            {
+                CustomerMessage = "Der skete en fejl.\nKunden blev ikke gemt";
+            }
         }
-
         public string CustomerName
         {
             get { return customerName; }
