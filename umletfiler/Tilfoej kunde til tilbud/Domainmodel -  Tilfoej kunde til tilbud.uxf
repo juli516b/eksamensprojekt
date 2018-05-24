@@ -4,25 +4,26 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>260</x>
-      <y>220</y>
+      <x>690</x>
+      <y>350</y>
       <w>100</w>
-      <h>90</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>Tilbud
 --
-TilbudsNr
-TilbudsDato
-TilbudsRabat</panel_attributes>
+Tilbudsnr
+Dato
+Rabat
+Speditørpris</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>460</x>
-      <y>220</y>
+      <x>890</x>
+      <y>350</y>
       <w>100</w>
-      <h>80</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Tilbudslinje
 --
@@ -33,23 +34,25 @@ Rabat</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>670</x>
-      <y>220</y>
+      <x>1100</x>
+      <y>350</y>
       <w>100</w>
-      <h>80</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>Vare
 --
-VareNr
-VareNavn
-VarePris</panel_attributes>
+Varenr
+Navn
+Pris
+Vægt
+Antal pr. palle</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>240</y>
+      <x>780</x>
+      <y>370</y>
       <w>130</w>
       <h>50</h>
     </coordinates>
@@ -62,8 +65,8 @@ m2=1..*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
-      <y>240</y>
+      <x>980</x>
+      <y>370</y>
       <w>140</w>
       <h>50</h>
     </coordinates>
@@ -76,8 +79,8 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>140</y>
+      <x>730</x>
+      <y>240</y>
       <w>220</w>
       <h>70</h>
     </coordinates>
@@ -91,26 +94,29 @@ Domænemodel</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
-      <y>220</y>
-      <w>100</w>
-      <h>130</h>
+      <x>430</x>
+      <y>350</y>
+      <w>150</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>Kunde
 --
-KundeNavn
+Navn
 CVR
 Adresse
+By
+Postnr
+Land
 Telefonnr
 Email
-KundeRabat</panel_attributes>
+Rabat</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>140</x>
-      <y>240</y>
+      <x>570</x>
+      <y>370</y>
       <w>140</w>
       <h>50</h>
     </coordinates>
