@@ -16,6 +16,10 @@ namespace ViewModel
         {
             dataHandler = new DatabaseFacade();
         }
+        public CreateCustomerViewModel(IPersistentCustomerDataHandler newdatahandler)
+        {
+            dataHandler = newdatahandler;
+        }
         public string CustomerMessage
         {
             get

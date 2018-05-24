@@ -7,14 +7,17 @@ namespace RabatmanTests
 {
     public class FakeCustomerDataHandler : IPersistentCustomerDataHandler
     {
+        public ObservableCollection<IBaseCustomer> Customers { get; set; }
+
         public ObservableCollection<IBaseCustomer> GetAllCustomers()
         {
             return new ObservableCollection<IBaseCustomer>();
         }
 
-        public string SaveCustomer(IBaseCustomer newCustomer)
+        IBaseCustomer IPersistentCustomerDataHandler.SaveCustomer(IBaseCustomer newCustomer)
         {
-            throw new System.NotImplementedException();
+            Customers.Add(newCustomer);
+            return newCustomer;
         }
     }
 }
