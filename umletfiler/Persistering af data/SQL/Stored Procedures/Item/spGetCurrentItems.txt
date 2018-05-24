@@ -1,0 +1,21 @@
+--USE DB2017_C13
+GO
+Create Proc spGetCurrentItems
+AS
+BEGIN
+ Select 
+	* 
+ from 
+	Item_View AS IV 
+ Where 
+	Created_At = (
+	 select 
+		max(Created_At) 
+	 from 
+		Item_View 
+	 where 
+		IV.ItemNo = Item_View.ItemNo
+	) 
+ order by 
+	Created_At asc
+End;

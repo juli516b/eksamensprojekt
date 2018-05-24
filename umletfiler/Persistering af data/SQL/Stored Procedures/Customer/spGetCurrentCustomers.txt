@@ -1,0 +1,20 @@
+--Use DB2017_C13;
+Create Proc spGetCurrentCustomers
+AS
+BEGIN
+ Select 
+	* 
+ from 
+	FullCustomerHistoryView AS FCHV 
+ Where 
+	Created_At = (
+	 select 
+		max(Created_At) 
+	 from 
+		FullCustomerHistoryView 
+	 where 
+		FCHV.CVRNumber = FullCustomerHistoryView.CVRNumber
+	) 
+ order by 
+	Created_At asc
+End;

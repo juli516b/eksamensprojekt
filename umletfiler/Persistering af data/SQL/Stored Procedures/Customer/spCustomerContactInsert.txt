@@ -1,0 +1,15 @@
+--Use DB2017_C13;
+create Proc spCustomerContactInsert (
+@MyCEmail as nvarchar(MAX) = '',
+@MyCPhoneNo as int = 0,
+@ThisCustomerContactId as int OUTPUT
+)
+AS
+Begin
+  Set @ThisCustomerContactId = (select Id from CustomerContact where CustomerEmail = @MyCEmail AND CustomerPhoneNo = @MyCPhoneNo);
+  If @ThisCustomerContactId is null
+  Begin
+	Insert into CustomerContact(CustomerEmail, CustomerPhoneNo) values (@MyCEmail,@MyCPhoneNo);
+	Set @ThisCustomerContactId = (Select SCOPE_IDENTITY() as Id);
+  End
+End

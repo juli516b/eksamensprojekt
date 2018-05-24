@@ -1,0 +1,14 @@
+--Use DB2017_C13;
+Create Proc spCustomerDiscountInsert (
+@MyDiscountPercent as float,
+@ThisCustomerDiscountId as int OUTPUT
+)
+AS
+Begin
+  Set @ThisCustomerDiscountId = (select Id from CustomerDiscount where CustomerDiscountPercent = @MyDiscountPercent);
+  If @ThisCustomerDiscountId is null
+  Begin
+	Insert into CustomerDiscount (CustomerDiscountPercent) values (@MyDiscountPercent);
+	Set @ThisCustomerDiscountId = (Select SCOPE_IDENTITY());
+  End
+End

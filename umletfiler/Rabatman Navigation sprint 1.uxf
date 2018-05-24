@@ -4,9 +4,9 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>200</x>
+      <x>60</x>
       <y>70</y>
-      <w>290</w>
+      <w>590</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>Rabatman - tilbudssystem
@@ -78,30 +78,6 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
-      <y>180</y>
-      <w>110</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>Speditører
---</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>730</x>
-      <y>340</y>
-      <w>110</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>Speditør
---</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
       <x>290</x>
       <y>180</y>
       <w>110</w>
@@ -138,30 +114,6 @@ vis</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>220</y>
-      <w>50</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-Vis</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>160</x>
-      <y>330</y>
-      <w>150</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-ny/vis</panel_attributes>
-    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>110</x>
       <y>220</y>
       <w>40</w>
@@ -187,25 +139,13 @@ vis</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>160</x>
-      <y>350</y>
+      <y>360</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 vis</panel_attributes>
     <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>150</x>
-      <y>200</y>
-      <w>160</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-vis kundens</panel_attributes>
-    <additional_attributes>140.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -229,18 +169,6 @@ vis kundens</panel_attributes>
     <panel_attributes>lt=-&gt;
 vis</panel_attributes>
     <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>320</x>
-      <y>380</y>
-      <w>510</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-vis</panel_attributes>
-    <additional_attributes>490.0;10.0;490.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -269,25 +197,25 @@ vis</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>140</y>
-      <w>360</w>
-      <h>220</h>
+      <x>70</x>
+      <y>220</y>
+      <w>40</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-vis liste af speditører</panel_attributes>
-    <additional_attributes>340.0;50.0;300.0;50.0;300.0;20.0;40.0;20.0;40.0;180.0;10.0;200.0</additional_attributes>
+Ny</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>380</y>
-      <w>420</w>
-      <h>60</h>
+      <x>160</x>
+      <y>210</y>
+      <w>150</w>
+      <h>160</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;
-tilføj/ændre speditør til/i tilbud</panel_attributes>
-    <additional_attributes>400.0;10.0;400.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;-
+Ny</panel_attributes>
+    <additional_attributes>10.0;140.0;130.0;10.0</additional_attributes>
   </element>
 </diagram>

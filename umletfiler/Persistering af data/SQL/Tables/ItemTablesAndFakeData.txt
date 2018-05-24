@@ -1,0 +1,66 @@
+use DB2017_C13;
+
+Create table BaseItem(
+  BaseItemID		int				identity(1,1) not null unique,
+  ItemNo		nvarchar(max)	not null,
+    Constraint  BaseItem_PK     primary key (BaseItemID)
+);
+
+Create table BaseItemName(
+  BaseItemNameID	int			identity(1,1) not null unique,
+  ItemName		nvarchar(max)	not null,
+    Constraint  BaseItemName_PK	Primary Key (BaseItemNameID)
+);
+
+Create table BaseItemPrice(
+  BaseItemPriceID	int					identity(1,1) not null unique,
+  ItemPrice			float				not null,
+    Constraint		BaseItemPrice_PK	primary key (BaseItemPriceID),
+);
+
+Create table BaseItemPackage(
+  BaseItemPackageID		int					identity(1,1) not null unique,
+  ItemWeight			float				null,
+  ItemCountPerPallet	int					null,
+    Constraint			BaseItemPackage_PK	primary key (BaseItemPackageID),
+    Constraint			WeightCountPerPallet_UC UNIQUE (ItemWeight, ItemCountPerPallet)
+);
+
+Create Table BaseItemExpireDate(
+  BaseItemExpireDateID	int						identity(1,1) not null unique,
+  ItemExpireDate		datetime2				not null,
+   Constraint			BaseItemExpireDate_PK	Primary key (BaseItemExpireDateID),
+ );
+
+Create table Item(
+  ItemID					int					identity(1,1) not null unique,
+  BaseItemId			int					not null,
+  BaseItemNameID		int					not null,
+  BaseItemPriceID		int					not null,
+  BaseItemPackageID		int				null,
+  BaseItemExpireDateID  int					null,
+  Created_At			datetime2			not null default(Current_timestamp),
+    Constraint			Item_PK				primary key (ItemID),
+	Constraint			BaseItem_FK			foreign key	(BaseItemId)
+	  references BaseItem(BaseItemID),
+	Constraint			BaseItemName_FK			foreign key	(BaseItemNameId)
+	  references BaseItemName(BaseItemNameID),
+	Constraint			BaseItemPrice_FK			foreign key	(BaseItemPriceId)
+	  references BaseItemPrice(BaseItemPriceID),
+	Constraint			BaseItemPackage_FK			foreign key	(BaseItemPackageId)
+	  references BaseItemPackage(BaseItemPackageID),
+	Constraint			BaseItemExpireDate_FK		foreign key (BaseItemExpireDateID)
+	  references BaseItemExpireDate(BaseItemExpireDateID)
+);
+
+
+insert into BaseItem (ItemNo) values ('230027'),('162194'),('74299'),('1015866 - 6K'),('1016423 - 1V');
+insert into BaseItemName (ItemName) values 
+('X - Tra Crispy, Coated, lige 10 * 10mm skin-on'),
+('Kyllingefilet 15 % lage 140 - 180g 2x2,5kg'),
+('Kyllingevinger 3 - leds 8x2Kg'),
+('X-Tra Crispy, Coated, lige 14 * 14mm'),
+('Spicy Kartoffelbåd 1 / 8, skin - on');
+insert into BaseItemPackage (ItemWeight,ItemCountPerPallet) values (25.5,100),(30,125),(75,150),(2.5,75),(50,50)
+insert into BaseItemPrice (ItemPrice) values (10),(376.77),(411.52),(31.76),(25.95)
+insert into  Item (BaseItemId,BaseItemNameID,BaseItemPackageID,BaseItemPriceID) values (1,1,1,1),(2,2,2,2),(3,3,3,3),(4,4,4,4),(5,5,5,5)

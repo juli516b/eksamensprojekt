@@ -1,0 +1,42 @@
+--use DB2017_C13;
+/****
+	This Stored Procedure requires the following other stored procedures in this directory:
+		spCustomerAddressInsert
+		spCustomerContactInsert
+		spCustomerDisountInsert
+		spCustomerNameInsert
+****/
+Create Proc spInsertCustomer(
+@MyCVRNumber as nvarchar(20),
+@MyCustomerName as nvarchar(max),
+@MyCustomerDiscountPercent as float,
+@MyCustomerAddress as nvarchar(max),
+@MyCustomerZipCode as int,
+@MyCustomerCity as nvarchar(max),
+@MyCustomerCountry as nvarchar(max),
+@MyCustomerEmail as nvarchar(max),
+@MyCustomerPhoneNo as int
+)
+AS
+Begin
+  Declare @ExistingId as int;
+  Declare @ExistingCustomerId as int;
+  Declare @ExistingCustomerNameId as int;
+  Declare @ExistingCustomerDiscountId as int;
+  Declare @ExistingCustomerContactId as int;
+  Declare @ExistingCustomerAddressId as int;
+  
+  Exec spCustomerInsert @MyCVRNumber, @ExistingCustomerId OUTPUT;
+  Exec spCustomerNameInsert @MyCustomerName, @ExistingCustomerNameId OUTPUT;
+  Exec spCustomerDiscountInsert @MyCustomerDiscountPercent, @ExistingCustomerDiscountId OUTPUT;
+  Exec spCustomerContactInsert @MyCustomerEmail, @MyCustomerPhoneNo, @ExistingCustomerContactId OUTPUT;
+  Exec spCustomerAddressInsert @MyCustomerAddress, @MyCustomerZipCode, @MyCustomerCity, @MyCustomerCountry, @ExistingCustomerAddressId OUTPUT
+
+    insert into FullCustomerHistory 
+		(CustomerId, CustomerNameId, CustomerDiscountId, CustomerAddressId, CustomerContactId) 
+    values 
+		(@ExistingCustomerId, @ExistingCustomerNameId, @ExistingCustomerDiscountId, @ExistingCustomerAddressId, @ExistingCustomerContactId);
+	Set @ExistingId = (Select SCOPE_IDENTITY());
+
+  Select @ExistingId;
+end

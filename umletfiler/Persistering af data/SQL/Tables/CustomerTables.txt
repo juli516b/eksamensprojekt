@@ -1,0 +1,65 @@
+create table ZipCity (
+  ZipCode int	not null unique,
+  City nvarchar(max) not null,
+    constraint ZipCity_PK primary key (ZipCode)
+);
+
+create table CountryTable(
+  Id int not null unique identity(1,1),
+  CountryName nvarchar(max) not null,
+    Constraint Country_PK primary key(Id) 
+)
+
+
+Use DB2017_C13;
+Drop table FullCustomerHistory;
+
+Create table Customer(
+  Id				int				not null identity(1,1),
+  CVRNumber			nvarchar(20)	not null,
+    Constraint Customer_PK Primary Key (Id)
+);
+Create table CustomerName(
+  Id				int				not null identity(1,1),
+  CustomerName		nvarchar(max)   not null,
+    Constraint CustomerName_PK primary key (Id)
+);
+
+Create table CustomerAddress(
+	Id						int				identity(1,1) not null,
+	CustomerAddress			nvarchar(max)	not null,
+	ZipCode			int				not null,
+	CountryCode			int	not null,
+	  Constraint CustomerAddress_PK Primary Key (Id),
+	  Constraint ZipCode_FK foreign key (ZipCode) references ZipCity(ZipCode),
+	  Constraint Country_FK foreign key (CountryCode) references CountryTable(Id)
+);
+
+
+Create table CustomerDiscount(
+	Id						int				identity(1,1) not null,
+	CustomerDiscountPercent	float			not null,
+	  Constraint CustomerDiscount_PK Primary Key (Id),
+);
+Create table CustomerContact(
+	Id	int				identity(1,1) not null,
+	CustomerEmail			nvarchar(max)	not null,
+	CustomerPhoneNo			int				not null,
+	  Constraint CustomerContact_PK Primary Key (Id),
+);
+
+Create table FullCustomerHistory(
+	Id					int		identity(1,1) not null,
+	CustomerId			int		not null,
+	CustomerNameId		int		not null,
+	CustomerContactId	int		not null,
+	CustomerDiscountId	int		not null,
+	CustomerAddressId	int		not null,
+	Created_At			datetime2 not null default(Current_Timestamp),
+	  Constraint FullCustomerHistory_PK primary key (id),
+	  Constraint Customer_FK foreign key (CustomerId) references Customer(Id),
+	  Constraint CustomerName_FK foreign key (CustomerNameId) references CustomerName(Id),
+	  Constraint CustomerContact_FK foreign key (CustomerContactId) references CustomerContact(Id),
+	  Constraint CustomerDiscount_FK foreign key (CustomerDiscountId) references CustomerDiscount(Id),
+	  Constraint CustomerAddress_FK foreign key (CustomerAddressId) references CustomerAddress(Id)
+)

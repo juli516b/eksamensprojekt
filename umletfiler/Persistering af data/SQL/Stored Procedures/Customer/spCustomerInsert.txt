@@ -1,0 +1,14 @@
+--Use DB2017_C13;
+Create Proc spCustomerInsert (
+@MyCVRNumber as nvarchar(20),
+@ThisCustomerId as int OUTPUT
+)
+AS
+Begin
+  Set @ThisCustomerId = (select Id from Customer where CVRNumber = @MyCVRNumber);
+  If @ThisCustomerId is null
+  Begin
+	Insert into Customer (CVRNumber) values (@MyCVRNumber);
+	Set @ThisCustomerId = (Select SCOPE_IDENTITY());
+  End
+End
