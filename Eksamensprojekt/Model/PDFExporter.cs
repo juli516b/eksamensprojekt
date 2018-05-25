@@ -6,12 +6,16 @@ namespace Model
 {
     public class PDFExporter
     {
-        public void PDFGenerator(Offer currentOffer, string path)
+        private readonly Document doc;
+        private readonly PdfPTable economyTable;
+        private readonly PdfPTable offerLineTable;
+        private readonly List customerInformationList;
+
+        public PDFExporter()
         {
-            //INITIALISERE NEW DOCUMENT
-            Document doc = new Document(PageSize.A4);
-            Chunk symbol = new Chunk("", FontFactory.GetFont("HELVETICA"));
-            PdfPTable economyTable = new PdfPTable(2)
+            doc = new Document(PageSize.A4);
+            var symbol = new Chunk("", FontFactory.GetFont("HELVETICA"));
+            economyTable = new PdfPTable(2)
             {
                 DefaultCell =
                 {
@@ -20,7 +24,7 @@ namespace Model
                 },
                 TotalWidth = 400,
             };
-            PdfPTable offerLineTable = new PdfPTable(7)
+            offerLineTable = new PdfPTable(7)
             {
                 DefaultCell =
                 {
@@ -33,11 +37,15 @@ namespace Model
                 HeaderRows = 1,
                 SplitLate = false
             };
-            List customerInformationList = new List()
+            customerInformationList = new List()
             {
                 ListSymbol = symbol,
                 IndentationLeft = 30f
             };
+        }
+
+        public void PDFGenerator(Offer currentOffer, string path)
+        { 
             using (doc)
             {
                 PdfWriter.GetInstance(doc, new FileStream(path: path, mode: FileMode.Create));
