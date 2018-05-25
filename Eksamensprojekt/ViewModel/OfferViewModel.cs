@@ -228,19 +228,12 @@ namespace ViewModel
             get { return ItemRepository.GetInstance(dataHandler).Items; }
             set { ItemRepository.GetInstance(dataHandler).Items = value; }
         }
-        public string OfferDiscount
+        public double OfferDiscount
         {
-            get { return Math.Round(currentOffer.OfferDiscountPercent,2).ToString(); }
+            get { return Math.Round(currentOffer.OfferDiscountPercent, 2); }
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    currentOffer.OfferDiscountPercent = 0;
-
-                }
-                else { 
-                    currentOffer.OfferDiscountPercent = Convert.ToDouble(value);
-                }
+                currentOffer.OfferDiscountPercent = Convert.ToDouble(value);
                 NotifyPropertyChanged("TotalDiscountedPrice");
                 NotifyPropertyChanged("TotalPercentDiscount");
                 NotifyPropertyChanged("OfferTotal");

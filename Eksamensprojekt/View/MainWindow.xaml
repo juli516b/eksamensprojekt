@@ -150,7 +150,7 @@
                         <Label x:Name="CustomerDiscount_Label" FontWeight="Normal" Content="Kunderabat:" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Height="28" Width="136"/>
                         <Label x:Name="CustomerDiscountDisplayed_Label" FontWeight="Normal" Content="{Binding MyCustomerDiscount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,42,0,0" VerticalAlignment="Top" Height="28" Width="87"/>
                         <TextBox x:Name="OfferDiscount_TextBox" HorizontalAlignment="Left" Height="23" Margin="170,70,0,0" TextWrapping="Wrap" Text="{Binding OfferDiscount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="87" TextAlignment="Right" FontWeight="Normal"/>
-                        <Label x:Name="OfferDiscount_Label" FontWeight="Normal" Content="Tilbudsrabat:" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Height="26" Width="136"/>
+                        <Label x:Name="OfferDiscount_Label" FontWeight="Normal" Content="Tilbudsrabat procent:" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Height="26" Width="136"/>
                         <Label x:Name="Transport_Label" FontWeight="Normal" Content="Transportomkostninger:" HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top" Height="26" Width="151" RenderTransformOrigin="0.487,-1.954"/>
                         <TextBox x:Name="Transport_Textboks"
                                  Text="{Binding ForwardingAgentPrice, UpdateSourceTrigger=PropertyChanged}"
