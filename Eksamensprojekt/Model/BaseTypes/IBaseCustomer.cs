@@ -8,9 +8,9 @@
         string CustomerAddress { get; set; }
         int CustomerZip { get; set; }
         string CustomerCity { get; set; }
+        string CustomerCountry { get; set; }
         int PhoneNo { get; set; }
         string Email { get; set; }
         double CustomerDiscount { get; set; }
-        string CustomerCountry { get; set; }
     }
 }
