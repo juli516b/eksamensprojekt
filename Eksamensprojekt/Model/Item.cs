@@ -1,37 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Model.BaseTypes;
 
 namespace Model
 {
-    public class Item : IItem
+    public class Item : IBaseItem
     {
-        private string itemName;
-        private string itemNo;
-        private double itemPrice;
-
-        public string ItemName
+        public int ItemId { get; set; }
+        public string ItemName { get; set; }
+        public string ItemNo { get; set; }
+        public double ItemPrice { get; set; }
+        public double ItemWeight { get; set; }
+        public double ItemPriceF2
         {
-            get { return itemName; }
-            set { itemName = value; }
+            get { return Math.Round(ItemPrice, 2); }
         }
-        public string ItemNo
-        {
-            get { return itemNo; }
-            set { itemNo = value; }
-        }
-        public double ItemPrice
-        {
-            get { return itemPrice; }
-            set { itemPrice = value; }
-        }
-        public Item(string itemName, string itemNo, double itemPrice)
+        public int CountPerPallet { get; set; }
+        public Item(string itemName, string itemNo, double itemPrice, double itemWeight)
         {
             ItemName = itemName;
             ItemNo = itemNo;
             ItemPrice = itemPrice;
+            ItemWeight = itemWeight;
+        }
+        public Item(string itemName, string itemNo, double itemPrice, double itemWeight, int noOnPallet) : this(itemName, itemNo, itemPrice, itemWeight)
+        {
+            CountPerPallet = noOnPallet;
         }
     }
 }

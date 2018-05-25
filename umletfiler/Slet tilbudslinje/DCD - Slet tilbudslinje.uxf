@@ -95,7 +95,9 @@ ForwardingAgentPersentage : double
 &lt;&lt;Constructor&gt;&gt; Offer(creationDate : DataTime)
 AddOfferLine(offerLine:OfferLine)
 RemoveOfferLine(offerLine:OfferLine)
-NotifyOfferTotal()</panel_attributes>
+NotifyOfferTotal()
+</panel_attributes>
+
     <additional_attributes/>
   </element>
   <element>

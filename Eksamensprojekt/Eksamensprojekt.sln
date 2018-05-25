@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "Eksamensprojekt\View.csproj", "{BDD5B571-4B71-424B-A948-5EB78A9A45A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{BDD5B571-4B71-424B-A948-5EB78A9A45A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "PomfritTest\UnitTest.csproj", "{A49C6EB7-3158-4B49-8A79-08351C2622EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "RabatmanTests\UnitTest.csproj", "{A49C6EB7-3158-4B49-8A79-08351C2622EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{91527997-AA0C-4501-8581-EED5B7F9C6E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{878EE494-122A-4B33-ADCD-EB6FD3E42144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{E82EF0D5-CE55-40BD-BD11-707F01513143}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{878EE494-122A-4B33-ADCD-EB6FD3E42144}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{878EE494-122A-4B33-ADCD-EB6FD3E42144}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{878EE494-122A-4B33-ADCD-EB6FD3E42144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E82EF0D5-CE55-40BD-BD11-707F01513143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E82EF0D5-CE55-40BD-BD11-707F01513143}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E82EF0D5-CE55-40BD-BD11-707F01513143}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E82EF0D5-CE55-40BD-BD11-707F01513143}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>300</y>
+      <w>30</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>300</y>
+      <w>30</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>80</x>
+      <y>330</y>
+      <w>360</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+GeneratePDF()
+</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>280</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>:OfferViewModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>280</y>
+      <w>190</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>PDFExporter : pdfExporter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>420</x>
+      <y>350</y>
+      <w>20</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>770</x>
+      <y>350</y>
+      <w>20</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>330</y>
+      <w>380</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+PDFGenerator(currentOffer)
+</panel_attributes>
+    <additional_attributes>360.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>830</x>
+      <y>350</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>PDF fil er blevet 
+genereret og 
+sendt til bestemt 
+sted i filsystemet.</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
