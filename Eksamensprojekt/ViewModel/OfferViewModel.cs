@@ -137,6 +137,10 @@ namespace ViewModel
         private void RemoveOfferLine()
         {
             currentOffer.RemoveOfferLine(SelectedOfferLine);
+            NotifyPropertyChanged("OfferTotal");
+            NotifyPropertyChanged("OfferLinesSubtotal");
+            NotifyPropertyChanged("NoOfTotalPackages");
+            NotifyPropertyChanged("NoOfTotalPallets");
         }
 
         public ICommand GeneratePdfButtonCommand
