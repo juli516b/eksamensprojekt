@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>110</y>
+      <w>330</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Database-modellering - normaliseret</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>170</y>
+      <w>200</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>BaseItem
+--
+ItemNo (PK) : nvarchar
+--
+StartDate : datetime2
+EndDate : datetime2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>330</y>
+      <w>200</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ItemName
+--
+ItemNameID (PK) : float
+--
+ItemNo (FK) : nvarchar
+Name : nvarchar
+StartDate : datetime2
+EndDate : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>330</y>
+      <w>200</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ItemPrice
+--
+ItemPriceID (PK) : float
+--
+ItemNo (FK) : nvarchar
+Price : float
+StartDate : datetime2
+EndDate : datetime2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>250</y>
+      <w>100</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;80.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>250</y>
+      <w>100</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=1..*</panel_attributes>
+    <additional_attributes>80.0;10.0;80.0;110.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>530</y>
+      <w>200</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ItemWeight
+--
+ItemWeightID (PK) : float
+--
+ItemNo (FK) : nvarchar
+Weight : float
+StartDate : datetime2
+EndDate : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>250</y>
+      <w>100</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*</panel_attributes>
+    <additional_attributes>80.0;10.0;80.0;310.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>530</y>
+      <w>200</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ItemCountPerPallet
+--
+CountPerPalletID (PK) : float
+--
+ItemNo (FK) : nvarchar
+CountPerPallet : float
+StartDate : datetime2
+EndDate : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>250</y>
+      <w>100</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0;80.0;310.0</additional_attributes>
+  </element>
+</diagram>

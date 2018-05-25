@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>13</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1807</x>
+      <y>780</y>
+      <w>390</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>ItemRepository
+--
+Items : IBaseItem [0..*]
+--
+AddItem(item : IItem)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1807</x>
+      <y>1157</y>
+      <w>286</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IBaseItem
+--
+ItemNo : string
+ItemName : string
+ItemPrice : double
+CountPerPallet : int
+ItemWeight : double
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1807</x>
+      <y>949</y>
+      <w>286</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+ItemNo : string
+ItemName : string
+ItemPrice : double
+CountPerPallet : int
+ItemPriceF2 : double
+ItemWeight : double
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1950</x>
+      <y>1118</y>
+      <w>39</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1950</x>
+      <y>910</y>
+      <w>39</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1248</x>
+      <y>1157</y>
+      <w>429</w>
+      <h>338</h>
+    </coordinates>
+    <panel_attributes>OfferLine
+--
+Item : IBaseItem
+ItemNo : string
+ItemName : string
+ItemPrice : double
+ItemWeight : double
+/ NoOfPackages : double
+/ NoOfPallets : double
+Quantity : int
+/ OfferLineTotal : double
+DiscountedPrice: double
+PercentDiscount: double
+--
+- NotifyAPropertyChanged(propertyName : string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1664</x>
+      <y>975</y>
+      <w>169</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1443</x>
+      <y>1092</y>
+      <w>39</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1248</x>
+      <y>0</y>
+      <w>442</w>
+      <h>637</h>
+    </coordinates>
+    <panel_attributes>OfferViewModel
+--
+Offerlines : OfferLine[0..*]
+/ OfferTotal : double
+/ OfferSubTotal : double
+/ TotalDiscountedPrice : double
+/ TotalPecentDiscount : double
+OfferDiscount : double
+ForwardingAgentPrice : double
+MyCostumer : Costumer
+MyCostumerDiscount : string
+ThisOffer : Offer
+QuantityTextboxText : string
+
+Items : IBaseItem (0..*)
+/ NoOfTotalPackages : double
+/ NoOfTotalPallets : double
+Quantity : int
+/ OfferLineTotal : double
+TotalDiscountedPrice: double
+TotalPercentDiscount: double	
+SelectedItem : IBaseItem
+SelectedOfferLine : OfferLine
+
+AddButtonCommand : ICommand
+CreateNewButtonCommand : ICommand
+GeneratePDFButtonCommand : ICommand
+RemoveOfferLineCommand : ICommand
+--
+AddOfferLine(myItem, quantity)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1443</x>
+      <y>624</y>
+      <w>39</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1625</x>
+      <y>1612</y>
+      <w>429</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Static&gt;&gt;
+DiscountMath
+--
+
+--
+_PriceToPercent(newPrice, oldPrice) : double_
+_PercentToPrice(percent, oldPrice) : double_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>884</x>
+      <y>507</y>
+      <w>273</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>ForwardingAgent
+--
+ForwardingAgentName : string
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1144</x>
+      <y>559</y>
+      <w>130</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>80.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>663</x>
+      <y>1144</y>
+      <w>286</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IBaseCostumer
+--
+CostumerAdress : string
+CostumerCountry : string
+CostumerDiscount : double
+CostumerName : string
+CostumerZip : int
+CVRNumber : string
+Email : string
+PhoneNo : int
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>52</x>
+      <y>819</y>
+      <w>286</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>CostumerRepository
+--
+Costumers : IBaseCostumer [0..*]
+--
+AddCostumer(costumer : IBaseCostumer)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>676</x>
+      <y>819</y>
+      <w>286</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>Costumer
+--
+CostumerAdress : string
+CostumerCountry : string
+CostumerDiscount : double
+CostumerName : string
+CostumerZip : int
+CVRNumber : string
+Email : string
+PhoneNo : int
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1248</x>
+      <y>715</y>
+      <w>429</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>Offer
+--
+OfferNo : string
+Offerlines : OfferLine[0..*]
+CreationDate : DateTime
+/ OfferTotal : double
+/ OfferSubTotal : double
+/ TotalDiscountedPrice : double
+/ TotalPecentDiscount : double
+OfferDiscount : double
+ForwardingAgentPrice : double
+MyCostumer : Costumer
+--
+&lt;&lt;Constructor&gt;&gt; Offer(creationDate : DataTime)
+Clear()
+AddOfferLine(offerLine:OfferLine)
+RemoveOfferLine(offerLine:OfferLine)
+- CalculateOfferWithoutForwardingAgentPrice()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>676</x>
+      <y>1612</y>
+      <w>481</w>
+      <h>169</h>
+    </coordinates>
+    <panel_attributes>PDFExporter
+--
+
+
+--
+PDFGenerator(currentOffer : Offer, path : string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>806</x>
+      <y>1040</y>
+      <w>39</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>325</x>
+      <y>897</y>
+      <w>377</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>949</x>
+      <y>910</y>
+      <w>325</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>230.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>338</y>
+      <w>442</w>
+      <h>273</h>
+    </coordinates>
+    <panel_attributes>CreateCustomerViewModel
+--
+CostumerAdress : string
+CostumerCountry : string
+CostumerDiscount : double
+CostumerName : string
+CostumerZip : int
+CVRNumber : string
+Email : string
+PhoneNo : int
+ICOMMAND SAVECUSTOMER
+--
+- NotifyAPropertyChanged(propertyName : string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>585</x>
+      <y>598</y>
+      <w>234</w>
+      <h>247</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>637</y>
+      <w>442</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>ShowCostumerViewModel
+--
+CurrentCostumer : Costumer
+Costumers : IBaseCostumer (0..*)
+--
+- NotifyAPropertyChanged(propertyName : string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>169</x>
+      <y>741</y>
+      <w>39</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+</diagram>

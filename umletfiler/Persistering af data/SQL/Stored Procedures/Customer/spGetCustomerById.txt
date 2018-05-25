@@ -1,0 +1,11 @@
+--USE DB2017_C13;
+Create Proc spGetCustomerById (@CustomerID AS INT)
+AS
+BEGIN
+  Select 
+	* 
+  From 
+	FullCustomerHistoryView 
+  where 
+    Id = @CustomerID
+End

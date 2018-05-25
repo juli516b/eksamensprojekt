@@ -1,0 +1,9 @@
+Create VIEW Item_View
+AS
+ Select I.ItemID, ItemNo, ItemName, ItemWeight, ItemCountPerPallet, ItemPrice, Created_At, ItemExpireDate
+ From Item as I
+ Inner Join BaseItem as BI on I.BaseItemId = BI.BaseItemID
+ Inner Join BaseItemName as BAN on I.BaseItemNameID = BAN.BaseItemNameID
+ Inner Join BaseItemPackage as BIW on I.BaseItemPackageID = BIW.BaseItemPackageID
+ Inner JOIN BaseItemPrice as BIP on I.BaseItemPriceID = BIP.BaseItemPriceID
+ Left JOIN BaseItemExpireDate as BIED on I.BaseItemExpireDateID = BIED.BaseItemExpireDateID

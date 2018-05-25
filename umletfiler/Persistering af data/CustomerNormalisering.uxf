@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>50</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>BaseCustomer
+--
+CustomerID (PK) : int
+--
+CVRNumber : nvarchar
+StartDate : datetime2
+EndDate : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>610</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>CustomerContactMail
+--
+CustomerContactMailID (PK) : int
+--
+CustomerID (FK) : int
+Email : nvarchar
+StartDate : datetime2
+EndDate : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>480</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>CustomerDiscount
+--
+BaseCustomerDiscountId (PK) : int
+--
+CustomerID
+Discount : float
+StartDate : datetime2
+EndDate : datetime2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>180</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>CustomerZip
+--
+CustomerContactZipID (PK) : int
+--
+CustomerID (FK) : int
+ZipCode : int
+StartDate : datetime2
+EndDate : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>330</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>CustomerName
+--
+BaseCustomerNameID (PK) : int
+--
+CustomerID (FK) : int
+Name : nvarchar
+StartDate : datetime2
+EndDate : datetime2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>180</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>CustomerAddress
+--
+CustomerAddressID (PK) : int
+--
+CustomerID (FK) : int
+Address : nvarchar
+StartDate : datetime2
+EndDate : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>480</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>CustomerCountry
+--
+CustomerCountryID (PK) : int
+--
+CustomerID (FK) : int
+Country : nvarchar
+StartDate : datetime2
+EndDate : datetime2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>330</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>CustomerContactPhone
+--
+CustomerContactPhoneID (PK) : int
+--
+CustomerID (FK) : int
+PhoneNo : int
+StartDate : datetime2
+EndDate : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>160</y>
+      <w>50</w>
+      <h>470</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>160</y>
+      <w>160</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+</panel_attributes>
+    <additional_attributes>140.0;10.0;140.0;90.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>160</y>
+      <w>160</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+</panel_attributes>
+    <additional_attributes>140.0;10.0;140.0;240.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>160</y>
+      <w>160</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+</panel_attributes>
+    <additional_attributes>140.0;10.0;140.0;390.0;10.0;390.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>160</y>
+      <w>160</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;390.0;140.0;390.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>160</y>
+      <w>160</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0;140.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>160</y>
+      <w>160</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;140.0;90.0</additional_attributes>
+  </element>
+</diagram>

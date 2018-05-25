@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>120</y>
+      <w>310</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>OfferViewModel
+--
+-currentOffer : Offer
+...
+--
+PDFGenerator(currentOffer : Offer, path : string)
+SaveFileDialog() : string
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>310</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>PDFExporter
+--
+
+--
+PDFGenerator(currentOffer : Offer, path : string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

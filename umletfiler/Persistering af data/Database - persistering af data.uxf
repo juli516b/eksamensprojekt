@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>70</y>
+      <w>230</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Offer
+--
+OfferNo (PK) : int
+--
+OfferCreationDate : DateTime2
+CustomerID (FK) : int
+OfferDiscount : float
+ForwardingAgentId (FK) : int
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>80</y>
+      <w>120</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*
+</panel_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>70</y>
+      <w>230</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>OfferLine
+--
+Id (PK) : int
+--
+OfferNo (FK) : nvarchar
+ItemId (FK) : nvarchar
+Quantity : int
+PriceDiscount : float
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1090</x>
+      <y>70</y>
+      <w>190</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+ItemId (PK) : int
+--
+ItemNo : nvarchar(max)
+ItemName : nvarchar(max)
+ItemWeight : float
+ItemCountPerPallet : int
+ItemPrice : float
+Created_At : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>80</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>110</x>
+      <y>20</y>
+      <w>360</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>halign=left
+DATABASE - normaliseret</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>70</y>
+      <w>260</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>FullCustomerHistory
+--
+Id (PK) : int
+--
+CVRNumber : nvarchar(20)
+CustomerName : nvarchar(max)
+CustomerEmail : nvarchar(max)
+CustomerPhoneNo : int
+CustomerDiscountPercent : float
+CustomerAddress : nvarchar
+ZipCode : int
+City : nvarchar(max)
+CustomerCountry : nvarchar(max)
+Created_At : datetime2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>80</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>
+m1=0..1
+m2=0..*
+</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>310</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ForwardingAgent
+--
+Id (PK): int 
+--
+ForwardingAgentPrice : float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>200</y>
+      <w>50</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=0..*
+</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1090</x>
+      <y>250</y>
+      <w>190</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Se ItemAndView for
+normalisering af Item</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>70</x>
+      <y>300</y>
+      <w>260</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Se CustomerAndView for
+normalisering af Customer</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>460</y>
+      <w>210</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Customer
+--
+CustomerName : string
+CVRNumber : string
+CustomerAddress : string
+CustomerZip : int
+PhoneNo : int
+Email : string
+CustomerDiscount : double
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>460</y>
+      <w>350</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>template=1
+CustomerRepository
+--
+Customers : Customer [0..*]
+--
+_GetInstance() : CustomerRepository_
+AddNewCustomer(newCustomer : Customer)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>470</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*
+</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>100</y>
+      <w>350</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>CreateCustomerViewModel
+--
+- myCustomer : Customer
+SaveCustomer : ICommand
+CustomerName : string
+CVRNumber : string
+CustomerAddress : string
+CustomerZip : int
+PhoneNo : int
+Email : string
+CustomerDiscount : double
+--
+AddNewCustomer()
+CanAddCustomer() : bool
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>320</y>
+      <w>30</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>190</y>
+      <w>280</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0;10.0;270.0</additional_attributes>
+  </element>
+</diagram>

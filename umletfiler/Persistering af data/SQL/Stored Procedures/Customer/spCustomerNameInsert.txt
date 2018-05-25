@@ -1,0 +1,14 @@
+--Use DB2017_C13;
+alter Proc spCustomerNameInsert (
+@MyCustomerName as nvarchar(MAX),
+@ThisCustomerNameId as int OUTPUT
+)
+AS
+Begin
+  Set @ThisCustomerNameId = (select Id from CustomerName where CustomerName = @MyCustomerName);
+  If @ThisCustomerNameId is null
+  Begin
+	Insert into CustomerName(CustomerName) values (@MyCustomerName);
+	Set @ThisCustomerNameId = (Select SCOPE_IDENTITY());
+  End
+End
