@@ -21,13 +21,13 @@ namespace ViewModel
         private ICommand clickGeneratePDFCommand;
         private ICommand clickCreateNewOffer;
         private ICommand clickRemoveOfferLineCommand;
-        private Offer currentOffer;
+        private IBaseOffer currentOffer;
         public event PropertyChangedEventHandler PropertyChanged;
-        public Customer MyCustomer
+        public IBaseCustomer MyCustomer
         {
             get
             {
-                Customer customer = new Customer() { CustomerName = "Ingen kunde valgt. Klik for at tilføje" };
+                IBaseCustomer customer = new Customer() { CustomerName = "Ingen kunde valgt. Klik for at tilføje" };
                 if (currentOffer.MyCustomer != null)
                 {
                     customer = currentOffer.MyCustomer;
@@ -43,7 +43,7 @@ namespace ViewModel
         }
         public string OfferLinesSubtotal
         {
-            get { return currentOffer.OfferSubtotal + " DKK"; }
+            get { return currentOffer.OfferSubTotal + " DKK"; }
         }
         public string MyCustomerDiscount
         {
@@ -75,7 +75,7 @@ namespace ViewModel
             }
         }
         public IBaseItem SelectedItem { get; set; }
-        public OfferLine SelectedOfferLine { get; set; }
+        public IBaseOfferLine SelectedOfferLine { get; set; }
         public string QuantityTextBoxText { get; set; }
 
         public ICommand CreateNewOfferButtonCommand
@@ -148,7 +148,7 @@ namespace ViewModel
                 NotifyPropertiesChanged(propertiesChanged);
             }
         }
-        public ObservableCollection<OfferLine> OfferLines
+        public ObservableCollection<IBaseOfferLine> OfferLines
         {
             get { return currentOffer.OfferLines; }
             set { currentOffer.OfferLines = value; }
@@ -196,7 +196,7 @@ namespace ViewModel
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
         {
-            OfferLine newOfferLine = new OfferLine(myItem, quantity);
+            IBaseOfferLine newOfferLine = new OfferLine(myItem, quantity);
             OfferLines.Add(newOfferLine);
             newOfferLine.APWC += NotifyPropertyChanged;
             string[] propertiesChanged = {nameof(OfferTotal),nameof(NoOfTotalPackages),nameof(NoOfTotalPallets),nameof(OfferLinesSubtotal),nameof(TotalDiscountedPrice),nameof(TotalPercentDiscount)};
