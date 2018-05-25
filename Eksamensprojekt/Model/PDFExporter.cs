@@ -72,7 +72,7 @@ namespace Model
                 }
                 else
                 {
-                    economyTable.AddCell(currentOffer.MyCustomer.CustomerDiscount + " %");
+                    economyTable.AddCell(currentOffer.MyCustomer.CustomerDiscountPercent + " %");
                 }
                 economyTable.AddCell("TILBUDSRABAT");
                 economyTable.AddCell(currentOffer.OfferDiscountPercent + " %");

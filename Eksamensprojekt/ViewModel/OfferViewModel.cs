@@ -37,10 +37,8 @@ namespace ViewModel
             set
             {
                 currentOffer.MyCustomer = value;
-                NotifyPropertyChanged("MyCustomer");
-                NotifyPropertyChanged("OfferTotal");
-                NotifyPropertyChanged("MyCustomerDiscount");
-                NotifyPropertyChanged("TotalPercentDiscount");
+                string[] propertiesChanged = { nameof(OfferTotal), nameof(MyCustomer),nameof(MyCustomerDiscount), nameof(TotalPercentDiscount) };
+                NotifyPropertiesChanged(propertiesChanged);
             }
         }
         public string OfferLinesSubtotal
@@ -54,14 +52,14 @@ namespace ViewModel
                 string customerDiscount_Label = "";
                 if (MyCustomer != null)
                 {
-                    customerDiscount_Label = MyCustomer.CustomerDiscount + " %";
+                    customerDiscount_Label = MyCustomer.CustomerDiscountPercent + " %";
                 }
                 return customerDiscount_Label;
             }
             set
             {
-                MyCustomer.CustomerDiscount = Convert.ToDouble(value);
-                NotifyPropertyChanged("TotalPercentDiscount");
+                MyCustomer.CustomerDiscountPercent = Convert.ToDouble(value);
+                NotifyPropertyChanged(nameof(TotalPercentDiscount));
             }   
         }
         public double ForwardingAgentPrice
@@ -72,8 +70,8 @@ namespace ViewModel
             }
             set {
                 currentOffer.ForwardingAgentPrice = value;
-                NotifyPropertyChanged("TotalPercentDiscount");
-                NotifyPropertyChanged("OfferTotal");
+                string[] propertiesChanged = { nameof(OfferTotal), nameof(TotalPercentDiscount) };
+                NotifyPropertiesChanged(propertiesChanged);
             }
         }
         public IBaseItem SelectedItem { get; set; }
@@ -146,9 +144,8 @@ namespace ViewModel
             set
             {
                 currentOffer.OfferDiscountPercent = value;
-                NotifyPropertyChanged("TotalDiscountedPrice");
-                NotifyPropertyChanged("TotalPercentDiscount");
-                NotifyPropertyChanged("OfferTotal");
+                string[] propertiesChanged = { nameof(OfferTotal), nameof(TotalDiscountedPrice), nameof(TotalPercentDiscount)};
+                NotifyPropertiesChanged(propertiesChanged);
             }
         }
         public ObservableCollection<OfferLine> OfferLines
@@ -194,23 +191,27 @@ namespace ViewModel
         {
             dataHandler = new DatabaseFacade();
             pdfExporter = new PDFExporter();
-            currentOffer = new Offer(DateTime.Now); 
+            currentOffer = new Offer(DateTime.Now);
+            
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
         {
             OfferLine newOfferLine = new OfferLine(myItem, quantity);
             OfferLines.Add(newOfferLine);
             newOfferLine.APWC += NotifyPropertyChanged;
-            NotifyPropertyChanged("OfferTotal");
-            NotifyPropertyChanged("NoOfTotalPackages");
-            NotifyPropertyChanged("NoOfTotalPallets");
-            NotifyPropertyChanged("OfferLinesSubtotal");
-            NotifyPropertyChanged("TotalDiscountedPrice");
-            NotifyPropertyChanged("TotalPercentDiscount");
+            string[] propertiesChanged = {nameof(OfferTotal),nameof(NoOfTotalPackages),nameof(NoOfTotalPallets),nameof(OfferLinesSubtotal),nameof(TotalDiscountedPrice),nameof(TotalPercentDiscount)};
+            NotifyPropertiesChanged(propertiesChanged);
         }
         public void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private void NotifyPropertiesChanged(string[] propertiesNames)
+        {
+            foreach (string propertyName in propertiesNames)
+            {
+                NotifyPropertyChanged(propertyName);
+            }
         }
         private bool CanCreateNewOffer()
         {
@@ -224,24 +225,14 @@ namespace ViewModel
         private void CreateNewOffer()
         {
             currentOffer.Clear();
-            NotifyPropertyChanged("OfferTotal");
-            NotifyPropertyChanged("OfferLinesSubTotal");
-            NotifyPropertyChanged("NoOfTotalPackages");
-            NotifyPropertyChanged("NoOfTotalPallets");
-            NotifyPropertyChanged("MyCustomer");
-            NotifyPropertyChanged("ForwardingAgentPrice");
-            NotifyPropertyChanged("OfferDiscountPercent");
-            NotifyPropertyChanged("MyCustomerDiscount");
-            NotifyPropertyChanged("TotalDiscountedPrice");
-            NotifyPropertyChanged("TotalPercentDiscount");
+            string[] propertiesChanged = { nameof(OfferTotal), nameof(NoOfTotalPackages), nameof(NoOfTotalPallets), nameof(OfferLinesSubtotal), nameof(TotalDiscountedPrice), nameof(TotalPercentDiscount), nameof(MyCustomer), nameof(ForwardingAgentPrice),nameof(OfferDiscountPercent),nameof(MyCustomerDiscount) };
+            NotifyPropertiesChanged(propertiesChanged);
         }
         private void RemoveOfferLine()
         {
             currentOffer.RemoveOfferLine(SelectedOfferLine);
-            NotifyPropertyChanged("OfferTotal");
-            NotifyPropertyChanged("OfferLinesSubtotal");
-            NotifyPropertyChanged("NoOfTotalPackages");
-            NotifyPropertyChanged("NoOfTotalPallets");
+            string[] propertiesChanged = { nameof(OfferTotal), nameof(NoOfTotalPackages), nameof(NoOfTotalPallets), nameof(OfferLinesSubtotal) };
+            NotifyPropertiesChanged(propertiesChanged);
         }
         private string SaveFileDialogWindow()
         {

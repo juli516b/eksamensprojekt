@@ -11,6 +11,6 @@
         string CustomerCountry { get; set; }
         int PhoneNo { get; set; }
         string Email { get; set; }
-        double CustomerDiscount { get; set; }
+        double CustomerDiscountPercent { get; set; }
     }
 }

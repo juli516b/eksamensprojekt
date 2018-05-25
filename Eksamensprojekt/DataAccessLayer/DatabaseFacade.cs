@@ -75,7 +75,7 @@ namespace DataAccessLayer
                             Email = reader["CustomerEmail"].ToString(),
                             CustomerZip = (int)reader["ZipCode"],
                             PhoneNo = (int)reader["CustomerPhoneNo"],
-                            CustomerDiscount = (double)reader["CustomerDiscountPercent"]
+                            CustomerDiscountPercent = (double)reader["CustomerDiscountPercent"]
                         };
                         customerList.Add(newCustomer);
                     }
@@ -103,7 +103,7 @@ namespace DataAccessLayer
                     saveCustomer.Parameters.AddWithValue("@MyCustomerCity", newCustomer.CustomerCity);
                     saveCustomer.Parameters.AddWithValue("@MyCustomerPhoneNo", newCustomer.PhoneNo);
                     saveCustomer.Parameters.AddWithValue("@MyCustomerEmail", newCustomer.Email);
-                    saveCustomer.Parameters.AddWithValue("@MyCustomerDiscountPercent", newCustomer.CustomerDiscount);
+                    saveCustomer.Parameters.AddWithValue("@MyCustomerDiscountPercent", newCustomer.CustomerDiscountPercent);
                     saveCustomer.Parameters.AddWithValue("@MyCustomerCountry", newCustomer.CustomerCountry);
                 }
                 SqlDataReader reader = saveCustomer.ExecuteReader();

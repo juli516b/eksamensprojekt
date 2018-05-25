@@ -21,7 +21,7 @@ namespace Model
                 total = DiscountMath.PercentToPrice(OfferDiscountPercent, total);
                 if (MyCustomer != null)
                 {
-                    total = DiscountMath.PercentToPrice(MyCustomer.CustomerDiscount, total);
+                    total = DiscountMath.PercentToPrice(MyCustomer.CustomerDiscountPercent, total);
                 }
                 if (ForwardingAgentPrice > 0)
                 {
