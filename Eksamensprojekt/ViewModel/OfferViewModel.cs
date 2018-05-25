@@ -129,7 +129,7 @@ namespace ViewModel
             NotifyPropertyChanged("NoOfTotalPallets");
             NotifyPropertyChanged("MyCustomer");
             NotifyPropertyChanged("ForwardingAgentPrice");
-            NotifyPropertyChanged("OfferDiscount");
+            NotifyPropertyChanged("OfferDiscountPercent");
             NotifyPropertyChanged("MyCustomerDiscount");
             NotifyPropertyChanged("TotalDiscountedPrice");
             NotifyPropertyChanged("TotalPercentDiscount");
