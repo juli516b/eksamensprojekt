@@ -17,6 +17,5 @@ namespace Model.BaseTypes
         string TotalPercentDiscount { get; }
         void Clear();
         void RemoveOfferLine(IBaseOfferLine offerLine);
-
     }
 }
