@@ -5,7 +5,7 @@ namespace Model
 {
     public class Item : IBaseItem
     {
-      
+        public int ItemId { get; set; }
         public string ItemName { get; set; }
         public string ItemNo { get; set; }
         public double ItemPrice { get; set; }

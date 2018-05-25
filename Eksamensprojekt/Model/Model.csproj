@@ -44,19 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTypes\IBaseOffer.cs" />
+    <Compile Include="BaseTypes\IBaseOfferLine.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="DataHandlers\CustomerDataHandler.cs" />
-    <Compile Include="CustomerRepository.cs" />
     <Compile Include="DiscountMath.cs" />
     <Compile Include="BaseTypes\IBaseCustomer.cs" />
     <Compile Include="BaseTypes\IBaseItem.cs" />
-    <Compile Include="DataHandlers\IPersistentCustomerDataHandler.cs" />
-    <Compile Include="DataHandlers\IPersistentItemDataHandler.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="ItemRepository.cs" />
     <Compile Include="Offer.cs" />
     <Compile Include="OfferLine.cs" />
-    <Compile Include="DataHandlers\ItemDataHandler.cs" />
     <Compile Include="PDFExporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

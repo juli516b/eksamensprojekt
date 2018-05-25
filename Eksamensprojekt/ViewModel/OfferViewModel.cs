@@ -7,9 +7,9 @@ using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
 using Model;
-using Model.BaseTypes;
-using Model.DataHandlers;
 using DataAccessLayer;
+using DataAccessLayer.DataHandlers;
+using Model.BaseTypes;
 
 namespace ViewModel
 {
@@ -230,16 +230,16 @@ namespace ViewModel
         }
         public string OfferDiscount
         {
-            get { return Math.Round(currentOffer.OfferDiscount,2).ToString(); }
+            get { return Math.Round(currentOffer.OfferDiscountPercent,2).ToString(); }
             set
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    currentOffer.OfferDiscount = 0;
+                    currentOffer.OfferDiscountPercent = 0;
 
                 }
                 else { 
-                    currentOffer.OfferDiscount = Convert.ToDouble(value);
+                    currentOffer.OfferDiscountPercent = Convert.ToDouble(value);
                 }
                 NotifyPropertyChanged("TotalDiscountedPrice");
                 NotifyPropertyChanged("TotalPercentDiscount");
@@ -293,7 +293,7 @@ namespace ViewModel
         }
         public OfferViewModel()
         {
-            dataHandler = new ItemQueries();
+            dataHandler = new DatabaseFacade();
             pdfExporter = new PDFExporter();
             currentOffer = new Offer(DateTime.Now);
 

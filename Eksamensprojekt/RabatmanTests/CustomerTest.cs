@@ -1,28 +1,31 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.BaseTypes;
-using Model.DataHandlers;
+using DataAccessLayer.DataHandlers;
+using DataAccessLayer;
+using System.Collections.ObjectModel;
 
 namespace RabatmanTests
 {
     [TestClass]
     public class CustomerTest
     {
+        public ObservableCollection<IBaseCustomer> Customers { get; set; }
+
         [TestMethod]
         public void AddCustomerTest()
         {
             //Arrange
-            
             IPersistentCustomerDataHandler fakeHandler = new FakeCustomerDataHandler();
             IBaseCustomer newTestCustomer = new Customer
             {
                 CustomerName = "Mig"
             };
-            CustomerRepository testRepo = CustomerRepository.GetInstance(fakeHandler);
-            int noOfCustomers = testRepo.Customers.Count;
-            testRepo.AddCustomer(newTestCustomer);
+            Customers = fakeHandler.GetAllCustomers();
+            int noOfCustomers = Customers.Count;
+            Customers.Add(newTestCustomer);
             //Assert
-            Assert.AreEqual(noOfCustomers+1, testRepo.Customers.Count);
+            Assert.AreEqual(noOfCustomers+1, Customers.Count);
         }
     }
 }

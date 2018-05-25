@@ -1,14 +1,23 @@
 ﻿using System.Collections.Generic;
 using Model.BaseTypes;
-using Model.DataHandlers;
+using DataAccessLayer.DataHandlers;
+using System.Collections.ObjectModel;
 
 namespace RabatmanTests
 {
     public class FakeCustomerDataHandler : IPersistentCustomerDataHandler
     {
-        public IList<IBaseCustomer> GetAll(IList<IBaseCustomer> customers)
+        public ObservableCollection<IBaseCustomer> Customers { get; set; }
+
+        public ObservableCollection<IBaseCustomer> GetAllCustomers()
         {
-            return customers;
+            return new ObservableCollection<IBaseCustomer>();
+        }
+
+        IBaseCustomer IPersistentCustomerDataHandler.SaveCustomer(IBaseCustomer newCustomer)
+        {
+            Customers.Add(newCustomer);
+            return newCustomer;
         }
     }
 }

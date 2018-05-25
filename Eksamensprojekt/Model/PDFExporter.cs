@@ -47,7 +47,7 @@ namespace Model
                 if (currentOffer.MyCustomer != null)
                 {
                     customerInformationList.Add(currentOffer.MyCustomer.CustomerName);
-                    customerInformationList.Add(currentOffer.MyCustomer.CustomerAdress);
+                    customerInformationList.Add(currentOffer.MyCustomer.CustomerAddress);
                     customerInformationList.Add(currentOffer.MyCustomer.CustomerZip + "");
                     customerInformationList.Add("CVR nummer: " + currentOffer.MyCustomer.CVRNumber);
                     customerInformationList.Add(currentOffer.MyCustomer.Email);
@@ -67,7 +67,7 @@ namespace Model
                     economyTable.AddCell(currentOffer.MyCustomer.CustomerDiscount + " %");
                 }
                 economyTable.AddCell("TILBUDSRABAT");
-                economyTable.AddCell(currentOffer.OfferDiscount + " %");
+                economyTable.AddCell(currentOffer.OfferDiscountPercent + " %");
                 economyTable.AddCell("TRANSPORTOMKOSTNINGER:");
                 economyTable.AddCell(currentOffer.ForwardingAgentPrice + " DKK");
                 economyTable.AddCell("TOTAL RABAT:");

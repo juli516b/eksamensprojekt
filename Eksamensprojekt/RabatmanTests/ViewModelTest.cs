@@ -1,8 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.BaseTypes;
-using Model.DataHandlers;
+using DataAccessLayer.DataHandlers;
 using ViewModel;
+using DataAccessLayer;
 
 namespace RabatmanTests
 {
@@ -61,15 +62,16 @@ namespace RabatmanTests
         public void AddCustomerTest()
         {
             //Arrange
-            IPersistentCustomerDataHandler cdh = new CustomerDataHandler();
-            CreateCustomerViewModel createCustomerViewModel = new CreateCustomerViewModel();
+            IPersistentCustomerDataHandler cdh = new FakeCustomerDataHandler();
+            CreateCustomerViewModel createCustomerViewModel = new CreateCustomerViewModel(cdh);
             //Act
-            int noOfCustomers = CustomerRepository.GetInstance(cdh).Customers.Count;
+            cdh.Customers = cdh.GetAllCustomers();
+            int noOfCustomers = cdh.Customers.Count;
             createCustomerViewModel.CustomerName = "Mig";
             createCustomerViewModel.AddNewCustomer();
-            
+
             //Assert
-            Assert.AreEqual(noOfCustomers+1, CustomerRepository.GetInstance(cdh).Customers.Count);
+            Assert.AreEqual(noOfCustomers + 1, cdh.Customers.Count);
         }
     }
 }

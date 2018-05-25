@@ -72,14 +72,14 @@ namespace RabatmanTests
 
             //Act
             offer.AddOfferLine(offerLine);
-            offer.OfferDiscount = 20;
+            offer.OfferDiscountPercent = 20;
 
             //Assert
             Assert.AreEqual(80, offer.OfferTotal);
             OfferLine offerLine2 = new OfferLine(item2, 4);
             offer.AddOfferLine(offerLine2);
             Assert.AreEqual(88, offer.OfferTotal);
-            offer.OfferDiscount = 10;
+            offer.OfferDiscountPercent = 10;
             Assert.AreEqual(99, offer.OfferTotal);
             OfferLine offerLine3 = new OfferLine(item, 100)
             {

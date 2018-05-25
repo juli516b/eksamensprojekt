@@ -1,17 +1,24 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 using Model;
-using Model.DataHandlers;
+using Model.BaseTypes;
+using DataAccessLayer;
+using DataAccessLayer.DataHandlers;
 
 namespace ViewModel
 {
     public class CreateCustomerViewModel : INotifyPropertyChanged
     {
         private string customerMessage;
-        private readonly CustomerRepository customerRepository;
+        private IPersistentCustomerDataHandler dataHandler;
+
         public CreateCustomerViewModel()
         {
-            customerRepository = CustomerRepository.GetInstance(new CustomerDataHandler());
+            dataHandler = new DatabaseFacade();
+        }
+        public CreateCustomerViewModel(IPersistentCustomerDataHandler newdatahandler)
+        {
+            dataHandler = newdatahandler;
         }
         public string CustomerMessage
         {
@@ -58,7 +65,7 @@ namespace ViewModel
             Customer myCustomer = new Customer
             {
                 CustomerName = CustomerName,
-                CustomerAdress = CustomerAdress,
+                CustomerAddress = CustomerAdress,
                 CustomerDiscount = CustomerDiscount,
                 CustomerZip = CustomerZip,
                 CustomerCity = CustomerCity,
@@ -67,9 +74,13 @@ namespace ViewModel
                 Email = Email,
                 CustomerCountry = CustomerCountry
             };
-            CustomerMessage = customerRepository.AddCustomer(myCustomer);
+            CustomerMessage = "Kunden blev gemt!";
+            int newCustomerId = dataHandler.SaveCustomer(myCustomer).CustomerId;
+            if (newCustomerId == 0)
+            {
+                CustomerMessage = "Der skete en fejl.\nKunden blev ikke gemt";
+            }
         }
-
         public string CustomerName
         {
             get { return customerName; }

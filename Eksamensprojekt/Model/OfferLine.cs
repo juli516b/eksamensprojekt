@@ -6,7 +6,7 @@ namespace Model
 {
 
     public delegate void APropertyWasChanged(string propertyName);
-    public class OfferLine : INotifyPropertyChanged
+    public class OfferLine : INotifyPropertyChanged, IBaseOfferLine
     {
         public event APropertyWasChanged APWC;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -14,7 +14,7 @@ namespace Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        public int OfferLineId { get; set; }
         private IBaseItem item;
         private int quantity;
         private double percentDiscount;
