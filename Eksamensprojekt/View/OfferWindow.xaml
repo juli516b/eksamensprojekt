@@ -64,7 +64,7 @@
             </MenuItem>
         </Menu>
         <Grid>
-            <Grid  Background="#FFE5E5E5" Height="700" VerticalAlignment="Top" Margin="0,0,0,0">
+            <Grid Background="#FFE5E5E5" Height="700" VerticalAlignment="Top" Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="49*"/>
                     <ColumnDefinition Width="722*"/>

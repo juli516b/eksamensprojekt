@@ -5,21 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:dinMor="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="CreateCostumerWindow" Name="Window" Height="450" Width="400
+        Title="Opret kunde" Name="Window" Height="450" Width="400
         " ResizeMode="NoResize"
         >
     <Window.DataContext>
         <dinMor:CreateCustomerViewModel/>
     </Window.DataContext>
-    <Grid>
-        
-       
-        <Button Name="Save_Button" Content="Gem" HorizontalAlignment="Left" Margin="39,318,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveCustomer}"/>
-        <Label Name="CustomerMessage_Label" Content="{Binding CustomerMessage, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="132,315,0,0" VerticalAlignment="Top" Width="252" Height="58"/>
-        <Grid HorizontalAlignment="Left" Height="274" Margin="30,36,0,0" VerticalAlignment="Top" Width="240">
+    <Grid Background="#FFE5E5E5">
+        <Grid HorizontalAlignment="Left" Height="274" Margin="30,36,0,0" VerticalAlignment="Top" Width="300">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -32,29 +28,26 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
-            <Label Content="Company Name"/>
-            <Label Content="CVR" Grid.Row="1" Grid.Column="0" />
-            <Label Content="Adresse" Grid.Row="2" Grid.Column="0" />
-            <Label Content="Postnummer" Grid.Row="3" Grid.Column="0" />
-            <Label Content="By" Grid.Row="4" Grid.Column="0" />
-            <Label Content="Land" Grid.Row="5" Grid.Column="0" />
-            <Label Content="Mail" Grid.Row="6" Grid.Column="0" />
-            <Label Content="Telefon" Grid.Row="7" Grid.Column="0" />
-            <Label Content="Fast rabat" Grid.Row="8" Grid.Column="0" />
-
-
-            <TextBox Name="CompanyName_TextBox" Grid.Row="0" Grid.Column="1" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerName}" />
-            <TextBox Name="CVR_TextBox" Grid.Column="1" Grid.Row="1" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CVRNumber}" />
-            <TextBox Name="Address_TextBox" Grid.Column="1" Grid.Row="2" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerAdress}"/>
-            <TextBox Name="Zip_TextBox" Grid.Column="1" Grid.Row="3" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerZip}" />
-            <TextBox Name="City_TextBox" Grid.Column="1" Grid.Row="4" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerCity}" />
-
-            <TextBox Name="CustomerCountry_TextBox" Grid.Column="1" Grid.Row="5" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerCountry}" />
-            <TextBox Name="Mail_TextBox" Grid.Column="1" Grid.Row="6" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding Email}" />
-            <TextBox Name="Telephone_TextBox" Grid.Column="1" Grid.Row="7" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding PhoneNo}" />
-            <TextBox Name="CustomerDiscount_TextBox" Grid.Column="1" Grid.Row="8" Margin="18.2,5,-37,5" TextWrapping="Wrap" Text="{Binding CustomerDiscount}" />
-
+            <Label Content="Virksomhedsnavn:" Grid.Row="0" Grid.Column="0" />
+            <Label Content="CVR nummer:" Grid.Row="1" Grid.Column="0" />
+            <Label Content="Adresse:" Grid.Row="2" Grid.Column="0" />
+            <Label Content="Postnummer:" Grid.Row="3" Grid.Column="0" />
+            <Label Content="By:" Grid.Row="4" Grid.Column="0" />
+            <Label Content="Land:" Grid.Row="5" Grid.Column="0" />
+            <Label Content="Mail:" Grid.Row="6" Grid.Column="0" />
+            <Label Content="Telefon:" Grid.Row="7" Grid.Column="0" />
+            <Label Content="Fast rabat procent:" Grid.Row="8" Grid.Column="0" />
+            <TextBox Name="CompanyName_TextBox" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5" TextWrapping="Wrap" Text="{Binding CustomerName}" />
+            <TextBox Name="CVR_TextBox" Grid.Column="1" Grid.Row="1" Margin="0,5,0,5" TextWrapping="Wrap" Text="{Binding CVRNumber}" />
+            <TextBox Name="Address_TextBox" Grid.Column="1" Grid.Row="2" Margin="0,5,0,5" TextWrapping="Wrap" Text="{Binding CustomerAdress}"/>
+            <TextBox Name="Zip_TextBox" Grid.Column="1" Grid.Row="3" Margin="0,5,0,5" TextWrapping="Wrap" Text="{Binding CustomerZip}" />
+            <TextBox Name="City_TextBox" Grid.Column="1" Grid.Row="4" Margin="0,5,0,5" TextWrapping="Wrap" Text="{Binding CustomerCity}" />
+            <TextBox Name="CustomerCountry_TextBox" Grid.Column="1" Grid.Row="5" Margin="0,5,0,5" TextWrapping="Wrap" Text="{Binding CustomerCountry}" />
+            <TextBox Name="Mail_TextBox" Grid.Column="1" Grid.Row="6" Margin="0,5,0,5" TextWrapping="Wrap" Text="{Binding Email}" />
+            <TextBox Name="Telephone_TextBox" Grid.Column="1" Grid.Row="7" Margin="0,5,0,5" TextWrapping="Wrap" Text="{Binding PhoneNo}" />
+            <TextBox Name="CustomerDiscount_TextBox" Grid.Column="1" Grid.Row="8" Margin="0,5,0,5" TextWrapping="Wrap" Text="{Binding CustomerDiscount}" />
         </Grid>
-
+        <Button Name="Save_Button" Content="Gem" HorizontalAlignment="Left" Margin="39,318,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveCustomer}"/>
+        <Label Name="CustomerMessage_Label" Content="{Binding CustomerMessage, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="132,315,0,0" VerticalAlignment="Top" Width="252" Height="58"/>
     </Grid>
 </Window>
