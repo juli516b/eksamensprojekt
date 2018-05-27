@@ -191,6 +191,7 @@ namespace ViewModel
             dataHandler = new DatabaseFacade();
             pdfExporter = new PDFExporter();
             currentOffer = new Offer(DateTime.Now);
+            Items = dataHandler.GetAllItems();
             
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
@@ -228,18 +229,26 @@ namespace ViewModel
             saveFileDialog = new SaveFileDialog
             {
                 InitialDirectory = @"C:\",
-                Title = "Select PDFFile",
+                Title = "Gem som",
                 Filter = "PDF(*.pdf)|*.pdf",
                 DefaultExt = ".PDF",
-                FileName = DateTime.Now.ToShortDateString()
+                FileName = MyCustomer.CustomerName +" " + DateTime.Now.ToShortDateString()
             };
-            if (saveFileDialog.ShowDialog() == true)
-                return saveFileDialog.FileName;
-            throw new Exception("Der er sket en fejl med at gemme filen");
+            if (saveFileDialog.ShowDialog() == false)
+            { 
+                throw new Exception("Der er sket en fejl med at gemme filen");
+            }
+            return saveFileDialog.FileName;
         }
         private void GeneratePDF()
         {
-            pdfExporter.PDFGenerator(currentOffer, SaveFileDialogWindow());
+            try
+            {
+                pdfExporter.PDFGenerator(currentOffer, SaveFileDialogWindow());
+            }
+            catch {
+                MessageBox.Show("gem PDF blev afbrudt");
+            }
         }
         private bool CanGeneratePDF()
         {
