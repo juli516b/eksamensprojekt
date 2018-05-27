@@ -45,7 +45,7 @@ namespace Model
             };
         }
 
-        public void PDFGenerator(IBaseOffer currentOffer, string path)
+        public void PDFGenerator(IExtendOffer currentOffer, string path)
         { 
             using (doc)
             {

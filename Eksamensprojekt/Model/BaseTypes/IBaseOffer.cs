@@ -1,21 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Model.BaseTypes
 {
-    public interface IBaseOffer
+    public interface IBaseOffer 
     {
         int? OfferNo { get; set; }
         IBaseCustomer MyCustomer { get; set; }
-        ObservableCollection<IBaseOfferLine> OfferLines { get; set; }
+        ObservableCollection<IExtendOfferLine> OfferLines { get; set; }
         double OfferDiscountPercent { get; set; }
         DateTime OfferCreationDate { get; set; }
         double ForwardingAgentPrice { get; set; }
-        double OfferSubTotal { get; }
-        double OfferTotal { get;  }
-        string TotalDiscountedPrice { get; }
-        string TotalPercentDiscount { get; }
-        void Clear();
-        void RemoveOfferLine(IBaseOfferLine offerLine);
     }
 }

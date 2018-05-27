@@ -6,7 +6,7 @@ namespace Model
 {
 
     public delegate void APropertyWasChanged(string propertyName);
-    public class OfferLine : INotifyPropertyChanged, IBaseOfferLine
+    public class OfferLine : INotifyPropertyChanged, IExtendOfferLine
     {
         public event APropertyWasChanged APWC;
         public event PropertyChangedEventHandler PropertyChanged;

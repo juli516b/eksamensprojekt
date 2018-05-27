@@ -21,7 +21,7 @@ namespace ViewModel
         private ICommand clickGeneratePDFCommand;
         private ICommand clickCreateNewOffer;
         private ICommand clickRemoveOfferLineCommand;
-        private IBaseOffer currentOffer;
+        private IExtendOffer currentOffer;
         public event PropertyChangedEventHandler PropertyChanged;
         public IBaseCustomer MyCustomer
         {
@@ -75,7 +75,7 @@ namespace ViewModel
             }
         }
         public IBaseItem SelectedItem { get; set; }
-        public IBaseOfferLine SelectedOfferLine { get; set; }
+        public IExtendOfferLine SelectedOfferLine { get; set; }
         public string QuantityTextBoxText { get; set; }
 
         public ICommand CreateNewOfferButtonCommand
@@ -148,7 +148,7 @@ namespace ViewModel
                 NotifyPropertiesChanged(propertiesChanged);
             }
         }
-        public ObservableCollection<IBaseOfferLine> OfferLines
+        public ObservableCollection<IExtendOfferLine> OfferLines
         {
             get { return currentOffer.OfferLines; }
             set { currentOffer.OfferLines = value; }
@@ -196,7 +196,7 @@ namespace ViewModel
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
         {
-            IBaseOfferLine newOfferLine = new OfferLine(myItem, quantity);
+            IExtendOfferLine newOfferLine = new OfferLine(myItem, quantity);
             OfferLines.Add(newOfferLine);
             newOfferLine.APWC += NotifyPropertyChanged;
             string[] propertiesChanged = {nameof(OfferTotal),nameof(NoOfTotalPackages),nameof(NoOfTotalPallets),nameof(OfferLinesSubtotal),nameof(TotalDiscountedPrice),nameof(TotalPercentDiscount)};

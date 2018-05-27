@@ -5,7 +5,7 @@ using Model.BaseTypes;
 
 namespace Model
 {
-    public class Offer : IBaseOffer
+    public class Offer : IExtendOffer
     {
         public DateTime OfferCreationDate { get; set; }
 
@@ -56,7 +56,7 @@ namespace Model
 
         public string TotalDiscountedPrice => OfferSubTotal - CalculateOffertotalWithoutForwardingAgentPrice() + " DKK";
 
-        public ObservableCollection<IBaseOfferLine> OfferLines { get; set; }
+        public ObservableCollection<IExtendOfferLine> OfferLines { get; set; }
 
         public double OfferDiscountPercent { get; set; }
         public double ForwardingAgentPrice { get; set; }
@@ -64,14 +64,14 @@ namespace Model
         public Offer(DateTime creationDate)
         {
             OfferCreationDate = creationDate;
-            OfferLines = new ObservableCollection<IBaseOfferLine>();
+            OfferLines = new ObservableCollection<IExtendOfferLine>();
         }
-        public void AddOfferLine(IBaseOfferLine offerLine)
+        public void AddOfferLine(IExtendOfferLine offerLine)
         {
             OfferLines.Add(offerLine);
         }
 
-        public void RemoveOfferLine(IBaseOfferLine offerLine)
+        public void RemoveOfferLine(IExtendOfferLine offerLine)
         {
             OfferLines.Remove(offerLine);
         }
