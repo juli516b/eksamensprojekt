@@ -13,7 +13,6 @@ namespace RabatmanTests
         {
             return new ObservableCollection<IBaseCustomer>();
         }
-
         IBaseCustomer IPersistentCustomerDataHandler.SaveCustomer(IBaseCustomer newCustomer)
         {
             Customers.Add(newCustomer);
