@@ -6,8 +6,6 @@ namespace DataAccessLayer.DataHandlers
     public interface IPersistentItemDataHandler
     {
         IList<IBaseItem> GetAll(IList<IBaseItem> items);
-        //bool SaveType();
-        //bool UpdateType();
-        //bool DeleteType();
+        // IBaseItem SaveItem(IBaseItem newItem);
     }
 }

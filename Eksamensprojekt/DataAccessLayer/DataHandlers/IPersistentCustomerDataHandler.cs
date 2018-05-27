@@ -9,9 +9,7 @@ namespace DataAccessLayer.DataHandlers
         ObservableCollection<IBaseCustomer> Customers { get; set; }
         ObservableCollection<IBaseCustomer> GetAllCustomers();
         IBaseCustomer SaveCustomer(IBaseCustomer newCustomer);
-        //bool SaveType();
-        //bool UpdateType();
-        //bool DeleteType();
+
     }
 }
 
