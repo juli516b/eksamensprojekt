@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>160</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Customer
+--
+Id (PK) : int identity(1,1) not null
+--
+CVRNumber : nvarchar(20) not null
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>310</y>
+      <w>280</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>CustomerContact
+--
+Id (PK) : int identity(1,1) not null
+--
+CustomerId (FK) : int identity(1,1) not null
+CustomerContactName : nvarchar not null
+CustomerEmail : nvarchar(max) null
+CustomerPhoneNo : int null
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>130</y>
+      <w>330</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>FullCustomerHistory
+--
+Id (PK) : int identity(1,1) not null
+--
+CustomerId (FK) : int not null
+...
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>230</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>180</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+</diagram>
