@@ -17,10 +17,11 @@ namespace DataAccessLayer
     {
         private static string connectionString = "Server = EALSQL1.eal.local; Database = DB2017_C13; User Id = USER_C13; Password = SesamLukOp_13";
         public ObservableCollection<IBaseCustomer> Customers { get; set; }
+        public ObservableCollection<IBaseItem> Items { get; set; }
         //try catch i ViewModel?
-        public IList<IBaseItem> GetAll(IList<IBaseItem> items) //skal renames?
+        public ObservableCollection<IBaseItem> GetAllItems() 
         {
-            IList<IBaseItem> itemList = new List<IBaseItem>(); 
+            ObservableCollection<IBaseItem> itemList = new ObservableCollection<IBaseItem>(); 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();

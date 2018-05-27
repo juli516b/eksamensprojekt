@@ -134,9 +134,9 @@ namespace ViewModel
                 return clickAddButtonCommand;
             }
         }
-        public IList<IBaseItem> Items {
-            get { return ItemRepository.GetInstance(dataHandler).Items; }
-            set { ItemRepository.GetInstance(dataHandler).Items = value; }
+        public ObservableCollection<IBaseItem> Items {
+            get { return dataHandler.Items; }
+            set { dataHandler.Items = value; }
         }
         public double OfferDiscountPercent
         {
