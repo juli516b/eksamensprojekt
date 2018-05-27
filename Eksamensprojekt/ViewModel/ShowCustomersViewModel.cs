@@ -8,18 +8,10 @@ using System;
 
 namespace ViewModel
 {
-    public class ShowCustomersViewModel : INotifyPropertyChanged
+    public class ShowCustomersViewModel : AbstractNotifyPropertyChanged
     {
         private IPersistentCustomerDataHandler cDataHandler;
         private IBaseCustomer currentCustomer;
-        private string customerName;
-        private string customerAddress;
-        private string customerCity;
-        private string customerCountry;
-        private string customerEmail;
-        private int customerPhoneNo;
-        private int customerZip;
-        private double customerDiscount;
         private ICommand updateCustomer;
 
         public IBaseCustomer CurrentCustomer
@@ -37,17 +29,9 @@ namespace ViewModel
                 CustomerDiscount = currentCustomer.CustomerDiscountPercent;
                 CustomerEmail = currentCustomer.Email;
                 CustomerPhoneNo = currentCustomer.PhoneNo;
-
-                NotifyPropertyChanged("CustomerName");
-                NotifyPropertyChanged("CVRNumber");
-                NotifyPropertyChanged("CustomerAddress");
-                NotifyPropertyChanged("CustomerZip");
-                NotifyPropertyChanged("CustomerCity");
-                NotifyPropertyChanged("CustomerCountry");
-                NotifyPropertyChanged("CustomerPhoneNo");
-                NotifyPropertyChanged("CustomerEmail");
-                NotifyPropertyChanged("CustomerDiscount");
-
+                string[] propertiesChanged = {nameof(CustomerName), nameof(CVRNumber), nameof(CustomerAddress), nameof(CustomerZip),
+                    nameof(CustomerCity), nameof(CustomerCountry), nameof(CustomerPhoneNo), nameof(CustomerEmail), nameof(CustomerDiscount) };
+                NotifyPropertiesChanged(propertiesChanged);
             }
         }
         public ObservableCollection<IBaseCustomer> Customers
@@ -55,52 +39,15 @@ namespace ViewModel
             get { return cDataHandler.Customers; }
             set { cDataHandler.Customers = value; }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public string CustomerName
-        {
-            get { return customerName; }
-            set { customerName = value; }
-        }
+        public string CustomerName { get; set; }
         public string CVRNumber { get; set; }
-
-
-        public string CustomerAddress
-        {
-            get { return customerAddress; }
-            set { customerAddress = value; }
-        }
-        public string CustomerCity
-        {
-            get { return customerCity; }
-            set { customerCity = value; }
-        }
-        public string CustomerCountry
-        {
-            get { return customerCountry; }
-            set { customerCountry = value; }
-        }
-        public string CustomerEmail
-        {
-            get { return customerEmail; }
-            set { customerEmail = value; }
-        }
-        public int CustomerZip
-        {
-            get { return customerZip; }
-            set { customerZip = value; }
-        }
-        public int CustomerPhoneNo
-        {
-            get { return customerPhoneNo; }
-            set { customerPhoneNo = value; }
-        }
-        public double CustomerDiscount
-        {
-            get { return customerDiscount; }
-            set { customerDiscount = value; }
-        }
+        public string CustomerAddress { get; set; }
+        public string CustomerCity { get; set; }
+        public string CustomerCountry { get; set; }
+        public string CustomerEmail { get; set; }
+        public int CustomerZip { get; set; }
+        public int CustomerPhoneNo { get; set; }
+        public double CustomerDiscount { get; set; }
         public ICommand UpdateCustomer
         {
             get
@@ -117,14 +64,14 @@ namespace ViewModel
         }
         private void UpdateCurrentCustomer()
         {
-            CurrentCustomer.CustomerName = customerName;
-            CurrentCustomer.CustomerAddress = customerAddress;
-            CurrentCustomer.CustomerDiscountPercent = customerDiscount;
-            CurrentCustomer.CustomerZip = customerZip;
-            CurrentCustomer.CustomerCity = customerCity;
-            CurrentCustomer.PhoneNo = customerPhoneNo;
-            CurrentCustomer.Email = customerEmail;
-            CurrentCustomer.CustomerCountry = customerCountry;
+            CurrentCustomer.CustomerName = CustomerName;
+            CurrentCustomer.CustomerAddress = CustomerAddress;
+            CurrentCustomer.CustomerDiscountPercent = CustomerDiscount;
+            CurrentCustomer.CustomerZip = CustomerZip;
+            CurrentCustomer.CustomerCity = CustomerCity;
+            CurrentCustomer.PhoneNo = CustomerPhoneNo;
+            CurrentCustomer.Email = CustomerEmail;
+            CurrentCustomer.CustomerCountry = CustomerCountry;
             cDataHandler.SaveCustomer(CurrentCustomer);
         }
         private bool CanUpdateCustomer()
@@ -139,10 +86,6 @@ namespace ViewModel
             {
                 CurrentCustomer = Customers[0];
             }
-        }
-        private void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

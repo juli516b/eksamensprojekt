@@ -13,7 +13,7 @@ using Model.BaseTypes;
 
 namespace ViewModel
 {
-    public class OfferViewModel : INotifyPropertyChanged
+    public class OfferViewModel : AbstractNotifyPropertyChanged
     {
         private IPersistentItemDataHandler dataHandler;
         private readonly PDFExporter pdfExporter;
@@ -22,7 +22,6 @@ namespace ViewModel
         private ICommand clickCreateNewOffer;
         private ICommand clickRemoveOfferLineCommand;
         private IExtendOffer currentOffer;
-        public event PropertyChangedEventHandler PropertyChanged;
         public IBaseCustomer MyCustomer
         {
             get
@@ -201,17 +200,6 @@ namespace ViewModel
             newOfferLine.APWC += NotifyPropertyChanged;
             string[] propertiesChanged = {nameof(OfferTotal),nameof(NoOfTotalPackages),nameof(NoOfTotalPallets),nameof(OfferLinesSubtotal),nameof(TotalDiscountedPrice),nameof(TotalPercentDiscount)};
             NotifyPropertiesChanged(propertiesChanged);
-        }
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        private void NotifyPropertiesChanged(string[] propertiesNames)
-        {
-            foreach (string propertyName in propertiesNames)
-            {
-                NotifyPropertyChanged(propertyName);
-            }
         }
         private bool CanCreateNewOffer()
         {
