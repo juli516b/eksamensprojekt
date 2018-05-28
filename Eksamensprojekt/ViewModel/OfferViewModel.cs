@@ -311,5 +311,9 @@ namespace ViewModel
             NotifyPropertyChanged("TotalDiscountedPrice");
             NotifyPropertyChanged("TotalPercentDiscount");
         }
+        public void AddCustomer(Customer newCustomer)
+        {
+            MyCustomer = newCustomer;
+        }
     }
 }

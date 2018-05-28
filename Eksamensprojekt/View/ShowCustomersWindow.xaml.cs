@@ -20,23 +20,23 @@ namespace Eksamensprojekt
             this.owm = owm;
         }
 
-        //Ny Mathias
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddCustomerToOffer_Click(object sender, RoutedEventArgs e)
         {
-            owm.MyCustomer = (Customer)CustomerListView.SelectedItem;
-            Close_window_click(sender, e);
+            owm.AddCustomer((Customer)CustomerListView.SelectedItem);
+            //owm.MyCustomer = (Customer)CustomerListView.SelectedItem;
+            Close_Window_Click(sender, e);
         }
 
-        private void Close_window_click(object sender, RoutedEventArgs e)
+        private void Close_Window_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        private void AddCustomer_click(object sender, RoutedEventArgs e)
+        private void AddNewCustomer_Click(object sender, RoutedEventArgs e)
         {
             CreateCostumerWindow cCW = new CreateCostumerWindow();
             cCW.Show();
-            Close_window_click(sender, e);
+            Close_Window_Click(sender, e);
         }
     }
 }
