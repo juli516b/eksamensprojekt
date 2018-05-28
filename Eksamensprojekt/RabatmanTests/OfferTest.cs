@@ -37,9 +37,9 @@ namespace RabatmanTests
             IBaseItem item = new Item("PommesDeluxe", "12345678", 25.95, 25);
             OfferLine offerLine = new OfferLine(item, 20);
             Offer offer = new Offer(DateTime.Now);
+            //Act
             offer.AddOfferLine(offerLine);
             Assert.AreEqual(1, offer.OfferLines.Count);
-            //Act
             offer.RemoveOfferLine(offerLine);
             //Assert
             Assert.AreEqual(0, offer.OfferLines.Count);
