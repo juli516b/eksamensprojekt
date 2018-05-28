@@ -61,6 +61,7 @@ namespace RabatmanTests
             //Arrange
             IPersistentCustomerDataHandler cdh = new FakeCustomerDataHandler();
             CreateCustomerViewModel createCustomerViewModel = new CreateCustomerViewModel(cdh);
+            
             //Act
             cdh.Customers = cdh.GetAllCustomers();
             int noOfCustomers = cdh.Customers.Count;
