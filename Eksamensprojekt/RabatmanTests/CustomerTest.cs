@@ -21,9 +21,12 @@ namespace RabatmanTests
             {
                 CustomerName = "Mig"
             };
+
+            //Act
             Customers = fakeHandler.GetAllCustomers();
             int noOfCustomers = Customers.Count;
             Customers.Add(newTestCustomer);
+
             //Assert
             Assert.AreEqual(noOfCustomers+1, Customers.Count);
         }

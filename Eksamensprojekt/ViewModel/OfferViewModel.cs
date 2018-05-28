@@ -204,7 +204,7 @@ namespace ViewModel
         }
         private bool CanCreateNewOffer()
         {
-            // vær opmærksom på at gemme det eksisterende tilbud hvis muligt.
+            //TO DO: skal spørge om man vil gemme, inden tilbud nulstilles
             return true;
         }
         private bool CanRemoveOfferLine()
