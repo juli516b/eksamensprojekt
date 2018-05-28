@@ -80,7 +80,7 @@ namespace ViewModel
         }
         public ShowCustomersViewModel()
         {
-            cDataHandler = new DatabaseFacade();
+            cDataHandler = DatabaseFacade.GetInstance();
             Customers = cDataHandler.GetAllCustomers();
             if (Customers.Count > 0)
             {

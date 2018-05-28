@@ -14,7 +14,7 @@ namespace ViewModel
 
         public CreateCustomerViewModel()
         {
-            dataHandler = new DatabaseFacade();
+            dataHandler = DatabaseFacade.GetInstance();
         }
         public CreateCustomerViewModel(IPersistentCustomerDataHandler newdatahandler)
         {
