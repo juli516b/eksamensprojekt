@@ -18,7 +18,19 @@ namespace DataAccessLayer
         private static string connectionString = "Server = EALSQL1.eal.local; Database = DB2017_C13; User Id = USER_C13; Password = SesamLukOp_13";
         public ObservableCollection<IBaseCustomer> Customers { get; set; }
         public ObservableCollection<IBaseItem> Items { get; set; }
-        //try catch i ViewModel?
+        private static DatabaseFacade instance;
+        public static DatabaseFacade GetInstance()
+        {
+            if (instance== null)
+            {
+                instance = new DatabaseFacade();
+            }
+            return instance;
+        }
+        private DatabaseFacade()
+        {
+
+        }
         public ObservableCollection<IBaseItem> GetAllItems() 
         {
             ObservableCollection<IBaseItem> itemList = new ObservableCollection<IBaseItem>(); 

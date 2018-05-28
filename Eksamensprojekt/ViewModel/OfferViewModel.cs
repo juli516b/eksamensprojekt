@@ -188,7 +188,7 @@ namespace ViewModel
         }
         public OfferViewModel()
         {
-            dataHandler = new DatabaseFacade();
+            dataHandler = DatabaseFacade.GetInstance();
             pdfExporter = new PDFExporter();
             currentOffer = new Offer(DateTime.Now);
             Items = dataHandler.GetAllItems();
