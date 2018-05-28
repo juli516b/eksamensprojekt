@@ -23,7 +23,6 @@ namespace Eksamensprojekt
         private void AddCustomerToOffer_Click(object sender, RoutedEventArgs e)
         {
             owm.AddCustomer((Customer)CustomerListView.SelectedItem);
-            //owm.MyCustomer = (Customer)CustomerListView.SelectedItem;
             Close_Window_Click(sender, e);
         }
 
