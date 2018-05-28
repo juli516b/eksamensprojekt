@@ -7,7 +7,7 @@ using DataAccessLayer.DataHandlers;
 
 namespace ViewModel
 {
-    public class CreateCustomerViewModel : INotifyPropertyChanged
+    public class CreateCustomerViewModel : AbstractNotifyPropertyChanged
     {
         private string customerMessage;
         private IPersistentCustomerDataHandler dataHandler;
@@ -34,11 +34,6 @@ namespace ViewModel
         }
         private ICommand saveCustomer;
         private string customerName;
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         public ICommand SaveCustomer
         {
             get
