@@ -192,6 +192,7 @@ namespace ViewModel
             dataHandler = new DatabaseFacade();
             pdfExporter = new PDFExporter();
             currentOffer = new Offer(DateTime.Now);
+            Items = dataHandler.GetAllItems();
             
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
