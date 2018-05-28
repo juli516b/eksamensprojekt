@@ -51,7 +51,6 @@
     <Compile Include="CustomerTest.cs" />
     <Compile Include="FakeCustomerDataHandler.cs" />
     <Compile Include="LogisticsTest.cs" />
-    <Compile Include="OfferLine.cs" />
     <Compile Include="ViewModelTest.cs" />
     <Compile Include="FakeItemDataHandler.cs" />
     <Compile Include="OfferTest.cs" />
