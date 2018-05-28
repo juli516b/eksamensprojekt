@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>14</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>0</y>
+      <w>644</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+
+
+
+*Forretningsmodel for BusinessFarm Deliveries*
+
+fontsize=20</panel_attributes>
+    <additional_attributes>10.0;30.0;440.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>42</x>
+      <y>224</y>
+      <w>182</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>*Nøglepartnere:*
+--
+  - Producenter
+  - Speditører</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>224</y>
+      <w>266</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>*Nøgleaktiviteter:*
+--
+  - Agentursalg</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>308</y>
+      <w>266</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>*Nøgleressourcer:*
+--
+Menneskelige ressource:
+  - Formidling af kontakt på 
+    vegne af producenter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>42</x>
+      <y>518</y>
+      <w>602</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>*Omkostningsstrukturer:*
+--
+  - Omkostningsdrevet</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>658</x>
+      <y>518</y>
+      <w>616</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>*Indtægter:*
+--
+  - Provision af agentursalg</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>518</x>
+      <y>224</y>
+      <w>280</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>*Værdifaktorer:*
+--
+  - Formidling af kontakt
+  - Håndtering af købsproces</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>826</x>
+      <y>224</y>
+      <w>210</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>*Kunderelationer:*
+--
+  - Personlig kontakt
+  - Networking</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1036</x>
+      <y>224</y>
+      <w>238</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>*Kundesegmenter:*
+--
+  Primært:
+  - Grossister
+
+  I mindre grad:
+  - Cafeer og restaurenter
+  </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>826</x>
+      <y>336</y>
+      <w>210</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>*Distributionskanaler:*
+--
+  - Mail
+  - Telefon
+  - Messer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>28</x>
+      <y>182</y>
+      <w>476</w>
+      <h>294</h>
+    </coordinates>
+    <panel_attributes>*Virksomheden mv.*
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>812</x>
+      <y>182</y>
+      <w>476</w>
+      <h>294</h>
+    </coordinates>
+    <panel_attributes>*Kunder mv.*
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>182</y>
+      <w>308</w>
+      <h>294</h>
+    </coordinates>
+    <panel_attributes>*Værditilvækst*
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>28</x>
+      <y>476</y>
+      <w>1260</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>*Økonomi*
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

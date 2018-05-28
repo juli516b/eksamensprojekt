@@ -4,9 +4,9 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>510</x>
-      <y>220</y>
-      <w>360</w>
+      <x>500</x>
+      <y>230</y>
+      <w>290</w>
       <h>210</h>
     </coordinates>
     <panel_attributes>ViewModel</panel_attributes>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>510</x>
-      <y>50</y>
-      <w>360</w>
-      <h>120</h>
+      <x>500</x>
+      <y>10</y>
+      <w>290</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>View</panel_attributes>
     <additional_attributes/>
@@ -26,21 +26,21 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>100</x>
-      <y>490</y>
-      <w>360</w>
-      <h>130</h>
+      <x>200</x>
+      <y>500</y>
+      <w>180</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>Persistence</panel_attributes>
+    <panel_attributes>DataAccessLayer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>510</x>
-      <y>490</y>
-      <w>360</w>
-      <h>130</h>
+      <x>500</x>
+      <y>500</y>
+      <w>290</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>Model</panel_attributes>
     <additional_attributes/>
@@ -48,49 +48,195 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>670</x>
-      <y>150</y>
-      <w>90</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;access&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>670</x>
-      <y>410</y>
-      <w>90</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;access&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>320</x>
-      <y>320</y>
-      <w>220</w>
-      <h>220</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;access&gt;&gt;</panel_attributes>
-    <additional_attributes>200.0;10.0;10.0;200.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>440</x>
-      <y>540</y>
+      <x>630</x>
+      <y>170</y>
       <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;Bindings&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>430</y>
+      <w>90</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;Update&gt;&gt;
+&lt;&lt;Read&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>320</y>
+      <w>250</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;Fetch&gt;&gt;
+&lt;&lt;Save&gt;&gt;</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>550</y>
+      <w>150</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-&lt;&lt;access&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;80.0;20.0</additional_attributes>
+&lt;&lt;Create&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>550</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Customer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>600</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Item</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>650</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Offer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>700</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>OfferLine</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>550</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>{Static}
+DiscountMath</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>610</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>PDFExporter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>560</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>DatabaseFacade</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>280</y>
+      <w>210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>CreateCustomerViewModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>380</y>
+      <w>210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>OfferViewModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>330</y>
+      <w>210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ShowCustomersViewModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>50</y>
+      <w>210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>CreateCustomerWindow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>90</y>
+      <w>210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>OfferWindow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>130</y>
+      <w>210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ShowCustomersWindow</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

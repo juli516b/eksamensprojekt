@@ -6,7 +6,7 @@
     <coordinates>
       <x>60</x>
       <y>70</y>
-      <w>590</w>
+      <w>720</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>Rabatman - tilbudssystem
@@ -55,7 +55,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>520</x>
-      <y>180</y>
+      <y>210</y>
       <w>110</w>
       <h>50</h>
     </coordinates>
@@ -103,13 +103,13 @@ ny</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>570</x>
-      <y>220</y>
+      <y>250</y>
       <w>40</w>
-      <h>140</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 vis</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -174,13 +174,13 @@ vis</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>390</x>
-      <y>200</y>
+      <y>230</y>
       <w>200</w>
-      <h>170</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 vis liste af varer</panel_attributes>
-    <additional_attributes>130.0;10.0;80.0;10.0;80.0;150.0;10.0;150.0</additional_attributes>
+    <additional_attributes>130.0;10.0;80.0;10.0;80.0;120.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -217,5 +217,29 @@ Ny</panel_attributes>
     <panel_attributes>lt=&lt;-
 Ny</panel_attributes>
     <additional_attributes>10.0;140.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>180</y>
+      <w>110</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>PDF
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>170</y>
+      <w>300</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+generer dokument</panel_attributes>
+    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

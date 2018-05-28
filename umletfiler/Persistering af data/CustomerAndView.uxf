@@ -4,9 +4,9 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>100</x>
-      <y>70</y>
-      <w>290</w>
+      <x>90</x>
+      <y>30</y>
+      <w>280</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>Customer
@@ -21,10 +21,10 @@ CVRNumber : nvarchar(20) not null
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1000</x>
-      <y>330</y>
-      <w>290</w>
-      <h>120</h>
+      <x>90</x>
+      <y>400</y>
+      <w>280</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>CustomerAddress
 --
@@ -41,10 +41,10 @@ CustomerCountryId (FK): int
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
-      <y>20</y>
-      <w>250</w>
-      <h>120</h>
+      <x>90</x>
+      <y>210</y>
+      <w>280</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>CustomerContact
 --
@@ -58,8 +58,8 @@ CustomerPhoneNo : int null
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>680</x>
-      <y>160</y>
+      <x>90</x>
+      <y>310</y>
       <w>280</w>
       <h>80</h>
     </coordinates>
@@ -74,9 +74,9 @@ CustomerDiscountPercent : float not null
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>170</y>
-      <w>290</w>
+      <x>90</x>
+      <y>120</y>
+      <w>280</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>CustomerName
@@ -91,9 +91,9 @@ CustomerName :  nvarchar(max) not null
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>150</x>
-      <y>310</y>
-      <w>760</w>
+      <x>450</x>
+      <y>160</y>
+      <w>330</w>
       <h>150</h>
     </coordinates>
     <panel_attributes>FullCustomerHistory
@@ -112,8 +112,8 @@ Created_At : datetime2 default(current_timestamp)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1020</x>
-      <y>510</y>
+      <x>520</x>
+      <y>410</y>
       <w>240</w>
       <h>80</h>
     </coordinates>
@@ -129,9 +129,9 @@ CustomerCountry : nvarchar not null
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1050</x>
-      <y>150</y>
-      <w>220</w>
+      <x>520</x>
+      <y>320</y>
+      <w>240</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>ZipCity
@@ -146,47 +146,47 @@ City :  nvarchar(max) not null
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1130</x>
-      <y>220</y>
-      <w>30</w>
-      <h>130</h>
+      <x>360</x>
+      <y>340</y>
+      <w>180</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>160.0;10.0;70.0;10.0;70.0;130.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1120</x>
-      <y>440</y>
-      <w>30</w>
+      <x>360</x>
+      <y>430</y>
+      <w>180</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>160.0;10.0;90.0;10.0;90.0;60.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>140</y>
-      <w>30</w>
+      <x>360</x>
+      <y>60</y>
+      <w>110</w>
       <h>190</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;160.0;90.0;160.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>150</x>
-      <y>530</y>
+      <x>860</x>
+      <y>160</y>
       <w>270</w>
       <h>210</h>
     </coordinates>
@@ -209,80 +209,66 @@ Created_At
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
+      <x>360</x>
+      <y>150</y>
+      <w>110</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;30.0;10.0;30.0;80.0;90.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>260</y>
+      <w>110</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;80.0;30.0;80.0;30.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
       <y>240</y>
-      <w>30</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>840</x>
-      <y>230</y>
-      <w>30</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>610</x>
-      <y>130</y>
-      <w>30</w>
-      <h>200</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>900</x>
-      <y>350</y>
-      <w>120</w>
+      <w>110</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
-      <y>450</y>
-      <w>100</w>
-      <h>150</h>
+      <x>360</x>
+      <y>270</y>
+      <w>110</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;160.0;50.0;160.0;50.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>180</y>
+      <w>110</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>80.0;10.0;80.0;120.0;10.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>530</x>
-      <y>480</y>
-      <w>430</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>FullCustomerHistory samler tabellerne og danner en historik.
-
-FullCustomerHistoryView giver en "pæn" måde at forespørge
-data op imod så man får alle relevante data fra et givet tidspunkt.</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
   </element>
 </diagram>

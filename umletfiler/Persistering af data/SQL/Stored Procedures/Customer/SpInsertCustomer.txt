@@ -1,6 +1,7 @@
 --use DB2017_C13;
 /****
 	This Stored Procedure requires the following other stored procedures in this directory:
+		spCustomerInsert
 		spCustomerAddressInsert
 		spCustomerContactInsert
 		spCustomerDisountInsert
