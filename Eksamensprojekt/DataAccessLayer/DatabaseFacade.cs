@@ -60,7 +60,6 @@ namespace DataAccessLayer
             }
             return itemList;
         }
-
         public ObservableCollection<IBaseCustomer> GetAllCustomers()
         {
             IList<IBaseCustomer> customerList = new ObservableCollection<IBaseCustomer>();
