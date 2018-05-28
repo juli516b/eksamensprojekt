@@ -13,7 +13,7 @@ using Model.BaseTypes;
 
 namespace ViewModel
 {
-    public class OfferViewModel : INotifyPropertyChanged
+    public class OfferViewModel : AbstractNotifyPropertyChanged
     {
         private IPersistentItemDataHandler dataHandler;
         private readonly PDFExporter pdfExporter;
@@ -22,7 +22,6 @@ namespace ViewModel
         private ICommand clickCreateNewOffer;
         private ICommand clickRemoveOfferLineCommand;
         private IExtendOffer currentOffer;
-        public event PropertyChangedEventHandler PropertyChanged;
         public IBaseCustomer MyCustomer
         {
             get
@@ -203,17 +202,6 @@ namespace ViewModel
             string[] propertiesChanged = {nameof(OfferTotal),nameof(NoOfTotalPackages),nameof(NoOfTotalPallets),nameof(OfferLinesSubtotal),nameof(TotalDiscountedPrice),nameof(TotalPercentDiscount)};
             NotifyPropertiesChanged(propertiesChanged);
         }
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        private void NotifyPropertiesChanged(string[] propertiesNames)
-        {
-            foreach (string propertyName in propertiesNames)
-            {
-                NotifyPropertyChanged(propertyName);
-            }
-        }
         private bool CanCreateNewOffer()
         {
             // vær opmærksom på at gemme det eksisterende tilbud hvis muligt.
@@ -241,18 +229,26 @@ namespace ViewModel
             saveFileDialog = new SaveFileDialog
             {
                 InitialDirectory = @"C:\",
-                Title = "Select PDFFile",
+                Title = "Gem som",
                 Filter = "PDF(*.pdf)|*.pdf",
                 DefaultExt = ".PDF",
-                FileName = DateTime.Now.ToShortDateString()
+                FileName = MyCustomer.CustomerName +" " + DateTime.Now.ToShortDateString()
             };
-            if (saveFileDialog.ShowDialog() == true)
-                return saveFileDialog.FileName;
-            throw new Exception("Der er sket en fejl med at gemme filen");
+            if (saveFileDialog.ShowDialog() == false)
+            { 
+                throw new Exception("Der er sket en fejl med at gemme filen");
+            }
+            return saveFileDialog.FileName;
         }
         private void GeneratePDF()
         {
-            pdfExporter.PDFGenerator(currentOffer, SaveFileDialogWindow());
+            try
+            {
+                pdfExporter.PDFGenerator(currentOffer, SaveFileDialogWindow());
+            }
+            catch {
+                MessageBox.Show("gem PDF blev afbrudt");
+            }
         }
         private bool CanGeneratePDF()
         {
