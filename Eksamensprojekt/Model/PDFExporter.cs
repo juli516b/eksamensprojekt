@@ -51,7 +51,8 @@ namespace Model
             {
                 PdfWriter.GetInstance(doc, new FileStream(path: path, mode: FileMode.Create));
                 doc.Open();
-                //CUSTOMER INFORMATION LIST
+                
+                //Section: Customer Information List
                 Paragraph customerInformationParagraph = new Paragraph("KUNDE INFORMATION");
                 if (currentOffer.MyCustomer != null)
                 {
@@ -63,7 +64,8 @@ namespace Model
                 }
                 else
                     customerInformationList.Add("INGEN KUNDE VALGT");
-                //ECONOMY TABLE
+                
+                //Section: Economy Table
                 economyTable.AddCell("SUBTOTAL:");
                 economyTable.AddCell(currentOffer.OfferSubTotal + " DKK");
                 economyTable.AddCell("KUNDERABAT:");
@@ -85,8 +87,9 @@ namespace Model
                 economyTable.AddCell(currentOffer.TotalDiscountedPrice.ToString());
                 economyTable.AddCell("TOTAL:");
                 economyTable.AddCell(currentOffer.OfferTotal + " DKK");
-                //OFFERLINES TABLE
-                //MAKING HEADERROWS
+                
+                //Section: OfferLines Table
+                //Make headerrows
                 offerLineTable.AddCell("Vare nr.");
                 offerLineTable.AddCell("Varenavn");
                 offerLineTable.AddCell("Antal varer");
@@ -94,7 +97,8 @@ namespace Model
                 offerLineTable.AddCell("Tilbudspris, DKK");
                 offerLineTable.AddCell("Rabat, %");
                 offerLineTable.AddCell("Total, DKK");
-                //ADDING OFFERLINE TO offerLineTable.
+                
+                //Add offerlines to OfferLines Table
                 foreach (OfferLine offerLine in currentOffer.OfferLines)
                 {
                     offerLineTable.AddCell(offerLine.ItemNo);
@@ -105,7 +109,9 @@ namespace Model
                     offerLineTable.AddCell(offerLine.PercentDiscount + "");
                     offerLineTable.AddCell(offerLine.OfferLineTotal + "");
                 }
-                //ADD TO DOCUMENT
+                
+                //Section: Write to document
+                //Add all information to the document
                 doc.Add(customerInformationParagraph);
                 doc.Add(customerInformationList);
                 doc.Add(offerLineTable);

@@ -22,7 +22,7 @@ namespace Model
 
         public string ItemNo { get {return Item.ItemNo; } }
         public string ItemName { get { return Item.ItemName; } }
-        public double ItemWeight { get { return Item.ItemWeight; } } //update artefakt
+        public double ItemWeight { get { return Item.ItemWeight; } }
         public double ItemPrice {
             get
             {
@@ -40,7 +40,6 @@ namespace Model
             set
             {
                 percentDiscount = value;
-                //GØR DET HER PÆNERE - SPØRG VEJLEDER
                 if (Math.Abs(discountedPrice) <  Double.Epsilon || Math.Abs(discountedPrice - DiscountMath.PercentToPrice(percentDiscount, Item.ItemPrice)) > Double.Epsilon)
                 {
                     DiscountedPrice = DiscountMath.PercentToPrice(percentDiscount, Item.ItemPrice);
@@ -59,7 +58,6 @@ namespace Model
             set
             {
                 discountedPrice = value;
-                //GØR DET HER PÆNERE - SPØRG VEJLEDER
                 if (Math.Abs(percentDiscount) < Double.Epsilon || Math.Abs(percentDiscount - DiscountMath.PriceToPercent(discountedPrice, Item.ItemPrice)) > Double.Epsilon)
                 {
                     PercentDiscount = DiscountMath.PriceToPercent(discountedPrice, Item.ItemPrice);
