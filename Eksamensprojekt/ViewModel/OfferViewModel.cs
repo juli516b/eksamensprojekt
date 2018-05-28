@@ -220,7 +220,7 @@ namespace ViewModel
         private void RemoveOfferLine()
         {
             currentOffer.RemoveOfferLine(SelectedOfferLine);
-            string[] propertiesChanged = { nameof(OfferTotal), nameof(NoOfTotalPackages), nameof(NoOfTotalPallets), nameof(OfferLinesSubtotal) };
+            string[] propertiesChanged = { nameof(OfferTotal), nameof(NoOfTotalPackages), nameof(NoOfTotalPallets), nameof(OfferLinesSubtotal), nameof(TotalDiscountedPrice), nameof(TotalPercentDiscount), };
             NotifyPropertiesChanged(propertiesChanged);
         }
         private string SaveFileDialogWindow()
