@@ -279,5 +279,9 @@ namespace ViewModel
                 MessageBox.Show("Du skal vælge en vare fra listen.");
             }
         }
+        public void AddCustomer(Customer newCustomer)
+        {
+            MyCustomer = newCustomer;
+        }
     }
 }
