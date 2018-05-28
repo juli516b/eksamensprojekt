@@ -50,11 +50,11 @@
     <coordinates>
       <x>630</x>
       <y>170</y>
-      <w>120</w>
+      <w>100</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.&gt;
-&lt;&lt;Databinding&gt;&gt;</panel_attributes>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;Bindings&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
