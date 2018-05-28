@@ -31,7 +31,7 @@ namespace Model
             }
         }
         public string Email { get; set; }
-        public double CustomerDiscount { get; set; }
+        public double CustomerDiscountPercent { get; set; }
         public string CustomerCountry { get; set; }
         private void NotifyPropertyChanged(string propertyName)
         {

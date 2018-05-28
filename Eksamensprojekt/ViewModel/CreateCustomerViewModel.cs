@@ -66,7 +66,7 @@ namespace ViewModel
             {
                 CustomerName = CustomerName,
                 CustomerAddress = CustomerAdress,
-                CustomerDiscount = CustomerDiscount,
+                CustomerDiscountPercent = CustomerDiscount,
                 CustomerZip = CustomerZip,
                 CustomerCity = CustomerCity,
                 PhoneNo = PhoneNo,

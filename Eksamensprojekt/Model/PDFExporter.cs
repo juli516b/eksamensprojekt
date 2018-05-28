@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Model.BaseTypes;
 
 namespace Model
 {
@@ -44,7 +45,7 @@ namespace Model
             };
         }
 
-        public void PDFGenerator(Offer currentOffer, string path)
+        public void PDFGenerator(IExtendOffer currentOffer, string path)
         { 
             using (doc)
             {
@@ -64,7 +65,7 @@ namespace Model
                     customerInformationList.Add("INGEN KUNDE VALGT");
                 //ECONOMY TABLE
                 economyTable.AddCell("SUBTOTAL:");
-                economyTable.AddCell(currentOffer.OfferSubtotal + " DKK");
+                economyTable.AddCell(currentOffer.OfferSubTotal + " DKK");
                 economyTable.AddCell("KUNDERABAT:");
                 if (currentOffer.MyCustomer == null)
                 {
@@ -72,16 +73,16 @@ namespace Model
                 }
                 else
                 {
-                    economyTable.AddCell(currentOffer.MyCustomer.CustomerDiscount + " %");
+                    economyTable.AddCell(currentOffer.MyCustomer.CustomerDiscountPercent + " %");
                 }
                 economyTable.AddCell("TILBUDSRABAT");
                 economyTable.AddCell(currentOffer.OfferDiscountPercent + " %");
                 economyTable.AddCell("TRANSPORTOMKOSTNINGER:");
                 economyTable.AddCell(currentOffer.ForwardingAgentPrice + " DKK");
                 economyTable.AddCell("TOTAL RABAT:");
-                economyTable.AddCell(currentOffer.TotalPercentDiscount);
+                economyTable.AddCell(currentOffer.TotalPercentDiscount.ToString());
                 economyTable.AddCell("TOTAL BELØB SPARET:");
-                economyTable.AddCell(currentOffer.TotalDiscountedPrice);
+                economyTable.AddCell(currentOffer.TotalDiscountedPrice.ToString());
                 economyTable.AddCell("TOTAL:");
                 economyTable.AddCell(currentOffer.OfferTotal + " DKK");
                 //OFFERLINES TABLE

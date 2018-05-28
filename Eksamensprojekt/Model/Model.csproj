@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTypes\IExtendOffer.cs" />
+    <Compile Include="BaseTypes\IExtendOfferLine.cs" />
     <Compile Include="BaseTypes\IBaseOffer.cs" />
     <Compile Include="BaseTypes\IBaseOfferLine.cs" />
     <Compile Include="Customer.cs" />

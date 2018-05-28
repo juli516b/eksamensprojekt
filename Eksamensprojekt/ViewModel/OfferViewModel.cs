@@ -21,13 +21,13 @@ namespace ViewModel
         private ICommand clickGeneratePDFCommand;
         private ICommand clickCreateNewOffer;
         private ICommand clickRemoveOfferLineCommand;
-        private Offer currentOffer;
-
-        public Customer MyCustomer
+        private IExtendOffer currentOffer;
+        public event PropertyChangedEventHandler PropertyChanged;
+        public IBaseCustomer MyCustomer
         {
             get
             {
-                Customer customer = new Customer() { CustomerName = "Ingen kunde valgt. Klik for at tilføje" };
+                IBaseCustomer customer = new Customer() { CustomerName = "Ingen kunde valgt. Klik for at tilføje" };
                 if (currentOffer.MyCustomer != null)
                 {
                     customer = currentOffer.MyCustomer;
@@ -37,15 +37,13 @@ namespace ViewModel
             set
             {
                 currentOffer.MyCustomer = value;
-                NotifyPropertyChanged("MyCustomer");
-                NotifyPropertyChanged("OfferTotal");
-                NotifyPropertyChanged("MyCustomerDiscount");
-                NotifyPropertyChanged("TotalPercentDiscount");
+                string[] propertiesChanged = { nameof(OfferTotal), nameof(MyCustomer),nameof(MyCustomerDiscount), nameof(TotalPercentDiscount) };
+                NotifyPropertiesChanged(propertiesChanged);
             }
         }
         public string OfferLinesSubtotal
         {
-            get { return currentOffer.OfferSubtotal + " DKK"; }
+            get { return currentOffer.OfferSubTotal + " DKK"; }
         }
         public string MyCustomerDiscount
         {
@@ -54,14 +52,14 @@ namespace ViewModel
                 string customerDiscount_Label = "";
                 if (MyCustomer != null)
                 {
-                    customerDiscount_Label = MyCustomer.CustomerDiscount + " %";
+                    customerDiscount_Label = MyCustomer.CustomerDiscountPercent + " %";
                 }
                 return customerDiscount_Label;
             }
             set
             {
-                MyCustomer.CustomerDiscount = Convert.ToDouble(value);
-                NotifyPropertyChanged("TotalPercentDiscount");
+                MyCustomer.CustomerDiscountPercent = Convert.ToDouble(value);
+                NotifyPropertyChanged(nameof(TotalPercentDiscount));
             }   
         }
         public double ForwardingAgentPrice
@@ -72,12 +70,12 @@ namespace ViewModel
             }
             set {
                 currentOffer.ForwardingAgentPrice = value;
-                NotifyPropertyChanged("TotalPercentDiscount");
-                NotifyPropertyChanged("OfferTotal");
+                string[] propertiesChanged = { nameof(OfferTotal), nameof(TotalPercentDiscount) };
+                NotifyPropertiesChanged(propertiesChanged);
             }
         }
         public IBaseItem SelectedItem { get; set; }
-        public OfferLine SelectedOfferLine { get; set; }
+        public IExtendOfferLine SelectedOfferLine { get; set; }
         public string QuantityTextBoxText { get; set; }
 
         public ICommand CreateNewOfferButtonCommand
@@ -94,13 +92,6 @@ namespace ViewModel
                 return clickCreateNewOffer;
             }
         }
-
-        private bool CanCreateNewOffer()
-        {
-            // vær opmærksom på at gemme det eksisterende tilbud hvis muligt.
-            return true;
-        }
-
         public ICommand RemoveOfferLineButtonCommand
         {
             get
@@ -115,34 +106,6 @@ namespace ViewModel
                 return clickRemoveOfferLineCommand;
             }
         }
-
-        private bool CanRemoveOfferLine()
-        {
-            return true;
-        }
-        private void CreateNewOffer()
-        {
-            currentOffer.Clear();
-            NotifyPropertyChanged("OfferTotal");
-            NotifyPropertyChanged("OfferLinesSubTotal");
-            NotifyPropertyChanged("NoOfTotalPackages");
-            NotifyPropertyChanged("NoOfTotalPallets");
-            NotifyPropertyChanged("MyCustomer");
-            NotifyPropertyChanged("ForwardingAgentPrice");
-            NotifyPropertyChanged("OfferDiscount");
-            NotifyPropertyChanged("MyCustomerDiscount");
-            NotifyPropertyChanged("TotalDiscountedPrice");
-            NotifyPropertyChanged("TotalPercentDiscount");
-        }
-        private void RemoveOfferLine()
-        {
-            currentOffer.RemoveOfferLine(SelectedOfferLine);
-            NotifyPropertyChanged("OfferTotal");
-            NotifyPropertyChanged("OfferLinesSubtotal");
-            NotifyPropertyChanged("NoOfTotalPackages");
-            NotifyPropertyChanged("NoOfTotalPallets");
-        }
-
         public ICommand GeneratePdfButtonCommand
         {
             get
@@ -157,31 +120,6 @@ namespace ViewModel
                 return clickGeneratePDFCommand;
             }
         }
-        private string SaveFileDialogWindow()
-        {
-            SaveFileDialog saveFileDialog;
-            saveFileDialog = new SaveFileDialog
-            {
-                InitialDirectory = @"C:\",
-                Title = "Select PDFFile",
-                Filter = "PDF(*.pdf)|*.pdf",
-                DefaultExt = ".PDF",
-                FileName = DateTime.Now.ToShortDateString()
-            };
-            if (saveFileDialog.ShowDialog() == true)
-                return saveFileDialog.FileName;
-            throw new Exception("Der er sket en fejl med at gemme filen");
-        }
-
-        private void GeneratePDF()
-        {
-            pdfExporter.PDFGenerator(currentOffer, SaveFileDialogWindow());
-        }
-        private bool CanGeneratePDF()
-        {
-            return (OfferLines.Count > 0);     
-        }
-
         public ICommand AddButtonCommand
         {
             get
@@ -196,57 +134,21 @@ namespace ViewModel
                 return clickAddButtonCommand;
             }
         }
-
-        private bool CanAdd()
-        {
-            if(SelectedItem != null)
-            {
-                return true;
-            }
-
-            return false;
+        public ObservableCollection<IBaseItem> Items {
+            get { return dataHandler.Items; }
+            set { dataHandler.Items = value; }
         }
-
-        private void AddItem()
+        public double OfferDiscountPercent
         {
-            if (SelectedItem != null)
-            {
-                if (int.TryParse(QuantityTextBoxText, out int quantity))
-                    AddOfferLine(SelectedItem, quantity);
-                else
-                {
-                    MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Du skal vælge en vare fra listen.");
-            }
-        }
-
-        public IList<IBaseItem> Items {
-            get { return ItemRepository.GetInstance(dataHandler).Items; }
-            set { ItemRepository.GetInstance(dataHandler).Items = value; }
-        }
-        public string OfferDiscount
-        {
-            get { return Math.Round(currentOffer.OfferDiscountPercent,2).ToString(); }
+            get { return Math.Round(currentOffer.OfferDiscountPercent, 2); }
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    currentOffer.OfferDiscountPercent = 0;
-
-                }
-                else { 
-                    currentOffer.OfferDiscountPercent = Convert.ToDouble(value);
-                }
-                NotifyPropertyChanged("TotalDiscountedPrice");
-                NotifyPropertyChanged("TotalPercentDiscount");
-                NotifyPropertyChanged("OfferTotal");
+                currentOffer.OfferDiscountPercent = value;
+                string[] propertiesChanged = { nameof(OfferTotal), nameof(TotalDiscountedPrice), nameof(TotalPercentDiscount)};
+                NotifyPropertiesChanged(propertiesChanged);
             }
         }
-        public ObservableCollection<OfferLine> OfferLines
+        public ObservableCollection<IExtendOfferLine> OfferLines
         {
             get { return currentOffer.OfferLines; }
             set { currentOffer.OfferLines = value; }
@@ -285,31 +187,100 @@ namespace ViewModel
         {
             get { return currentOffer.TotalDiscountedPrice; }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         public OfferViewModel()
         {
             dataHandler = new DatabaseFacade();
             pdfExporter = new PDFExporter();
             currentOffer = new Offer(DateTime.Now);
-
             
         }
         public void AddOfferLine(IBaseItem myItem, int quantity)
         {
-            OfferLine newOfferLine = new OfferLine(myItem, quantity);
+            IExtendOfferLine newOfferLine = new OfferLine(myItem, quantity);
             OfferLines.Add(newOfferLine);
             newOfferLine.APWC += NotifyPropertyChanged;
-            NotifyPropertyChanged("OfferTotal");
-            NotifyPropertyChanged("NoOfTotalPackages");
-            NotifyPropertyChanged("NoOfTotalPallets");
-            NotifyPropertyChanged("OfferLinesSubtotal");
-            NotifyPropertyChanged("TotalDiscountedPrice");
-            NotifyPropertyChanged("TotalPercentDiscount");
+            string[] propertiesChanged = {nameof(OfferTotal),nameof(NoOfTotalPackages),nameof(NoOfTotalPallets),nameof(OfferLinesSubtotal),nameof(TotalDiscountedPrice),nameof(TotalPercentDiscount)};
+            NotifyPropertiesChanged(propertiesChanged);
+        }
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private void NotifyPropertiesChanged(string[] propertiesNames)
+        {
+            foreach (string propertyName in propertiesNames)
+            {
+                NotifyPropertyChanged(propertyName);
+            }
+        }
+        private bool CanCreateNewOffer()
+        {
+            // vær opmærksom på at gemme det eksisterende tilbud hvis muligt.
+            return true;
+        }
+        private bool CanRemoveOfferLine()
+        {
+            return true;
+        }
+        private void CreateNewOffer()
+        {
+            currentOffer.Clear();
+            string[] propertiesChanged = { nameof(OfferTotal), nameof(NoOfTotalPackages), nameof(NoOfTotalPallets), nameof(OfferLinesSubtotal), nameof(TotalDiscountedPrice), nameof(TotalPercentDiscount), nameof(MyCustomer), nameof(ForwardingAgentPrice),nameof(OfferDiscountPercent),nameof(MyCustomerDiscount) };
+            NotifyPropertiesChanged(propertiesChanged);
+        }
+        private void RemoveOfferLine()
+        {
+            currentOffer.RemoveOfferLine(SelectedOfferLine);
+            string[] propertiesChanged = { nameof(OfferTotal), nameof(NoOfTotalPackages), nameof(NoOfTotalPallets), nameof(OfferLinesSubtotal) };
+            NotifyPropertiesChanged(propertiesChanged);
+        }
+        private string SaveFileDialogWindow()
+        {
+            SaveFileDialog saveFileDialog;
+            saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Select PDFFile",
+                Filter = "PDF(*.pdf)|*.pdf",
+                DefaultExt = ".PDF",
+                FileName = DateTime.Now.ToShortDateString()
+            };
+            if (saveFileDialog.ShowDialog() == true)
+                return saveFileDialog.FileName;
+            throw new Exception("Der er sket en fejl med at gemme filen");
+        }
+        private void GeneratePDF()
+        {
+            pdfExporter.PDFGenerator(currentOffer, SaveFileDialogWindow());
+        }
+        private bool CanGeneratePDF()
+        {
+            return (OfferLines.Count > 0);     
+        }
+        private bool CanAdd()
+        {
+            if(SelectedItem != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        private void AddItem()
+        {
+            if (SelectedItem != null)
+            {
+                if (int.TryParse(QuantityTextBoxText, out int quantity))
+                    AddOfferLine(SelectedItem, quantity);
+                else
+                {
+                    MessageBox.Show("Ugyldigt heltal. Indtast gyldigt heltal.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Du skal vælge en vare fra listen.");
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Model
 {
 
     public delegate void APropertyWasChanged(string propertyName);
-    public class OfferLine : INotifyPropertyChanged, IBaseOfferLine
+    public class OfferLine : INotifyPropertyChanged, IExtendOfferLine
     {
         public event APropertyWasChanged APWC;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -41,9 +41,9 @@ namespace Model
             {
                 percentDiscount = value;
                 //GØR DET HER PÆNERE - SPØRG VEJLEDER
-                if (Math.Abs(discountedPrice) <  Double.Epsilon || Math.Abs(discountedPrice - DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice)) > Double.Epsilon)
+                if (Math.Abs(discountedPrice) <  Double.Epsilon || Math.Abs(discountedPrice - DiscountMath.PercentToPrice(percentDiscount, Item.ItemPrice)) > Double.Epsilon)
                 {
-                    DiscountedPrice = DiscountMath.PercentToPrice(PercentDiscount, Item.ItemPrice);
+                    DiscountedPrice = DiscountMath.PercentToPrice(percentDiscount, Item.ItemPrice);
                     NotifyAPropertyChanged("DiscountedPrice");
                     NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");
@@ -60,9 +60,9 @@ namespace Model
             {
                 discountedPrice = value;
                 //GØR DET HER PÆNERE - SPØRG VEJLEDER
-                if (Math.Abs(percentDiscount) < Double.Epsilon || Math.Abs(percentDiscount - DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice)) > Double.Epsilon)
+                if (Math.Abs(percentDiscount) < Double.Epsilon || Math.Abs(percentDiscount - DiscountMath.PriceToPercent(discountedPrice, Item.ItemPrice)) > Double.Epsilon)
                 {
-                    PercentDiscount = DiscountMath.PriceToPercent(DiscountedPrice, Item.ItemPrice);
+                    PercentDiscount = DiscountMath.PriceToPercent(discountedPrice, Item.ItemPrice);
                     NotifyAPropertyChanged("PercentDiscount");
                     NotifyAPropertyChanged("OfferLineTotal");
                     APWC?.Invoke("OfferTotal");

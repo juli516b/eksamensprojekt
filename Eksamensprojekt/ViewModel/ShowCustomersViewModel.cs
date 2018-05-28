@@ -34,7 +34,7 @@ namespace ViewModel
                 CustomerZip = currentCustomer.CustomerZip;
                 CustomerCity = currentCustomer.CustomerCity;
                 CustomerCountry = currentCustomer.CustomerCountry;
-                CustomerDiscount = currentCustomer.CustomerDiscount;
+                CustomerDiscount = currentCustomer.CustomerDiscountPercent;
                 CustomerEmail = currentCustomer.Email;
                 CustomerPhoneNo = currentCustomer.PhoneNo;
 
@@ -119,7 +119,7 @@ namespace ViewModel
         {
             CurrentCustomer.CustomerName = customerName;
             CurrentCustomer.CustomerAddress = customerAddress;
-            CurrentCustomer.CustomerDiscount = customerDiscount;
+            CurrentCustomer.CustomerDiscountPercent = customerDiscount;
             CurrentCustomer.CustomerZip = customerZip;
             CurrentCustomer.CustomerCity = customerCity;
             CurrentCustomer.PhoneNo = customerPhoneNo;

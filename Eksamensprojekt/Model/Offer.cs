@@ -5,11 +5,11 @@ using Model.BaseTypes;
 
 namespace Model
 {
-    public class Offer : IBaseOffer
+    public class Offer : IExtendOffer
     {
         public DateTime OfferCreationDate { get; set; }
 
-        public Customer MyCustomer { get; set; }
+        public IBaseCustomer MyCustomer { get; set; }
         public int? OfferNo { get; set; }
 
         public double OfferTotal
@@ -21,7 +21,7 @@ namespace Model
                 total = DiscountMath.PercentToPrice(OfferDiscountPercent, total);
                 if (MyCustomer != null)
                 {
-                    total = DiscountMath.PercentToPrice(MyCustomer.CustomerDiscount, total);
+                    total = DiscountMath.PercentToPrice(MyCustomer.CustomerDiscountPercent, total);
                 }
                 if (ForwardingAgentPrice > 0)
                 {
@@ -29,10 +29,9 @@ namespace Model
                 }
                 return total;
             }
-            set => throw new NotImplementedException();
         }
 
-        public double OfferSubtotal
+        public double OfferSubTotal
         {
             get
             {
@@ -45,9 +44,9 @@ namespace Model
         {
             get
             {
-                if (OfferSubtotal != 0)
+                if (OfferSubTotal != 0)
                 {
-                    double roundedValue = Math.Round(DiscountMath.PriceToPercent(CalculateOffertotalWithoutForwardingAgentPrice(), OfferSubtotal), 2);
+                    double roundedValue = Math.Round(DiscountMath.PriceToPercent(CalculateOffertotalWithoutForwardingAgentPrice(), OfferSubTotal), 2);
                     return roundedValue + " %";
                 }
                 return "0 %";
@@ -55,9 +54,9 @@ namespace Model
             private set => TotalPercentDiscount = value;
         }
 
-        public string TotalDiscountedPrice => OfferSubtotal - CalculateOffertotalWithoutForwardingAgentPrice() + " DKK";
+        public string TotalDiscountedPrice => OfferSubTotal - CalculateOffertotalWithoutForwardingAgentPrice() + " DKK";
 
-        public ObservableCollection<OfferLine> OfferLines { get; set; }
+        public ObservableCollection<IExtendOfferLine> OfferLines { get; set; }
 
         public double OfferDiscountPercent { get; set; }
         public double ForwardingAgentPrice { get; set; }
@@ -65,14 +64,14 @@ namespace Model
         public Offer(DateTime creationDate)
         {
             OfferCreationDate = creationDate;
-            OfferLines = new ObservableCollection<OfferLine>();
+            OfferLines = new ObservableCollection<IExtendOfferLine>();
         }
-        public void AddOfferLine(OfferLine offerLine)
+        public void AddOfferLine(IExtendOfferLine offerLine)
         {
             OfferLines.Add(offerLine);
         }
 
-        public void RemoveOfferLine(OfferLine offerLine)
+        public void RemoveOfferLine(IExtendOfferLine offerLine)
         {
             OfferLines.Remove(offerLine);
         }

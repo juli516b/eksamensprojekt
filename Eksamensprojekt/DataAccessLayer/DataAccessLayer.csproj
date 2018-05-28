@@ -45,7 +45,6 @@
     <Compile Include="DatabaseFacade.cs" />
     <Compile Include="DataHandlers\IPersistentCustomerDataHandler.cs" />
     <Compile Include="DataHandlers\IPersistentItemDataHandler.cs" />
-    <Compile Include="ItemRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
