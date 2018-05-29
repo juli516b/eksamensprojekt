@@ -14,7 +14,7 @@ namespace RabatmanTests
     public class ViewModelTest
     {
         [TestMethod]
-        public void TestOfferDiscountdims()
+        public void TestOfferDiscount()
         {
             //Arrange
             OfferViewModel novm = new OfferViewModel();
