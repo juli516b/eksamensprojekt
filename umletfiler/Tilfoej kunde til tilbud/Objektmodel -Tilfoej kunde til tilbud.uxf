@@ -5,7 +5,7 @@
     <id>UMLUseCase</id>
     <coordinates>
       <x>380</x>
-      <y>300</y>
+      <y>280</y>
       <w>270</w>
       <h>180</h>
     </coordinates>
@@ -25,13 +25,13 @@ Mail : salg@lv.com
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>700</x>
-      <y>550</y>
+      <x>710</x>
+      <y>540</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>Nr. 3
-Dato: 8. september 2016
+Dato: 2. november 2017
 Rabat: 0%</panel_attributes>
     <additional_attributes/>
   </element>
@@ -39,7 +39,7 @@ Rabat: 0%</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>720</x>
-      <y>40</y>
+      <y>10</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -50,7 +50,7 @@ Rabat: 0%</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>950</x>
-      <y>40</y>
+      <y>10</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -60,8 +60,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1150</x>
-      <y>40</y>
+      <x>1180</x>
+      <y>10</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -72,7 +72,7 @@ Rabat: 0%</panel_attributes>
     <id>UMLUseCase</id>
     <coordinates>
       <x>950</x>
-      <y>90</y>
+      <y>70</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -84,7 +84,7 @@ Rabat: 5%</panel_attributes>
     <id>UMLUseCase</id>
     <coordinates>
       <x>950</x>
-      <y>190</y>
+      <y>170</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -96,19 +96,19 @@ Rabat: 10,-</panel_attributes>
     <id>UMLUseCase</id>
     <coordinates>
       <x>950</x>
-      <y>290</y>
+      <y>270</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>Antal: 25
-Rabat: 10%</panel_attributes>
+Rabat: 10,5%</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
       <x>950</x>
-      <y>390</y>
+      <y>370</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -120,7 +120,7 @@ Rabat: 3%</panel_attributes>
     <id>UMLUseCase</id>
     <coordinates>
       <x>950</x>
-      <y>490</y>
+      <y>470</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -132,12 +132,11 @@ Rabat: 2500,-</panel_attributes>
     <id>UMLUseCase</id>
     <coordinates>
       <x>1150</x>
-      <y>100</y>
-      <w>120</w>
+      <y>80</y>
+      <w>180</w>
       <h>170</h>
     </coordinates>
-    <panel_attributes>Navn:
-Pommes Deluxe
+    <panel_attributes>Navn: Pommes Deluxe
 Pris: 20,-
 ID: 2863
 Vægt: 200g
@@ -148,12 +147,11 @@ Vægt: 200g
     <id>UMLUseCase</id>
     <coordinates>
       <x>1150</x>
-      <y>290</y>
-      <w>120</w>
-      <h>180</h>
+      <y>270</y>
+      <w>180</w>
+      <h>170</h>
     </coordinates>
-    <panel_attributes>Navn:
-Chicken Delight
+    <panel_attributes>Navn: Chicken Delight
 Pris: 25,-
 ID: 7261
 Vægt: 320g
@@ -164,78 +162,77 @@ Vægt: 320g
     <id>UMLUseCase</id>
     <coordinates>
       <x>1150</x>
-      <y>490</y>
-      <w>120</w>
-      <h>160</h>
+      <y>460</y>
+      <w>180</w>
+      <h>170</h>
     </coordinates>
-    <panel_attributes>Navn:
-Frozen Grass
-PRIS: 10.000,-
-ID: 9101
+    <panel_attributes>Navn: Frozen Fish
+Pris: 100,-
+ID: 2301
 Vægt: 1200g
-10 pakker/palle</panel_attributes>
+15 pakker/palle</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>850</x>
-      <y>110</y>
-      <w>120</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;80.0;100.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>850</x>
-      <y>180</y>
-      <w>120</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>850</x>
-      <y>310</y>
-      <w>120</w>
+      <x>860</x>
+      <y>90</y>
+      <w>110</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;70.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;90.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>850</x>
-      <y>370</y>
-      <w>120</w>
+      <x>860</x>
+      <y>150</y>
+      <w>110</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>850</x>
-      <y>370</y>
-      <w>120</w>
+      <x>860</x>
+      <y>290</y>
+      <w>110</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>350</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>350</y>
+      <w>110</w>
       <h>170</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;150.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;150.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1060</x>
-      <y>110</y>
+      <y>90</y>
       <w>110</w>
       <h>90</h>
     </coordinates>
@@ -246,7 +243,7 @@ Vægt: 1200g
     <id>Relation</id>
     <coordinates>
       <x>1060</x>
-      <y>210</y>
+      <y>190</y>
       <w>110</w>
       <h>190</h>
     </coordinates>
@@ -257,7 +254,7 @@ Vægt: 1200g
     <id>Relation</id>
     <coordinates>
       <x>1060</x>
-      <y>170</y>
+      <y>150</y>
       <w>110</w>
       <h>170</h>
     </coordinates>
@@ -268,7 +265,7 @@ Vægt: 1200g
     <id>Relation</id>
     <coordinates>
       <x>1060</x>
-      <y>370</y>
+      <y>350</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -279,7 +276,7 @@ Vægt: 1200g
     <id>Relation</id>
     <coordinates>
       <x>1060</x>
-      <y>520</y>
+      <y>500</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -289,33 +286,33 @@ Vægt: 1200g
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>700</x>
-      <y>350</y>
+      <x>710</x>
+      <y>330</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>Nr. 2
-Dato: 10. oktober 2017
-Rabat: 5%</panel_attributes>
+Dato: 18. oktober 2017
+Rabat: 5,7%</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
       <x>950</x>
-      <y>590</y>
+      <y>570</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>Antal: 2
-Rabat: 7500,-</panel_attributes>
+Rabat: 55,-</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1060</x>
-      <y>560</y>
+      <y>540</y>
       <w>110</w>
       <h>80</h>
     </coordinates>
@@ -325,19 +322,19 @@ Rabat: 7500,-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>850</x>
-      <y>570</y>
-      <w>120</w>
-      <h>70</h>
+      <x>860</x>
+      <y>560</y>
+      <w>110</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>450</x>
-      <y>40</y>
+      <y>10</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -347,8 +344,8 @@ Rabat: 7500,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>700</x>
-      <y>160</y>
+      <x>710</x>
+      <y>130</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -361,7 +358,7 @@ Rabat: 2%</panel_attributes>
     <id>UMLUseCase</id>
     <coordinates>
       <x>380</x>
-      <y>100</y>
+      <y>70</y>
       <w>260</w>
       <h>180</h>
     </coordinates>
@@ -382,18 +379,7 @@ Mail: kontakt@dagrofa.dk
     <id>Relation</id>
     <coordinates>
       <x>640</x>
-      <y>370</y>
-      <w>80</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>630</x>
-      <y>180</y>
+      <y>350</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
@@ -404,18 +390,29 @@ Mail: kontakt@dagrofa.dk
     <id>Relation</id>
     <coordinates>
       <x>630</x>
-      <y>190</y>
-      <w>90</w>
-      <h>410</h>
+      <y>150</y>
+      <w>100</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;390.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>160</y>
+      <w>100</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;410.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
       <x>380</x>
-      <y>500</y>
+      <y>490</y>
       <w>270</w>
       <h>180</h>
     </coordinates>
@@ -436,40 +433,39 @@ Mail : support@rema.dk
     <id>UMLUseCase</id>
     <coordinates>
       <x>700</x>
-      <y>720</y>
+      <y>670</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>Nr. 3
-Dato: 8. september 2016
-Rabat: 0%</panel_attributes>
+    <panel_attributes>Nr. 4
+Dato: 2. november 2017
+Rabat: 1%</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
       <x>950</x>
-      <y>720</y>
+      <y>670</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>Antal: 2
-Rabat: 7500,-</panel_attributes>
+    <panel_attributes>Antal: 10
+Rabat: 200,-</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
       <x>1150</x>
-      <y>670</y>
-      <w>120</w>
-      <h>160</h>
+      <y>650</y>
+      <w>180</w>
+      <h>170</h>
     </coordinates>
-    <panel_attributes>Navn:
-Frozen Grass
-PRIS: 10.000,-
+    <panel_attributes>Navn: Coffee Tabs
+Pris: 260,-
 ID: 9101
-Vægt: 1200g
+Vægt: 500g
 10 pakker/palle</panel_attributes>
     <additional_attributes/>
   </element>
@@ -477,7 +473,7 @@ Vægt: 1200g
     <id>Relation</id>
     <coordinates>
       <x>850</x>
-      <y>740</y>
+      <y>690</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -488,11 +484,11 @@ Vægt: 1200g
     <id>Relation</id>
     <coordinates>
       <x>1060</x>
-      <y>740</y>
+      <y>690</y>
       <w>110</w>
-      <h>30</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;50.0</additional_attributes>
   </element>
 </diagram>
