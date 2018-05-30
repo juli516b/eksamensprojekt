@@ -4,20 +4,20 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>400</x>
-      <y>260</y>
+      <x>380</x>
+      <y>300</y>
       <w>270</w>
       <h>180</h>
     </coordinates>
-    <panel_attributes>Navn: Lars' Vinduer
-CVR: 12345679
-Adresse: Nyborgvej 5
-Postnummer: 5000 Odense C
-By: Odense C
+    <panel_attributes>Navn: VikaVinduer
+CVR: 215118
+Adresse: Middelfartvej 200
+Postnummer: 5200
+By: Odense
 Land: Danmark
 Kunderabat: 6%
-tlfnr: 97654321
-mail : lv@salg.com
+Tlfnr: 40223640
+Mail : salg@lv.com
 
 </panel_attributes>
     <additional_attributes/>
@@ -25,8 +25,8 @@ mail : lv@salg.com
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>510</y>
+      <x>700</x>
+      <y>550</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -38,8 +38,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>740</x>
-      <y>0</y>
+      <x>720</x>
+      <y>40</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -49,8 +49,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>970</x>
-      <y>0</y>
+      <x>950</x>
+      <y>40</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -60,8 +60,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1170</x>
-      <y>0</y>
+      <x>1150</x>
+      <y>40</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -71,8 +71,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>970</x>
-      <y>50</y>
+      <x>950</x>
+      <y>90</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -83,8 +83,8 @@ Rabat: 5%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>970</x>
-      <y>150</y>
+      <x>950</x>
+      <y>190</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -95,8 +95,8 @@ Rabat: 10,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>970</x>
-      <y>250</y>
+      <x>950</x>
+      <y>290</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -107,8 +107,8 @@ Rabat: 10%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>970</x>
-      <y>350</y>
+      <x>950</x>
+      <y>390</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -119,8 +119,8 @@ Rabat: 3%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>970</x>
-      <y>450</y>
+      <x>950</x>
+      <y>490</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -131,8 +131,8 @@ Rabat: 2500,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1170</x>
-      <y>60</y>
+      <x>1150</x>
+      <y>100</y>
       <w>120</w>
       <h>170</h>
     </coordinates>
@@ -147,8 +147,8 @@ Vægt: 200g
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1170</x>
-      <y>250</y>
+      <x>1150</x>
+      <y>290</y>
       <w>120</w>
       <h>180</h>
     </coordinates>
@@ -163,8 +163,8 @@ Vægt: 320g
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1170</x>
-      <y>450</y>
+      <x>1150</x>
+      <y>490</y>
       <w>120</w>
       <h>160</h>
     </coordinates>
@@ -179,8 +179,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>870</x>
-      <y>70</y>
+      <x>850</x>
+      <y>110</y>
       <w>120</w>
       <h>100</h>
     </coordinates>
@@ -190,8 +190,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>870</x>
-      <y>140</y>
+      <x>850</x>
+      <y>180</y>
       <w>120</w>
       <h>60</h>
     </coordinates>
@@ -201,8 +201,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>870</x>
-      <y>270</y>
+      <x>850</x>
+      <y>310</y>
       <w>120</w>
       <h>90</h>
     </coordinates>
@@ -212,8 +212,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>870</x>
-      <y>330</y>
+      <x>850</x>
+      <y>370</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -223,8 +223,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>870</x>
-      <y>330</y>
+      <x>850</x>
+      <y>370</y>
       <w>120</w>
       <h>170</h>
     </coordinates>
@@ -234,8 +234,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>70</y>
+      <x>1060</x>
+      <y>110</y>
       <w>110</w>
       <h>90</h>
     </coordinates>
@@ -245,8 +245,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>170</y>
+      <x>1060</x>
+      <y>210</y>
       <w>110</w>
       <h>190</h>
     </coordinates>
@@ -256,8 +256,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>130</y>
+      <x>1060</x>
+      <y>170</y>
       <w>110</w>
       <h>170</h>
     </coordinates>
@@ -267,8 +267,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>330</y>
+      <x>1060</x>
+      <y>370</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -278,8 +278,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>480</y>
+      <x>1060</x>
+      <y>520</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -289,8 +289,8 @@ Vægt: 1200g
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>310</y>
+      <x>700</x>
+      <y>350</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -302,8 +302,8 @@ Rabat: 5%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>970</x>
-      <y>550</y>
+      <x>950</x>
+      <y>590</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -314,8 +314,8 @@ Rabat: 7500,-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>520</y>
+      <x>1060</x>
+      <y>560</y>
       <w>110</w>
       <h>80</h>
     </coordinates>
@@ -325,8 +325,8 @@ Rabat: 7500,-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>870</x>
-      <y>530</y>
+      <x>850</x>
+      <y>570</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -336,8 +336,8 @@ Rabat: 7500,-</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>470</x>
-      <y>0</y>
+      <x>450</x>
+      <y>40</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -347,8 +347,8 @@ Rabat: 7500,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>120</y>
+      <x>700</x>
+      <y>160</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -360,20 +360,20 @@ Rabat: 2%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>400</x>
-      <y>60</y>
+      <x>380</x>
+      <y>100</y>
       <w>260</w>
       <h>180</h>
     </coordinates>
     <panel_attributes>Navn: Dagofa
-CVR: 12345678
+CVR: 721121
 Adresse: Nyborgvej 1
-Postnummer: 5000 Odense C
-Land: Danmark
+Postnummer: 5000
 By: Odense C
+Land: Danmark
 Kunderabat: 2%
-tlfnr: 87654321
-mail: dagrofa@salg.dk
+Tlfnr: 87110957
+Mail: kontakt@dagrofa.dk
 
 </panel_attributes>
     <additional_attributes/>
@@ -381,8 +381,8 @@ mail: dagrofa@salg.dk
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>660</x>
-      <y>330</y>
+      <x>640</x>
+      <y>370</y>
       <w>80</w>
       <h>30</h>
     </coordinates>
@@ -392,8 +392,8 @@ mail: dagrofa@salg.dk
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>650</x>
-      <y>140</y>
+      <x>630</x>
+      <y>180</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
@@ -403,8 +403,8 @@ mail: dagrofa@salg.dk
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>650</x>
-      <y>150</y>
+      <x>630</x>
+      <y>190</y>
       <w>90</w>
       <h>410</h>
     </coordinates>
@@ -414,20 +414,20 @@ mail: dagrofa@salg.dk
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>400</x>
-      <y>460</y>
+      <x>380</x>
+      <y>500</y>
       <w>270</w>
       <h>180</h>
     </coordinates>
-    <panel_attributes>Navn: Lars' Vinduer
-CVR: 12345679
-Adresse: Nyborgvej 5
-Postnummer: 5000 Odense C
-By: Odense C
+    <panel_attributes>Navn: Rema 1000
+CVR: 291738
+Adresse: Grønnegade 51, A1
+Postnummer: 1107
+By: København K
 Land: Danmark
 Kunderabat: 6%
-tlfnr: 97654321
-mail : lv@salg.com
+Tlfnr: 13012795
+Mail : support@rema.dk
 
 </panel_attributes>
     <additional_attributes/>
@@ -435,8 +435,8 @@ mail : lv@salg.com
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>680</y>
+      <x>700</x>
+      <y>720</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -448,8 +448,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>970</x>
-      <y>680</y>
+      <x>950</x>
+      <y>720</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -460,8 +460,8 @@ Rabat: 7500,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1170</x>
-      <y>630</y>
+      <x>1150</x>
+      <y>670</y>
       <w>120</w>
       <h>160</h>
     </coordinates>
@@ -476,8 +476,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>870</x>
-      <y>700</y>
+      <x>850</x>
+      <y>740</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -487,8 +487,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>700</y>
+      <x>1060</x>
+      <y>740</y>
       <w>110</w>
       <h>30</h>
     </coordinates>
