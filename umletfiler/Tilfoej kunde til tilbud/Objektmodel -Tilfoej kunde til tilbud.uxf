@@ -4,8 +4,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>380</x>
-      <y>280</y>
+      <x>330</x>
+      <y>360</y>
       <w>270</w>
       <h>180</h>
     </coordinates>
@@ -25,8 +25,8 @@ Mail : salg@lv.com
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>710</x>
-      <y>540</y>
+      <x>660</x>
+      <y>620</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -38,8 +38,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>10</y>
+      <x>670</x>
+      <y>90</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -49,8 +49,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>950</x>
-      <y>10</y>
+      <x>900</x>
+      <y>90</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -60,8 +60,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1180</x>
-      <y>10</y>
+      <x>1130</x>
+      <y>90</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -71,8 +71,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>950</x>
-      <y>70</y>
+      <x>900</x>
+      <y>150</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -83,8 +83,8 @@ Rabat: 5%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>950</x>
-      <y>170</y>
+      <x>900</x>
+      <y>250</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -95,8 +95,8 @@ Rabat: 10,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>950</x>
-      <y>270</y>
+      <x>900</x>
+      <y>350</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -107,8 +107,8 @@ Rabat: 10,5%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>950</x>
-      <y>370</y>
+      <x>900</x>
+      <y>450</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -119,8 +119,8 @@ Rabat: 3%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>950</x>
-      <y>470</y>
+      <x>900</x>
+      <y>550</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -131,8 +131,8 @@ Rabat: 2500,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1150</x>
-      <y>80</y>
+      <x>1100</x>
+      <y>160</y>
       <w>180</w>
       <h>170</h>
     </coordinates>
@@ -146,8 +146,8 @@ Vægt: 200g
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1150</x>
-      <y>270</y>
+      <x>1100</x>
+      <y>350</y>
       <w>180</w>
       <h>170</h>
     </coordinates>
@@ -161,8 +161,8 @@ Vægt: 320g
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1150</x>
-      <y>460</y>
+      <x>1100</x>
+      <y>540</y>
       <w>180</w>
       <h>170</h>
     </coordinates>
@@ -176,8 +176,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>90</y>
+      <x>810</x>
+      <y>170</y>
       <w>110</w>
       <h>90</h>
     </coordinates>
@@ -187,8 +187,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>150</y>
+      <x>810</x>
+      <y>230</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -198,8 +198,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>290</y>
+      <x>810</x>
+      <y>370</y>
       <w>110</w>
       <h>90</h>
     </coordinates>
@@ -209,8 +209,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>350</y>
+      <x>810</x>
+      <y>430</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -220,8 +220,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>350</y>
+      <x>810</x>
+      <y>430</y>
       <w>110</w>
       <h>170</h>
     </coordinates>
@@ -231,8 +231,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1060</x>
-      <y>90</y>
+      <x>1010</x>
+      <y>170</y>
       <w>110</w>
       <h>90</h>
     </coordinates>
@@ -242,8 +242,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1060</x>
-      <y>190</y>
+      <x>1010</x>
+      <y>270</y>
       <w>110</w>
       <h>190</h>
     </coordinates>
@@ -253,8 +253,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1060</x>
-      <y>150</y>
+      <x>1010</x>
+      <y>230</y>
       <w>110</w>
       <h>170</h>
     </coordinates>
@@ -264,8 +264,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1060</x>
-      <y>350</y>
+      <x>1010</x>
+      <y>430</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -275,8 +275,8 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1060</x>
-      <y>500</y>
+      <x>1010</x>
+      <y>580</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -286,8 +286,8 @@ Vægt: 1200g
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>710</x>
-      <y>330</y>
+      <x>660</x>
+      <y>410</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -299,8 +299,8 @@ Rabat: 5,7%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>950</x>
-      <y>570</y>
+      <x>900</x>
+      <y>650</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -311,8 +311,8 @@ Rabat: 55,-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1060</x>
-      <y>540</y>
+      <x>1010</x>
+      <y>620</y>
       <w>110</w>
       <h>80</h>
     </coordinates>
@@ -322,8 +322,8 @@ Rabat: 55,-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>560</y>
+      <x>810</x>
+      <y>640</y>
       <w>110</w>
       <h>60</h>
     </coordinates>
@@ -333,8 +333,8 @@ Rabat: 55,-</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>10</y>
+      <x>400</x>
+      <y>90</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -344,8 +344,8 @@ Rabat: 55,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>710</x>
-      <y>130</y>
+      <x>660</x>
+      <y>210</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -357,8 +357,8 @@ Rabat: 2%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>380</x>
-      <y>70</y>
+      <x>330</x>
+      <y>150</y>
       <w>260</w>
       <h>180</h>
     </coordinates>
@@ -378,8 +378,8 @@ Mail: kontakt@dagrofa.dk
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>350</y>
+      <x>590</x>
+      <y>430</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
@@ -389,8 +389,8 @@ Mail: kontakt@dagrofa.dk
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>150</y>
+      <x>580</x>
+      <y>230</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -400,8 +400,8 @@ Mail: kontakt@dagrofa.dk
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>160</y>
+      <x>580</x>
+      <y>240</y>
       <w>100</w>
       <h>430</h>
     </coordinates>
@@ -411,8 +411,8 @@ Mail: kontakt@dagrofa.dk
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>380</x>
-      <y>490</y>
+      <x>330</x>
+      <y>570</y>
       <w>270</w>
       <h>180</h>
     </coordinates>
@@ -432,8 +432,8 @@ Mail : support@rema.dk
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>700</x>
-      <y>670</y>
+      <x>650</x>
+      <y>750</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -445,8 +445,8 @@ Rabat: 1%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>950</x>
-      <y>670</y>
+      <x>900</x>
+      <y>750</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -457,8 +457,8 @@ Rabat: 200,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1150</x>
-      <y>650</y>
+      <x>1100</x>
+      <y>730</y>
       <w>180</w>
       <h>170</h>
     </coordinates>
@@ -472,8 +472,8 @@ Vægt: 500g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>850</x>
-      <y>690</y>
+      <x>800</x>
+      <y>770</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -483,8 +483,8 @@ Vægt: 500g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1060</x>
-      <y>690</y>
+      <x>1010</x>
+      <y>770</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
