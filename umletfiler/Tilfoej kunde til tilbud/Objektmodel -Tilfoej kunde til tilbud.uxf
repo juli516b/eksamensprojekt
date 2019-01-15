@@ -4,20 +4,20 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>150</x>
+      <x>330</x>
       <y>360</y>
       <w>270</w>
       <h>180</h>
     </coordinates>
-    <panel_attributes>Navn: Lars' Vinduer
-CVR: 12345679
-Adresse: Nyborgvej 5
-Postnummer: 5000 Odense C
-By: Odense C
+    <panel_attributes>Navn: VikaVinduer
+CVR: 215118
+Adresse: Middelfartvej 200
+Postnummer: 5200
+By: Odense
 Land: Danmark
 Kunderabat: 6%
-tlfnr: 97654321
-mail : lv@salg.com
+Tlfnr: 40223640
+Mail : salg@lv.com
 
 </panel_attributes>
     <additional_attributes/>
@@ -25,21 +25,21 @@ mail : lv@salg.com
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>490</x>
-      <y>610</y>
+      <x>660</x>
+      <y>620</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>Nr. 3
-Dato: 8. september 2016
+Dato: 2. november 2017
 Rabat: 0%</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>50</y>
+      <x>670</x>
+      <y>90</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -49,8 +49,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>50</y>
+      <x>900</x>
+      <y>90</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -60,8 +60,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>920</x>
-      <y>50</y>
+      <x>1130</x>
+      <y>90</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -71,8 +71,8 @@ Rabat: 0%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>110</y>
+      <x>900</x>
+      <y>150</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -83,8 +83,8 @@ Rabat: 5%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>210</y>
+      <x>900</x>
+      <y>250</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -95,20 +95,20 @@ Rabat: 10,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>310</y>
+      <x>900</x>
+      <y>350</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>Antal: 25
-Rabat: 10%</panel_attributes>
+Rabat: 10,5%</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>410</y>
+      <x>900</x>
+      <y>450</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -119,8 +119,8 @@ Rabat: 3%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>510</y>
+      <x>900</x>
+      <y>550</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -131,13 +131,12 @@ Rabat: 2500,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>920</x>
-      <y>90</y>
-      <w>120</w>
+      <x>1100</x>
+      <y>160</y>
+      <w>180</w>
       <h>170</h>
     </coordinates>
-    <panel_attributes>Navn:
-Pommes Deluxe
+    <panel_attributes>Navn: Pommes Deluxe
 Pris: 20,-
 ID: 2863
 Vægt: 200g
@@ -147,13 +146,12 @@ Vægt: 200g
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>920</x>
-      <y>290</y>
-      <w>120</w>
-      <h>180</h>
+      <x>1100</x>
+      <y>350</y>
+      <w>180</w>
+      <h>170</h>
     </coordinates>
-    <panel_attributes>Navn:
-Chicken Delight
+    <panel_attributes>Navn: Chicken Delight
 Pris: 25,-
 ID: 7261
 Vægt: 320g
@@ -163,111 +161,44 @@ Vægt: 320g
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>920</x>
-      <y>500</y>
-      <w>120</w>
-      <h>160</h>
+      <x>1100</x>
+      <y>540</y>
+      <w>180</w>
+      <h>170</h>
     </coordinates>
-    <panel_attributes>Navn:
-Frozen Grass
-PRIS: 10.000,-
-ID: 9101
+    <panel_attributes>Navn: Frozen Fish
+Pris: 100,-
+ID: 2301
 Vægt: 1200g
-10 pakker/palle</panel_attributes>
+15 pakker/palle</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>130</y>
-      <w>100</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;60.0;80.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>640</x>
-      <y>180</y>
-      <w>100</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>640</x>
-      <y>330</y>
-      <w>100</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;110.0;80.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>640</x>
-      <y>430</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>640</x>
-      <y>430</y>
-      <w>100</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;110.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>830</x>
-      <y>130</y>
+      <x>810</x>
+      <y>170</y>
       <w>110</w>
-      <h>60</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;40.0</additional_attributes>
+    <additional_attributes>10.0;70.0;90.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>830</x>
+      <x>810</x>
       <y>230</y>
       <w>110</w>
-      <h>170</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;150.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>830</x>
-      <y>160</y>
-      <w>110</w>
-      <h>200</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;180.0;90.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>830</x>
+      <x>810</x>
       <y>370</y>
       <w>110</w>
       <h>90</h>
@@ -278,8 +209,121 @@ Vægt: 1200g
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>830</x>
-      <y>540</y>
+      <x>810</x>
+      <y>430</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>430</y>
+      <w>110</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>170</y>
+      <w>110</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>270</y>
+      <w>110</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>230</y>
+      <w>110</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;150.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>430</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;50.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>580</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>660</x>
+      <y>410</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Nr. 2
+Dato: 18. oktober 2017
+Rabat: 5,7%</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>900</x>
+      <y>650</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Antal: 2
+Rabat: 55,-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>620</y>
+      <w>110</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;60.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>640</y>
       <w>110</w>
       <h>60</h>
     </coordinates>
@@ -287,57 +331,10 @@ Vægt: 1200g
     <additional_attributes>10.0;10.0;90.0;40.0</additional_attributes>
   </element>
   <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>490</x>
-      <y>410</y>
-      <w>160</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>Nr. 2
-Dato: 10. oktober 2017
-Rabat: 5%</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>720</x>
-      <y>610</y>
-      <w>120</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>Antal: 2
-Rabat: 7500,-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>830</x>
-      <y>570</y>
-      <w>110</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;70.0;90.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>640</x>
-      <y>630</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>220</x>
-      <y>50</y>
+      <x>400</x>
+      <y>90</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -347,8 +344,8 @@ Rabat: 7500,-</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>490</x>
-      <y>160</y>
+      <x>660</x>
+      <y>210</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -360,20 +357,20 @@ Rabat: 2%</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>150</x>
-      <y>140</y>
+      <x>330</x>
+      <y>150</y>
       <w>260</w>
       <h>180</h>
     </coordinates>
     <panel_attributes>Navn: Dagofa
-CVR: 12345678
+CVR: 721121
 Adresse: Nyborgvej 1
-Postnummer: 5000 Odense C
-Land: Danmark
+Postnummer: 5000
 By: Odense C
+Land: Danmark
 Kunderabat: 2%
-tlfnr: 87654321
-mail: dagrofa@salg.dk
+Tlfnr: 87110957
+Mail: kontakt@dagrofa.dk
 
 </panel_attributes>
     <additional_attributes/>
@@ -381,8 +378,19 @@ mail: dagrofa@salg.dk
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
+      <x>590</x>
       <y>430</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>230</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -392,23 +400,95 @@ mail: dagrofa@salg.dk
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>180</y>
-      <w>110</w>
-      <h>70</h>
+      <x>580</x>
+      <y>240</y>
+      <w>100</w>
+      <h>430</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;50.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;410.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>330</x>
+      <y>570</y>
+      <w>270</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Navn: Rema 1000
+CVR: 291738
+Adresse: Grønnegade 51, A1
+Postnummer: 1107
+By: København K
+Land: Danmark
+Kunderabat: 6%
+Tlfnr: 13012795
+Mail : support@rema.dk
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>650</x>
+      <y>750</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Nr. 4
+Dato: 2. november 2017
+Rabat: 1%</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>900</x>
+      <y>750</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Antal: 10
+Rabat: 200,-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>1100</x>
+      <y>730</y>
+      <w>180</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Navn: Coffee Tabs
+Pris: 260,-
+ID: 9101
+Vægt: 500g
+10 pakker/palle</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>230</y>
-      <w>110</w>
-      <h>430</h>
+      <x>800</x>
+      <y>770</y>
+      <w>120</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;410.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>770</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;50.0</additional_attributes>
   </element>
 </diagram>
